@@ -48,6 +48,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
@@ -58,6 +59,8 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.TasksEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.RecurrenceType
 import com.funsol.orbit.core.common.TaskRules
 import com.funsol.orbit.core.database.entity.TaskEntity
@@ -255,8 +258,9 @@ private fun ProjectPill(project: ProjectTag) {
 @Composable
 private fun RowMenu(task: TaskEntity, actions: TaskRowActions) {
     var expanded by remember { mutableStateOf(false) }
+    val context = LocalContext.current
     Box {
-        IconButton(onClick = { expanded = true }) {
+        IconButton(onClick = { context.postAnalytic(TasksEvents.TASKS_ROW_MENU_CLICK); expanded = true }) {
             Icon(
                 Icons.Rounded.MoreVert,
                 contentDescription = stringResource(R.string.tasks_row_menu, task.title),

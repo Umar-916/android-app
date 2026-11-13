@@ -1,6 +1,9 @@
 package com.funsol.orbit.feature.premium
 
 import androidx.annotation.StringRes
+import androidx.compose.ui.platform.LocalContext
+import com.funsol.orbit.core.analytics.PremiumEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutSlowInEasing
@@ -111,6 +114,7 @@ internal fun Modifier.revealed(index: Int): Modifier {
 
 @Composable
 internal fun BoxScope.CloseOverlay(close: CloseControl, onClose: () -> Unit, plain: Boolean = false, tint: Color = Color.White) {
+    val analyticsContext = LocalContext.current
     AnimatedVisibility(
         visible = close.visible,
         enter = fadeIn(tween(400)),
@@ -124,7 +128,10 @@ internal fun BoxScope.CloseOverlay(close: CloseControl, onClose: () -> Unit, pla
             Modifier
                 .size(Spacing.touchTarget)
                 .clip(CircleShape)
-                .clickable(role = Role.Button, onClick = onClose),
+                .clickable(role = Role.Button) {
+                    analyticsContext.postAnalytic(PremiumEvents.PREMIUM_CLOSE_CLICK)
+                    onClose()
+                },
             contentAlignment = Alignment.Center,
         ) {
             val disc = if (plain) Modifier.size(24.dp) else Modifier.size(24.dp).clip(CircleShape).background(Color.Black.copy(alpha = 0.20f))
@@ -197,13 +204,17 @@ internal fun MaybeLaterButton(
 ) {
     val shape = RoundedCornerShape(radius)
     val extras = Orbit.extras
+    val analyticsContext = LocalContext.current
     Box(
         modifier
             .clip(shape)
             .background(if (dark) Color.White.copy(alpha = 0.10f) else extras.well)
             .border(1.dp, if (dark) Color.White.copy(alpha = 0.24f) else extras.cardStroke, shape)
             .heightIn(min = height)
-            .clickable(role = Role.Button, onClick = onClick)
+            .clickable(role = Role.Button) {
+                analyticsContext.postAnalytic(PremiumEvents.PREMIUM_MAYBE_LATER_CLICK)
+                onClick()
+            }
             .padding(horizontal = Spacing.lg, vertical = 12.dp),
         contentAlignment = Alignment.Center,
     ) {

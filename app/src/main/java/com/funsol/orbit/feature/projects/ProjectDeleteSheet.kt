@@ -31,12 +31,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.ProjectsEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.designsystem.ConfirmDialog
 import com.funsol.orbit.core.designsystem.DangerRed
 import com.funsol.orbit.core.designsystem.GradientButton
@@ -56,17 +60,26 @@ fun DeleteProjectSheet(
     onDeleteAll: () -> Unit,
     onDismiss: () -> Unit,
 ) {
+    val context = LocalContext.current
     if (taskCount == 0) {
+        PostAnalytic(ProjectsEvents.PROJECT_DELETE_DIALOG_APPEAR)
         ConfirmDialog(
             title = stringResource(R.string.projects_delete_title, name),
             message = stringResource(R.string.projects_delete_simple_message, name),
             confirmLabel = stringResource(R.string.projects_delete_confirm),
-            onConfirm = onKeepTasks,
-            onDismiss = onDismiss,
+            onConfirm = {
+                context.postAnalytic(ProjectsEvents.PROJECT_DELETE_CONFIRM_CLICK)
+                onKeepTasks()
+            },
+            onDismiss = {
+                context.postAnalytic(ProjectsEvents.PROJECT_DELETE_CANCEL_CLICK)
+                onDismiss()
+            },
             destructive = true,
         )
         return
     }
+    PostAnalytic(ProjectsEvents.PROJECT_DELETE_SHEET_APPEAR)
     var choice by rememberSaveable { mutableStateOf(CHOICE_KEEP) }
     val danger = Brush.linearGradient(listOf(DangerRed, DangerRed.lighten()))
     OrbitSheet(onDismiss) {
@@ -92,7 +105,10 @@ fun DeleteProjectSheet(
                 icon = Icons.Rounded.FolderOff,
                 title = stringResource(R.string.projects_delete_keep),
                 hint = stringResource(R.string.projects_delete_keep_hint),
-                onSelect = { choice = CHOICE_KEEP },
+                onSelect = {
+                    context.postAnalytic(ProjectsEvents.PROJECT_DELETE_KEEP_SELECT)
+                    choice = CHOICE_KEEP
+                },
             )
             DeleteOption(
                 selected = choice == CHOICE_DELETE_ALL,
@@ -100,15 +116,28 @@ fun DeleteProjectSheet(
                 icon = Icons.Rounded.DeleteForever,
                 title = pluralStringResource(R.plurals.projects_delete_all, taskCount, taskCount),
                 hint = pluralStringResource(R.plurals.projects_delete_all_consequence, taskCount, taskCount),
-                onSelect = { choice = CHOICE_DELETE_ALL },
+                onSelect = {
+                    context.postAnalytic(ProjectsEvents.PROJECT_DELETE_ALL_SELECT)
+                    choice = CHOICE_DELETE_ALL
+                },
             )
         }
         Spacer(Modifier.height(Spacing.lg))
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            WellButton(stringResource(R.string.action_cancel), onDismiss, Modifier.weight(1f))
+            WellButton(
+                stringResource(R.string.action_cancel),
+                {
+                    context.postAnalytic(ProjectsEvents.PROJECT_DELETE_CANCEL_CLICK)
+                    onDismiss()
+                },
+                Modifier.weight(1f),
+            )
             GradientButton(
                 text = stringResource(R.string.projects_delete_confirm),
-                onClick = { if (choice == CHOICE_DELETE_ALL) onDeleteAll() else onKeepTasks() },
+                onClick = {
+                    context.postAnalytic(ProjectsEvents.PROJECT_DELETE_CONFIRM_CLICK)
+                    if (choice == CHOICE_DELETE_ALL) onDeleteAll() else onKeepTasks()
+                },
                 modifier = Modifier.weight(1f),
                 brush = danger,
             )

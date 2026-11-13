@@ -38,6 +38,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.R
+import androidx.compose.ui.platform.LocalContext
+import com.funsol.orbit.core.analytics.GoalsEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.GoalMath
 import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.database.entity.GoalEntity
@@ -66,6 +70,8 @@ fun numberErrorText(error: NumberError): String = stringResource(
 
 @Composable
 fun GoalProgressDialog(goal: GoalEntity, onSubmit: (Double) -> Unit, onDismiss: () -> Unit) {
+    PostAnalytic(GoalsEvents.GOALS_PROGRESS_SHEET_APPEAR)
+    val context = LocalContext.current
     var mode by rememberSaveable { mutableStateOf(ProgressMode.SET) }
     var text by rememberSaveable { mutableStateOf(GoalNumbers.toEditText(goal.currentValue)) }
     var attempted by rememberSaveable { mutableStateOf(false) }
@@ -104,6 +110,7 @@ fun GoalProgressDialog(goal: GoalEntity, onSubmit: (Double) -> Unit, onDismiss: 
                     label = stringResource(R.string.goals_mode_set),
                     modifier = Modifier.weight(1f),
                 ) {
+                    context.postAnalytic(GoalsEvents.GOALS_PROGRESS_MODE_SET_SELECT)
                     if (mode != ProgressMode.SET) {
                         mode = ProgressMode.SET
                         text = GoalNumbers.toEditText(goal.currentValue)
@@ -116,6 +123,7 @@ fun GoalProgressDialog(goal: GoalEntity, onSubmit: (Double) -> Unit, onDismiss: 
                     label = stringResource(R.string.goals_mode_add),
                     modifier = Modifier.weight(1f),
                 ) {
+                    context.postAnalytic(GoalsEvents.GOALS_PROGRESS_MODE_ADD_SELECT)
                     if (mode != ProgressMode.ADD) {
                         mode = ProgressMode.ADD
                         text = ""
@@ -164,10 +172,18 @@ fun GoalProgressDialog(goal: GoalEntity, onSubmit: (Double) -> Unit, onDismiss: 
         }
         Spacer(Modifier.height(Spacing.lg))
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            WellButton(stringResource(R.string.action_cancel), onDismiss, Modifier.weight(1f))
+            WellButton(
+                stringResource(R.string.action_cancel),
+                {
+                    context.postAnalytic(GoalsEvents.GOALS_PROGRESS_CANCEL_CLICK)
+                    onDismiss()
+                },
+                Modifier.weight(1f),
+            )
             GradientButton(
                 text = stringResource(R.string.goals_update_confirm),
                 onClick = {
+                    context.postAnalytic(GoalsEvents.GOALS_PROGRESS_CONFIRM_CLICK)
                     attempted = true
                     (result as? NumberParse.Ok)?.let { ok -> guard.run { onSubmit(ok.value) } }
                 },

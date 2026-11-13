@@ -60,6 +60,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.R
+import androidx.compose.ui.platform.LocalContext
+import com.funsol.orbit.core.analytics.HabitsEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.designsystem.ConfirmDialog
 import com.funsol.orbit.core.designsystem.ErrorState
@@ -86,6 +90,8 @@ import java.time.DayOfWeek
 
 @Composable
 fun HabitEditScreen(habitId: String?, nav: OrbitNavigator) {
+    PostAnalytic(HabitsEvents.HABITS_EDIT_SCREEN_DISPLAY)
+    val context = LocalContext.current
     val vm: HabitEditViewModel = koinViewModel(key = "habit_edit_$habitId", parameters = { parametersOf(habitId) })
     val state by vm.state.collectAsStateWithLifecycle()
     var showDiscard by rememberSaveable { mutableStateOf(false) }
@@ -105,6 +111,7 @@ fun HabitEditScreen(habitId: String?, nav: OrbitNavigator) {
     LaunchedEffect(state.finished) { if (state.finished) nav.back() }
     val guarded = state.dirty && !state.finished
     val requestBack: () -> Unit = {
+        context.postAnalytic(HabitsEvents.HABITS_EDIT_BACK_CLICK)
         if (guarded) {
             showDiscard = true
         } else {
@@ -122,7 +129,10 @@ fun HabitEditScreen(habitId: String?, nav: OrbitNavigator) {
                 onBack = requestBack,
                 accent = FeatureAccent.HABITS,
             ) {
-                TextButton(onClick = vm::save, enabled = !state.saving && !state.loading && !state.loadError) {
+                TextButton(onClick = {
+                    context.postAnalytic(HabitsEvents.HABITS_EDIT_TOP_SAVE_CLICK)
+                    vm.save()
+                }, enabled = !state.saving && !state.loading && !state.loadError) {
                     Text(stringResource(R.string.action_save))
                 }
             }
@@ -131,30 +141,61 @@ fun HabitEditScreen(habitId: String?, nav: OrbitNavigator) {
         CenteredContent(Modifier.padding(padding)) {
             when {
                 state.loading -> LoadingState()
-                state.loadError -> ErrorState(stringResource(R.string.error_generic), onRetry = vm::load)
+                state.loadError -> ErrorState(
+                    stringResource(R.string.error_generic),
+                    onRetry = {
+                        context.postAnalytic(HabitsEvents.HABITS_EDIT_RETRY_CLICK)
+                        vm.load()
+                    },
+                )
                 state.notFound -> ErrorState(stringResource(R.string.habits_not_found))
                 else -> HabitFormContent(
                     state = state,
                     onChange = vm::update,
                     onPreset = vm::selectPreset,
                     onToggleDay = vm::toggleDay,
-                    onSave = vm::save,
-                    onDelete = { showDelete = true },
+                    onSave = {
+                        context.postAnalytic(HabitsEvents.HABITS_EDIT_SAVE_CLICK)
+                        vm.save()
+                    },
+                    onDelete = {
+                        context.postAnalytic(HabitsEvents.HABITS_EDIT_DELETE_CLICK)
+                        showDelete = true
+                    },
                 )
             }
         }
     }
 
     if (showDiscard) {
-        DiscardChangesDialog(onDiscard = { showDiscard = false; guard.run(nav::back) }, onKeepEditing = { showDiscard = false })
+        PostAnalytic(HabitsEvents.HABITS_DISCARD_DIALOG_APPEAR)
+        DiscardChangesDialog(
+            onDiscard = {
+                context.postAnalytic(HabitsEvents.HABITS_DISCARD_CONFIRM_CLICK)
+                showDiscard = false
+                guard.run(nav::back)
+            },
+            onKeepEditing = {
+                context.postAnalytic(HabitsEvents.HABITS_DISCARD_KEEP_CLICK)
+                showDiscard = false
+            },
+        )
     }
     if (showDelete) {
+        PostAnalytic(HabitsEvents.HABITS_DELETE_DIALOG_APPEAR)
         ConfirmDialog(
             title = stringResource(R.string.habits_delete_title, state.initial.name),
             message = stringResource(R.string.habits_delete_message, state.initial.name),
             confirmLabel = stringResource(R.string.habits_delete_confirm),
-            onConfirm = { showDelete = false; guard.run(vm::delete) },
-            onDismiss = { showDelete = false },
+            onConfirm = {
+                context.postAnalytic(HabitsEvents.HABITS_DELETE_CONFIRM_CLICK)
+                showDelete = false
+                guard.run(vm::delete)
+            },
+            onDismiss = {
+                context.postAnalytic(HabitsEvents.HABITS_DELETE_CANCEL_CLICK)
+                showDelete = false
+            },
             destructive = true,
         )
     }
@@ -170,6 +211,7 @@ private fun HabitFormContent(
     onSave: () -> Unit,
     onDelete: () -> Unit,
 ) {
+    val context = LocalContext.current
     val form = state.form
     val nameError = state.showErrors && state.nameInvalid
     val accent = Color(form.color)
@@ -200,7 +242,10 @@ private fun HabitFormContent(
             )
         }
         FormSection(stringResource(R.string.habits_section_appearance)) {
-            ColorPickerRow(selected = form.color, onSelect = { c -> onChange { it.copy(color = c) } })
+            ColorPickerRow(selected = form.color, onSelect = { c ->
+                context.postAnalytic(HabitsEvents.HABITS_EDIT_COLOR_SELECT)
+                onChange { it.copy(color = c) }
+            })
         }
         FormSection(stringResource(R.string.habits_section_schedule)) {
             Column(verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
@@ -213,7 +258,10 @@ private fun HabitFormContent(
                     SchedulePreset.entries.forEach { preset ->
                         FilterChip(
                             selected = state.selectedPreset == preset,
-                            onClick = { onPreset(preset) },
+                            onClick = {
+                                context.postAnalytic(HabitsEvents.HABITS_EDIT_PRESET_SELECT)
+                                onPreset(preset)
+                            },
                             label = { Text(stringResource(presetLabel(preset))) },
                             colors = orbitChipColors(),
                             border = null,
@@ -230,7 +278,10 @@ private fun HabitFormContent(
                                 selected = isDayScheduled(form.scheduleMask, day),
                                 color = accent,
                                 circle = circle,
-                                onClick = { onToggleDay(day) },
+                                onClick = {
+                                    context.postAnalytic(HabitsEvents.HABITS_EDIT_DAY_TOGGLE)
+                                    onToggleDay(day)
+                                },
                                 modifier = Modifier.weight(1f),
                             )
                         }
@@ -247,7 +298,12 @@ private fun HabitFormContent(
             OrbitDateField(
                 label = stringResource(R.string.habits_field_start),
                 epochDay = form.startDate,
-                onChange = { d -> if (d != null) onChange { it.copy(startDate = d) } },
+                onChange = { d ->
+                    if (d != null) {
+                        context.postAnalytic(HabitsEvents.HABITS_EDIT_START_DATE_SELECT)
+                        onChange { it.copy(startDate = d) }
+                    }
+                },
             )
         }
 
@@ -259,7 +315,10 @@ private fun HabitFormContent(
                         .toggleable(
                             value = form.archived,
                             role = Role.Switch,
-                            onValueChange = { v -> onChange { it.copy(archived = v) } },
+                            onValueChange = { v ->
+                                context.postAnalytic(HabitsEvents.HABITS_EDIT_ARCHIVE_TOGGLE)
+                                onChange { it.copy(archived = v) }
+                            },
                         ),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(Spacing.sm),

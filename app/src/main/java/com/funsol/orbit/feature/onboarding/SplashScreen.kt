@@ -58,6 +58,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.AnalyticsEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
+import com.funsol.orbit.core.network.ConnectivityNetworkObserver
+import androidx.compose.ui.platform.LocalContext
 import com.funsol.orbit.core.common.HideSystemBars
 import com.funsol.orbit.core.designsystem.GradientButton
 import com.funsol.orbit.core.designsystem.Orbit
@@ -72,9 +77,24 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.compose.viewmodel.koinViewModel
 
+/** Guards SESSION_START so it fires once per process launch even if the splash is recreated. */
+@Volatile
+private var sessionStartLogged = false
+
 @Composable
 fun SplashScreen(nav: OrbitNavigator) {
     HideSystemBars()
+    PostAnalytic(AnalyticsEvents.SPLASH_SCREEN_DISPLAY)
+    val context = LocalContext.current
+    LaunchedEffect(Unit) {
+        if (!sessionStartLogged) {
+            sessionStartLogged = true
+            context.postAnalytic(AnalyticsEvents.SESSION_START)
+            if (ConnectivityNetworkObserver(context).isOnline()) {
+                context.postAnalytic(AnalyticsEvents.SESSION_START_WITH_INTERNET_ON)
+            }
+        }
+    }
     val vm: SplashViewModel = koinViewModel()
     val state by vm.state.collectAsStateWithLifecycle()
 
@@ -207,7 +227,10 @@ fun SplashScreen(nav: OrbitNavigator) {
             contentAlignment = Alignment.Center,
         ) {
             if (state.error) {
-                SplashError(onRetry = vm::retry)
+                SplashError(onRetry = {
+                    context.postAnalytic(AnalyticsEvents.SPLASH_RETRY_CLICK)
+                    vm.retry()
+                })
             } else {
                 SplashProgress(progress = state.progress)
             }

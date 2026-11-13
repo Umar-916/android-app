@@ -52,6 +52,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.BuildConfig
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.SettingsEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.AppConfig
 import com.funsol.orbit.core.common.composeEmail
 import com.funsol.orbit.core.common.rememberClickGuard
@@ -71,6 +74,7 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun FeedbackScreen(nav: OrbitNavigator) {
+    PostAnalytic(SettingsEvents.FEEDBACK_SCREEN_DISPLAY)
     val vm: FeedbackViewModel = koinViewModel()
     val state by vm.state.collectAsStateWithLifecycle()
     val context = LocalContext.current
@@ -120,6 +124,7 @@ fun FeedbackScreen(nav: OrbitNavigator) {
             OrbitTopBar(
                 title = stringResource(R.string.feedback_title),
                 onBack = { guard.run(nav::back) },
+                backEvent = SettingsEvents.FEEDBACK_BACK_CLICK,
                 accent = FeatureAccent.HABITS,
                 icon = Icons.Rounded.Feedback,
             )
@@ -133,7 +138,10 @@ fun FeedbackScreen(nav: OrbitNavigator) {
                 ) {
                     GradientButton(
                         text = stringResource(R.string.feedback_submit),
-                        onClick = { guard.run(::send) },
+                        onClick = {
+                            context.postAnalytic(SettingsEvents.FEEDBACK_SUBMIT_CLICK)
+                            guard.run(::send)
+                        },
                         enabled = state.canSubmit,
                         icon = Icons.AutoMirrored.Rounded.Send,
                         modifier = Modifier.widthIn(max = 720.dp).fillMaxWidth(),
@@ -159,7 +167,15 @@ fun FeedbackScreen(nav: OrbitNavigator) {
                         .padding(horizontal = Spacing.md, vertical = Spacing.sm),
                     verticalArrangement = Arrangement.spacedBy(Spacing.section),
                 ) {
-                    FeedbackTabs(selected = state.tab, onSelect = vm::selectTab)
+                    FeedbackTabs(
+                        selected = state.tab,
+                        onSelect = { tab ->
+                            context.postAnalytic(
+                                if (tab == FeedbackTab.ISSUES) SettingsEvents.FEEDBACK_ISSUES_TAB_SELECT else SettingsEvents.FEEDBACK_SUGGESTIONS_TAB_SELECT,
+                            )
+                            vm.selectTab(tab)
+                        },
+                    )
                     DescriptionCard(tab = state.tab, text = state.text, onTextChange = vm::setText)
                     OrbitCard(Modifier.fillMaxWidth(), tint = Orbit.extras.accent(FeatureAccent.HABITS)) {
                         Column(verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
@@ -172,7 +188,14 @@ fun FeedbackScreen(nav: OrbitNavigator) {
                                 style = MaterialTheme.typography.bodySmall,
                                 color = Orbit.extras.textMuted,
                             )
-                            ItemGrid(items = state.items, selected = state.selected, onToggle = vm::toggle)
+                            ItemGrid(
+                                items = state.items,
+                                selected = state.selected,
+                                onToggle = { item ->
+                                    context.postAnalytic(SettingsEvents.FEEDBACK_TOPIC_TOGGLE)
+                                    vm.toggle(item)
+                                },
+                            )
                         }
                     }
                     Text(

@@ -27,11 +27,15 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.ProjectsEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.database.entity.ProjectStatus
 import com.funsol.orbit.core.designsystem.ErrorState
@@ -50,11 +54,14 @@ fun ProjectEditScreen(projectId: String?, nav: OrbitNavigator) {
     val vm: ProjectEditViewModel = koinViewModel(key = "project_edit_$projectId", parameters = { parametersOf(projectId) })
     val state by vm.state.collectAsStateWithLifecycle()
     var showDiscard by rememberSaveable { mutableStateOf(false) }
+    val context = LocalContext.current
+    PostAnalytic(ProjectsEvents.PROJECT_EDIT_SCREEN_DISPLAY)
 
     LaunchedEffect(state.saved) { if (state.saved) nav.back() }
 
     val guard = rememberClickGuard()
     val requestBack: () -> Unit = {
+        context.postAnalytic(ProjectsEvents.PROJECT_EDIT_BACK_CLICK)
         if (state.dirty && !state.saved) {
             showDiscard = true
         } else {
@@ -71,7 +78,12 @@ fun ProjectEditScreen(projectId: String?, nav: OrbitNavigator) {
                 onBack = requestBack,
                 accent = FeatureAccent.PROJECTS,
             ) {
-                TextButton(onClick = vm::save, enabled = !state.saving && !state.loading) {
+                TextButton(
+                    onClick = {
+                        context.postAnalytic(ProjectsEvents.PROJECT_EDIT_SAVE_CLICK)
+                        vm.save()
+                    },
+                    enabled = !state.saving && !state.loading) {
                     Text(stringResource(R.string.action_save))
                 }
             }
@@ -81,7 +93,10 @@ fun ProjectEditScreen(projectId: String?, nav: OrbitNavigator) {
             when {
                 state.loading -> LoadingState()
                 state.notFound -> ErrorState(stringResource(R.string.projects_not_found))
-                else -> ProjectFormContent(state, vm::update, onSave = vm::save)
+                else -> ProjectFormContent(state, vm::update, onSave = {
+                    context.postAnalytic(ProjectsEvents.PROJECT_EDIT_SAVE_CLICK)
+                    vm.save()
+                })
             }
         }
     }
@@ -101,6 +116,7 @@ private fun ProjectFormContent(
     onChange: ((ProjectForm) -> ProjectForm) -> Unit,
     onSave: () -> Unit,
 ) {
+    val context = LocalContext.current
     val form = state.form
     val nameError = state.showNameError && state.nameInvalid
     Column(
@@ -130,7 +146,10 @@ private fun ProjectFormContent(
             )
         }
         FormSection(stringResource(R.string.projects_section_appearance)) {
-            ColorPickerRow(selected = form.color, onSelect = { c -> onChange { it.copy(color = c) } })
+            ColorPickerRow(selected = form.color, onSelect = { c ->
+                    context.postAnalytic(ProjectsEvents.PROJECT_EDIT_COLOR_SELECT)
+                    onChange { it.copy(color = c) }
+                },)
         }
         FormSection(stringResource(R.string.projects_section_schedule)) {
             OrbitDateField(
@@ -150,7 +169,10 @@ private fun ProjectFormContent(
                 ProjectStatus.entries.forEach { status ->
                     FilterChip(
                         selected = form.status == status,
-                        onClick = { onChange { it.copy(status = status) } },
+                        onClick = {
+                            context.postAnalytic(ProjectsEvents.PROJECT_EDIT_STATUS_SELECT)
+                            onChange { it.copy(status = status) }
+                        },
                         label = { Text(projectStatusLabel(status)) },
                         colors = orbitChipColors(),
                         border = null,

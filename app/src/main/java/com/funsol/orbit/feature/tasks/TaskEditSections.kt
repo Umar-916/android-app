@@ -34,12 +34,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.TasksEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.DateFormats
 import com.funsol.orbit.core.database.entity.ProjectEntity
 import com.funsol.orbit.core.designsystem.ColorDot
@@ -146,6 +149,7 @@ internal fun ScheduleSection(
     onTime: (Int?) -> Unit,
 ) {
     var showDate by rememberSaveable { mutableStateOf(false) }
+    val context = LocalContext.current
     var showTime by rememberSaveable { mutableStateOf(false) }
     val notSet = stringResource(R.string.tasks_not_set)
 
@@ -155,18 +159,18 @@ internal fun ScheduleSection(
             label = stringResource(R.string.tasks_field_due_date),
             value = form.dueDate?.let { DateFormats.date(it) } ?: notSet,
             isSet = form.dueDate != null,
-            onClick = { showDate = true },
+            onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_DUE_DATE_CLICK); showDate = true },
             clearDescription = stringResource(R.string.tasks_clear_date),
-            onClear = { onDate(null) },
+            onClear = { context.postAnalytic(TasksEvents.TASK_EDIT_DUE_DATE_CLEAR_CLICK); onDate(null) },
         )
         WellRow(
             leading = { IconTile(Icons.Rounded.AccessTime, FeatureAccent.ANALYTICS, size = 36.dp) },
             label = stringResource(R.string.tasks_field_due_time),
             value = form.dueTime?.let { DateFormats.time(it) } ?: notSet,
             isSet = form.dueTime != null,
-            onClick = { showTime = true },
+            onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_DUE_TIME_CLICK); showTime = true },
             clearDescription = stringResource(R.string.tasks_clear_time),
-            onClear = { onTime(null) },
+            onClear = { context.postAnalytic(TasksEvents.TASK_EDIT_DUE_TIME_CLEAR_CLICK); onTime(null) },
         )
     }
 
@@ -193,6 +197,7 @@ internal fun ReminderSection(
     onReminder: (Int?) -> Unit,
 ) {
     var expanded by remember { mutableStateOf(false) }
+    val context = LocalContext.current
     val none = stringResource(R.string.tasks_reminder_none)
     val hasDate = form.dueDate != null
 
@@ -204,15 +209,14 @@ internal fun ReminderSection(
             isSet = form.reminderOffset != null,
             enabled = hasDate,
             dropdown = true,
-            onClick = { expanded = true },
-            clearDescription = stringResource(R.string.tasks_clear_reminder),
-            onClear = { onReminder(null) },
+            onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_REMINDER_CLICK); expanded = true },
+            onClear = { context.postAnalytic(TasksEvents.TASK_EDIT_REMINDER_CLEAR_CLICK); onReminder(null) },
             menu = {
                 DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
                     TaskEditViewModel.REMINDER_OPTIONS.forEach { option ->
                         DropdownMenuItem(
                             text = { Text(option?.let { reminderLabel(it) } ?: none) },
-                            onClick = { expanded = false; onReminder(option) },
+                            onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_REMINDER_OPTION_SELECT); expanded = false; onReminder(option) },
                         )
                     }
                 }
@@ -236,6 +240,7 @@ internal fun ReminderSection(
 @Composable
 internal fun ProjectSection(form: TaskForm, projects: List<ProjectEntity>, onSelect: (String?) -> Unit) {
     var expanded by remember { mutableStateOf(false) }
+    val context = LocalContext.current
     val none = stringResource(R.string.tasks_project_none)
     val selected = projects.firstOrNull { it.id == form.projectId }
 
@@ -252,18 +257,18 @@ internal fun ProjectSection(form: TaskForm, projects: List<ProjectEntity>, onSel
             value = selected?.name ?: none,
             isSet = selected != null,
             dropdown = true,
-            onClick = { expanded = true },
+            onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_PROJECT_CLICK); expanded = true },
             menu = {
                 DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
                     DropdownMenuItem(
                         text = { Text(none) },
-                        onClick = { expanded = false; onSelect(null) },
+                        onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_PROJECT_OPTION_SELECT); expanded = false; onSelect(null) },
                     )
                     projects.forEach { project ->
                         DropdownMenuItem(
                             text = { Text(project.name, maxLines = 1, overflow = TextOverflow.Ellipsis) },
                             leadingIcon = { ColorDot(Color(project.color), size = 12.dp) },
-                            onClick = { expanded = false; onSelect(project.id) },
+                            onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_PROJECT_OPTION_SELECT); expanded = false; onSelect(project.id) },
                         )
                     }
                 }

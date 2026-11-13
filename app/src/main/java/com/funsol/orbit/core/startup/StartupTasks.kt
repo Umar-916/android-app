@@ -1,7 +1,10 @@
 package com.funsol.orbit.core.startup
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
 import com.funsol.orbit.core.ads.AdsStartup
+import com.funsol.orbit.core.analytics.AnalyticsLogger
+import com.funsol.orbit.core.remote.FirebaseBootstrap
 import com.funsol.orbit.core.common.LanguageCatalog
 import com.funsol.orbit.core.database.OrbitDatabase
 import com.funsol.orbit.core.datastore.SettingsStore
@@ -12,12 +15,14 @@ import kotlinx.coroutines.withContext
 import java.util.concurrent.atomic.AtomicBoolean
 
 internal const val CONSENT_STEP_TIMEOUT_MS = 5 * 60_000L
+internal const val FIREBASE_STEP_TIMEOUT_MS = 3_000L
 internal const val NETWORK_STEP_TIMEOUT_MS = 1_000L
 internal const val REMOTE_CONFIG_STEP_TIMEOUT_MS = 8_000L
 internal const val MOBILE_ADS_STEP_TIMEOUT_MS = 8_000L
 internal const val PRELOAD_STEP_TIMEOUT_MS = 3_000L
 
 internal fun buildStartupTasks(
+    appContext: Context,
     store: SettingsStore,
     database: OrbitDatabase,
     reminders: ReminderScheduler,
@@ -42,6 +47,12 @@ internal fun buildStartupTasks(
             if (settings.languageChosen && applied.isEmpty && settings.languageCode != LanguageCatalog.suggested().code) {
                 withContext(Dispatchers.Main) { LanguageCatalog.apply(settings.languageCode) }
             }
+        },
+        // Firebase first (before network/consent/remote config/ads), same order as the other Funsol apps.
+        // Both calls are idempotent: FirebaseApp is only created when none exists and Analytics initialises once.
+        StartupTask(InitStep.FIREBASE, critical = false, timeoutMs = FIREBASE_STEP_TIMEOUT_MS) {
+            FirebaseBootstrap.initializeDefault(appContext)
+            AnalyticsLogger.init(appContext)
         },
         StartupTask(InitStep.CHECK_NETWORK, critical = false, timeoutMs = NETWORK_STEP_TIMEOUT_MS) {
             ads.isOnline()

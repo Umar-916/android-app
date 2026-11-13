@@ -58,7 +58,11 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.compose.ui.platform.LocalContext
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.NotesEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.database.entity.NoteFolderEntity
 import com.funsol.orbit.core.designsystem.ConfirmDialog
 import com.funsol.orbit.core.designsystem.EmptyState
@@ -87,6 +91,8 @@ fun NotesScreen(nav: OrbitNavigator) {
     val vm: NotesViewModel = koinViewModel()
     val state by vm.state.collectAsStateWithLifecycle()
     val snackbar = remember { SnackbarHostState() }
+    val context = LocalContext.current
+    PostAnalytic(NotesEvents.NOTES_SCREEN_DISPLAY)
 
     val deletedMessage = stringResource(R.string.notes_note_deleted)
     val undoLabel = stringResource(R.string.action_undo)
@@ -101,7 +107,10 @@ fun NotesScreen(nav: OrbitNavigator) {
                 NotesEvent.NoteDeleted -> {
                     snackbar.currentSnackbarData?.dismiss()
                     val result = snackbar.showSnackbar(deletedMessage, undoLabel, duration = SnackbarDuration.Short)
-                    if (result == SnackbarResult.ActionPerformed) vm.undoDelete()
+                    if (result == SnackbarResult.ActionPerformed) {
+                        context.postAnalytic(NotesEvents.NOTES_UNDO_DELETE_CLICK)
+                        vm.undoDelete()
+                    }
                 }
             }
         }
@@ -137,16 +146,25 @@ fun NotesScreen(nav: OrbitNavigator) {
             OrbitTopBar(
                 scrolled = scrolled,
                 title = stringResource(if (state.showArchived) R.string.notes_archived_title else R.string.notes_title),
-                onBack = { if (state.showArchived) vm.setShowArchived(false) else nav.back() },
+                onBack = {
+                    context.postAnalytic(NotesEvents.NOTES_BACK_CLICK)
+                    if (state.showArchived) vm.setShowArchived(false) else nav.back()
+                },
                 accent = FeatureAccent.NOTES,
                 icon = if (state.showArchived) Icons.Rounded.Archive else Icons.AutoMirrored.Rounded.StickyNote2,
                 actions = {
                     if (!state.showArchived) {
-                        IconButton(onClick = { vm.setShowArchived(true) }) {
+                        IconButton(onClick = {
+                            context.postAnalytic(NotesEvents.NOTES_ARCHIVE_VIEW_CLICK)
+                            vm.setShowArchived(true)
+                        }) {
                             Icon(Icons.Rounded.Archive, contentDescription = stringResource(R.string.notes_show_archived))
                         }
                     }
-                    IconButton(onClick = { menuOpen = true }) {
+                    IconButton(onClick = {
+                        context.postAnalytic(NotesEvents.NOTES_MENU_CLICK)
+                        menuOpen = true
+                    }) {
                         Icon(Icons.Rounded.MoreVert, contentDescription = stringResource(R.string.action_more_options))
                     }
                 },
@@ -157,7 +175,10 @@ fun NotesScreen(nav: OrbitNavigator) {
                 GradientFab(
                     icon = Icons.Rounded.Add,
                     contentDescription = stringResource(R.string.notes_new),
-                    onClick = newNote,
+                    onClick = {
+                        context.postAnalytic(NotesEvents.NOTES_NEW_FAB_CLICK)
+                        newNote()
+                    },
                     label = if (scrolled) null else stringResource(R.string.notes_new),
                     brush = Orbit.extras.accentGradient(FeatureAccent.NOTES),
                 )
@@ -167,11 +188,26 @@ fun NotesScreen(nav: OrbitNavigator) {
         Box(Modifier.fillMaxSize().padding(padding), contentAlignment = Alignment.TopCenter) {
             Column(Modifier.widthIn(max = 1000.dp).fillMaxSize()) {
                 SearchField(query, onChange = { query = it; vm.setQuery(it) })
-                FolderChips(state.folders, state.filter, onSelect = vm::setFilter)
+                FolderChips(state.folders, state.filter, onSelect = { filter ->
+                    context.postAnalytic(
+                        when (filter) {
+                            FolderFilter.All -> NotesEvents.NOTES_FILTER_ALL_SELECT
+                            FolderFilter.NoFolder -> NotesEvents.NOTES_FILTER_NONE_SELECT
+                            is FolderFilter.Folder -> NotesEvents.NOTES_FILTER_FOLDER_SELECT
+                        },
+                    )
+                    vm.setFilter(filter)
+                })
                 when {
                     state.loading -> LoadingState()
-                    state.error -> ErrorState(stringResource(R.string.error_generic), onRetry = vm::retry)
-                    state.items.isEmpty() -> EmptyContent(state, onCreate = newNote)
+                    state.error -> ErrorState(stringResource(R.string.error_generic), onRetry = {
+                        context.postAnalytic(NotesEvents.NOTES_RETRY_CLICK)
+                        vm.retry()
+                    })
+                    state.items.isEmpty() -> EmptyContent(state, onCreate = {
+                        context.postAnalytic(NotesEvents.NOTES_EMPTY_CREATE_CLICK)
+                        newNote()
+                    })
                     else -> LazyVerticalStaggeredGrid(
                         state = gridState,
                         columns = StaggeredGridCells.Adaptive(minSize = 168.dp),
@@ -214,14 +250,23 @@ fun NotesScreen(nav: OrbitNavigator) {
             onConfirm = { vm.renameFolder(d.folder.id, it); dialog = null },
             onDismiss = { dialog = null },
         )
-        is FolderDialog.Delete -> ConfirmDialog(
-            title = stringResource(R.string.notes_folder_delete_title, d.folder.name),
-            message = stringResource(R.string.notes_folder_delete_msg),
-            confirmLabel = stringResource(R.string.notes_folder_delete_confirm),
-            destructive = true,
-            onConfirm = { vm.deleteFolder(d.folder.id); dialog = null },
-            onDismiss = { dialog = null },
-        )
+        is FolderDialog.Delete -> {
+            PostAnalytic(NotesEvents.NOTES_FOLDER_DELETE_DIALOG_APPEAR)
+            ConfirmDialog(
+                title = stringResource(R.string.notes_folder_delete_title, d.folder.name),
+                message = stringResource(R.string.notes_folder_delete_msg),
+                confirmLabel = stringResource(R.string.notes_folder_delete_confirm),
+                destructive = true,
+                onConfirm = {
+                    context.postAnalytic(NotesEvents.NOTES_FOLDER_DELETE_CONFIRM_CLICK)
+                    vm.deleteFolder(d.folder.id); dialog = null
+                },
+                onDismiss = {
+                    context.postAnalytic(NotesEvents.NOTES_FOLDER_DELETE_CANCEL_CLICK)
+                    dialog = null
+                },
+            )
+        }
         null -> Unit
     }
 
@@ -239,6 +284,7 @@ fun NotesScreen(nav: OrbitNavigator) {
 
 @Composable
 private fun SearchField(query: String, onChange: (String) -> Unit) {
+    val context = LocalContext.current
     OrbitWell(
         Modifier.fillMaxWidth().padding(horizontal = Spacing.md, vertical = Spacing.xs),
         shape = MaterialTheme.shapes.extraLarge,
@@ -253,7 +299,10 @@ private fun SearchField(query: String, onChange: (String) -> Unit) {
             },
             trailingIcon = {
                 if (query.isNotEmpty()) {
-                    IconButton(onClick = { onChange("") }) {
+                    IconButton(onClick = {
+                        context.postAnalytic(NotesEvents.NOTES_SEARCH_CLEAR_CLICK)
+                        onChange("")
+                    }) {
                         Icon(Icons.Rounded.Close, contentDescription = stringResource(R.string.action_clear))
                     }
                 }

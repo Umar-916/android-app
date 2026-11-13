@@ -53,6 +53,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -64,6 +65,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.TasksEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.DateFormats
 import com.funsol.orbit.core.common.RecurrenceType
 import com.funsol.orbit.core.common.WeekdayMask
@@ -86,8 +89,9 @@ internal fun SubtasksSection(
     onDelete: (String) -> Unit,
     onMove: (String, Int) -> Unit,
 ) {
+    val context = LocalContext.current
     var draft by rememberSaveable { mutableStateOf("") }
-    val submit = { if (onAdd(draft)) draft = "" }
+    val submit = { context.postAnalytic(TasksEvents.TASK_EDIT_SUBTASK_ADD_CLICK); if (onAdd(draft)) draft = "" }
     FormSection(stringResource(R.string.tasks_section_subtasks), Icons.Rounded.Checklist, FeatureAccent.HABITS) {
         if (form.subtasks.isEmpty()) HintText(stringResource(R.string.tasks_subtasks_empty))
         form.subtasks.forEachIndexed { index, sub ->
@@ -149,6 +153,7 @@ private fun SubtaskItem(
 ) {
     val visibility = remember { MutableTransitionState(false).apply { targetState = true } }
     val scope = rememberCoroutineScope()
+    val context = LocalContext.current
     var menuOpen by remember { mutableStateOf(false) }
 
     AnimatedVisibility(
@@ -161,7 +166,7 @@ private fun SubtaskItem(
                 CompletionCheck(
                     checked = sub.done,
                     title = sub.title,
-                    onCheckedChange = { onToggle(sub.id, it) },
+                    onCheckedChange = { context.postAnalytic(TasksEvents.TASK_EDIT_SUBTASK_TOGGLE); onToggle(sub.id, it) },
                     accent = FeatureAccent.HABITS,
                 )
                 Text(
@@ -173,7 +178,7 @@ private fun SubtaskItem(
                 )
                 if (canMoveUp || canMoveDown) {
                     Box {
-                        IconButton(onClick = { menuOpen = true }) {
+                        IconButton(onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_SUBTASK_MENU_CLICK); menuOpen = true }) {
                             Icon(
                                 Icons.Rounded.MoreVert,
                                 contentDescription = stringResource(R.string.tasks_row_menu, sub.title),
@@ -185,20 +190,21 @@ private fun SubtaskItem(
                                 DropdownMenuItem(
                                     text = { Text(stringResource(R.string.tasks_subtask_move_up, sub.title), maxLines = 1) },
                                     leadingIcon = { Icon(Icons.Rounded.ArrowUpward, null) },
-                                    onClick = { menuOpen = false; onMove(sub.id, -1) },
+                                    onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_SUBTASK_MOVE_UP_CLICK); menuOpen = false; onMove(sub.id, -1) },
                                 )
                             }
                             if (canMoveDown) {
                                 DropdownMenuItem(
                                     text = { Text(stringResource(R.string.tasks_subtask_move_down, sub.title), maxLines = 1) },
                                     leadingIcon = { Icon(Icons.Rounded.ArrowDownward, null) },
-                                    onClick = { menuOpen = false; onMove(sub.id, 1) },
+                                    onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_SUBTASK_MOVE_DOWN_CLICK); menuOpen = false; onMove(sub.id, 1) },
                                 )
                             }
                         }
                     }
                 }
                 IconButton(onClick = {
+                    context.postAnalytic(TasksEvents.TASK_EDIT_SUBTASK_DELETE_CLICK)
                     scope.launch {
                         visibility.targetState = false
                         delay(220)
@@ -226,6 +232,7 @@ internal fun RecurrenceSection(
     onWeekday: (DayOfWeek) -> Unit,
     onEnd: (Int?) -> Unit,
 ) {
+    val context = LocalContext.current
     var showEnd by rememberSaveable { mutableStateOf(false) }
     val types = listOf(
         RecurrenceType.NONE to R.string.tasks_repeat_none,
@@ -239,7 +246,7 @@ internal fun RecurrenceSection(
             types.forEach { (type, label) ->
                 FilterChip(
                     selected = form.recurrenceType == type,
-                    onClick = { onType(type) },
+                    onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_REPEAT_TYPE_SELECT); onType(type) },
                     label = { Text(stringResource(label)) },
                     colors = orbitChipColors(),
                     shape = RoundedCornerShape(Radius.chip),
@@ -260,7 +267,7 @@ internal fun RecurrenceSection(
                     DayOfWeek.entries.forEach { day ->
                         FilterChip(
                             selected = WeekdayMask.contains(form.recurrenceWeekdays, day),
-                            onClick = { onWeekday(day) },
+                            onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_REPEAT_WEEKDAY_TOGGLE); onWeekday(day) },
                             label = { Text(weekdayShort(day)) },
                             colors = orbitChipColors(),
                             shape = RoundedCornerShape(Radius.chip),
@@ -273,9 +280,9 @@ internal fun RecurrenceSection(
                 label = stringResource(R.string.tasks_repeat_ends),
                 value = form.recurrenceEnd?.let { DateFormats.date(it) } ?: stringResource(R.string.tasks_repeat_never),
                 isSet = form.recurrenceEnd != null,
-                onClick = { showEnd = true },
+                onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_REPEAT_END_CLICK); showEnd = true },
                 clearDescription = stringResource(R.string.tasks_repeat_clear_end),
-                onClear = { onEnd(null) },
+                onClear = { context.postAnalytic(TasksEvents.TASK_EDIT_REPEAT_END_CLEAR_CLICK); onEnd(null) },
             )
             Row(
                 Modifier

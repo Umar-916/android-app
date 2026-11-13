@@ -22,10 +22,15 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.AnalyticsEvents
+import com.funsol.orbit.core.analytics.HomeEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.datastore.HomeWidget
 import com.funsol.orbit.core.designsystem.EmptyState
@@ -44,6 +49,8 @@ fun HomeScreen(nav: OrbitNavigator) {
     val viewModel: HomeViewModel = koinViewModel()
     val state = viewModel.uiState.collectAsStateWithLifecycle().value
     val snackbar = remember { SnackbarHostState() }
+    val context = LocalContext.current
+    PostAnalytic(AnalyticsEvents.HOME_SCREEN_DISPLAY)
 
     val completedMessage = stringResource(R.string.home_task_completed)
     val failedMessage = stringResource(R.string.error_generic)
@@ -53,7 +60,10 @@ fun HomeScreen(nav: OrbitNavigator) {
             when (event) {
                 is HomeEvent.TaskCompleted -> {
                     val result = snackbar.showSnackbar(completedMessage, undoLabel, duration = SnackbarDuration.Short)
-                    if (result == SnackbarResult.ActionPerformed) viewModel.reopenTask(event.taskId)
+                    if (result == SnackbarResult.ActionPerformed) {
+                        context.postAnalytic(HomeEvents.HOME_TASK_UNDO_CLICK)
+                        viewModel.reopenTask(event.taskId)
+                    }
                 }
                 HomeEvent.ActionFailed -> snackbar.showSnackbar(failedMessage)
             }
@@ -67,7 +77,10 @@ fun HomeScreen(nav: OrbitNavigator) {
         val today = state.today
         when {
             state.loading -> LoadingState(Modifier.padding(padding))
-            state.failed || today == null -> ErrorState(stringResource(R.string.error_generic), Modifier.padding(padding), viewModel::retry)
+            state.failed || today == null -> ErrorState(stringResource(R.string.error_generic), Modifier.padding(padding)) {
+                context.postAnalytic(HomeEvents.HOME_RETRY_CLICK)
+                viewModel.retry()
+            }
             else -> HomeContent(state, today, nav, viewModel, padding)
         }
     }
@@ -85,6 +98,7 @@ private fun HomeContent(
     vm: HomeViewModel,
     padding: PaddingValues,
 ) {
+    val context = LocalContext.current
     val data = state.data
     val order = listOf(
         HomeWidget.OVERDUE, HomeWidget.TODAY, HomeWidget.UPCOMING,
@@ -113,28 +127,28 @@ private fun HomeContent(
                 HomeHero(
                     today = today,
                     progress = data.progress.takeIf { state.isVisible(HomeWidget.PROGRESS) },
-                    onSearch = { go(AppDestination.Search) },
-                    onCustomize = { go(AppDestination.DashboardCustomize) },
+                    onSearch = { context.postAnalytic(HomeEvents.HOME_SEARCH_CLICK); go(AppDestination.Search) },
+                    onCustomize = { context.postAnalytic(HomeEvents.HOME_CUSTOMIZE_CLICK); go(AppDestination.DashboardCustomize) },
                     modifier = Modifier.staggerIn(0),
                 )
             }
             if (data.isBlank) {
                 item(key = HomeItem.WELCOME, contentType = HomeItem.WELCOME) {
                     WelcomeCard(
-                        onTask = { go(AppDestination.TaskEdit()) },
-                        onProject = { go(AppDestination.ProjectEdit()) },
-                        onHabit = { go(AppDestination.HabitEdit()) },
+                        onTask = { context.postAnalytic(HomeEvents.HOME_WELCOME_TASK_CLICK); go(AppDestination.TaskEdit()) },
+                        onProject = { context.postAnalytic(HomeEvents.HOME_WELCOME_PROJECT_CLICK); go(AppDestination.ProjectEdit()) },
+                        onHabit = { context.postAnalytic(HomeEvents.HOME_WELCOME_HABIT_CLICK); go(AppDestination.HabitEdit()) },
                         modifier = Modifier.staggerIn(1),
                     )
                 }
             }
             item(key = HomeItem.QUICK_ADD, contentType = HomeItem.QUICK_ADD) {
                 QuickAddRow(
-                    onTask = { go(AppDestination.TaskEdit()) },
-                    onNote = { go(AppDestination.NoteEdit()) },
-                    onHabit = { go(AppDestination.HabitEdit()) },
-                    onProject = { go(AppDestination.ProjectEdit()) },
-                    onGoal = { go(AppDestination.GoalEdit()) },
+                    onTask = { context.postAnalytic(HomeEvents.HOME_QUICK_ADD_TASK_CLICK); go(AppDestination.TaskEdit()) },
+                    onNote = { context.postAnalytic(HomeEvents.HOME_QUICK_ADD_NOTE_CLICK); go(AppDestination.NoteEdit()) },
+                    onHabit = { context.postAnalytic(HomeEvents.HOME_QUICK_ADD_HABIT_CLICK); go(AppDestination.HabitEdit()) },
+                    onProject = { context.postAnalytic(HomeEvents.HOME_QUICK_ADD_PROJECT_CLICK); go(AppDestination.ProjectEdit()) },
+                    onGoal = { context.postAnalytic(HomeEvents.HOME_QUICK_ADD_GOAL_CLICK); go(AppDestination.GoalEdit()) },
                     modifier = Modifier.staggerIn(1 + welcomeShift),
                 )
             }
@@ -145,7 +159,7 @@ private fun HomeContent(
                         title = stringResource(R.string.home_all_hidden_title),
                         message = stringResource(R.string.home_all_hidden_message),
                         actionLabel = stringResource(R.string.home_customize),
-                        onAction = { go(AppDestination.DashboardCustomize) },
+                        onAction = { context.postAnalytic(HomeEvents.HOME_ALL_HIDDEN_CUSTOMIZE_CLICK); go(AppDestination.DashboardCustomize) },
                         accent = FeatureAccent.HOME,
                     )
                 }
@@ -158,43 +172,46 @@ private fun HomeContent(
                         HomeWidget.OVERDUE -> OverdueCard(
                             tasks = data.overdueTasks,
                             totalCount = data.overdueCount,
-                            onToggle = { vm.completeTask(it.id) },
-                            onOpen = { openTask(it.id) },
-                            onViewAll = goTasks,
+                            onToggle = { context.postAnalytic(HomeEvents.HOME_OVERDUE_COMPLETE_CLICK); vm.completeTask(it.id) },
+                            onOpen = { context.postAnalytic(HomeEvents.HOME_OVERDUE_TASK_CLICK); openTask(it.id) },
+                            onViewAll = { context.postAnalytic(HomeEvents.HOME_OVERDUE_VIEW_ALL_CLICK); goTasks() },
                             modifier = stagger,
                         )
                         HomeWidget.TODAY -> TodayCard(
                             tasks = data.todayTasks,
                             totalCount = data.todayCount,
-                            onToggle = { vm.completeTask(it.id) },
-                            onOpen = { openTask(it.id) },
-                            onViewAll = goTasks,
-                            onAddTask = { go(AppDestination.TaskEdit()) },
+                            onToggle = { context.postAnalytic(HomeEvents.HOME_TODAY_COMPLETE_CLICK); vm.completeTask(it.id) },
+                            onOpen = { context.postAnalytic(HomeEvents.HOME_TODAY_TASK_CLICK); openTask(it.id) },
+                            onViewAll = { context.postAnalytic(HomeEvents.HOME_TODAY_VIEW_ALL_CLICK); goTasks() },
+                            onAddTask = { context.postAnalytic(HomeEvents.HOME_TODAY_ADD_CLICK); go(AppDestination.TaskEdit()) },
                             modifier = stagger,
                         )
                         HomeWidget.UPCOMING -> UpcomingCard(
                             groups = data.upcomingGroups,
                             totalCount = data.upcomingCount,
                             today = today,
-                            onToggle = { vm.completeTask(it.id) },
-                            onOpen = { openTask(it.id) },
-                            onViewAll = goTasks,
+                            onToggle = { context.postAnalytic(HomeEvents.HOME_UPCOMING_COMPLETE_CLICK); vm.completeTask(it.id) },
+                            onOpen = { context.postAnalytic(HomeEvents.HOME_UPCOMING_TASK_CLICK); openTask(it.id) },
+                            onViewAll = { context.postAnalytic(HomeEvents.HOME_UPCOMING_VIEW_ALL_CLICK); goTasks() },
                             modifier = stagger,
                         )
                         HomeWidget.HABITS -> HabitsCard(
                             habits = data.habits,
                             doneCount = data.habitsDone,
-                            onToggle = { item, checked -> vm.setHabitChecked(item.habit.id, checked) },
-                            onNewHabit = { go(AppDestination.HabitEdit()) },
-                            onViewAll = { go(AppDestination.Habits) },
+                            onToggle = { item, checked ->
+                                context.postAnalytic(HomeEvents.HOME_HABIT_CHECK_TOGGLE)
+                                vm.setHabitChecked(item.habit.id, checked)
+                            },
+                            onNewHabit = { context.postAnalytic(HomeEvents.HOME_HABITS_NEW_CLICK); go(AppDestination.HabitEdit()) },
+                            onViewAll = { context.postAnalytic(HomeEvents.HOME_HABITS_VIEW_ALL_CLICK); go(AppDestination.Habits) },
                             modifier = stagger,
                         )
                         HomeWidget.PROJECTS -> ProjectsCard(
                             projects = data.projects,
                             totalActive = data.activeProjectCount,
-                            onOpen = { go(AppDestination.ProjectDetail(it)) },
-                            onNewProject = { go(AppDestination.ProjectEdit()) },
-                            onViewAll = { go(AppDestination.Projects) },
+                            onOpen = { context.postAnalytic(HomeEvents.HOME_PROJECT_CLICK); go(AppDestination.ProjectDetail(it)) },
+                            onNewProject = { context.postAnalytic(HomeEvents.HOME_PROJECTS_NEW_CLICK); go(AppDestination.ProjectEdit()) },
+                            onViewAll = { context.postAnalytic(HomeEvents.HOME_PROJECTS_VIEW_ALL_CLICK); go(AppDestination.Projects) },
                             modifier = stagger,
                         )
                         HomeWidget.OVERVIEW -> OverviewCard(data.overview, stagger)

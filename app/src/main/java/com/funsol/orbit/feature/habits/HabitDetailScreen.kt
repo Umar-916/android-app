@@ -52,6 +52,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.R
+import androidx.compose.ui.platform.LocalContext
+import com.funsol.orbit.core.analytics.HabitsEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.common.toLocalDate
 import com.funsol.orbit.core.designsystem.ErrorState
@@ -77,6 +81,8 @@ import org.koin.core.parameter.parametersOf
 
 @Composable
 fun HabitDetailScreen(habitId: String, nav: OrbitNavigator) {
+    PostAnalytic(HabitsEvents.HABITS_DETAIL_SCREEN_DISPLAY)
+    val context = LocalContext.current
     val vm: HabitDetailViewModel = koinViewModel(key = "habit_$habitId", parameters = { parametersOf(habitId) })
     val state by vm.state.collectAsStateWithLifecycle()
 
@@ -98,9 +104,15 @@ fun HabitDetailScreen(habitId: String, nav: OrbitNavigator) {
         containerColor = MaterialTheme.colorScheme.background,
         snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
-            OrbitTopBar(title = stringResource(R.string.habits_detail_title), onBack = { guard.run(nav::back) }, accent = FeatureAccent.HABITS) {
+            OrbitTopBar(title = stringResource(R.string.habits_detail_title), onBack = {
+                context.postAnalytic(HabitsEvents.HABITS_DETAIL_BACK_CLICK)
+                guard.run(nav::back)
+            }, accent = FeatureAccent.HABITS) {
                 if (state.habit != null) {
-                    IconButton(onClick = { guard.run { nav.navigate(AppDestination.HabitEdit(habitId)) } }) {
+                    IconButton(onClick = {
+                        context.postAnalytic(HabitsEvents.HABITS_DETAIL_EDIT_CLICK)
+                        guard.run { nav.navigate(AppDestination.HabitEdit(habitId)) }
+                    }) {
                         Icon(Icons.Rounded.Edit, contentDescription = stringResource(R.string.action_edit))
                     }
                 }
@@ -111,7 +123,13 @@ fun HabitDetailScreen(habitId: String, nav: OrbitNavigator) {
             val habit = state.habit
             when {
                 state.loading -> LoadingState()
-                state.error -> ErrorState(stringResource(R.string.error_generic), onRetry = vm::retry)
+                state.error -> ErrorState(
+                    stringResource(R.string.error_generic),
+                    onRetry = {
+                        context.postAnalytic(HabitsEvents.HABITS_DETAIL_RETRY_CLICK)
+                        vm.retry()
+                    },
+                )
                 habit == null -> LoadingState()
                 else -> DetailContent(state, habit.name, habit.description, habit.scheduleMask, habit.archived, Color(habit.color), vm)
             }
@@ -130,6 +148,7 @@ private fun DetailContent(
     accent: Color,
     vm: HabitDetailViewModel,
 ) {
+    val context = LocalContext.current
     val todayDow = state.todayEpochDay.takeIf { it > 0 }?.toLocalDate()?.dayOfWeek
     Column(
         Modifier
@@ -184,7 +203,10 @@ private fun DetailContent(
                 )
             }
             if (!archived && state.scheduledToday) {
-                CheckInButton(state.checkedToday) { vm.setChecked(state.todayEpochDay, !state.checkedToday) }
+                CheckInButton(state.checkedToday) {
+                    context.postAnalytic(HabitsEvents.HABITS_DETAIL_CHECKIN_CLICK)
+                    vm.setChecked(state.todayEpochDay, !state.checkedToday)
+                }
             }
         }
 
@@ -228,9 +250,17 @@ private fun DetailContent(
         HabitCalendarCard(
             state = state,
             accent = accent,
-            onPrevious = vm::previousMonth,
-            onNext = vm::nextMonth,
-            onToggle = { cell -> vm.setChecked(cell.date.toEpochDay().toInt(), cell.status != DayStatus.DONE) },
+            onPrevious = {
+                context.postAnalytic(HabitsEvents.HABITS_DETAIL_CAL_PREVIOUS_CLICK)
+                vm.previousMonth()
+            },
+            onNext = {
+                context.postAnalytic(HabitsEvents.HABITS_DETAIL_CAL_NEXT_CLICK)
+                vm.nextMonth()
+            },
+            onToggle = { cell ->
+                context.postAnalytic(HabitsEvents.HABITS_DETAIL_CAL_DAY_CLICK)
+                vm.setChecked(cell.date.toEpochDay().toInt(), cell.status != DayStatus.DONE) },
         )
         Text(
             stringResource(R.string.habits_calendar_hint),

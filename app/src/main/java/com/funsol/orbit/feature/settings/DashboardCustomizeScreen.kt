@@ -30,6 +30,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
@@ -38,6 +39,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewModelScope
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.MoreEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.datastore.AppSettings
 import com.funsol.orbit.core.datastore.HomeWidget
 import com.funsol.orbit.core.datastore.SettingsStore
@@ -89,13 +93,18 @@ class DashboardCustomizeViewModel(private val store: SettingsStore) : ViewModel(
 fun DashboardCustomizeScreen(nav: OrbitNavigator) {
     val viewModel: DashboardCustomizeViewModel = koinViewModel()
     val settings = viewModel.settings.collectAsStateWithLifecycle().value
+    val context = LocalContext.current
+    PostAnalytic(MoreEvents.DASHBOARD_SCREEN_DISPLAY)
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             OrbitTopBar(
                 stringResource(R.string.backup_customize_title),
-                onBack = nav::back,
+                onBack = {
+                    context.postAnalytic(MoreEvents.DASHBOARD_BACK_CLICK)
+                    nav.back()
+                },
                 accent = FeatureAccent.HOME,
                 icon = Icons.Rounded.Tune,
             )
@@ -119,7 +128,10 @@ fun DashboardCustomizeScreen(nav: OrbitNavigator) {
                     OrbitCard(Modifier.fillMaxWidth(), contentPadding = PaddingValues(0.dp), tint = Orbit.extras.accent(FeatureAccent.HOME), style = CardStyle.Tinted) {
                         HomeWidget.entries.forEachIndexed { index, widget ->
                             if (index > 0) HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
-                            WidgetRow(widget, settings.isVisible(widget)) { viewModel.setVisible(widget, it) }
+                            WidgetRow(widget, settings.isVisible(widget)) {
+                                context.postAnalytic(MoreEvents.DASHBOARD_WIDGET_TOGGLE)
+                                viewModel.setVisible(widget, it)
+                            }
                         }
                     }
                 }
@@ -134,7 +146,10 @@ fun DashboardCustomizeScreen(nav: OrbitNavigator) {
                 item(key = "reset", contentType = "reset") {
                     WellButton(
                         stringResource(R.string.backup_customize_reset),
-                        onClick = viewModel::reset,
+                        onClick = {
+                            context.postAnalytic(MoreEvents.DASHBOARD_RESET_CLICK)
+                            viewModel.reset()
+                        },
                         modifier = Modifier.fillMaxWidth(),
                         enabled = settings.hiddenWidgets.isNotEmpty(),
                     )

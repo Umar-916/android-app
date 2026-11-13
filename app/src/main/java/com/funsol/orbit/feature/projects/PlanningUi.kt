@@ -36,12 +36,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.ProjectsEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.DateFormats
 import com.funsol.orbit.core.common.toEpochDayInt
 import com.funsol.orbit.core.common.toLocalDate
@@ -74,6 +78,7 @@ fun OrbitDateField(
     errorText: String? = null,
 ) {
     var showPicker by rememberSaveable { mutableStateOf(false) }
+    val context = LocalContext.current
     val scheme = MaterialTheme.colorScheme
     val hasError = errorText != null
     val valueText = epochDay?.let { DateFormats.date(it) } ?: stringResource(R.string.planning_date_not_set)
@@ -82,7 +87,10 @@ fun OrbitDateField(
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             OrbitWell(
                 Modifier.weight(1f).heightIn(min = 64.dp),
-                onClick = { showPicker = true },
+                onClick = {
+                    context.postAnalytic(ProjectsEvents.PLANNING_DATE_FIELD_CLICK)
+                    showPicker = true
+                },
                 shape = RoundedCornerShape(16.dp),
             ) {
                 Row(
@@ -116,7 +124,10 @@ fun OrbitDateField(
                 }
             }
             if (epochDay != null) {
-                IconButton(onClick = { onChange(null) }) {
+                IconButton(onClick = {
+                    context.postAnalytic(ProjectsEvents.PLANNING_DATE_CLEAR_CLICK)
+                    onChange(null)
+                }) {
                     Icon(Icons.Rounded.Close, contentDescription = stringResource(R.string.planning_clear_date_named, label))
                 }
             }
@@ -137,6 +148,8 @@ fun OrbitDateField(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun OrbitDatePickerDialog(initialEpochDay: Int?, onConfirm: (Int) -> Unit, onDismiss: () -> Unit) {
+    val context = LocalContext.current
+    PostAnalytic(ProjectsEvents.PLANNING_DATE_SHEET_APPEAR)
     val state = rememberDatePickerState(
         initialSelectedDateMillis = initialEpochDay?.let { it.toLocalDate().atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli() },
     )
@@ -152,10 +165,18 @@ fun OrbitDatePickerDialog(initialEpochDay: Int?, onConfirm: (Int) -> Unit, onDis
         }
         Spacer(Modifier.size(Spacing.sm))
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            WellButton(stringResource(R.string.action_cancel), onDismiss, Modifier.weight(1f))
+            WellButton(
+                stringResource(R.string.action_cancel),
+                {
+                    context.postAnalytic(ProjectsEvents.PLANNING_DATE_CANCEL_CLICK)
+                    onDismiss()
+                },
+                Modifier.weight(1f),
+            )
             GradientButton(
                 text = stringResource(R.string.action_done),
                 onClick = {
+                    context.postAnalytic(ProjectsEvents.PLANNING_DATE_DONE_CLICK)
                     state.selectedDateMillis?.let { ms ->
                         onConfirm(Instant.ofEpochMilli(ms).atZone(ZoneOffset.UTC).toLocalDate().toEpochDayInt())
                     }
@@ -170,12 +191,20 @@ fun OrbitDatePickerDialog(initialEpochDay: Int?, onConfirm: (Int) -> Unit, onDis
 
 @Composable
 fun DiscardChangesDialog(onDiscard: () -> Unit, onKeepEditing: () -> Unit) {
+    val context = LocalContext.current
+    PostAnalytic(ProjectsEvents.PLANNING_DISCARD_DIALOG_APPEAR)
     ConfirmDialog(
         title = stringResource(R.string.planning_discard_title),
         message = stringResource(R.string.planning_discard_message),
         confirmLabel = stringResource(R.string.action_discard),
-        onConfirm = onDiscard,
-        onDismiss = onKeepEditing,
+        onConfirm = {
+            context.postAnalytic(ProjectsEvents.PLANNING_DISCARD_CONFIRM_CLICK)
+            onDiscard()
+        },
+        onDismiss = {
+            context.postAnalytic(ProjectsEvents.PLANNING_DISCARD_KEEP_CLICK)
+            onKeepEditing()
+        },
         destructive = true,
         dismissLabel = stringResource(R.string.action_keep_editing),
     )

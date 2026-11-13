@@ -6,12 +6,13 @@ import com.funsol.orbit.feature.onboarding.OnboardingViewModel
 import com.funsol.orbit.feature.premium.BillingProvider
 import com.funsol.orbit.feature.premium.PremiumViewModel
 import com.funsol.orbit.feature.premium.UnavailableBillingProvider
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val startupFeatureModule = module {
     single { OnboardingFlowHelper(get(), get()) }
-    single { InitializationHelper(buildStartupTasks(get(), get(), get(), get(), get())) }
+    single { InitializationHelper(buildStartupTasks(androidContext(), get(), get(), get(), get(), get())) }
     single<BillingProvider> { UnavailableBillingProvider() }
 
     viewModel { SplashViewModel(get(), get(), get(), get(AppScopeQualifier)) }

@@ -39,6 +39,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.SettingsEvents
+import com.funsol.orbit.core.analytics.postAnalytic
+import androidx.compose.ui.platform.LocalContext
 import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.datastore.ThemeMode
 import com.funsol.orbit.core.designsystem.FeatureAccent
@@ -66,8 +70,18 @@ private fun ThemeMode.accent(): FeatureAccent = when (this) {
 
 @Composable
 fun ThemeDialog(current: ThemeMode, onApply: (ThemeMode) -> Unit, onDismiss: () -> Unit) {
+    PostAnalytic(SettingsEvents.THEME_DIALOG_APPEAR)
+    val context = LocalContext.current
     var selected by rememberSaveable { mutableStateOf(current) }
     val guard = rememberClickGuard()
+    val applyTheme: () -> Unit = {
+        context.postAnalytic(SettingsEvents.THEME_APPLY_CLICK)
+        guard.run { onApply(selected) }
+    }
+    val cancelTheme: () -> Unit = {
+        context.postAnalytic(SettingsEvents.THEME_CANCEL_CLICK)
+        onDismiss()
+    }
 
     OrbitSheet(onDismiss = onDismiss) {
         Text(
@@ -86,7 +100,16 @@ fun ThemeDialog(current: ThemeMode, onApply: (ThemeMode) -> Unit, onDismiss: () 
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             ThemeMode.entries.forEach { mode ->
-                ThemeOptionRow(mode = mode, isSelected = mode == selected, onSelect = { selected = mode })
+                ThemeOptionRow(mode = mode, isSelected = mode == selected, onSelect = {
+                        context.postAnalytic(
+                            when (mode) {
+                                ThemeMode.SYSTEM -> SettingsEvents.THEME_SYSTEM_SELECT
+                                ThemeMode.LIGHT -> SettingsEvents.THEME_LIGHT_SELECT
+                                ThemeMode.DARK -> SettingsEvents.THEME_DARK_SELECT
+                            },
+                        )
+                        selected = mode
+                    })
             }
         }
         Spacer(Modifier.size(Spacing.md))
@@ -94,15 +117,15 @@ fun ThemeDialog(current: ThemeMode, onApply: (ThemeMode) -> Unit, onDismiss: () 
         val cancel = stringResource(R.string.action_cancel)
         if (isLargeFontScale()) {
             Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-                GradientButton(text = apply, onClick = { guard.run { onApply(selected) } }, modifier = Modifier.fillMaxWidth())
-                WellButton(text = cancel, onClick = onDismiss, modifier = Modifier.fillMaxWidth())
+                GradientButton(text = apply, onClick = applyTheme, modifier = Modifier.fillMaxWidth())
+                WellButton(text = cancel, onClick = cancelTheme, modifier = Modifier.fillMaxWidth())
             }
         } else {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                WellButton(text = cancel, onClick = onDismiss, modifier = Modifier.weight(1f))
+                WellButton(text = cancel, onClick = cancelTheme, modifier = Modifier.weight(1f))
                 GradientButton(
                     text = apply,
-                    onClick = { guard.run { onApply(selected) } },
+                    onClick = applyTheme,
                     modifier = Modifier.weight(1f),
                 )
             }

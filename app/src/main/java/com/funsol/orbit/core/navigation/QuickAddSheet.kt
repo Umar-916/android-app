@@ -35,6 +35,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.AnalyticsEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
+import androidx.compose.ui.platform.LocalContext
 import com.funsol.orbit.core.designsystem.FeatureAccent
 import com.funsol.orbit.core.designsystem.IconTile
 import com.funsol.orbit.core.designsystem.Orbit
@@ -46,19 +50,22 @@ private data class QuickAction(
     val icon: ImageVector,
     val accent: FeatureAccent,
     val destination: AppDestination,
+    val event: String,
 )
 
 private val ACTIONS = listOf(
-    QuickAction(R.string.dv3_new_task, Icons.Rounded.TaskAlt, FeatureAccent.TASKS, AppDestination.TaskEdit()),
-    QuickAction(R.string.dv3_new_note, Icons.AutoMirrored.Rounded.StickyNote2, FeatureAccent.NOTES, AppDestination.NoteEdit()),
-    QuickAction(R.string.dv3_new_habit, Icons.Rounded.LocalFireDepartment, FeatureAccent.HABITS, AppDestination.HabitEdit()),
-    QuickAction(R.string.dv3_new_project, Icons.Rounded.FolderCopy, FeatureAccent.PROJECTS, AppDestination.ProjectEdit()),
-    QuickAction(R.string.dv3_new_goal, Icons.Rounded.Flag, FeatureAccent.GOALS, AppDestination.GoalEdit()),
-    QuickAction(R.string.dv3_search, Icons.Rounded.Search, FeatureAccent.ANALYTICS, AppDestination.Search),
+    QuickAction(R.string.dv3_new_task, Icons.Rounded.TaskAlt, FeatureAccent.TASKS, AppDestination.TaskEdit(), AnalyticsEvents.QUICK_ADD_TASK_CLICK),
+    QuickAction(R.string.dv3_new_note, Icons.AutoMirrored.Rounded.StickyNote2, FeatureAccent.NOTES, AppDestination.NoteEdit(), AnalyticsEvents.QUICK_ADD_NOTE_CLICK),
+    QuickAction(R.string.dv3_new_habit, Icons.Rounded.LocalFireDepartment, FeatureAccent.HABITS, AppDestination.HabitEdit(), AnalyticsEvents.QUICK_ADD_HABIT_CLICK),
+    QuickAction(R.string.dv3_new_project, Icons.Rounded.FolderCopy, FeatureAccent.PROJECTS, AppDestination.ProjectEdit(), AnalyticsEvents.QUICK_ADD_PROJECT_CLICK),
+    QuickAction(R.string.dv3_new_goal, Icons.Rounded.Flag, FeatureAccent.GOALS, AppDestination.GoalEdit(), AnalyticsEvents.QUICK_ADD_GOAL_CLICK),
+    QuickAction(R.string.dv3_search, Icons.Rounded.Search, FeatureAccent.ANALYTICS, AppDestination.Search, AnalyticsEvents.QUICK_ADD_SEARCH_CLICK),
 )
 
 @Composable
 fun QuickAddSheet(nav: OrbitNavigator, onDismiss: () -> Unit) {
+    PostAnalytic(AnalyticsEvents.QUICK_ADD_SHEET_APPEAR)
+    val context = LocalContext.current
     val maxHeight = (LocalConfiguration.current.screenHeightDp * 0.72f).dp
     OrbitSheet(onDismiss = onDismiss) {
         Column(
@@ -82,6 +89,7 @@ fun QuickAddSheet(nav: OrbitNavigator, onDismiss: () -> Unit) {
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                     pair.forEach { action ->
                         QuickTile(action, Modifier.weight(1f)) {
+                            context.postAnalytic(action.event)
                             onDismiss()
                             nav.navigate(action.destination)
                         }

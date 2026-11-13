@@ -45,7 +45,11 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.platform.LocalContext
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.NotesEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.database.entity.NoteFolderEntity
 import com.funsol.orbit.core.designsystem.FeatureAccent
 import com.funsol.orbit.core.designsystem.GradientButton
@@ -66,7 +70,11 @@ fun FolderNameDialog(
 ) {
     var name by rememberSaveable { mutableStateOf(initialName) }
     val valid = name.isNotBlank()
+    val context = LocalContext.current
+    val confirm = { context.postAnalytic(NotesEvents.NOTES_FOLDER_CONFIRM_CLICK); onConfirm(name.trim()) }
+    val cancel = { context.postAnalytic(NotesEvents.NOTES_FOLDER_CANCEL_CLICK); onDismiss() }
     OrbitSheet(onDismiss) {
+        PostAnalytic(NotesEvents.NOTES_FOLDER_DIALOG_APPEAR)
         Text(title, style = MaterialTheme.typography.titleLarge, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
         Spacer(Modifier.height(Spacing.md))
         OrbitWell(Modifier.fillMaxWidth()) {
@@ -76,7 +84,7 @@ fun FolderNameDialog(
                 label = { Text(stringResource(R.string.notes_folder_name)) },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Sentences, imeAction = ImeAction.Done),
-                keyboardActions = KeyboardActions(onDone = { if (valid) onConfirm(name.trim()) }),
+                keyboardActions = KeyboardActions(onDone = { if (valid) confirm() }),
                 colors = TextFieldDefaults.colors(
                     focusedContainerColor = Color.Transparent,
                     unfocusedContainerColor = Color.Transparent,
@@ -88,10 +96,10 @@ fun FolderNameDialog(
         }
         Spacer(Modifier.height(Spacing.lg))
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            WellButton(stringResource(R.string.action_cancel), onDismiss, Modifier.weight(1f))
+            WellButton(stringResource(R.string.action_cancel), cancel, Modifier.weight(1f))
             GradientButton(
                 confirmLabel,
-                onClick = { onConfirm(name.trim()) },
+                onClick = confirm,
                 modifier = Modifier.weight(1f),
                 enabled = valid,
                 brush = Orbit.extras.accentGradient(FeatureAccent.NOTES),
@@ -109,7 +117,9 @@ fun FolderPickerDialog(
     onNewFolder: () -> Unit,
     onDismiss: () -> Unit,
 ) {
+    val context = LocalContext.current
     OrbitSheet(onDismiss) {
+        PostAnalytic(NotesEvents.NOTES_PICKER_DIALOG_APPEAR)
         Text(
             stringResource(R.string.notes_move_title),
             style = MaterialTheme.typography.titleLarge,
@@ -122,18 +132,28 @@ fun FolderPickerDialog(
             verticalArrangement = Arrangement.spacedBy(Spacing.sm),
         ) {
             item(key = "none", contentType = "folder") {
-                FolderOption(stringResource(R.string.notes_filter_none), selectedId == null) { onSelect(null) }
+                FolderOption(stringResource(R.string.notes_filter_none), selectedId == null) {
+                    context.postAnalytic(NotesEvents.NOTES_PICKER_SELECT)
+                    onSelect(null)
+                }
             }
             items(folders, key = { it.id }, contentType = { "folder" }) { folder ->
-                FolderOption(folder.name, selectedId == folder.id) { onSelect(folder.id) }
+                FolderOption(folder.name, selectedId == folder.id) {
+                    context.postAnalytic(NotesEvents.NOTES_PICKER_SELECT)
+                    onSelect(folder.id)
+                }
             }
         }
         Spacer(Modifier.height(Spacing.md))
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            WellButton(stringResource(R.string.action_cancel), onDismiss, Modifier.weight(1f))
+            WellButton(
+                stringResource(R.string.action_cancel),
+                { context.postAnalytic(NotesEvents.NOTES_PICKER_CANCEL_CLICK); onDismiss() },
+                Modifier.weight(1f),
+            )
             GradientButton(
                 stringResource(R.string.notes_new_folder_item),
-                onNewFolder,
+                { context.postAnalytic(NotesEvents.NOTES_PICKER_NEW_FOLDER_CLICK); onNewFolder() },
                 Modifier.weight(1f),
                 icon = Icons.Rounded.CreateNewFolder,
                 brush = Orbit.extras.accentGradient(FeatureAccent.NOTES),
@@ -177,7 +197,9 @@ private fun SheetAction(icon: ImageVector, accent: FeatureAccent, label: String,
 
 @Composable
 fun NoteActionsSheet(item: NoteItem, displayTitle: String, actions: NoteCardActions, onDismiss: () -> Unit) {
+    val context = LocalContext.current
     OrbitSheet(onDismiss) {
+        PostAnalytic(NotesEvents.NOTES_ACTIONS_SHEET_APPEAR)
         Text(
             displayTitle,
             style = MaterialTheme.typography.titleLarge,
@@ -193,17 +215,25 @@ fun NoteActionsSheet(item: NoteItem, displayTitle: String, actions: NoteCardActi
                     Icons.Rounded.PushPin,
                     FeatureAccent.NOTES,
                     stringResource(if (item.pinned) R.string.notes_unpin else R.string.notes_pin),
-                ) { onDismiss(); actions.onTogglePin(item) }
+                ) {
+                    context.postAnalytic(NotesEvents.NOTES_ACTION_PIN_CLICK)
+                    onDismiss(); actions.onTogglePin(item)
+                }
             }
             SheetAction(
                 if (item.archived) Icons.Rounded.Unarchive else Icons.Rounded.Archive,
                 FeatureAccent.PROJECTS,
                 stringResource(if (item.archived) R.string.action_unarchive else R.string.action_archive),
-            ) { onDismiss(); actions.onToggleArchive(item) }
+            ) {
+                context.postAnalytic(NotesEvents.NOTES_ACTION_ARCHIVE_CLICK)
+                onDismiss(); actions.onToggleArchive(item)
+            }
             SheetAction(Icons.Rounded.Folder, FeatureAccent.TASKS, stringResource(R.string.notes_move_to_folder)) {
+                context.postAnalytic(NotesEvents.NOTES_ACTION_MOVE_CLICK)
                 onDismiss(); actions.onMove(item)
             }
             SheetAction(Icons.Rounded.Delete, FeatureAccent.CALENDAR, stringResource(R.string.action_delete)) {
+                context.postAnalytic(NotesEvents.NOTES_ACTION_DELETE_CLICK)
                 onDismiss(); actions.onDelete(item)
             }
         }
@@ -219,7 +249,9 @@ fun NotesMenuSheet(
     onDeleteFolder: () -> Unit,
     onDismiss: () -> Unit,
 ) {
+    val context = LocalContext.current
     OrbitSheet(onDismiss) {
+        PostAnalytic(NotesEvents.NOTES_MENU_SHEET_APPEAR)
         Text(
             stringResource(R.string.action_more_options),
             style = MaterialTheme.typography.titleLarge,
@@ -229,13 +261,16 @@ fun NotesMenuSheet(
         Spacer(Modifier.height(Spacing.md))
         Column2 {
             SheetAction(Icons.Rounded.CreateNewFolder, FeatureAccent.NOTES, stringResource(R.string.notes_menu_new_folder)) {
+                context.postAnalytic(NotesEvents.NOTES_MENU_NEW_FOLDER_CLICK)
                 onDismiss(); onNewFolder()
             }
             if (canEditFolder) {
                 SheetAction(Icons.Rounded.DriveFileRenameOutline, FeatureAccent.PROJECTS, stringResource(R.string.notes_menu_rename_folder)) {
+                    context.postAnalytic(NotesEvents.NOTES_MENU_RENAME_FOLDER_CLICK)
                     onDismiss(); onRenameFolder()
                 }
                 SheetAction(Icons.Rounded.Delete, FeatureAccent.CALENDAR, stringResource(R.string.notes_menu_delete_folder)) {
+                    context.postAnalytic(NotesEvents.NOTES_MENU_DELETE_FOLDER_CLICK)
                     onDismiss(); onDeleteFolder()
                 }
             }

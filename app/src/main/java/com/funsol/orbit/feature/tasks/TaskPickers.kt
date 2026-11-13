@@ -34,6 +34,9 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.TasksEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.toEpochDayInt
 import com.funsol.orbit.core.common.toLocalDate
 import com.funsol.orbit.core.designsystem.GradientButton
@@ -59,6 +62,7 @@ private fun PickerSheet(
     onConfirm: () -> Unit,
     content: @Composable ColumnScope.() -> Unit,
 ) {
+    val context = LocalContext.current
     OrbitSheet(onDismiss) {
         Text(
             title,
@@ -71,8 +75,8 @@ private fun PickerSheet(
             Modifier.fillMaxWidth().padding(top = Spacing.md, bottom = Spacing.xs),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            WellButton(stringResource(R.string.action_cancel), onDismiss, Modifier.weight(1f))
-            GradientButton(stringResource(R.string.action_done), onConfirm, Modifier.weight(1f), enabled = confirmEnabled)
+            WellButton(stringResource(R.string.action_cancel), { context.postAnalytic(TasksEvents.TASKS_PICKER_CANCEL_CLICK); onDismiss() }, Modifier.weight(1f))
+            GradientButton(stringResource(R.string.action_done), { context.postAnalytic(TasksEvents.TASKS_PICKER_DONE_CLICK); onConfirm() }, Modifier.weight(1f), enabled = confirmEnabled)
         }
     }
 }
@@ -84,6 +88,7 @@ internal fun TaskDatePickerDialog(
     onDismiss: () -> Unit,
     onPick: (Int) -> Unit,
 ) {
+    PostAnalytic(TasksEvents.TASKS_DATE_PICKER_SHEET_APPEAR)
     val state = rememberDatePickerState(
         initialSelectedDateMillis = (initialEpochDay ?: LocalDate.now().toEpochDayInt()).toPickerMillis(),
     )
@@ -115,6 +120,7 @@ internal fun TaskDateRangePickerDialog(
     onDismiss: () -> Unit,
     onPick: (start: Int?, end: Int?) -> Unit,
 ) {
+    PostAnalytic(TasksEvents.TASKS_DATE_RANGE_SHEET_APPEAR)
     val state = rememberDateRangePickerState(
         initialSelectedStartDateMillis = initialStart?.toPickerMillis(),
         initialSelectedEndDateMillis = initialEnd?.toPickerMillis(),
@@ -147,6 +153,7 @@ internal fun TaskTimePickerDialog(
     onDismiss: () -> Unit,
     onPick: (Int) -> Unit,
 ) {
+    PostAnalytic(TasksEvents.TASKS_TIME_PICKER_SHEET_APPEAR)
     val context = LocalContext.current
     val initial = initialMinuteOfDay ?: (9 * 60)
     val state = rememberTimePickerState(

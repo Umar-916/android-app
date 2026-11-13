@@ -63,7 +63,11 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.compose.ui.platform.LocalContext
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.NotesEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.DateFormats
 import com.funsol.orbit.core.designsystem.ConfirmDialog
 import com.funsol.orbit.core.designsystem.FeatureAccent
@@ -85,6 +89,9 @@ fun NoteEditScreen(noteId: String?, presetFolderId: String?, nav: OrbitNavigator
     )
     val state by vm.state.collectAsStateWithLifecycle()
     val folders by vm.folders.collectAsStateWithLifecycle()
+
+    val context = LocalContext.current
+    PostAnalytic(NotesEvents.NOTE_EDIT_SCREEN_DISPLAY)
 
     var showDelete by remember { mutableStateOf(false) }
     var showPicker by remember { mutableStateOf(false) }
@@ -108,7 +115,10 @@ fun NoteEditScreen(noteId: String?, presetFolderId: String?, nav: OrbitNavigator
         topBar = {
             OrbitTopBar(
                 title = stringResource(R.string.notes_title),
-                onBack = ::leave,
+                onBack = {
+                    context.postAnalytic(NotesEvents.NOTE_EDIT_BACK_CLICK)
+                    leave()
+                },
                 accent = FeatureAccent.NOTES,
                 icon = Icons.AutoMirrored.Rounded.StickyNote2,
                 actions = {
@@ -126,10 +136,22 @@ fun NoteEditScreen(noteId: String?, presetFolderId: String?, nav: OrbitNavigator
                     EditorToolbar(
                         pinned = state.pinned,
                         archived = state.archived,
-                        onPin = { vm.onPinnedChange(!state.pinned) },
-                        onArchive = { vm.onArchivedChange(!state.archived) },
-                        onFolder = { showPicker = true },
-                        onDelete = { showDelete = true },
+                        onPin = {
+                            context.postAnalytic(NotesEvents.NOTE_EDIT_PIN_CLICK)
+                            vm.onPinnedChange(!state.pinned)
+                        },
+                        onArchive = {
+                            context.postAnalytic(NotesEvents.NOTE_EDIT_ARCHIVE_CLICK)
+                            vm.onArchivedChange(!state.archived)
+                        },
+                        onFolder = {
+                            context.postAnalytic(NotesEvents.NOTE_EDIT_FOLDER_CLICK)
+                            showPicker = true
+                        },
+                        onDelete = {
+                            context.postAnalytic(NotesEvents.NOTE_EDIT_DELETE_CLICK)
+                            showDelete = true
+                        },
                     )
                     EditorBody(
                         initialTitle = state.title,
@@ -148,13 +170,20 @@ fun NoteEditScreen(noteId: String?, presetFolderId: String?, nav: OrbitNavigator
     }
 
     if (showDelete) {
+        PostAnalytic(NotesEvents.NOTE_DELETE_DIALOG_APPEAR)
         ConfirmDialog(
             title = stringResource(R.string.note_delete_title),
             message = stringResource(R.string.note_delete_msg, state.title.trim().ifEmpty { untitled }),
             confirmLabel = stringResource(R.string.note_delete_confirm),
             destructive = true,
-            onConfirm = { showDelete = false; vm.delete() },
-            onDismiss = { showDelete = false },
+            onConfirm = {
+                context.postAnalytic(NotesEvents.NOTE_DELETE_CONFIRM_CLICK)
+                showDelete = false; vm.delete()
+            },
+            onDismiss = {
+                context.postAnalytic(NotesEvents.NOTE_DELETE_CANCEL_CLICK)
+                showDelete = false
+            },
         )
     }
     if (showPicker) {

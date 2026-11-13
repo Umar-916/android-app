@@ -56,6 +56,10 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.SettingsEvents
+import com.funsol.orbit.core.analytics.postAnalytic
+import androidx.compose.ui.platform.LocalContext
 import com.funsol.orbit.core.backup.BackupParseResult
 import com.funsol.orbit.core.backup.BackupSummary
 import com.funsol.orbit.core.common.DateFormats
@@ -87,6 +91,8 @@ private val RESTORE_MIME_TYPES = arrayOf("application/json", "text/plain", "appl
 
 @Composable
 fun BackupScreen(nav: OrbitNavigator) {
+    PostAnalytic(SettingsEvents.BACKUP_SCREEN_DISPLAY)
+    val context = LocalContext.current
     val viewModel: BackupViewModel = koinViewModel()
     val state = viewModel.uiState.collectAsStateWithLifecycle().value
     val busy = state.busy != null
@@ -111,6 +117,7 @@ fun BackupScreen(nav: OrbitNavigator) {
             OrbitTopBar(
                 stringResource(R.string.backup_title),
                 onBack = nav::back,
+                backEvent = SettingsEvents.BACKUP_BACK_CLICK,
                 accent = FeatureAccent.BACKUP,
                 icon = Icons.Rounded.Save,
             )
@@ -141,7 +148,7 @@ fun BackupScreen(nav: OrbitNavigator) {
                 ) {
                     GradientButton(
                         stringResource(R.string.backup_export_button),
-                        onClick = { guard.run { tryCatch { exportLauncher.launch(BackupIo.backupFileName(LocalDate.now())) } } },
+                        onClick = { context.postAnalytic(SettingsEvents.BACKUP_EXPORT_CLICK); guard.run { tryCatch { exportLauncher.launch(BackupIo.backupFileName(LocalDate.now())) } } },
                         modifier = Modifier.fillMaxWidth(),
                         enabled = !busy,
                         icon = Icons.Rounded.FileDownload,
@@ -157,7 +164,7 @@ fun BackupScreen(nav: OrbitNavigator) {
                 ) {
                     GradientButton(
                         stringResource(R.string.backup_restore_button),
-                        onClick = { guard.run { tryCatch { restoreLauncher.launch(RESTORE_MIME_TYPES) } } },
+                        onClick = { context.postAnalytic(SettingsEvents.BACKUP_RESTORE_CLICK); guard.run { tryCatch { restoreLauncher.launch(RESTORE_MIME_TYPES) } } },
                         modifier = Modifier.fillMaxWidth(),
                         enabled = !busy,
                         icon = Icons.Rounded.FileUpload,
@@ -173,13 +180,13 @@ fun BackupScreen(nav: OrbitNavigator) {
                 ) {
                     WellButton(
                         stringResource(R.string.backup_csv_tasks),
-                        onClick = { guard.run { tryCatch { tasksCsvLauncher.launch(BackupIo.tasksCsvFileName(LocalDate.now())) } } },
+                        onClick = { context.postAnalytic(SettingsEvents.BACKUP_CSV_TASKS_CLICK); guard.run { tryCatch { tasksCsvLauncher.launch(BackupIo.tasksCsvFileName(LocalDate.now())) } } },
                         modifier = Modifier.fillMaxWidth(),
                         enabled = !busy,
                     )
                     WellButton(
                         stringResource(R.string.backup_csv_habits),
-                        onClick = { guard.run { tryCatch { habitsCsvLauncher.launch(BackupIo.habitsCsvFileName(LocalDate.now())) } } },
+                        onClick = { context.postAnalytic(SettingsEvents.BACKUP_CSV_HABITS_CLICK); guard.run { tryCatch { habitsCsvLauncher.launch(BackupIo.habitsCsvFileName(LocalDate.now())) } } },
                         modifier = Modifier.fillMaxWidth(),
                         enabled = !busy,
                     )
@@ -286,6 +293,7 @@ private fun BusyCard(action: BackupAction?) {
 
 @Composable
 private fun ResultCard(message: BackupMessage, onDismiss: () -> Unit) {
+    val context = LocalContext.current
     val ok = message is BackupMessage.Success
     val tint = if (ok) SuccessGreen else MaterialTheme.colorScheme.error
     OrbitCard(
@@ -298,7 +306,10 @@ private fun ResultCard(message: BackupMessage, onDismiss: () -> Unit) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
             Icon(if (ok) Icons.Rounded.CheckCircle else Icons.Rounded.ErrorOutline, contentDescription = null, tint = tint)
             Text(messageText(message), style = MaterialTheme.typography.bodyMedium, modifier = Modifier.weight(1f))
-            TextButton(onClick = onDismiss) { Text(stringResource(R.string.action_close)) }
+            TextButton(onClick = {
+                context.postAnalytic(SettingsEvents.BACKUP_RESULT_CLOSE_CLICK)
+                onDismiss()
+            }) { Text(stringResource(R.string.action_close)) }
         }
     }
 }
@@ -327,8 +338,18 @@ private fun messageText(message: BackupMessage): String = stringResource(
 
 @Composable
 private fun RestoreConfirmSheet(summary: BackupSummary, onConfirm: () -> Unit, onDismiss: () -> Unit) {
+    PostAnalytic(SettingsEvents.BACKUP_RESTORE_DIALOG_APPEAR)
+    val context = LocalContext.current
+    val confirm: () -> Unit = {
+        context.postAnalytic(SettingsEvents.BACKUP_RESTORE_CONFIRM_CLICK)
+        onConfirm()
+    }
+    val cancel: () -> Unit = {
+        context.postAnalytic(SettingsEvents.BACKUP_RESTORE_CANCEL_CLICK)
+        onDismiss()
+    }
     val error = MaterialTheme.colorScheme.error
-    OrbitSheet(onDismiss) {
+    OrbitSheet(cancel) {
         Column(
             Modifier.fillMaxWidth().heightIn(max = 460.dp).verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(Spacing.sm),
@@ -389,18 +410,18 @@ private fun RestoreConfirmSheet(summary: BackupSummary, onConfirm: () -> Unit, o
             Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
                 GradientButton(
                     stringResource(R.string.backup_confirm_action),
-                    onConfirm,
+                    confirm,
                     Modifier.fillMaxWidth(),
                     brush = Brush.linearGradient(listOf(DangerRed, OrbitCoral)),
                 )
-                WellButton(stringResource(R.string.action_cancel), onDismiss, Modifier.fillMaxWidth())
+                WellButton(stringResource(R.string.action_cancel), cancel, Modifier.fillMaxWidth())
             }
         } else {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                WellButton(stringResource(R.string.action_cancel), onDismiss, Modifier.weight(1f))
+                WellButton(stringResource(R.string.action_cancel), cancel, Modifier.weight(1f))
                 GradientButton(
                     stringResource(R.string.backup_confirm_action),
-                    onConfirm,
+                    confirm,
                     Modifier.weight(1f),
                     brush = Brush.linearGradient(listOf(DangerRed, OrbitCoral)),
                 )

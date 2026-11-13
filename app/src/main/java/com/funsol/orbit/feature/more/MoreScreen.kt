@@ -43,6 +43,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.heading
@@ -52,6 +53,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.MoreEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.ClickGuard
 import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.designsystem.CardElevation
@@ -84,21 +88,24 @@ private class MoreTile(
     val title: Int,
     val desc: Int,
     val destination: AppDestination,
+    val event: String,
 )
 
 private val moreTiles = listOf(
-    MoreTile(Icons.Rounded.Folder, FeatureAccent.PROJECTS, R.string.more_projects_title, R.string.more_projects_desc, AppDestination.Projects),
-    MoreTile(Icons.AutoMirrored.Rounded.StickyNote2, FeatureAccent.NOTES, R.string.more_notes_title, R.string.more_notes_desc, AppDestination.Notes),
-    MoreTile(Icons.Rounded.Loop, FeatureAccent.HABITS, R.string.more_habits_title, R.string.more_habits_desc, AppDestination.Habits),
-    MoreTile(Icons.Rounded.Flag, FeatureAccent.GOALS, R.string.more_goals_title, R.string.more_goals_desc, AppDestination.Goals),
-    MoreTile(Icons.Rounded.BarChart, FeatureAccent.ANALYTICS, R.string.more_analytics_title, R.string.more_analytics_desc, AppDestination.Analytics),
-    MoreTile(Icons.Rounded.Search, FeatureAccent.HOME, R.string.more_search_title, R.string.more_search_desc, AppDestination.Search),
+    MoreTile(Icons.Rounded.Folder, FeatureAccent.PROJECTS, R.string.more_projects_title, R.string.more_projects_desc, AppDestination.Projects, MoreEvents.MORE_PROJECTS_CLICK),
+    MoreTile(Icons.AutoMirrored.Rounded.StickyNote2, FeatureAccent.NOTES, R.string.more_notes_title, R.string.more_notes_desc, AppDestination.Notes, MoreEvents.MORE_NOTES_CLICK),
+    MoreTile(Icons.Rounded.Loop, FeatureAccent.HABITS, R.string.more_habits_title, R.string.more_habits_desc, AppDestination.Habits, MoreEvents.MORE_HABITS_CLICK),
+    MoreTile(Icons.Rounded.Flag, FeatureAccent.GOALS, R.string.more_goals_title, R.string.more_goals_desc, AppDestination.Goals, MoreEvents.MORE_GOALS_CLICK),
+    MoreTile(Icons.Rounded.BarChart, FeatureAccent.ANALYTICS, R.string.more_analytics_title, R.string.more_analytics_desc, AppDestination.Analytics, MoreEvents.MORE_STATS_CLICK),
+    MoreTile(Icons.Rounded.Search, FeatureAccent.HOME, R.string.more_search_title, R.string.more_search_desc, AppDestination.Search, MoreEvents.MORE_SEARCH_CLICK),
 )
 
 private val heroShape = RoundedCornerShape(22.dp)
 
 @Composable
 fun MoreScreen(nav: OrbitNavigator) {
+    val context = LocalContext.current
+    PostAnalytic(MoreEvents.MORE_SCREEN_DISPLAY)
     val guard = rememberClickGuard()
     val singleColumn = isLargeFontScale()
     Scaffold(containerColor = MaterialTheme.colorScheme.background) { padding ->
@@ -113,10 +120,13 @@ fun MoreScreen(nav: OrbitNavigator) {
             ) {
                 BrandHero(Modifier.staggeredEntrance(0, withScale = true))
                 GroupTitle(stringResource(R.string.more_section_organize), Modifier.staggeredEntrance(1))
-                val onOpen: (AppDestination) -> Unit = { destination -> guard.run { nav.navigate(destination) } }
+                val onOpen: (MoreTile) -> Unit = { tile ->
+                    context.postAnalytic(tile.event)
+                    guard.run { nav.navigate(tile.destination) }
+                }
                 if (singleColumn) {
                     moreTiles.forEachIndexed { i, tile ->
-                        FeatureTile(tile, onClick = { onOpen(tile.destination) }, modifier = Modifier.fillMaxWidth().staggeredEntrance(2 + i))
+                        FeatureTile(tile, onClick = { onOpen(tile) }, modifier = Modifier.fillMaxWidth().staggeredEntrance(2 + i))
                     }
                 } else {
                     moreTiles.chunked(2).forEachIndexed { row, pair ->
@@ -127,7 +137,7 @@ fun MoreScreen(nav: OrbitNavigator) {
                             pair.forEachIndexed { col, tile ->
                                 FeatureTile(
                                     tile,
-                                    onClick = { onOpen(tile.destination) },
+                                    onClick = { onOpen(tile) },
                                     modifier = Modifier.weight(1f).fillMaxHeight().staggeredEntrance(2 + row * 2 + col, withScale = true),
                                 )
                             }
@@ -260,13 +270,17 @@ private fun FeatureTile(tile: MoreTile, onClick: () -> Unit, modifier: Modifier 
 
 @Composable
 private fun AppCard(nav: OrbitNavigator, guard: ClickGuard, modifier: Modifier = Modifier) {
+    val context = LocalContext.current
     OrbitCard(modifier = modifier.fillMaxWidth(), contentPadding = PaddingValues(vertical = Spacing.xs)) {
         SettingsRow(
             icon = Icons.Rounded.Settings,
             accent = FeatureAccent.SETTINGS,
             title = stringResource(R.string.more_settings_title),
             subtitle = stringResource(R.string.more_settings_desc),
-            onClick = { guard.run { nav.navigate(AppDestination.Settings) } },
+            onClick = {
+                context.postAnalytic(MoreEvents.MORE_SETTINGS_CLICK)
+                guard.run { nav.navigate(AppDestination.Settings) }
+            },
         )
         SettingsDivider()
         SettingsRow(
@@ -274,7 +288,10 @@ private fun AppCard(nav: OrbitNavigator, guard: ClickGuard, modifier: Modifier =
             accent = FeatureAccent.BACKUP,
             title = stringResource(R.string.more_backup_title),
             subtitle = stringResource(R.string.more_backup_desc),
-            onClick = { guard.run { nav.navigate(AppDestination.Backup) } },
+            onClick = {
+                context.postAnalytic(MoreEvents.MORE_BACKUP_CLICK)
+                guard.run { nav.navigate(AppDestination.Backup) }
+            },
         )
         SettingsDivider()
         SettingsRow(
@@ -282,7 +299,10 @@ private fun AppCard(nav: OrbitNavigator, guard: ClickGuard, modifier: Modifier =
             accent = FeatureAccent.PRIVACY,
             title = stringResource(R.string.more_privacy_title),
             subtitle = stringResource(R.string.more_privacy_desc),
-            onClick = { guard.run { nav.navigate(AppDestination.Privacy) } },
+            onClick = {
+                context.postAnalytic(MoreEvents.MORE_PRIVACY_CLICK)
+                guard.run { nav.navigate(AppDestination.Privacy) }
+            },
         )
     }
 }

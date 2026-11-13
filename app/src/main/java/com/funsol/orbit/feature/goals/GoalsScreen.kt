@@ -50,6 +50,10 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.R
+import androidx.compose.ui.platform.LocalContext
+import com.funsol.orbit.core.analytics.GoalsEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.ClickGuard
 import com.funsol.orbit.core.common.GoalMath
 import com.funsol.orbit.core.common.rememberClickGuard
@@ -74,6 +78,8 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun GoalsScreen(nav: OrbitNavigator) {
+    PostAnalytic(GoalsEvents.GOALS_SCREEN_DISPLAY)
+    val context = LocalContext.current
     val vm: GoalsViewModel = koinViewModel()
     val state by vm.state.collectAsStateWithLifecycle()
     var showArchived by rememberSaveable { mutableStateOf(false) }
@@ -102,7 +108,10 @@ fun GoalsScreen(nav: OrbitNavigator) {
             OrbitTopBar(
                 scrolled = scrolled,
                 title = stringResource(R.string.goals_title),
-                onBack = { guard.run(nav::back) },
+                onBack = {
+                    context.postAnalytic(GoalsEvents.GOALS_BACK_CLICK)
+                    guard.run(nav::back)
+                },
                 accent = FeatureAccent.GOALS,
                 icon = Icons.Rounded.EmojiEvents,
             )
@@ -111,7 +120,10 @@ fun GoalsScreen(nav: OrbitNavigator) {
             GradientFab(
                 icon = Icons.Rounded.Add,
                 contentDescription = stringResource(R.string.goals_new),
-                onClick = { guard.run { nav.navigate(AppDestination.GoalEdit()) } },
+                onClick = {
+                    context.postAnalytic(GoalsEvents.GOALS_ADD_FAB_CLICK)
+                    guard.run { nav.navigate(AppDestination.GoalEdit()) }
+                },
                 brush = Orbit.extras.accentGradient(FeatureAccent.GOALS),
             )
         },
@@ -119,13 +131,22 @@ fun GoalsScreen(nav: OrbitNavigator) {
         CenteredContent(Modifier.padding(padding)) {
             when {
                 state.loading -> LoadingState()
-                state.error -> ErrorState(stringResource(R.string.error_generic), onRetry = vm::retry)
+                state.error -> ErrorState(
+                    stringResource(R.string.error_generic),
+                    onRetry = {
+                        context.postAnalytic(GoalsEvents.GOALS_RETRY_CLICK)
+                        vm.retry()
+                    },
+                )
                 state.isEmpty -> EmptyState(
                     icon = Icons.Rounded.EmojiEvents,
                     title = stringResource(R.string.goals_empty_title),
                     message = stringResource(R.string.goals_empty_message),
                     actionLabel = stringResource(R.string.goals_new),
-                    onAction = { guard.run { nav.navigate(AppDestination.GoalEdit()) } },
+                    onAction = {
+                        context.postAnalytic(GoalsEvents.GOALS_EMPTY_ADD_CLICK)
+                        guard.run { nav.navigate(AppDestination.GoalEdit()) }
+                    },
                     accent = FeatureAccent.GOALS,
                 )
                 else -> LazyColumn(
@@ -160,7 +181,10 @@ fun GoalsScreen(nav: OrbitNavigator) {
                     }
                     if (sections.archived.isNotEmpty()) {
                         item(key = "archived_toggle", contentType = "toggle") {
-                            ArchivedToggle(sections.archived.size, showArchived, Modifier.padding(top = Spacing.sm)) { showArchived = !showArchived }
+                            ArchivedToggle(sections.archived.size, showArchived, Modifier.padding(top = Spacing.sm)) {
+                                context.postAnalytic(GoalsEvents.GOALS_ARCHIVED_SECTION_TOGGLE)
+                                showArchived = !showArchived
+                            }
                         }
                         if (showArchived) goalItems(sections.archived, state.todayEpochDay, nav, guard, onUpdate = {})
                     }
@@ -186,12 +210,19 @@ private fun LazyListScope.goalItems(
     onUpdate: (String) -> Unit,
 ) {
     items(goals.size, key = { goals[it].id }, contentType = { "goal" }) { index ->
+        val context = LocalContext.current
         val goal = goals[index]
         GoalCard(
             goal = goal,
             todayEpochDay = todayEpochDay,
-            onClick = { guard.run { nav.navigate(AppDestination.GoalEdit(goal.id)) } },
-            onUpdate = { onUpdate(goal.id) },
+            onClick = {
+                context.postAnalytic(GoalsEvents.GOALS_CARD_CLICK)
+                guard.run { nav.navigate(AppDestination.GoalEdit(goal.id)) }
+            },
+            onUpdate = {
+                context.postAnalytic(GoalsEvents.GOALS_UPDATE_PROGRESS_CLICK)
+                onUpdate(goal.id)
+            },
             modifier = Modifier.animateItem(),
         )
     }

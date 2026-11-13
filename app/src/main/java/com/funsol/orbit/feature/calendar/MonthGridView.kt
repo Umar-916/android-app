@@ -43,6 +43,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -56,6 +57,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.CalendarEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.DateFormats
 import com.funsol.orbit.core.common.toEpochDayInt
 import com.funsol.orbit.core.designsystem.FeatureAccent
@@ -79,6 +82,7 @@ internal fun MonthCard(
     onToday: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val context = LocalContext.current
     val rtl = LocalLayoutDirection.current == LayoutDirection.Rtl
     var drag by remember { mutableFloatStateOf(0f) }
     val showTodayChip = state.selected != state.today || state.month != YearMonth.from(state.today)
@@ -87,9 +91,18 @@ internal fun MonthCard(
         MonthHeader(
             month = state.month,
             showToday = showTodayChip,
-            onPrev = { onShift(-1) },
-            onNext = { onShift(1) },
-            onToday = onToday,
+            onPrev = {
+                context.postAnalytic(CalendarEvents.CALENDAR_PREV_MONTH_CLICK)
+                onShift(-1)
+            },
+            onNext = {
+                context.postAnalytic(CalendarEvents.CALENDAR_NEXT_MONTH_CLICK)
+                onShift(1)
+            },
+            onToday = {
+                context.postAnalytic(CalendarEvents.CALENDAR_TODAY_CLICK)
+                onToday()
+            },
         )
         Column(Modifier.padding(horizontal = Spacing.sm, vertical = Spacing.sm)) {
             WeekdayHeader(firstDayOfWeek)

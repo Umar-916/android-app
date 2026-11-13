@@ -43,6 +43,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.R
+import androidx.compose.ui.platform.LocalContext
+import com.funsol.orbit.core.analytics.GoalsEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.database.entity.GoalStatus
 import com.funsol.orbit.core.designsystem.ConfirmDialog
@@ -66,6 +70,8 @@ import org.koin.core.parameter.parametersOf
 
 @Composable
 fun GoalEditScreen(goalId: String?, nav: OrbitNavigator) {
+    PostAnalytic(GoalsEvents.GOALS_EDIT_SCREEN_DISPLAY)
+    val context = LocalContext.current
     val vm: GoalEditViewModel = koinViewModel(key = "goal_edit_$goalId", parameters = { parametersOf(goalId) })
     val state by vm.state.collectAsStateWithLifecycle()
     var showDiscard by rememberSaveable { mutableStateOf(false) }
@@ -85,6 +91,7 @@ fun GoalEditScreen(goalId: String?, nav: OrbitNavigator) {
     LaunchedEffect(state.finished) { if (state.finished) nav.back() }
     val guarded = state.dirty && !state.finished
     val requestBack: () -> Unit = {
+        context.postAnalytic(GoalsEvents.GOALS_EDIT_BACK_CLICK)
         if (guarded) {
             showDiscard = true
         } else {
@@ -102,7 +109,10 @@ fun GoalEditScreen(goalId: String?, nav: OrbitNavigator) {
                 onBack = requestBack,
                 accent = FeatureAccent.GOALS,
             ) {
-                TextButton(onClick = vm::save, enabled = !state.saving && !state.loading && !state.loadError) {
+                TextButton(onClick = {
+                    context.postAnalytic(GoalsEvents.GOALS_EDIT_TOP_SAVE_CLICK)
+                    vm.save()
+                }, enabled = !state.saving && !state.loading && !state.loadError) {
                     Text(stringResource(R.string.action_save))
                 }
             }
@@ -111,23 +121,59 @@ fun GoalEditScreen(goalId: String?, nav: OrbitNavigator) {
         CenteredContent(Modifier.padding(padding)) {
             when {
                 state.loading -> LoadingState()
-                state.loadError -> ErrorState(stringResource(R.string.error_generic), onRetry = vm::load)
+                state.loadError -> ErrorState(
+                    stringResource(R.string.error_generic),
+                    onRetry = {
+                        context.postAnalytic(GoalsEvents.GOALS_EDIT_RETRY_CLICK)
+                        vm.load()
+                    },
+                )
                 state.notFound -> ErrorState(stringResource(R.string.goals_not_found))
-                else -> GoalFormContent(state, vm::update, onSave = vm::save, onDelete = { showDelete = true })
+                else -> GoalFormContent(
+                    state,
+                    vm::update,
+                    onSave = {
+                        context.postAnalytic(GoalsEvents.GOALS_EDIT_SAVE_CLICK)
+                        vm.save()
+                    },
+                    onDelete = {
+                        context.postAnalytic(GoalsEvents.GOALS_EDIT_DELETE_CLICK)
+                        showDelete = true
+                    },
+                )
             }
         }
     }
 
     if (showDiscard) {
-        DiscardChangesDialog(onDiscard = { showDiscard = false; guard.run(nav::back) }, onKeepEditing = { showDiscard = false })
+        PostAnalytic(GoalsEvents.GOALS_DISCARD_DIALOG_APPEAR)
+        DiscardChangesDialog(
+            onDiscard = {
+                context.postAnalytic(GoalsEvents.GOALS_DISCARD_CONFIRM_CLICK)
+                showDiscard = false
+                guard.run(nav::back)
+            },
+            onKeepEditing = {
+                context.postAnalytic(GoalsEvents.GOALS_DISCARD_KEEP_CLICK)
+                showDiscard = false
+            },
+        )
     }
     if (showDelete) {
+        PostAnalytic(GoalsEvents.GOALS_DELETE_DIALOG_APPEAR)
         ConfirmDialog(
             title = stringResource(R.string.goals_delete_title, state.initial.title),
             message = stringResource(R.string.goals_delete_message, state.initial.title),
             confirmLabel = stringResource(R.string.goals_delete_confirm),
-            onConfirm = { showDelete = false; guard.run(vm::delete) },
-            onDismiss = { showDelete = false },
+            onConfirm = {
+                context.postAnalytic(GoalsEvents.GOALS_DELETE_CONFIRM_CLICK)
+                showDelete = false
+                guard.run(vm::delete)
+            },
+            onDismiss = {
+                context.postAnalytic(GoalsEvents.GOALS_DELETE_CANCEL_CLICK)
+                showDelete = false
+            },
             destructive = true,
         )
     }
@@ -148,6 +194,7 @@ private fun GoalFormContent(
     onSave: () -> Unit,
     onDelete: () -> Unit,
 ) {
+    val context = LocalContext.current
     val form = state.form
     val titleError = state.showErrors && state.titleInvalid
     val targetError = numberFieldError(state.targetResult, form.targetText, state.showErrors)
@@ -207,12 +254,18 @@ private fun GoalFormContent(
             OrbitDateField(
                 label = stringResource(R.string.goals_field_start),
                 epochDay = form.startDate,
-                onChange = { d -> onChange { it.copy(startDate = d) } },
+                onChange = { d ->
+                    context.postAnalytic(GoalsEvents.GOALS_EDIT_START_DATE_SELECT)
+                    onChange { it.copy(startDate = d) }
+                },
             )
             OrbitDateField(
                 label = stringResource(R.string.goals_field_target_date),
                 epochDay = form.targetDate,
-                onChange = { d -> onChange { it.copy(targetDate = d) } },
+                onChange = { d ->
+                    context.postAnalytic(GoalsEvents.GOALS_EDIT_TARGET_DATE_SELECT)
+                    onChange { it.copy(targetDate = d) }
+                },
                 errorText = if (state.dateRangeInvalid) stringResource(R.string.goals_error_target_before_start) else null,
             )
         }
@@ -221,7 +274,10 @@ private fun GoalFormContent(
                 GoalStatus.entries.forEach { status ->
                     FilterChip(
                         selected = form.status == status,
-                        onClick = { onChange { it.copy(status = status) } },
+                        onClick = {
+                            context.postAnalytic(GoalsEvents.GOALS_EDIT_STATUS_SELECT)
+                            onChange { it.copy(status = status) }
+                        },
                         label = { Text(stringResource(statusLabel(status))) },
                         colors = orbitChipColors(),
                         border = null,

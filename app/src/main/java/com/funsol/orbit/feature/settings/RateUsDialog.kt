@@ -86,6 +86,9 @@ import androidx.compose.ui.window.DialogProperties
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.SettingsEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.openInPlayStore
 import com.funsol.orbit.core.common.tryCatch
 import com.funsol.orbit.core.datastore.SettingsStore
@@ -134,11 +137,16 @@ private fun reactionFor(rating: Int): Int = when (rating) {
 
 @Composable
 fun RateUsDialog(onDismiss: () -> Unit, onOpenFeedback: (() -> Unit)?) {
+    PostAnalytic(SettingsEvents.RATE_US_DIALOG_APPEAR)
     val vm: RateUsViewModel = koinViewModel()
     val context = LocalContext.current
     var rating by rememberSaveable { mutableIntStateOf(0) }
     var lowRatingSubmitted by rememberSaveable { mutableStateOf(false) }
     var submitted by rememberSaveable { mutableStateOf(false) }
+    val dismiss: () -> Unit = {
+        context.postAnalytic(SettingsEvents.RATE_US_CLOSE_CLICK)
+        onDismiss()
+    }
 
     fun submit() {
         if (submitted) return
@@ -158,14 +166,14 @@ fun RateUsDialog(onDismiss: () -> Unit, onOpenFeedback: (() -> Unit)?) {
     }
 
     Dialog(
-        onDismissRequest = onDismiss,
+        onDismissRequest = dismiss,
         properties = DialogProperties(usePlatformDefaultWidth = false),
     ) {
         val visible = remember { MutableTransitionState(false).apply { targetState = true } }
         Box(
             Modifier
                 .fillMaxSize()
-                .clickable(interactionSource = remember { MutableInteractionSource() }, indication = null, onClick = onDismiss)
+                .clickable(interactionSource = remember { MutableInteractionSource() }, indication = null, onClick = dismiss)
                 .statusBarsPadding()
                 .navigationBarsPadding()
                 .padding(8.dp),
@@ -175,13 +183,21 @@ fun RateUsDialog(onDismiss: () -> Unit, onOpenFeedback: (() -> Unit)?) {
                 visibleState = visible,
                 enter = fadeIn(tween(250)) + slideInVertically(tween(380, easing = FastOutSlowInEasing)) { it / 3 },
             ) {
-                RateSheet(thanks = lowRatingSubmitted, onClose = onDismiss) {
+                RateSheet(thanks = lowRatingSubmitted, onClose = dismiss) {
                     if (!lowRatingSubmitted) {
                         RateForm(
                             rating = rating,
                             enabled = !submitted,
-                            onRate = { if (!submitted) rating = it },
-                            onSubmit = ::submit,
+                            onRate = {
+                                if (!submitted) {
+                                    rating = it
+                                    context.postAnalytic(SettingsEvents.rateStarEvent(it))
+                                }
+                            },
+                            onSubmit = {
+                                context.postAnalytic(SettingsEvents.RATE_US_SUBMIT_CLICK)
+                                submit()
+                            },
                         )
                     } else {
                         RateThanks(onDismiss = onDismiss, onOpenFeedback = onOpenFeedback)
@@ -307,6 +323,8 @@ private fun RateSubmitButton(text: String, onClick: () -> Unit, enabled: Boolean
 
 @Composable
 private fun RateThanks(onDismiss: () -> Unit, onOpenFeedback: (() -> Unit)?) {
+    PostAnalytic(SettingsEvents.RATE_US_LOW_RATING_APPEAR)
+    val context = LocalContext.current
     Column(
         Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -332,6 +350,7 @@ private fun RateThanks(onDismiss: () -> Unit, onOpenFeedback: (() -> Unit)?) {
             RateSubmitButton(
                 text = stringResource(R.string.rate_improve),
                 onClick = {
+                    context.postAnalytic(SettingsEvents.RATE_US_IMPROVE_CLICK)
                     onDismiss()
                     onOpenFeedback()
                 },
@@ -341,7 +360,10 @@ private fun RateThanks(onDismiss: () -> Unit, onOpenFeedback: (() -> Unit)?) {
         }
         WellButton(
             text = stringResource(R.string.action_close),
-            onClick = onDismiss,
+            onClick = {
+                context.postAnalytic(SettingsEvents.RATE_US_LOW_RATING_CLOSE_CLICK)
+                onDismiss()
+            },
             modifier = Modifier.fillMaxWidth(),
         )
     }

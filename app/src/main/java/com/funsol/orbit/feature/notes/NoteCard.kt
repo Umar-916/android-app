@@ -29,7 +29,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.platform.LocalContext
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.NotesEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.DateFormats
 import com.funsol.orbit.core.designsystem.CardElevation
 import com.funsol.orbit.core.designsystem.CardStyle
@@ -67,9 +70,10 @@ fun NoteCard(item: NoteItem, actions: NoteCardActions, modifier: Modifier = Modi
     val accent = noteAccentFor(item.id)
     val tint = extras.accent(accent)
     var sheet by remember { mutableStateOf(false) }
+    val context = LocalContext.current
 
     OrbitCard(
-        onClick = { actions.onOpen(item) },
+        onClick = { context.postAnalytic(NotesEvents.NOTES_CARD_CLICK); actions.onOpen(item) },
         modifier = modifier.fillMaxWidth(),
         contentPadding = PaddingValues(0.dp),
         tint = tint,
@@ -107,7 +111,7 @@ fun NoteCard(item: NoteItem, actions: NoteCardActions, modifier: Modifier = Modi
                     overflow = TextOverflow.Ellipsis,
                     modifier = Modifier.weight(1f).padding(vertical = Spacing.sm),
                 )
-                IconButton(onClick = { sheet = true }) {
+                IconButton(onClick = { context.postAnalytic(NotesEvents.NOTES_CARD_OPTIONS_CLICK); sheet = true }) {
                     Icon(Icons.Rounded.MoreVert, contentDescription = stringResource(R.string.notes_card_options, displayTitle))
                 }
             }

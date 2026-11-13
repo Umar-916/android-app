@@ -70,6 +70,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -81,6 +82,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.TasksEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.RecurrenceType
 import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.common.toEpochDayInt
@@ -103,6 +107,8 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun TasksScreen(nav: OrbitNavigator) {
+    PostAnalytic(TasksEvents.TASKS_SCREEN_DISPLAY)
+    val context = LocalContext.current
     val vm: TasksViewModel = koinViewModel()
     val state by vm.uiState.collectAsStateWithLifecycle()
     val query by vm.query.collectAsStateWithLifecycle()
@@ -120,9 +126,9 @@ fun TasksScreen(nav: OrbitNavigator) {
             scope.launch {
                 when (event) {
                     is TasksEvent.Deleted ->
-                        if (snackbar.showSnackbar(deletedMsg, undoLabel, withDismissAction = true, duration = SnackbarDuration.Long) == SnackbarResult.ActionPerformed) vm.undoDelete(event)
+                        if (snackbar.showSnackbar(deletedMsg, undoLabel, withDismissAction = true, duration = SnackbarDuration.Long) == SnackbarResult.ActionPerformed) { context.postAnalytic(TasksEvents.TASKS_DELETE_UNDO_CLICK); vm.undoDelete(event) }
                     is TasksEvent.Archived ->
-                        if (snackbar.showSnackbar(archivedMsg, undoLabel, withDismissAction = true, duration = SnackbarDuration.Long) == SnackbarResult.ActionPerformed) vm.undoArchive(event)
+                        if (snackbar.showSnackbar(archivedMsg, undoLabel, withDismissAction = true, duration = SnackbarDuration.Long) == SnackbarResult.ActionPerformed) { context.postAnalytic(TasksEvents.TASKS_ARCHIVE_UNDO_CLICK); vm.undoArchive(event) }
                     TasksEvent.Failed -> snackbar.showSnackbar(failedMsg)
                 }
             }
@@ -136,13 +142,14 @@ fun TasksScreen(nav: OrbitNavigator) {
     val guard = rememberClickGuard()
     val actions = remember(vm, nav) {
         TaskRowActions(
-            onOpen = { task -> guard.run { nav.navigate(AppDestination.TaskEdit(taskId = task.id)) } },
-            onToggle = { task, checked -> vm.onToggleComplete(task, checked) },
-            onMarkInProgress = vm::onMarkInProgress,
-            onReopen = vm::onReopen,
-            onArchive = vm::onArchive,
-            onRestore = vm::onRestore,
+            onOpen = { task -> context.postAnalytic(TasksEvents.TASKS_ROW_OPEN_CLICK); guard.run { nav.navigate(AppDestination.TaskEdit(taskId = task.id)) } },
+            onToggle = { task, checked -> context.postAnalytic(TasksEvents.TASKS_ROW_COMPLETE_TOGGLE); vm.onToggleComplete(task, checked) },
+            onMarkInProgress = { task -> context.postAnalytic(TasksEvents.TASKS_MENU_IN_PROGRESS_CLICK); vm.onMarkInProgress(task) },
+            onReopen = { task -> context.postAnalytic(TasksEvents.TASKS_MENU_REOPEN_CLICK); vm.onReopen(task) },
+            onArchive = { task -> context.postAnalytic(TasksEvents.TASKS_MENU_ARCHIVE_CLICK); vm.onArchive(task) },
+            onRestore = { task -> context.postAnalytic(TasksEvents.TASKS_MENU_RESTORE_CLICK); vm.onRestore(task) },
             onDelete = { task ->
+                context.postAnalytic(TasksEvents.TASKS_MENU_DELETE_CLICK)
                 if (task.recurrenceType != RecurrenceType.NONE) pendingDeleteId = task.id else vm.onDelete(task)
             },
         )
@@ -164,7 +171,7 @@ fun TasksScreen(nav: OrbitNavigator) {
                     ToolbarButton(
                         icon = Icons.AutoMirrored.Rounded.Sort,
                         description = stringResource(R.string.tasks_sort_action),
-                        onClick = { showSort = true },
+                        onClick = { context.postAnalytic(TasksEvents.TASKS_SORT_CLICK); showSort = true },
                     )
                     val active = state.filters.activeCount
                     ToolbarButton(
@@ -175,7 +182,7 @@ fun TasksScreen(nav: OrbitNavigator) {
                             stringResource(R.string.tasks_filter_action)
                         },
                         badge = active,
-                        onClick = { showFilters = true },
+                        onClick = { context.postAnalytic(TasksEvents.TASKS_FILTER_CLICK); showFilters = true },
                     )
                 },
             )
@@ -184,7 +191,7 @@ fun TasksScreen(nav: OrbitNavigator) {
             GradientFab(
                 icon = Icons.Rounded.Add,
                 contentDescription = stringResource(R.string.tasks_new),
-                onClick = { guard.run { nav.navigate(AppDestination.TaskEdit()) } },
+                onClick = { context.postAnalytic(TasksEvents.TASKS_NEW_FAB_CLICK); guard.run { nav.navigate(AppDestination.TaskEdit()) } },
                 label = if (scrolled) null else stringResource(R.string.tasks_new),
                 brush = Orbit.extras.accentGradient(FeatureAccent.TASKS),
             )
@@ -194,18 +201,18 @@ fun TasksScreen(nav: OrbitNavigator) {
         Box(Modifier.padding(inner).fillMaxSize(), contentAlignment = Alignment.TopCenter) {
             Column(Modifier.widthIn(max = 720.dp).fillMaxSize()) {
                 SearchField(query, vm::setQuery)
-                ViewChips(state, vm::setView)
+                ViewChips(state) { context.postAnalytic(TasksEvents.TASKS_VIEW_SELECT); vm.setView(it) }
                 SummaryStrip(state)
-                FilterSummaryBar(state.filters.activeCount, vm::clearFilters)
+                FilterSummaryBar(state.filters.activeCount) { context.postAnalytic(TasksEvents.TASKS_FILTERS_CLEAR_CLICK); vm.clearFilters() }
                 when {
                     state.loading -> LoadingState()
-                    state.error -> ErrorState(stringResource(R.string.tasks_error_load), onRetry = vm::retry)
+                    state.error -> ErrorState(stringResource(R.string.tasks_error_load), onRetry = { context.postAnalytic(TasksEvents.TASKS_RETRY_CLICK); vm.retry() })
                     state.items.isEmpty() -> TasksEmpty(
                         state = state,
                         hasQuery = state.hasQuery,
-                        onNewTask = { guard.run { nav.navigate(AppDestination.TaskEdit()) } },
-                        onNewTaskToday = { guard.run { nav.navigate(AppDestination.TaskEdit(presetDate = state.today.toEpochDayInt())) } },
-                        onClearFilters = vm::clearSearchAndFilters,
+                        onNewTask = { context.postAnalytic(TasksEvents.TASKS_EMPTY_NEW_CLICK); guard.run { nav.navigate(AppDestination.TaskEdit()) } },
+                        onNewTaskToday = { context.postAnalytic(TasksEvents.TASKS_EMPTY_NEW_TODAY_CLICK); guard.run { nav.navigate(AppDestination.TaskEdit(presetDate = state.today.toEpochDayInt())) } },
+                        onClearFilters = { context.postAnalytic(TasksEvents.TASKS_EMPTY_CLEAR_CLICK); vm.clearSearchAndFilters() },
                     )
                     else -> LazyColumn(
                         state = listState,
@@ -227,7 +234,7 @@ fun TasksScreen(nav: OrbitNavigator) {
             sort = state.sort,
             onField = vm::setSortField,
             onReverse = vm::toggleSortReversed,
-            onDismiss = { showSort = false },
+            onDismiss = { context.postAnalytic(TasksEvents.TASKS_SORT_DISMISS_CLICK); showSort = false },
         )
     }
     if (showFilters) {
@@ -236,19 +243,20 @@ fun TasksScreen(nav: OrbitNavigator) {
             projects = state.projects,
             onChange = vm::setFilters,
             onClear = vm::clearFilters,
-            onDismiss = { showFilters = false },
+            onDismiss = { context.postAnalytic(TasksEvents.TASKS_FILTER_DISMISS_CLICK); showFilters = false },
         )
     }
 
     val pendingDelete = pendingDeleteId?.let { id -> state.items.firstOrNull { it.task.id == id }?.task }
     if (pendingDelete != null) {
+        PostAnalytic(TasksEvents.TASKS_DELETE_RECURRING_DIALOG_APPEAR)
         ConfirmDialog(
             title = stringResource(R.string.tasks_delete_recurring_title),
             message = stringResource(R.string.tasks_delete_recurring_message, pendingDelete.title),
             confirmLabel = stringResource(R.string.tasks_delete_confirm),
             destructive = true,
-            onConfirm = { pendingDeleteId = null; vm.onDelete(pendingDelete) },
-            onDismiss = { pendingDeleteId = null },
+            onConfirm = { context.postAnalytic(TasksEvents.TASKS_DELETE_RECURRING_CONFIRM_CLICK); pendingDeleteId = null; vm.onDelete(pendingDelete) },
+            onDismiss = { context.postAnalytic(TasksEvents.TASKS_DELETE_RECURRING_CANCEL_CLICK); pendingDeleteId = null },
         )
     }
 }
@@ -287,6 +295,7 @@ private fun ToolbarButton(icon: ImageVector, description: String, onClick: () ->
 
 @Composable
 private fun SearchField(query: String, onChange: (String) -> Unit) {
+    val context = LocalContext.current
     val keyboard = LocalSoftwareKeyboardController.current
     OrbitWell(
         Modifier.fillMaxWidth().padding(horizontal = Spacing.md, vertical = Spacing.xs),
@@ -301,7 +310,7 @@ private fun SearchField(query: String, onChange: (String) -> Unit) {
             leadingIcon = { Icon(Icons.Rounded.Search, contentDescription = null, tint = Orbit.extras.accent(FeatureAccent.TASKS)) },
             trailingIcon = {
                 if (query.isNotEmpty()) {
-                    IconButton(onClick = { onChange("") }) {
+                    IconButton(onClick = { context.postAnalytic(TasksEvents.TASKS_SEARCH_CLEAR_CLICK); onChange("") }) {
                         Icon(Icons.Rounded.Close, contentDescription = stringResource(R.string.action_clear))
                     }
                 }

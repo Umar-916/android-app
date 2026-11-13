@@ -55,8 +55,12 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.style.TextOverflow
+import com.funsol.orbit.core.analytics.CalendarEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.rememberClickGuard
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -95,6 +99,8 @@ private val TIMELINE_LABEL_WIDTH = 60.dp
 
 @Composable
 fun CalendarScreen(nav: OrbitNavigator) {
+    PostAnalytic(CalendarEvents.CALENDAR_SCREEN_DISPLAY)
+    val context = LocalContext.current
     val vm: CalendarViewModel = koinViewModel()
     val state by vm.uiState.collectAsStateWithLifecycle()
     val configuration = LocalConfiguration.current
@@ -123,7 +129,10 @@ fun CalendarScreen(nav: OrbitNavigator) {
                 icon = Icons.Rounded.CalendarMonth,
                 scrolled = scrolled,
                 actions = {
-                    IconButton(onClick = addTask) {
+                    IconButton(onClick = {
+                        context.postAnalytic(CalendarEvents.CALENDAR_ADD_TASK_CLICK)
+                        addTask()
+                    }) {
                         Icon(Icons.Rounded.Add, contentDescription = stringResource(R.string.calendar_add_task))
                     }
                 },
@@ -134,7 +143,10 @@ fun CalendarScreen(nav: OrbitNavigator) {
                 GradientFab(
                     icon = Icons.Rounded.Add,
                     contentDescription = stringResource(R.string.calendar_add_task),
-                    onClick = addTask,
+                    onClick = {
+                        context.postAnalytic(CalendarEvents.CALENDAR_FAB_ADD_CLICK)
+                        addTask()
+                    },
                     brush = Orbit.extras.accentGradient(FeatureAccent.CALENDAR),
                     modifier = Modifier.padding(end = Spacing.md, bottom = Spacing.md),
                 )
@@ -145,7 +157,10 @@ fun CalendarScreen(nav: OrbitNavigator) {
         Box(Modifier.padding(inner).fillMaxSize(), contentAlignment = Alignment.TopCenter) {
             when {
                 state.loading -> LoadingState()
-                state.error -> ErrorState(stringResource(R.string.calendar_error), onRetry = vm::retry)
+                state.error -> ErrorState(stringResource(R.string.calendar_error), onRetry = {
+                    context.postAnalytic(CalendarEvents.CALENDAR_RETRY_CLICK)
+                    vm.retry()
+                })
                 else -> CalendarContent(
                     state = state,
                     firstDay = firstDay,
@@ -170,6 +185,19 @@ private fun CalendarContent(
     onOpen: (TaskEntity) -> Unit,
     onAdd: () -> Unit,
 ) {
+    val context = LocalContext.current
+    val trackedOpen: (TaskEntity) -> Unit = {
+        context.postAnalytic(CalendarEvents.CALENDAR_TASK_CLICK)
+        onOpen(it)
+    }
+    val trackedToggle: (TaskEntity, Boolean) -> Unit = { task, done ->
+        context.postAnalytic(CalendarEvents.CALENDAR_TASK_TOGGLE)
+        vm.onToggleComplete(task, done)
+    }
+    val trackedAdd: () -> Unit = {
+        context.postAnalytic(CalendarEvents.CALENDAR_EMPTY_ADD_CLICK)
+        onAdd()
+    }
     LazyColumn(
         state = listState,
         modifier = Modifier.widthIn(max = if (wide) 720.dp else androidx.compose.ui.unit.Dp.Infinity).fillMaxSize(),
@@ -177,14 +205,24 @@ private fun CalendarContent(
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         item(key = "month", contentType = "month") {
-            MonthCard(state, firstDay, onSelect = vm::selectDay, onShift = vm::shiftMonth, onToday = vm::goToToday)
+            MonthCard(state, firstDay, onSelect = {
+                    context.postAnalytic(CalendarEvents.CALENDAR_DAY_SELECT)
+                    vm.selectDay(it)
+                },
+                onShift = vm::shiftMonth,
+                onToday = vm::goToToday)
         }
         item(key = "mode", contentType = "mode") {
-            ModeSwitcher(state.mode, vm::setMode)
+            ModeSwitcher(state.mode) {
+                context.postAnalytic(
+                    if (it == CalendarMode.DAY) CalendarEvents.CALENDAR_MODE_DAY_SELECT else CalendarEvents.CALENDAR_MODE_AGENDA_SELECT,
+                )
+                vm.setMode(it)
+            }
         }
         when (state.mode) {
-            CalendarMode.DAY -> dayItems(state, onOpen, onAdd, vm::onToggleComplete)
-            CalendarMode.AGENDA -> agendaItems(state, onOpen, vm::onToggleComplete)
+            CalendarMode.DAY -> dayItems(state, trackedOpen, trackedAdd, trackedToggle)
+            CalendarMode.AGENDA -> agendaItems(state, trackedOpen, trackedToggle)
         }
     }
 }

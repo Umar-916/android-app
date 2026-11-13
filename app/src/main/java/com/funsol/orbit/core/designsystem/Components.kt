@@ -78,6 +78,8 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.AnalyticsEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.database.entity.Priority
 
 fun Modifier.orbitGlow(
@@ -301,8 +303,10 @@ fun OrbitTopBar(
     accent: FeatureAccent? = null,
     icon: ImageVector? = null,
     scrolled: Boolean = false,
+    backEvent: String? = null,
     actions: @Composable () -> Unit = {},
 ) {
+    val backContext = androidx.compose.ui.platform.LocalContext.current
     val extras = Orbit.extras
     val wash = (accent?.let { extras.accent(it) } ?: MaterialTheme.colorScheme.primary).copy(alpha = if (extras.isDark) 0.16f else 0.06f)
     val dividerAlpha by animateFloatAsState(if (scrolled) 1f else 0f, tween(150), label = "topBarDivider")
@@ -335,7 +339,11 @@ fun OrbitTopBar(
         },
         navigationIcon = {
             if (onBack != null) {
-                IconButton(onClick = onBack) {
+                IconButton(onClick = {
+                    // Per-screen back event (passed by the screen), same style as the other Funsol apps.
+                    backEvent?.let { backContext.postAnalytic(it) }
+                    onBack()
+                }) {
                     Icon(Icons.AutoMirrored.Rounded.ArrowBack, contentDescription = stringResource(R.string.action_back))
                 }
             }

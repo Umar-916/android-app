@@ -88,6 +88,8 @@ import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupPositionProvider
 import androidx.compose.ui.window.PopupProperties
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.AnalyticsEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.designsystem.FeatureAccent
 import com.funsol.orbit.core.designsystem.Orbit
 import com.funsol.orbit.core.designsystem.OrbitIndigo
@@ -168,6 +170,18 @@ fun OrbitBottomBar(
     bottomMargin: Dp = 8.dp,
 ) {
     val extras = Orbit.extras
+    val analyticsContext = androidx.compose.ui.platform.LocalContext.current
+    val selectTab: (AppDestination) -> Unit = { dest ->
+        when (dest) {
+            AppDestination.Home -> AnalyticsEvents.NAV_HOME_CLICK
+            AppDestination.Tasks -> AnalyticsEvents.NAV_TASKS_CLICK
+            AppDestination.Projects -> AnalyticsEvents.NAV_PROJECTS_CLICK
+            AppDestination.Calendar -> AnalyticsEvents.NAV_CALENDAR_CLICK
+            AppDestination.More -> AnalyticsEvents.NAV_MORE_CLICK
+            else -> null
+        }?.let { analyticsContext.postAnalytic(it) }
+        onSelect(dest)
+    }
     val shape = remember { NotchedBarShape(NOTCH_RADIUS, NOTCH_FILLET) }
     val config = LocalConfiguration.current
     val fontScale = LocalDensity.current.fontScale
@@ -189,11 +203,11 @@ fun OrbitBottomBar(
             verticalAlignment = Alignment.Top,
         ) {
             LEFT_TABS.forEach { tab ->
-                TabItem(tab, current == tab.destination, { onSelect(tab.destination) }, labelSize, Modifier.weight(1f))
+                TabItem(tab, current == tab.destination, { selectTab(tab.destination) }, labelSize, Modifier.weight(1f))
             }
             Spacer(Modifier.weight(1f))
             RIGHT_TABS.forEach { tab ->
-                TabItem(tab, current == tab.destination, { onSelect(tab.destination) }, labelSize, Modifier.weight(1f))
+                TabItem(tab, current == tab.destination, { selectTab(tab.destination) }, labelSize, Modifier.weight(1f))
             }
         }
         CenterButton(onQuickAdd, Modifier.align(Alignment.TopCenter))

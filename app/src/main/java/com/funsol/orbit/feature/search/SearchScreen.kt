@@ -66,6 +66,7 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -76,6 +77,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.SearchEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.DateFormats
 import com.funsol.orbit.core.common.GoalMath
 import com.funsol.orbit.core.designsystem.ErrorState
@@ -92,6 +96,8 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun SearchScreen(nav: OrbitNavigator) {
+    PostAnalytic(SearchEvents.SEARCH_SCREEN_DISPLAY)
+    val context = LocalContext.current
     val viewModel: SearchViewModel = koinViewModel()
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val suggestions by viewModel.suggestions.collectAsStateWithLifecycle()
@@ -115,6 +121,7 @@ fun SearchScreen(nav: OrbitNavigator) {
                 OrbitTopBar(
                     stringResource(R.string.action_search),
                     onBack = {
+                        context.postAnalytic(SearchEvents.SEARCH_BACK_CLICK)
                         keyboard?.hide()
                         nav.back()
                     },
@@ -129,11 +136,15 @@ fun SearchScreen(nav: OrbitNavigator) {
                         viewModel.onQueryChange(it)
                     },
                     onClear = {
+                        context.postAnalytic(SearchEvents.SEARCH_CLEAR_CLICK)
                         text = ""
                         viewModel.onQueryChange("")
                         focusRequester.requestFocus()
                     },
-                    onSearch = { keyboard?.hide() },
+                    onSearch = {
+                        context.postAnalytic(SearchEvents.SEARCH_SUBMIT_CLICK)
+                        keyboard?.hide()
+                    },
                 )
             }
         },
@@ -144,6 +155,7 @@ fun SearchScreen(nav: OrbitNavigator) {
                     SearchPhase.IDLE -> SearchIdle(
                         suggestions = suggestions,
                         onPick = { picked ->
+                            context.postAnalytic(SearchEvents.SEARCH_SUGGESTION_CLICK)
                             text = picked
                             viewModel.onQueryChange(picked)
                         },
@@ -154,7 +166,10 @@ fun SearchScreen(nav: OrbitNavigator) {
                         trackColor = MaterialTheme.colorScheme.surfaceVariant,
                     )
                     SearchPhase.EMPTY -> SearchNoResults(state.query.trim())
-                    SearchPhase.ERROR -> ErrorState(stringResource(R.string.error_generic), onRetry = viewModel::retry)
+                    SearchPhase.ERROR -> ErrorState(stringResource(R.string.error_generic), onRetry = {
+                        context.postAnalytic(SearchEvents.SEARCH_RETRY_CLICK)
+                        viewModel.retry()
+                    })
                     SearchPhase.RESULTS -> ResultsList(state, open)
                 }
             }
@@ -392,6 +407,7 @@ private fun iconOf(type: SearchSectionType): ImageVector = when (type) {
 
 @Composable
 private fun ResultsList(state: SearchUiState, open: (AppDestination) -> Unit) {
+    val context = LocalContext.current
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(start = Spacing.md, end = Spacing.md, top = Spacing.xs, bottom = Spacing.xl),
@@ -407,25 +423,25 @@ private fun ResultsList(state: SearchUiState, open: (AppDestination) -> Unit) {
                 SearchSectionType.TASKS -> rows(section.results.tasks.map { it.id }, "t", section.results.tasks.size) { i ->
                     val t = section.results.tasks[i]
                     val due = t.dueDate?.let { DateFormats.date(it) }
-                    ResultRow(accent, t.title, due) { open(AppDestination.TaskEdit(taskId = t.id)) }
+                    ResultRow(accent, t.title, due) { context.postAnalytic(SearchEvents.SEARCH_RESULT_TASK_CLICK); open(AppDestination.TaskEdit(taskId = t.id)) }
                 }
                 SearchSectionType.PROJECTS -> rows(section.results.projects.map { it.id }, "p", section.results.projects.size) { i ->
                     val p = section.results.projects[i]
-                    ResultRow(accent, p.name, p.description.firstLineOrNull()) { open(AppDestination.ProjectDetail(p.id)) }
+                    ResultRow(accent, p.name, p.description.firstLineOrNull()) { context.postAnalytic(SearchEvents.SEARCH_RESULT_PROJECT_CLICK); open(AppDestination.ProjectDetail(p.id)) }
                 }
                 SearchSectionType.NOTES -> rows(section.results.notes.map { it.id }, "n", section.results.notes.size) { i ->
                     val n = section.results.notes[i]
                     val title = n.title.ifBlank { stringResource(R.string.search_untitled_note) }
-                    ResultRow(accent, title, n.body.firstLineOrNull()) { open(AppDestination.NoteEdit(noteId = n.id)) }
+                    ResultRow(accent, title, n.body.firstLineOrNull()) { context.postAnalytic(SearchEvents.SEARCH_RESULT_NOTE_CLICK); open(AppDestination.NoteEdit(noteId = n.id)) }
                 }
                 SearchSectionType.HABITS -> rows(section.results.habits.map { it.id }, "h", section.results.habits.size) { i ->
                     val h = section.results.habits[i]
-                    ResultRow(accent, h.name, h.description.firstLineOrNull()) { open(AppDestination.HabitDetail(h.id)) }
+                    ResultRow(accent, h.name, h.description.firstLineOrNull()) { context.postAnalytic(SearchEvents.SEARCH_RESULT_HABIT_CLICK); open(AppDestination.HabitDetail(h.id)) }
                 }
                 SearchSectionType.GOALS -> rows(section.results.goals.map { it.id }, "g", section.results.goals.size) { i ->
                     val g = section.results.goals[i]
                     val pct = stringResource(R.string.search_goal_percent, GoalMath.percent(g.currentValue, g.targetValue))
-                    ResultRow(accent, g.title, pct) { open(AppDestination.GoalEdit(goalId = g.id)) }
+                    ResultRow(accent, g.title, pct) { context.postAnalytic(SearchEvents.SEARCH_RESULT_GOAL_CLICK); open(AppDestination.GoalEdit(goalId = g.id)) }
                 }
             }
         }

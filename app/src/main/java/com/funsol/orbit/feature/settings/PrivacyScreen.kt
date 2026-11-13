@@ -44,6 +44,8 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.SettingsEvents
 import com.funsol.orbit.core.designsystem.CardElevation
 import com.funsol.orbit.core.designsystem.CardStyle
 import com.funsol.orbit.core.designsystem.FeatureAccent
@@ -75,12 +77,14 @@ private val SECTIONS_AFTER_PERMISSIONS = listOf(
 
 @Composable
 fun PrivacyScreen(nav: OrbitNavigator) {
+    PostAnalytic(SettingsEvents.PRIVACY_SCREEN_DISPLAY)
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             OrbitTopBar(
                 stringResource(R.string.privacy_title),
                 onBack = nav::back,
+                backEvent = SettingsEvents.PRIVACY_BACK_CLICK,
                 accent = FeatureAccent.PRIVACY,
                 icon = Icons.Rounded.Lock,
             )

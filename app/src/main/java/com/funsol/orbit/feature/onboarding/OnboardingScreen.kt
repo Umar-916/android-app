@@ -74,6 +74,10 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.OnboardingEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
+import androidx.compose.ui.platform.LocalContext
 import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.designsystem.FeatureAccent
 import com.funsol.orbit.core.designsystem.Orbit
@@ -101,8 +105,18 @@ private val pages = listOf(
 
 @Composable
 fun OnboardingScreen(replay: Boolean, nav: OrbitNavigator) {
+    PostAnalytic(OnboardingEvents.ONBOARDING_SCREEN_DISPLAY)
+    val context = LocalContext.current
     val vm: OnboardingViewModel = koinViewModel()
     val pagerState = rememberPagerState { pages.size }
+    androidx.compose.runtime.LaunchedEffect(pagerState.currentPage) {
+        when (pagerState.currentPage) {
+            0 -> OnboardingEvents.ONBOARDING_PAGE1_DISPLAY
+            1 -> OnboardingEvents.ONBOARDING_PAGE2_DISPLAY
+            2 -> OnboardingEvents.ONBOARDING_PAGE3_DISPLAY
+            else -> OnboardingEvents.ONBOARDING_PAGE4_DISPLAY
+        }.let { context.postAnalytic(it) }
+    }
     val scope = rememberCoroutineScope()
     val guard = rememberClickGuard(800L)
     val extras = Orbit.extras
@@ -156,7 +170,10 @@ fun OnboardingScreen(replay: Boolean, nav: OrbitNavigator) {
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 if (!isLast) {
-                    TextButton(onClick = ::finish) {
+                    TextButton(onClick = {
+                        context.postAnalytic(OnboardingEvents.ONBOARDING_SKIP_CLICK)
+                        finish()
+                    }) {
                         Text(stringResource(R.string.action_skip), style = MaterialTheme.typography.labelLarge)
                     }
                 }
@@ -172,6 +189,9 @@ fun OnboardingScreen(replay: Boolean, nav: OrbitNavigator) {
                 buttonText = stringResource(if (isLast) R.string.onb_get_started else R.string.action_next),
                 accent = pages[pagerState.currentPage].accent,
                 onNext = {
+                    context.postAnalytic(
+                        if (isLast) OnboardingEvents.ONBOARDING_GET_STARTED_CLICK else OnboardingEvents.ONBOARDING_NEXT_CLICK,
+                    )
                     if (isLast) finish() else scope.launch { pagerState.animateScrollToPage(pagerState.currentPage + 1) }
                 },
             )

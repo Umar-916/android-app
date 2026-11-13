@@ -106,6 +106,19 @@ class FirebaseRemoteConfigRepository(
 }
 
 internal object FirebaseBootstrap {
+    /**
+     * Same guard Funsol apps use at startup: initialise the default FirebaseApp only if none exists yet.
+     * With google-services.json the plugin's provider has already created it, so this is a no-op; without it
+     * initializeApp(context) just returns null. Never throws and never initialises twice.
+     */
+    @Synchronized
+    fun initializeDefault(context: Context) {
+        try {
+            if (FirebaseApp.getApps(context).isEmpty()) FirebaseApp.initializeApp(context)
+        } catch (_: Throwable) {
+        }
+    }
+
     @Synchronized
     fun ensureInitialized(context: Context): FirebaseApp? {
         if (RemoteConfigIds.API_KEY.isBlank() || RemoteConfigIds.APP_ID.isBlank() || RemoteConfigIds.PROJECT_ID.isBlank()) {

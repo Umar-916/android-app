@@ -49,6 +49,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.OnboardingEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
+import androidx.compose.ui.platform.LocalContext
 import com.funsol.orbit.core.ads.AdsController
 import com.funsol.orbit.core.ads.NativeAdSlot
 import com.funsol.orbit.core.ads.NativeAdStyle
@@ -75,6 +79,8 @@ private val LanguageRowMinHeight = 64.dp
 
 @Composable
 fun LanguageScreen(fromOnboarding: Boolean, nav: OrbitNavigator) {
+    PostAnalytic(OnboardingEvents.LANGUAGE_SCREEN_DISPLAY)
+    val context = LocalContext.current
     val vm: LanguageViewModel = koinViewModel()
     val state by vm.state.collectAsStateWithLifecycle()
     val guard = rememberClickGuard(1_000L)
@@ -90,12 +96,14 @@ fun LanguageScreen(fromOnboarding: Boolean, nav: OrbitNavigator) {
             OrbitTopBar(
                 title = stringResource(R.string.lang_screen_title),
                 onBack = if (fromOnboarding) null else ({ nav.back() }),
+                backEvent = OnboardingEvents.LANGUAGE_BACK_CLICK,
                 accent = FeatureAccent.SETTINGS,
                 icon = Icons.Rounded.Language,
                 actions = {
                     DonePill(
                         enabled = state.ready && !state.confirming,
                         onClick = {
+                            context.postAnalytic(OnboardingEvents.LANGUAGE_DONE_CLICK)
                             guard.run {
                                 vm.confirm(fromOnboarding) { next ->
                                     if (next != null) nav.continueTo(next) else nav.back()
@@ -128,7 +136,10 @@ fun LanguageScreen(fromOnboarding: Boolean, nav: OrbitNavigator) {
                         language = language,
                         selected = language.code == selected.code,
                         highlighted = false,
-                        onSelect = { vm.select(language.code) },
+                        onSelect = {
+                            context.postAnalytic(OnboardingEvents.languageSelectEvent(language.code))
+                            vm.select(language.code)
+                        },
                     )
                 }
             }

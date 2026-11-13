@@ -35,8 +35,10 @@ import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import com.funsol.orbit.core.designsystem.OrbitAmber
 import com.funsol.orbit.core.designsystem.OrbitCoral
 import com.funsol.orbit.core.designsystem.OrbitCyan
+import com.funsol.orbit.feature.premium.drawOrbitMark
 import com.funsol.orbit.core.designsystem.OrbitPurple
 import com.funsol.orbit.core.designsystem.OrbitViolet
 import com.funsol.orbit.core.designsystem.OrbitVioletSoft
@@ -100,6 +102,8 @@ private fun orbitPoint(center: Offset, radius: Float, degrees: Float): Offset {
     return Offset(center.x + radius * cos(rad).toFloat(), center.y + radius * sin(rad).toFloat())
 }
 
+private val OrbitIndigoCheck = Color(0xFF3A3FD6)
+
 @Composable
 internal fun OrbitEmblem(modifier: Modifier = Modifier) {
     val slow = rememberLoop(18_000)
@@ -120,43 +124,18 @@ internal fun OrbitEmblem(modifier: Modifier = Modifier) {
             center = c,
         )
 
-        val outer = r * 0.90f
-        rotate(slow.value * 360f, c) {
-            drawCircle(
-                color = Color.White.copy(alpha = 0.30f),
-                radius = outer,
-                center = c,
-                style = Stroke(1.5.dp.toPx(), pathEffect = PathEffect.dashPathEffect(floatArrayOf(5.dp.toPx(), 9.dp.toPx()))),
-            )
-            glowDot(orbitPoint(c, outer, -35f), 4.5.dp.toPx(), OrbitCyan)
-            glowDot(orbitPoint(c, outer, 145f), 3.dp.toPx(), Color.White)
-        }
-
-        val mid = r * 0.68f
-        rotate(-fast.value * 360f, c) {
-            drawArc(
-                brush = Brush.sweepGradient(listOf(Color.Transparent, OrbitCyan, OrbitPurple, Color.Transparent), center = c),
-                startAngle = 0f,
-                sweepAngle = 360f,
-                useCenter = false,
-                topLeft = Offset(c.x - mid, c.y - mid),
-                size = Size(mid * 2f, mid * 2f),
-                style = Stroke(3.dp.toPx(), cap = StrokeCap.Round),
-            )
-            glowDot(orbitPoint(c, mid, 8f), 4.dp.toPx(), OrbitCoral)
-        }
-
-        val inner = r * 0.46f
-        drawCircle(Color.White.copy(alpha = 0.35f), inner, c, style = Stroke(1.dp.toPx()))
-        glowDot(orbitPoint(c, inner, fast.value * 720f + 60f), 2.5.dp.toPx(), Color.White)
-
-        val core = r * 0.27f * (0.94f + 0.12f * p)
-        drawCircle(
-            brush = Brush.radialGradient(listOf(Color.White, OrbitVioletSoft, OrbitViolet), center = c, radius = core * 1.05f),
-            radius = core,
-            center = c,
+        // Same mark as the launcher icon: disc + bold check, orbit ring, amber satellite.
+        drawOrbitMark(
+            c = c,
+            r = r,
+            loop = slow.value,
+            pulse = p,
+            orbitColor = Color.White.copy(alpha = 0.55f),
+            glowAlpha = 0.0f,
+            discColors = listOf(Color.White, Color.White),
+            markColor = OrbitIndigoCheck,
+            satellite = OrbitAmber,
         )
-        drawCircle(Color.White.copy(alpha = 0.85f), core * 0.26f, Offset(c.x - core * 0.28f, c.y - core * 0.32f))
     }
 }
 

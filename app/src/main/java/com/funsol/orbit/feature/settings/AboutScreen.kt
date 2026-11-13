@@ -42,6 +42,10 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.BuildConfig
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.SettingsEvents
+import com.funsol.orbit.core.analytics.postAnalytic
+import androidx.compose.ui.platform.LocalContext
 import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.designsystem.CardElevation
 import com.funsol.orbit.core.designsystem.CardStyle
@@ -61,6 +65,8 @@ import com.funsol.orbit.core.navigation.OrbitNavigator
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun AboutScreen(nav: OrbitNavigator) {
+    PostAnalytic(SettingsEvents.ABOUT_SCREEN_DISPLAY)
+    val context = LocalContext.current
     val extras = Orbit.extras
     val guard = rememberClickGuard()
     Scaffold(
@@ -69,6 +75,7 @@ fun AboutScreen(nav: OrbitNavigator) {
             OrbitTopBar(
                 stringResource(R.string.about_title),
                 onBack = nav::back,
+                backEvent = SettingsEvents.ABOUT_BACK_CLICK,
                 accent = FeatureAccent.SETTINGS,
                 icon = Icons.Rounded.Info,
             )
@@ -105,7 +112,10 @@ fun AboutScreen(nav: OrbitNavigator) {
                 }
 
                 OrbitCard(
-                    onClick = { guard.run { nav.navigate(AppDestination.Privacy) } },
+                    onClick = {
+                        context.postAnalytic(SettingsEvents.ABOUT_PRIVACY_CLICK)
+                        guard.run { nav.navigate(AppDestination.Privacy) }
+                    },
                     tint = extras.accent(FeatureAccent.PRIVACY),
                     style = CardStyle.Tinted,
                     elevation = CardElevation.Flat,

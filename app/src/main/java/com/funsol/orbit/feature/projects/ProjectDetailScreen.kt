@@ -48,6 +48,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
@@ -57,6 +58,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.ProjectsEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.DateFormats
 import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.database.entity.ProjectEntity
@@ -92,13 +96,18 @@ fun ProjectDetailScreen(projectId: String, nav: OrbitNavigator) {
     var showDelete by rememberSaveable { mutableStateOf(false) }
     val project = state.project
     val guard = rememberClickGuard()
+    val context = LocalContext.current
+    PostAnalytic(ProjectsEvents.PROJECT_DETAIL_SCREEN_DISPLAY)
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             OrbitTopBar(
                 title = stringResource(R.string.projects_detail_title),
-                onBack = { guard.run { nav.back() } },
+                onBack = {
+                    context.postAnalytic(ProjectsEvents.PROJECT_DETAIL_BACK_CLICK)
+                    guard.run { nav.back() }
+                },
                 accent = FeatureAccent.PROJECTS,
             ) {
                 if (project != null) {
@@ -115,14 +124,26 @@ fun ProjectDetailScreen(projectId: String, nav: OrbitNavigator) {
         CenteredContent(Modifier.padding(padding)) {
             when {
                 state.loading -> LoadingState()
-                state.error -> ErrorState(stringResource(R.string.error_generic), onRetry = vm::retry)
+                state.error -> ErrorState(stringResource(R.string.error_generic), onRetry = {
+                    context.postAnalytic(ProjectsEvents.PROJECT_DETAIL_RETRY_CLICK)
+                    vm.retry()
+                })
                 project == null -> ErrorState(stringResource(R.string.projects_not_found))
                 else -> DetailList(
                     state = state,
                     project = project,
-                    onToggle = vm::setTaskCompleted,
-                    onOpenTask = { id -> guard.run { nav.navigate(AppDestination.TaskEdit(taskId = id)) } },
-                    onAddTask = { guard.run { nav.navigate(AppDestination.TaskEdit(presetProjectId = project.id)) } },
+                    onToggle = { id, done ->
+                        context.postAnalytic(ProjectsEvents.PROJECT_DETAIL_TASK_TOGGLE)
+                        vm.setTaskCompleted(id, done)
+                    },
+                    onOpenTask = { id ->
+                        context.postAnalytic(ProjectsEvents.PROJECT_DETAIL_TASK_CLICK)
+                        guard.run { nav.navigate(AppDestination.TaskEdit(taskId = id)) }
+                    },
+                    onAddTask = {
+                        context.postAnalytic(ProjectsEvents.PROJECT_DETAIL_ADD_TASK_CLICK)
+                        guard.run { nav.navigate(AppDestination.TaskEdit(presetProjectId = project.id)) }
+                    },
                 )
             }
         }
@@ -146,35 +167,59 @@ private fun ProjectMenu(
     onSetStatus: (ProjectStatus) -> Unit,
     onDelete: () -> Unit,
 ) {
+    val context = LocalContext.current
     var expanded by rememberSaveable { mutableStateOf(false) }
     Box {
-        IconButton(onClick = { expanded = true }) {
+        IconButton(onClick = {
+            context.postAnalytic(ProjectsEvents.PROJECT_DETAIL_MENU_CLICK)
+            expanded = true
+        }) {
             Icon(Icons.Rounded.MoreVert, contentDescription = stringResource(R.string.action_more_options))
         }
         DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
             DropdownMenuItem(
                 text = { Text(stringResource(R.string.action_edit)) },
                 leadingIcon = { Icon(Icons.Rounded.Edit, contentDescription = null) },
-                onClick = { expanded = false; onEdit() },
+                onClick = {
+                    context.postAnalytic(ProjectsEvents.PROJECT_DETAIL_EDIT_CLICK)
+                    expanded = false
+                    onEdit()
+                },
             )
             val archived = project.status == ProjectStatus.ARCHIVED
             DropdownMenuItem(
                 text = { Text(stringResource(if (archived) R.string.projects_restore else R.string.action_archive)) },
                 leadingIcon = { Icon(if (archived) Icons.Rounded.Unarchive else Icons.Rounded.Archive, contentDescription = null) },
-                onClick = { expanded = false; onSetStatus(if (archived) ProjectStatus.ACTIVE else ProjectStatus.ARCHIVED) },
+                onClick = {
+                    context.postAnalytic(
+                        if (archived) ProjectsEvents.PROJECT_DETAIL_RESTORE_CLICK else ProjectsEvents.PROJECT_DETAIL_ARCHIVE_CLICK,
+                    )
+                    expanded = false
+                    onSetStatus(if (archived) ProjectStatus.ACTIVE else ProjectStatus.ARCHIVED)
+                },
             )
             if (!archived) {
                 val completed = project.status == ProjectStatus.COMPLETED
                 DropdownMenuItem(
                     text = { Text(stringResource(if (completed) R.string.projects_mark_active else R.string.projects_mark_completed)) },
                     leadingIcon = { Icon(Icons.Rounded.CheckCircle, contentDescription = null) },
-                    onClick = { expanded = false; onSetStatus(if (completed) ProjectStatus.ACTIVE else ProjectStatus.COMPLETED) },
+                    onClick = {
+                        context.postAnalytic(
+                            if (completed) ProjectsEvents.PROJECT_DETAIL_REOPEN_CLICK else ProjectsEvents.PROJECT_DETAIL_COMPLETE_CLICK,
+                        )
+                        expanded = false
+                        onSetStatus(if (completed) ProjectStatus.ACTIVE else ProjectStatus.COMPLETED)
+                    },
                 )
             }
             DropdownMenuItem(
                 text = { Text(stringResource(R.string.action_delete), color = MaterialTheme.colorScheme.error) },
                 leadingIcon = { Icon(Icons.Rounded.Delete, contentDescription = null, tint = MaterialTheme.colorScheme.error) },
-                onClick = { expanded = false; onDelete() },
+                onClick = {
+                    context.postAnalytic(ProjectsEvents.PROJECT_DETAIL_DELETE_CLICK)
+                    expanded = false
+                    onDelete()
+                },
             )
         }
     }

@@ -28,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.selected
@@ -35,6 +36,9 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.TasksEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.DateFormats
 import com.funsol.orbit.core.database.entity.Priority
 import com.funsol.orbit.core.database.entity.ProjectEntity
@@ -81,6 +85,8 @@ internal fun TaskSortSheet(
     onReverse: () -> Unit,
     onDismiss: () -> Unit,
 ) {
+    PostAnalytic(TasksEvents.TASKS_SORT_SHEET_APPEAR)
+    val context = LocalContext.current
     val fields = listOf(
         TaskSortField.DUE_DATE to R.string.tasks_sort_due,
         TaskSortField.PRIORITY to R.string.tasks_sort_priority,
@@ -99,9 +105,9 @@ internal fun TaskSortSheet(
             verticalArrangement = Arrangement.spacedBy(Spacing.sm),
         ) {
             fields.forEach { (field, label) ->
-                OptionRow(stringResource(label), selected = sort.field == field, onClick = { onField(field) })
+                OptionRow(stringResource(label), selected = sort.field == field, onClick = { context.postAnalytic(TasksEvents.TASKS_SORT_FIELD_SELECT); onField(field) })
             }
-            OrbitWell(Modifier.fillMaxWidth(), onClick = onReverse) {
+            OrbitWell(Modifier.fillMaxWidth(), onClick = { context.postAnalytic(TasksEvents.TASKS_SORT_REVERSE_TOGGLE); onReverse() }) {
                 Row(
                     Modifier.fillMaxWidth().padding(horizontal = Spacing.md, vertical = Spacing.sm),
                     verticalAlignment = Alignment.CenterVertically,
@@ -126,6 +132,8 @@ internal fun TaskFilterSheet(
     onClear: () -> Unit,
     onDismiss: () -> Unit,
 ) {
+    PostAnalytic(TasksEvents.TASKS_FILTER_SHEET_APPEAR)
+    val context = LocalContext.current
     var showRange by rememberSaveable { mutableStateOf(false) }
     val maxScroll = (LocalConfiguration.current.screenHeightDp * 0.6f).dp
 
@@ -155,7 +163,7 @@ internal fun TaskFilterSheet(
                 options.forEach { (opt, label) ->
                     FilterChip(
                         selected = filters.date == opt,
-                        onClick = { onChange(filters.copy(date = opt, customStart = null, customEnd = null)) },
+                        onClick = { context.postAnalytic(TasksEvents.TASKS_FILTER_DATE_SELECT); onChange(filters.copy(date = opt, customStart = null, customEnd = null)) },
                         label = { Text(stringResource(label)) },
                         colors = orbitChipColors(),
                         shape = RoundedCornerShape(Radius.chip),
@@ -163,7 +171,7 @@ internal fun TaskFilterSheet(
                 }
                 FilterChip(
                     selected = filters.date == DateFilter.CUSTOM,
-                    onClick = { showRange = true },
+                    onClick = { context.postAnalytic(TasksEvents.TASKS_FILTER_DATE_CUSTOM_CLICK); showRange = true },
                     colors = orbitChipColors(),
                     shape = RoundedCornerShape(Radius.chip),
                     label = {
@@ -187,6 +195,7 @@ internal fun TaskFilterSheet(
                     FilterChip(
                         selected = p in filters.priorities,
                         onClick = {
+                            context.postAnalytic(TasksEvents.TASKS_FILTER_PRIORITY_SELECT)
                             val next = if (p in filters.priorities) filters.priorities - p else filters.priorities + p
                             onChange(filters.copy(priorities = next))
                         },
@@ -203,6 +212,7 @@ internal fun TaskFilterSheet(
                     FilterChip(
                         selected = s in filters.statuses,
                         onClick = {
+                            context.postAnalytic(TasksEvents.TASKS_FILTER_STATUS_SELECT)
                             val next = if (s in filters.statuses) filters.statuses - s else filters.statuses + s
                             onChange(filters.copy(statuses = next))
                         },
@@ -216,14 +226,14 @@ internal fun TaskFilterSheet(
             FilterGroup(stringResource(R.string.tasks_filter_project)) {
                 FilterChip(
                     selected = filters.project == ProjectFilter.AnyProject,
-                    onClick = { onChange(filters.copy(project = ProjectFilter.AnyProject)) },
+                    onClick = { context.postAnalytic(TasksEvents.TASKS_FILTER_PROJECT_SELECT); onChange(filters.copy(project = ProjectFilter.AnyProject)) },
                     label = { Text(stringResource(R.string.tasks_filter_project_any)) },
                     colors = orbitChipColors(),
                     shape = RoundedCornerShape(Radius.chip),
                 )
                 FilterChip(
                     selected = filters.project == ProjectFilter.NoProject,
-                    onClick = { onChange(filters.copy(project = ProjectFilter.NoProject)) },
+                    onClick = { context.postAnalytic(TasksEvents.TASKS_FILTER_PROJECT_SELECT); onChange(filters.copy(project = ProjectFilter.NoProject)) },
                     label = { Text(stringResource(R.string.tasks_filter_project_none)) },
                     colors = orbitChipColors(),
                     shape = RoundedCornerShape(Radius.chip),
@@ -231,7 +241,7 @@ internal fun TaskFilterSheet(
                 projects.forEach { project ->
                     FilterChip(
                         selected = filters.project == ProjectFilter.OneProject(project.id),
-                        onClick = { onChange(filters.copy(project = ProjectFilter.OneProject(project.id))) },
+                        onClick = { context.postAnalytic(TasksEvents.TASKS_FILTER_PROJECT_SELECT); onChange(filters.copy(project = ProjectFilter.OneProject(project.id))) },
                         leadingIcon = { ColorDot(Color(project.color), size = 10.dp) },
                         label = { Text(project.name, maxLines = 1) },
                         colors = orbitChipColors(),
@@ -244,7 +254,7 @@ internal fun TaskFilterSheet(
             Modifier.fillMaxWidth().padding(top = Spacing.lg, bottom = Spacing.xs),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            WellButton(stringResource(R.string.tasks_filters_clear), onClear, Modifier.weight(1f), enabled = filters.isActive)
+            WellButton(stringResource(R.string.tasks_filters_clear), { context.postAnalytic(TasksEvents.TASKS_FILTER_SHEET_CLEAR_CLICK); onClear() }, Modifier.weight(1f), enabled = filters.isActive)
             GradientButton(stringResource(R.string.tasks_filter_apply), onDismiss, Modifier.weight(1f))
         }
     }

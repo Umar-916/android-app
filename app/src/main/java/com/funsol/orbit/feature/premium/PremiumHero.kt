@@ -32,6 +32,7 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.funsol.orbit.core.designsystem.OrbitAmber
+import com.funsol.orbit.core.designsystem.OrbitAmber
 import com.funsol.orbit.core.designsystem.OrbitCoral
 import com.funsol.orbit.core.designsystem.OrbitCyan
 import com.funsol.orbit.core.designsystem.OrbitPurple
@@ -59,7 +60,7 @@ internal fun DrawScope.drawOrbitMark(
     glowAlpha: Float = 0.20f,
     discColors: List<Color> = listOf(OrbitViolet, OrbitPurple),
     markColor: Color = Color.White,
-    satellite: Color = OrbitCyan,
+    satellite: Color = OrbitAmber,
 ) {
     drawCircle(
         brush = Brush.radialGradient(listOf(glow.copy(alpha = glowAlpha + 0.18f * pulse), Color.Transparent), center = c, radius = r),

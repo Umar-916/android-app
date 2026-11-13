@@ -61,6 +61,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.R
+import androidx.compose.ui.platform.LocalContext
+import com.funsol.orbit.core.analytics.HabitsEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.common.toLocalDate
 import com.funsol.orbit.core.designsystem.CardElevation
@@ -88,6 +92,8 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun HabitsScreen(nav: OrbitNavigator) {
+    PostAnalytic(HabitsEvents.HABITS_SCREEN_DISPLAY)
+    val context = LocalContext.current
     val vm: HabitsViewModel = koinViewModel()
     val state by vm.state.collectAsStateWithLifecycle()
     var archivedExpanded by rememberSaveable { mutableStateOf(false) }
@@ -113,7 +119,10 @@ fun HabitsScreen(nav: OrbitNavigator) {
             OrbitTopBar(
                 scrolled = scrolled,
                 title = stringResource(R.string.habits_title),
-                onBack = { guard.run(nav::back) },
+                onBack = {
+                    context.postAnalytic(HabitsEvents.HABITS_BACK_CLICK)
+                    guard.run(nav::back)
+                },
                 accent = FeatureAccent.HABITS,
                 icon = Icons.Rounded.Repeat,
             )
@@ -122,7 +131,10 @@ fun HabitsScreen(nav: OrbitNavigator) {
             GradientFab(
                 icon = Icons.Rounded.Add,
                 contentDescription = stringResource(R.string.habits_new),
-                onClick = { guard.run { nav.navigate(AppDestination.HabitEdit()) } },
+                onClick = {
+                    context.postAnalytic(HabitsEvents.HABITS_ADD_FAB_CLICK)
+                    guard.run { nav.navigate(AppDestination.HabitEdit()) }
+                },
                 brush = Orbit.extras.accentGradient(FeatureAccent.HABITS),
             )
         },
@@ -130,13 +142,22 @@ fun HabitsScreen(nav: OrbitNavigator) {
         CenteredContent(Modifier.padding(padding)) {
             when {
                 state.loading -> LoadingState()
-                state.error -> ErrorState(stringResource(R.string.error_generic), onRetry = vm::retry)
+                state.error -> ErrorState(
+                    stringResource(R.string.error_generic),
+                    onRetry = {
+                        context.postAnalytic(HabitsEvents.HABITS_RETRY_CLICK)
+                        vm.retry()
+                    },
+                )
                 state.active.isEmpty() && state.archived.isEmpty() -> EmptyState(
                     icon = Icons.Rounded.Repeat,
                     title = stringResource(R.string.habits_empty_title),
                     message = stringResource(R.string.habits_empty_message),
                     actionLabel = stringResource(R.string.habits_new),
-                    onAction = { guard.run { nav.navigate(AppDestination.HabitEdit()) } },
+                    onAction = {
+                        context.postAnalytic(HabitsEvents.HABITS_EMPTY_ADD_CLICK)
+                        guard.run { nav.navigate(AppDestination.HabitEdit()) }
+                    },
                     accent = FeatureAccent.HABITS,
                 )
                 else -> LazyColumn(
@@ -167,8 +188,14 @@ fun HabitsScreen(nav: OrbitNavigator) {
                         HabitCard(
                             item = item,
                             todayEpochDay = state.todayEpochDay,
-                            onOpen = { guard.run { nav.navigate(AppDestination.HabitDetail(item.habit.id)) } },
-                            onToggle = { vm.setChecked(item.habit.id, state.todayEpochDay, it) },
+                            onOpen = {
+                                context.postAnalytic(HabitsEvents.HABITS_CARD_CLICK)
+                                guard.run { nav.navigate(AppDestination.HabitDetail(item.habit.id)) }
+                            },
+                            onToggle = {
+                                context.postAnalytic(HabitsEvents.HABITS_CHECK_TOGGLE)
+                                vm.setChecked(item.habit.id, state.todayEpochDay, it)
+                            },
                             modifier = Modifier.animateItem(),
                         )
                     }
@@ -178,14 +205,20 @@ fun HabitsScreen(nav: OrbitNavigator) {
                                 state.archived.size,
                                 archivedExpanded,
                                 Modifier.padding(top = Spacing.sm),
-                            ) { archivedExpanded = !archivedExpanded }
+                            ) {
+                                context.postAnalytic(HabitsEvents.HABITS_ARCHIVED_SECTION_TOGGLE)
+                                archivedExpanded = !archivedExpanded
+                            }
                         }
                         if (archivedExpanded) {
                             items(state.archived, key = { "archived_${it.habit.id}" }, contentType = { "habit" }) { item ->
                                 HabitCard(
                                     item = item,
                                     todayEpochDay = state.todayEpochDay,
-                                    onOpen = { guard.run { nav.navigate(AppDestination.HabitDetail(item.habit.id)) } },
+                                    onOpen = {
+                                        context.postAnalytic(HabitsEvents.HABITS_CARD_CLICK)
+                                        guard.run { nav.navigate(AppDestination.HabitDetail(item.habit.id)) }
+                                    },
                                     onToggle = null,
                                     modifier = Modifier.animateItem(),
                                 )

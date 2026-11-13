@@ -49,6 +49,9 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.AnalyticsEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.feature.analytics.AnalyticsScreen
 import com.funsol.orbit.feature.calendar.CalendarScreen
 import com.funsol.orbit.feature.goals.GoalEditScreen
@@ -90,6 +93,7 @@ fun OrbitApp() {
     val hintScope = rememberCoroutineScope()
     val dismissHint: () -> Unit = { hintScope.launch { settingsStore.setQuickAddHintDismissed(true) } }
     val activity = LocalActivity.current
+    val appContext = androidx.compose.ui.platform.LocalContext.current
     BackHandler(enabled = current == AppDestination.Home && !showExit) { showExit = true }
     if (showExit) {
         ExitSheet(onExit = { showExit = false; activity?.finish() }, onStay = { showExit = false })
@@ -104,7 +108,7 @@ fun OrbitApp() {
                     OrbitBottomBar(
                         current = current,
                         onSelect = { nav.switchTab(it) },
-                        onQuickAdd = { dismissHint(); showQuickAdd = true },
+                        onQuickAdd = { appContext.postAnalytic(AnalyticsEvents.QUICK_ADD_FAB_CLICK); dismissHint(); showQuickAdd = true },
                         showHint = appSettings?.let { !it.quickAddHintDismissed } == true && !showQuickAdd && !showExit,
                         onDismissHint = dismissHint,
                     )
@@ -195,8 +199,10 @@ private fun bannerPlacementFor(current: Any?): com.funsol.orbit.core.ads.BannerP
 
 @Composable
 private fun ExitSheet(onExit: () -> Unit, onStay: () -> Unit) {
+    PostAnalytic(AnalyticsEvents.EXIT_DIALOG_APPEAR)
+    val context = androidx.compose.ui.platform.LocalContext.current
     val maxHeight = (androidx.compose.ui.platform.LocalConfiguration.current.screenHeightDp * 0.86f).dp
-    com.funsol.orbit.core.designsystem.OrbitSheet(onDismiss = onStay) {
+    com.funsol.orbit.core.designsystem.OrbitSheet(onDismiss = { context.postAnalytic(AnalyticsEvents.EXIT_STAY_CLICK); onStay() }) {
         androidx.compose.foundation.layout.Column(
             Modifier
                 .heightIn(max = maxHeight)
@@ -223,7 +229,7 @@ private fun ExitSheet(onExit: () -> Unit, onStay: () -> Unit) {
                 verticalPadding = 12.dp,
             )
             androidx.compose.foundation.layout.Spacer(Modifier.height(16.dp))
-            com.funsol.orbit.core.designsystem.GradientButton(stringResource(R.string.exit_confirm), onExit, Modifier.fillMaxWidth())
+            com.funsol.orbit.core.designsystem.GradientButton(stringResource(R.string.exit_confirm), { context.postAnalytic(AnalyticsEvents.EXIT_CONFIRM_CLICK); onExit() }, Modifier.fillMaxWidth())
             androidx.compose.foundation.layout.Spacer(Modifier.height(8.dp))
             androidx.compose.foundation.layout.Spacer(Modifier.height(4.dp))
         }

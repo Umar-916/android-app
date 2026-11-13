@@ -69,6 +69,9 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.TasksEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.database.entity.Priority
 import com.funsol.orbit.core.database.entity.TaskStatus
@@ -90,6 +93,7 @@ import org.koin.core.parameter.parametersOf
 
 @Composable
 fun TaskEditScreen(taskId: String?, presetProjectId: String?, presetDate: Int?, nav: OrbitNavigator) {
+    PostAnalytic(TasksEvents.TASK_EDIT_SCREEN_DISPLAY)
     val vm: TaskEditViewModel = koinViewModel(
         key = "task_edit_${taskId}_${presetProjectId}_$presetDate",
         parameters = { parametersOf(taskId, presetProjectId, presetDate) },
@@ -123,13 +127,14 @@ fun TaskEditScreen(taskId: String?, presetProjectId: String?, presetDate: Int?, 
     val notificationsOff = permissionTick >= 0 && !NotificationManagerCompat.from(context).areNotificationsEnabled()
 
     val requestBack: () -> Unit = {
+        context.postAnalytic(TasksEvents.TASK_EDIT_BACK_CLICK)
         if (state.dirty) {
             showDiscard = true
         } else {
             guard.run { nav.back() }
         }
     }
-    BackHandler(enabled = state.dirty) { showDiscard = true }
+    BackHandler(enabled = state.dirty) { context.postAnalytic(TasksEvents.TASK_EDIT_BACK_CLICK); showDiscard = true }
 
     val canEdit = !state.loading && !state.notFound && !state.loadFailed
 
@@ -146,8 +151,8 @@ fun TaskEditScreen(taskId: String?, presetProjectId: String?, presetDate: Int?, 
                     if (!state.isNew && canEdit) {
                         OverflowMenu(
                             enabled = !state.saving,
-                            onArchive = vm::archive,
-                            onDelete = { showDelete = true },
+                            onArchive = { context.postAnalytic(TasksEvents.TASK_EDIT_ARCHIVE_CLICK); vm.archive() },
+                            onDelete = { context.postAnalytic(TasksEvents.TASK_EDIT_DELETE_CLICK); showDelete = true },
                         )
                     }
                 },
@@ -155,7 +160,7 @@ fun TaskEditScreen(taskId: String?, presetProjectId: String?, presetDate: Int?, 
         },
         bottomBar = {
             if (canEdit) {
-                SaveBar(saving = state.saving, onSave = vm::save)
+                SaveBar(saving = state.saving, onSave = { context.postAnalytic(TasksEvents.TASK_EDIT_SAVE_CLICK); vm.save() })
             }
         },
         snackbarHost = { SnackbarHost(snackbar) },
@@ -164,7 +169,7 @@ fun TaskEditScreen(taskId: String?, presetProjectId: String?, presetDate: Int?, 
             when {
                 state.loading -> LoadingState()
                 state.notFound -> ErrorState(stringResource(R.string.tasks_not_found))
-                state.loadFailed -> ErrorState(stringResource(R.string.tasks_error_load), onRetry = vm::load)
+                state.loadFailed -> ErrorState(stringResource(R.string.tasks_error_load), onRetry = { context.postAnalytic(TasksEvents.TASK_EDIT_RETRY_CLICK); vm.load() })
                 else -> TaskFormContent(
                     state = state,
                     vm = vm,
@@ -184,33 +189,36 @@ fun TaskEditScreen(taskId: String?, presetProjectId: String?, presetDate: Int?, 
     }
 
     if (showDiscard) {
+        PostAnalytic(TasksEvents.TASK_EDIT_DISCARD_DIALOG_APPEAR)
         ConfirmDialog(
             title = stringResource(R.string.tasks_discard_title),
             message = stringResource(R.string.tasks_discard_message),
             confirmLabel = stringResource(R.string.action_discard),
             destructive = true,
             dismissLabel = stringResource(R.string.action_keep_editing),
-            onConfirm = { showDiscard = false; guard.run { nav.back() } },
-            onDismiss = { showDiscard = false },
+            onConfirm = { context.postAnalytic(TasksEvents.TASK_EDIT_DISCARD_CONFIRM_CLICK); showDiscard = false; guard.run { nav.back() } },
+            onDismiss = { context.postAnalytic(TasksEvents.TASK_EDIT_DISCARD_KEEP_CLICK); showDiscard = false },
         )
     }
     if (showDelete) {
+        PostAnalytic(TasksEvents.TASK_EDIT_DELETE_DIALOG_APPEAR)
         ConfirmDialog(
             title = stringResource(R.string.tasks_delete_title),
             message = stringResource(R.string.tasks_delete_message, state.originalTitle),
             confirmLabel = stringResource(R.string.tasks_delete_confirm),
             destructive = true,
-            onConfirm = { showDelete = false; vm.delete() },
-            onDismiss = { showDelete = false },
+            onConfirm = { context.postAnalytic(TasksEvents.TASK_EDIT_DELETE_CONFIRM_CLICK); showDelete = false; vm.delete() },
+            onDismiss = { context.postAnalytic(TasksEvents.TASK_EDIT_DELETE_CANCEL_CLICK); showDelete = false },
         )
     }
 }
 
 @Composable
 private fun OverflowMenu(enabled: Boolean, onArchive: () -> Unit, onDelete: () -> Unit) {
+    val context = LocalContext.current
     var expanded by remember { mutableStateOf(false) }
     Box {
-        IconButton(onClick = { expanded = true }, enabled = enabled) {
+        IconButton(onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_MENU_CLICK); expanded = true }, enabled = enabled) {
             Icon(Icons.Rounded.MoreVert, contentDescription = stringResource(R.string.action_more_options))
         }
         DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
@@ -257,6 +265,7 @@ private fun TaskFormContent(
     notificationsOff: Boolean,
     onReminder: (Int?) -> Unit,
 ) {
+    val context = LocalContext.current
     val form = state.form
     var titleFocused by remember { mutableStateOf(false) }
     var titleWasFocused by remember { mutableStateOf(false) }
@@ -348,6 +357,7 @@ private fun PrioritySection(
     onPriority: (Priority) -> Unit,
     onStatus: (TaskStatus) -> Unit,
 ) {
+    val context = LocalContext.current
     val roomy = LocalDensity.current.fontScale <= 1.3f
     val rows = if (roomy) listOf(Priority.entries) else Priority.entries.chunked(2)
 
@@ -356,7 +366,7 @@ private fun PrioritySection(
             rows.forEach { row ->
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
                     row.forEach { p ->
-                        PriorityOption(p, selected = p == priority, onClick = { onPriority(p) }, modifier = Modifier.weight(1f))
+                        PriorityOption(p, selected = p == priority, onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_PRIORITY_SELECT); onPriority(p) }, modifier = Modifier.weight(1f))
                     }
                 }
             }
@@ -371,7 +381,7 @@ private fun PrioritySection(
             TaskStatus.entries.forEach { s ->
                 FilterChip(
                     selected = s == status,
-                    onClick = { onStatus(s) },
+                    onClick = { context.postAnalytic(TasksEvents.TASK_EDIT_STATUS_SELECT); onStatus(s) },
                     label = { Text(statusLabel(s)) },
                     colors = orbitChipColors(),
                     shape = RoundedCornerShape(Radius.chip),

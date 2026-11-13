@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">ORBIT Planner</string>
-    <string name="app_brand" translatable="false">ORBIT Offline</string>
+    <!-- Play Store style title: brand + top-search keywords ("To Do List", "Planner"), 27 chars -->
+    <string name="app_name" translatable="false">ORBIT: To Do List &amp; Planner</string>
+    <!-- Short label under the launcher icon (long titles get truncated there) -->
+    <string name="app_launcher_name" translatable="false">ORBIT Planner</string>
+    <string name="app_brand" translatable="false">ORBIT Planner</string>
     <string name="app_tagline">Your life. Your work. One organized space.</string>
 
     <!-- Bottom navigation -->

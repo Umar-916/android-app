@@ -46,6 +46,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -55,6 +56,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.ProjectsEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.database.entity.ProjectStatus
 import com.funsol.orbit.core.designsystem.EmptyState
@@ -78,13 +82,30 @@ fun ProjectsScreen(nav: OrbitNavigator) {
     val vm: ProjectsViewModel = koinViewModel()
     val state by vm.state.collectAsStateWithLifecycle()
     val guard = rememberClickGuard()
+    val context = LocalContext.current
+    PostAnalytic(ProjectsEvents.PROJECTS_SCREEN_DISPLAY)
     ProjectsContent(
         state = state,
-        onBack = if (!nav.isTab) ({ guard.run { nav.back() } }) else null,
-        onFilter = vm::setFilter,
-        onOpen = { id -> guard.run { nav.navigate(AppDestination.ProjectDetail(id)) } },
-        onCreate = { guard.run { nav.navigate(AppDestination.ProjectEdit()) } },
-        onRetry = vm::retry,
+        onBack = if (!nav.isTab) ({
+            context.postAnalytic(ProjectsEvents.PROJECTS_BACK_CLICK)
+            guard.run { nav.back() }
+        }) else null,
+        onFilter = {
+            context.postAnalytic(ProjectsEvents.PROJECTS_FILTER_SELECT)
+            vm.setFilter(it)
+        },
+        onOpen = { id ->
+            context.postAnalytic(ProjectsEvents.PROJECTS_ITEM_CLICK)
+            guard.run { nav.navigate(AppDestination.ProjectDetail(id)) }
+        },
+        onCreate = {
+            context.postAnalytic(ProjectsEvents.PROJECTS_NEW_CLICK)
+            guard.run { nav.navigate(AppDestination.ProjectEdit()) }
+        },
+        onRetry = {
+            context.postAnalytic(ProjectsEvents.PROJECTS_RETRY_CLICK)
+            vm.retry()
+        },
     )
 }
 

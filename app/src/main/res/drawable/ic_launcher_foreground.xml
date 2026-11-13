@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- ORBIT mark (design v3): bold check inside an orbit ring with one amber satellite in the ring gap.
+<!-- ORBIT mark (design v5, store-grid friendly): solid white disc with a bold indigo check (the "to-do done" cue
+     planner apps share), wrapped by a thin orbit ring with one amber satellite in the ring gap.
      Everything stays inside the 66dp adaptive-icon safe zone (centre of the 108dp canvas). -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- orbit ring with a gap for the satellite -->
+    <!-- orbit ring (r=30, centre 54,54) with a gap for the satellite -->
     <path
         android:fillColor="#00000000"
         android:strokeColor="#FFFFFF"
-        android:strokeWidth="5"
+        android:strokeWidth="4"
         android:strokeLineCap="round"
-        android:pathData="M77.78,46.27A25,25 0,1 1 65.74,31.93" />
+        android:pathData="M82.53,44.73A30,30 0,1 1 68.08,27.51" />
+    <!-- solid disc -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,54m-22,0a22,22 0,1 1,44 0a22,22 0,1 1,-44 0" />
     <!-- check -->
     <path
         android:fillColor="#00000000"
-        android:strokeColor="#FFFFFF"
+        android:strokeColor="#3A3FD6"
         android:strokeWidth="7.5"
         android:strokeLineCap="round"
         android:strokeLineJoin="round"
-        android:pathData="M42,55L51,64L67,46" />
+        android:pathData="M43,55L51,63L65.5,46" />
     <!-- satellite -->
     <path
         android:fillColor="#FFB23F"
         android:strokeColor="#FFFFFF"
-        android:strokeWidth="1.8"
-        android:pathData="M73.15,37.93m-5.5,0a5.5,5.5 0,1 1,11 0a5.5,5.5 0,1 1,-11 0" />
+        android:strokeWidth="2"
+        android:pathData="M76.98,34.72m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0" />
 </vector>

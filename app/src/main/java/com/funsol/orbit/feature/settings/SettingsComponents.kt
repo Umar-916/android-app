@@ -49,6 +49,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.SettingsEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.tryCatch
 import com.funsol.orbit.core.designsystem.FeatureAccent
 import com.funsol.orbit.core.designsystem.GroupTitle
@@ -179,6 +181,7 @@ internal fun NotificationRows(enabled: Boolean, onEnabledChange: (Boolean) -> Un
     }
 
     fun onToggle(checked: Boolean) {
+        context.postAnalytic(SettingsEvents.SETTINGS_NOTIFICATIONS_TOGGLE)
         when {
             !checked -> onEnabledChange(false)
             NotificationHelper.canPost(context) -> {
@@ -236,7 +239,10 @@ internal fun NotificationRows(enabled: Boolean, onEnabledChange: (Boolean) -> Un
             }
             WellButton(
                 text = stringResource(R.string.settings_notif_open),
-                onClick = { onGuardedClick(::openSystemSettings) },
+                onClick = {
+                    context.postAnalytic(SettingsEvents.SETTINGS_NOTIFICATIONS_OPEN_CLICK)
+                    onGuardedClick(::openSystemSettings)
+                },
                 modifier = Modifier.fillMaxWidth(),
             )
         }

@@ -53,7 +53,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.compose.ui.platform.LocalContext
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.MoreEvents
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.DateFormats
 import com.funsol.orbit.core.common.toEpochDayInt
 import com.funsol.orbit.core.designsystem.CardElevation
@@ -81,6 +85,8 @@ import java.util.Locale
 fun AnalyticsScreen(nav: OrbitNavigator) {
     val viewModel: AnalyticsViewModel = koinViewModel()
     val state = viewModel.uiState.collectAsStateWithLifecycle().value
+    val context = LocalContext.current
+    PostAnalytic(MoreEvents.STATS_SCREEN_DISPLAY)
 
     val listState = rememberLazyListState()
     val scrolled by remember { derivedStateOf { listState.canScrollBackward } }
@@ -90,7 +96,10 @@ fun AnalyticsScreen(nav: OrbitNavigator) {
         topBar = {
             OrbitTopBar(
                 stringResource(R.string.analytics_title),
-                onBack = nav::back,
+                onBack = {
+                    context.postAnalytic(MoreEvents.STATS_BACK_CLICK)
+                    nav.back()
+                },
                 accent = FeatureAccent.ANALYTICS,
                 scrolled = scrolled,
                 icon = Icons.Rounded.Insights,
@@ -100,13 +109,19 @@ fun AnalyticsScreen(nav: OrbitNavigator) {
         Box(Modifier.fillMaxSize().padding(padding), contentAlignment = Alignment.TopCenter) {
             when {
                 state.loading -> LoadingState()
-                state.failed -> ErrorState(stringResource(R.string.error_generic), onRetry = viewModel::retry)
+                state.failed -> ErrorState(stringResource(R.string.error_generic), onRetry = {
+                    context.postAnalytic(MoreEvents.STATS_RETRY_CLICK)
+                    viewModel.retry()
+                })
                 state.data.isEmpty -> EmptyState(
                     icon = Icons.Rounded.Insights,
                     title = stringResource(R.string.analytics_empty_title),
                     message = stringResource(R.string.analytics_empty_message),
                     actionLabel = stringResource(R.string.analytics_empty_action),
-                    onAction = { nav.navigate(AppDestination.TaskEdit()) },
+                    onAction = {
+                        context.postAnalytic(MoreEvents.STATS_EMPTY_ADD_TASK_CLICK)
+                        nav.navigate(AppDestination.TaskEdit())
+                    },
                     accent = FeatureAccent.ANALYTICS,
                 )
                 else -> AnalyticsContent(state, viewModel::setRange, listState)
@@ -158,6 +173,7 @@ private fun AnalyticsContent(state: AnalyticsUiState, onRange: (AnalyticsRange) 
 
 @Composable
 private fun RangeSelector(selected: AnalyticsRange, onRange: (AnalyticsRange) -> Unit) {
+    val context = LocalContext.current
     val extras = Orbit.extras
     val shape = RoundedCornerShape(30.dp)
     val options = listOf(
@@ -186,7 +202,13 @@ private fun RangeSelector(selected: AnalyticsRange, onRange: (AnalyticsRange) ->
                     .heightIn(min = 44.dp)
                     .clip(RoundedCornerShape(26.dp))
                     .then(if (isSelected) Modifier.background(extras.accentGradient(FeatureAccent.ANALYTICS)) else Modifier)
-                    .selectable(selected = isSelected, role = Role.RadioButton, onClick = { onRange(range) }),
+                    .selectable(selected = isSelected, role = Role.RadioButton, onClick = {
+                            context.postAnalytic(
+                                if (range == AnalyticsRange.WEEK) MoreEvents.STATS_RANGE_WEEK_SELECT else MoreEvents.STATS_RANGE_MONTH_SELECT,
+                            )
+                            onRange(range)
+                        },
+                    ),
                 contentAlignment = Alignment.Center,
             ) {
                 Text(label, style = MaterialTheme.typography.labelLarge, color = textColor, maxLines = 1)

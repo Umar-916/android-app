@@ -37,6 +37,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.funsol.orbit.BuildConfig
 import com.funsol.orbit.R
+import com.funsol.orbit.core.analytics.PostAnalytic
+import com.funsol.orbit.core.analytics.SettingsEvents
+import com.funsol.orbit.core.analytics.postAnalytic
 import com.funsol.orbit.core.common.AppConfig
 import com.funsol.orbit.core.common.LanguageCatalog
 import com.funsol.orbit.core.common.rememberClickGuard
@@ -52,6 +55,7 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun SettingsScreen(nav: OrbitNavigator) {
+    PostAnalytic(SettingsEvents.SETTINGS_SCREEN_DISPLAY)
     val vm: SettingsViewModel = koinViewModel()
     val settings by vm.settings.collectAsStateWithLifecycle()
     val dialog by vm.dialog.collectAsStateWithLifecycle()
@@ -70,6 +74,7 @@ fun SettingsScreen(nav: OrbitNavigator) {
             OrbitTopBar(
                 title = stringResource(R.string.settings_title),
                 onBack = { guard.run(nav::back) },
+                backEvent = SettingsEvents.SETTINGS_BACK_CLICK,
                 accent = FeatureAccent.SETTINGS,
                 scrolled = scrollState.value > 0,
                 icon = Icons.Rounded.Settings,
@@ -90,7 +95,7 @@ fun SettingsScreen(nav: OrbitNavigator) {
                     var index = 0
                     if (!current.isPremium && com.funsol.orbit.core.common.BuildFeatureFlags.FIRST_BUILD_SHOW_ADS_AND_PREMIUM) {
                         PremiumUpgradeCard(
-                            onClick = { guard.run { nav.navigate(AppDestination.Premium(variant = nextPremiumVariant(), fromOnboarding = false)) } },
+                            onClick = { context.postAnalytic(SettingsEvents.SETTINGS_PREMIUM_CARD_CLICK); guard.run { nav.navigate(AppDestination.Premium(variant = nextPremiumVariant(), fromOnboarding = false)) } },
                             modifier = Modifier.fillMaxWidth().staggeredEntrance(index++),
                         )
                     }
@@ -101,7 +106,7 @@ fun SettingsScreen(nav: OrbitNavigator) {
                             accent = FeatureAccent.PROJECTS,
                             title = stringResource(R.string.settings_language),
                             value = LanguageCatalog.byCode(current.languageCode).nativeName,
-                            onClick = { guard.run { nav.navigate(AppDestination.Language(fromOnboarding = false)) } },
+                            onClick = { context.postAnalytic(SettingsEvents.SETTINGS_LANGUAGE_CLICK); guard.run { nav.navigate(AppDestination.Language(fromOnboarding = false)) } },
                         )
                         SettingsDivider()
                         SettingsRow(
@@ -109,7 +114,7 @@ fun SettingsScreen(nav: OrbitNavigator) {
                             accent = FeatureAccent.TASKS,
                             title = stringResource(R.string.settings_theme),
                             value = themeLabel(current.themeMode),
-                            onClick = { guard.run { vm.showDialog(DialogState.Theme) } },
+                            onClick = { context.postAnalytic(SettingsEvents.SETTINGS_THEME_CLICK); guard.run { vm.showDialog(DialogState.Theme) } },
                         )
                         SettingsDivider()
                         NotificationRows(
@@ -124,7 +129,7 @@ fun SettingsScreen(nav: OrbitNavigator) {
                             icon = Icons.Rounded.Star,
                             accent = FeatureAccent.NOTES,
                             title = stringResource(R.string.settings_rate),
-                            onClick = { guard.run { vm.showDialog(DialogState.RateUs) } },
+                            onClick = { context.postAnalytic(SettingsEvents.SETTINGS_RATE_US_CLICK); guard.run { vm.showDialog(DialogState.RateUs) } },
                         )
                         if (feedbackAvailable) {
                             SettingsDivider()
@@ -132,7 +137,7 @@ fun SettingsScreen(nav: OrbitNavigator) {
                                 icon = Icons.Rounded.Feedback,
                                 accent = FeatureAccent.HABITS,
                                 title = stringResource(R.string.settings_feedback),
-                                onClick = { guard.run { nav.navigate(AppDestination.Feedback) } },
+                                onClick = { context.postAnalytic(SettingsEvents.SETTINGS_FEEDBACK_CLICK); guard.run { nav.navigate(AppDestination.Feedback) } },
                             )
                         }
                         SettingsDivider()
@@ -140,7 +145,7 @@ fun SettingsScreen(nav: OrbitNavigator) {
                             icon = Icons.Rounded.Share,
                             accent = FeatureAccent.ANALYTICS,
                             title = stringResource(R.string.settings_share),
-                            onClick = { guard.run { context.shareAppLink() } },
+                            onClick = { context.postAnalytic(SettingsEvents.SETTINGS_SHARE_APP_CLICK); guard.run { context.shareAppLink() } },
                         )
                     }
 
@@ -150,7 +155,7 @@ fun SettingsScreen(nav: OrbitNavigator) {
                             accent = FeatureAccent.BACKUP,
                             title = stringResource(R.string.settings_backup),
                             subtitle = stringResource(R.string.settings_backup_desc),
-                            onClick = { guard.run { nav.navigate(AppDestination.Backup) } },
+                            onClick = { context.postAnalytic(SettingsEvents.SETTINGS_BACKUP_CLICK); guard.run { nav.navigate(AppDestination.Backup) } },
                         )
                         SettingsDivider()
                         SettingsRow(
@@ -158,7 +163,7 @@ fun SettingsScreen(nav: OrbitNavigator) {
                             accent = FeatureAccent.PRIVACY,
                             title = stringResource(R.string.settings_privacy),
                             subtitle = stringResource(R.string.settings_privacy_desc),
-                            onClick = { guard.run { nav.navigate(AppDestination.Privacy) } },
+                            onClick = { context.postAnalytic(SettingsEvents.SETTINGS_PRIVACY_CLICK); guard.run { nav.navigate(AppDestination.Privacy) } },
                         )
                         if (privacyOptionsRequired && hostActivity != null) {
                             SettingsDivider()
@@ -167,7 +172,7 @@ fun SettingsScreen(nav: OrbitNavigator) {
                                 accent = FeatureAccent.PRIVACY,
                                 title = stringResource(R.string.ads_privacy_options_title),
                                 subtitle = stringResource(R.string.ads_privacy_options_subtitle),
-                                onClick = { guard.run { consent.showPrivacyOptions(hostActivity) } },
+                                onClick = { context.postAnalytic(SettingsEvents.SETTINGS_PRIVACY_OPTIONS_CLICK); guard.run { consent.showPrivacyOptions(hostActivity) } },
                             )
                         }
                         SettingsDivider()
@@ -176,7 +181,7 @@ fun SettingsScreen(nav: OrbitNavigator) {
                             accent = FeatureAccent.HOME,
                             title = stringResource(R.string.settings_customize_dashboard),
                             subtitle = stringResource(R.string.settings_customize_dashboard_desc),
-                            onClick = { guard.run { nav.navigate(AppDestination.DashboardCustomize) } },
+                            onClick = { context.postAnalytic(SettingsEvents.SETTINGS_CUSTOMIZE_DASHBOARD_CLICK); guard.run { nav.navigate(AppDestination.DashboardCustomize) } },
                         )
                     }
 
@@ -186,7 +191,7 @@ fun SettingsScreen(nav: OrbitNavigator) {
                             accent = FeatureAccent.GOALS,
                             title = stringResource(R.string.settings_replay),
                             subtitle = stringResource(R.string.settings_replay_desc),
-                            onClick = { guard.run { nav.navigate(AppDestination.Onboarding(replay = true)) } },
+                            onClick = { context.postAnalytic(SettingsEvents.SETTINGS_REPLAY_ONBOARDING_CLICK); guard.run { nav.navigate(AppDestination.Onboarding(replay = true)) } },
                         )
                         SettingsDivider()
                         SettingsRow(
@@ -194,7 +199,7 @@ fun SettingsScreen(nav: OrbitNavigator) {
                             accent = FeatureAccent.SETTINGS,
                             title = stringResource(R.string.settings_about),
                             value = stringResource(R.string.settings_version, BuildConfig.VERSION_NAME),
-                            onClick = { guard.run { nav.navigate(AppDestination.About) } },
+                            onClick = { context.postAnalytic(SettingsEvents.SETTINGS_ABOUT_CLICK); guard.run { nav.navigate(AppDestination.About) } },
                         )
                     }
                 }
