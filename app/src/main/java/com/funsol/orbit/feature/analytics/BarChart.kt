@@ -38,7 +38,7 @@ fun BarChart(
     modifier: Modifier = Modifier,
     barTop: Color = MaterialTheme.colorScheme.primary,
     barBottom: Color = MaterialTheme.colorScheme.secondary,
-    height: Dp = 180.dp,
+    height: Dp = 190.dp,
 ) {
     val measurer = rememberTextMeasurer()
     val labelStyle = MaterialTheme.typography.labelSmall.copy(color = MaterialTheme.colorScheme.onSurfaceVariant)
@@ -61,26 +61,31 @@ fun BarChart(
         if (n == 0) return@Canvas
         val textH = measurer.measure("0", labelStyle).size.height.toFloat()
         val valueH = measurer.measure("0", valueStyle).size.height.toFloat()
-        val gap = 4.dp.toPx()
-        val chartTop = valueH + gap
+        val gap = 6.dp.toPx()
+        val chartTop = valueH + gap + 10.dp.toPx()
         val chartBottom = size.height - textH - gap * 2
         val usable = max(chartBottom - chartTop, 1f)
         val slot = size.width / n
-        val barW = min(slot * 0.55f, 36.dp.toPx())
+        val barW = min(slot * 0.6f, 32.dp.toPx())
         val peak = max(values.maxOrNull() ?: 0, 1)
-        val topRadius = CornerRadius(min(10.dp.toPx(), barW / 2f))
+        val topRadius = CornerRadius(min(8.dp.toPx(), barW / 2f))
         val none = CornerRadius.Zero
 
-        listOf(0.5f, 1f).forEach { f ->
+        // Professional grid lines
+        listOf(0.25f, 0.5f, 0.75f, 1f).forEach { f ->
             val y = chartBottom - usable * f
-            drawLine(baseline.copy(alpha = if (f == 1f) 0.35f else 0.6f), Offset(0f, y), Offset(size.width, y), strokeWidth = 0.8.dp.toPx())
+            drawLine(baseline.copy(alpha = if (f == 1f) 0.3f else 0.15f), Offset(0f, y), Offset(size.width, y), strokeWidth = 0.8.dp.toPx())
         }
-        drawLine(baseline, Offset(0f, chartBottom), Offset(size.width, chartBottom), strokeWidth = 1.dp.toPx())
+        drawLine(baseline, Offset(0f, chartBottom), Offset(size.width, chartBottom), strokeWidth = 1.2.dp.toPx())
+
+        // Skip interval to avoid overlapping labels on dense charts (e.g. 30-day view)
+        val skipInterval = if (n > 20) 5 else if (n > 10) 3 else if (n > 7) 2 else 1
 
         values.forEachIndexed { i, v ->
             val slotIndex = if (rtl) n - 1 - i else i
             val cx = slot * slotIndex + slot / 2f
             val barH = if (v > 0) max(usable * (v / peak.toFloat()) * grow.value, 4.dp.toPx()) else 0f
+            
             if (v > 0) {
                 val top = chartBottom - barH
                 val path = Path().apply {
@@ -100,25 +105,36 @@ fun BarChart(
                 drawPath(path, Brush.verticalGradient(listOf(barTop, barBottom), startY = top, endY = chartBottom))
             } else {
                 drawRoundRect(
-                    color = baseline,
+                    color = baseline.copy(alpha = 0.5f),
                     topLeft = Offset(cx - barW / 2f, chartBottom - 3.dp.toPx()),
                     size = Size(barW, 3.dp.toPx()),
                     cornerRadius = CornerRadius(2.dp.toPx()),
                 )
             }
-            val valueLayout = measurer.measure(v.toString(), valueStyle)
-            drawText(
-                valueLayout,
-                topLeft = Offset(cx - valueLayout.size.width / 2f, chartBottom - max(barH, 3.dp.toPx()) - valueLayout.size.height - 2.dp.toPx()),
-            )
-            val labelLayout = measurer.measure(
-                labels.getOrElse(i) { "" },
-                labelStyle,
-                overflow = TextOverflow.Ellipsis,
-                maxLines = 1,
-                constraints = Constraints(maxWidth = max(slot.toInt(), 1)),
-            )
-            drawText(labelLayout, topLeft = Offset(cx - labelLayout.size.width / 2f, chartBottom + gap))
+
+            if (v > 0) {
+                val valueLayout = measurer.measure(v.toString(), valueStyle)
+                val valueY = max(chartBottom - barH - valueLayout.size.height - 4.dp.toPx(), chartTop - valueH)
+                drawText(
+                    valueLayout,
+                    topLeft = Offset(cx - valueLayout.size.width / 2f, valueY),
+                )
+            }
+
+            if (i % skipInterval == 0 || i == n - 1 || i == 0) {
+                val labelText = labels.getOrElse(i) { "" }
+                val labelLayout = measurer.measure(
+                    labelText,
+                    labelStyle,
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 1,
+                    constraints = Constraints(maxWidth = max((slot * (skipInterval + 1)).toInt(), 1)),
+                )
+                drawText(
+                    labelLayout,
+                    topLeft = Offset(cx - labelLayout.size.width / 2f, chartBottom + gap),
+                )
+            }
         }
     }
 }

@@ -75,7 +75,7 @@ import com.funsol.orbit.core.navigation.OrbitNavigator
 import com.funsol.orbit.core.startup.continueTo
 import org.koin.compose.viewmodel.koinViewModel
 
-private val LanguageRowMinHeight = 64.dp
+private val LanguageRowMinHeight = 63.dp
 
 @Composable
 fun LanguageScreen(fromOnboarding: Boolean, nav: OrbitNavigator) {
@@ -216,7 +216,7 @@ private fun LanguageRow(
             .selectable(selected = selected, role = Role.RadioButton, onClick = onSelect)
             .semantics { if (selected) stateDescription = selectedLabel }
             .heightIn(min = LanguageRowMinHeight)
-            .padding(horizontal = 16.dp, vertical = 12.dp),
+            .padding(horizontal = 16.dp, vertical = 11.5.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(14.dp),
     ) {

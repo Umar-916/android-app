@@ -123,6 +123,7 @@ internal fun CompletionCheck(
     Box(
         modifier
             .size(Spacing.touchTarget)
+            .clip(CircleShape)
             .toggleable(value = checked, role = Role.Checkbox, onValueChange = onCheckedChange)
             .semantics { contentDescription = title },
         contentAlignment = Alignment.Center,

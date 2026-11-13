@@ -159,7 +159,9 @@ fun OrbitDatePickerDialog(initialEpochDay: Int?, onConfirm: (Int) -> Unit, onDis
                 DatePicker(
                     state = state,
                     title = null,
-                    colors = DatePickerDefaults.colors(containerColor = Color.Transparent),
+                    // Opaque container (same colour as the sheet) so the year-selection grid
+                    // that opens over the month grid does not overlap it visually.
+                    colors = DatePickerDefaults.colors(containerColor = MaterialTheme.colorScheme.surface),
                 )
             }
         }

@@ -62,6 +62,7 @@ import androidx.compose.ui.unit.dp
 import com.funsol.orbit.core.designsystem.GroupTitle
 import com.funsol.orbit.core.designsystem.Orbit
 import com.funsol.orbit.core.designsystem.OrbitCard
+import com.funsol.orbit.core.designsystem.OrbitFieldLabel
 import com.funsol.orbit.core.designsystem.Spacing
 import com.funsol.orbit.core.designsystem.orbitGlow
 import kotlinx.coroutines.launch
@@ -273,12 +274,14 @@ fun PlanningTextField(
     maxLines: Int = if (singleLine) 1 else 5,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     suffix: String? = null,
+    transparentBackground: Boolean = false,
 ) {
     val shown = errorText ?: supportingText
+    val containerColor = if (transparentBackground) Color.Transparent else Orbit.extras.well
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
-        label = { Text(label) },
+        label = { OrbitFieldLabel(label, containerColor) },
         isError = errorText != null,
         supportingText = if (shown != null) {
             { Text(shown) }
@@ -292,9 +295,9 @@ fun PlanningTextField(
         keyboardOptions = keyboardOptions,
         shape = RoundedCornerShape(16.dp),
         colors = OutlinedTextFieldDefaults.colors(
-            focusedContainerColor = Orbit.extras.well,
-            unfocusedContainerColor = Orbit.extras.well,
-            errorContainerColor = Orbit.extras.well,
+            focusedContainerColor = containerColor,
+            unfocusedContainerColor = containerColor,
+            errorContainerColor = containerColor,
             focusedBorderColor = MaterialTheme.colorScheme.primary,
             unfocusedBorderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.18f),
             errorBorderColor = MaterialTheme.colorScheme.error,

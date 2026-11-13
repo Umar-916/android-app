@@ -45,6 +45,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -57,12 +58,12 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.shadow.Shadow
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.clearAndSetSemantics
@@ -77,6 +78,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import androidx.compose.ui.window.DialogWindowProvider
 import com.funsol.orbit.R
 import com.funsol.orbit.core.analytics.AnalyticsEvents
 import com.funsol.orbit.core.analytics.postAnalytic
@@ -490,6 +492,10 @@ fun OrbitSheet(
         onDismissRequest = { if (dismissable) onDismiss() },
         properties = DialogProperties(usePlatformDefaultWidth = false, dismissOnBackPress = dismissable, dismissOnClickOutside = dismissable),
     ) {
+        // Sheets float over the live screen: keep the content behind fully visible instead of
+        // darkening it with the dialog window's default dim layer.
+        val dialogWindow = (LocalView.current.parent as? DialogWindowProvider)?.window
+        SideEffect { dialogWindow?.setDimAmount(0f) }
         Box(
             Modifier
                 .fillMaxSize()
@@ -650,6 +656,23 @@ fun HorizontalGap(width: Dp = Spacing.sm) = Spacer(Modifier.width(width))
 @Composable
 fun VerticalGap(height: Dp = Spacing.sm) = Spacer(Modifier.height(height))
 
+/**
+ * Label for outlined text fields whose container color differs from the surface behind the field.
+ *
+ * Material's outlined cutout removes both the border and the container fill around the floating
+ * label, so a tinted container (such as [OrbitExtras.well]) leaves a pale notch around the label.
+ * Drawing the container color behind the part of the label that sits inside the field fills that
+ * notch back in without moving the label or touching the rest of the field.
+ *
+ * Use [Color.Transparent] for fields that intentionally have no container fill.
+ */
+@Composable
+fun OrbitFieldLabel(text: String, @Suppress("UNUSED_PARAMETER") containerColor: Color = Orbit.extras.well) {
+    Text(
+        text = text,
+    )
+}
+
 @Composable
 fun orbitSwitchColors(): SwitchColors = SwitchDefaults.colors(
     checkedThumbColor = Color.White,
@@ -662,16 +685,18 @@ fun orbitSwitchColors(): SwitchColors = SwitchDefaults.colors(
 
 @Composable
 fun orbitChipColors(): androidx.compose.material3.SelectableChipColors {
+    // A filled, solid selected state keeps the label readable in both themes. The previous
+    // light-mode tint was almost the same value as the card behind it, so the white label
+    // disappeared.
     val primary = MaterialTheme.colorScheme.primary
     val extras = Orbit.extras
-    val selectedFill = if (extras.isDark) primary else primary.copy(alpha = 0.12f).compositeOver(extras.cardBottom)
-    val selectedText = if (extras.isDark) Color.White else extras.readable(primary)
+    val selectedFill = if (extras.isDark) primary else OrbitViolet
     return FilterChipDefaults.filterChipColors(
         containerColor = extras.well,
         labelColor = MaterialTheme.colorScheme.onSurface,
         selectedContainerColor = selectedFill,
-        selectedLabelColor = selectedText,
-        selectedLeadingIconColor = selectedText,
+        selectedLabelColor = Color.White,
+        selectedLeadingIconColor = Color.White,
     )
 }
 

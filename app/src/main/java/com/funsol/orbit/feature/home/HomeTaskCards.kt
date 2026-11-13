@@ -192,10 +192,11 @@ internal fun UpcomingCard(
                 if (totalCount > entries.size) {
                     item(key = "more", contentType = "more") {
                         Box(
-                            Modifier.heightIn(min = 92.dp).width(84.dp).clip(RoundedCornerShape(16.dp))
+                            Modifier.heightIn(min = 92.dp).width(84.dp)
+                                .clip(RoundedCornerShape(16.dp))
                                 .background(Orbit.extras.well)
-                                .padding(Spacing.sm)
-                                .clickable(role = Role.Button, onClick = onViewAll),
+                                .clickable(role = Role.Button, onClick = onViewAll)
+                                .padding(Spacing.sm),
                             contentAlignment = Alignment.Center,
                         ) {
                             Text(

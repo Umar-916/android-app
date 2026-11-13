@@ -109,7 +109,7 @@ private fun HomeContent(
     val go: (AppDestination) -> Unit = { destination -> guard.run { nav.navigate(destination) } }
     val goTasks: () -> Unit = { guard.run { nav.switchTab(AppDestination.Tasks) } }
     val openTask: (String) -> Unit = { id -> go(AppDestination.TaskEdit(taskId = id)) }
-    val allHidden = state.hiddenWidgets.size >= HomeWidget.entries.size
+    val allHidden = visible.isEmpty()
     val welcomeShift = if (data.isBlank) 1 else 0
 
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.TopCenter) {

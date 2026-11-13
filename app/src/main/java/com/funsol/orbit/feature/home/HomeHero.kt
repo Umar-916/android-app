@@ -173,6 +173,7 @@ private fun HeroProgress(progress: Progress) {
 @Composable
 private fun WhiteRing(fraction: Float, label: String, size: Dp) {
     val animated by animateFloatAsState(fraction.coerceIn(0f, 1f), tween(800), label = "heroRing")
+    val compact = size <= 60.dp
     Box(Modifier.size(size), contentAlignment = Alignment.Center) {
         Canvas(Modifier.size(size)) {
             val stroke = Stroke(width = 6.dp.toPx(), cap = StrokeCap.Round)
@@ -183,7 +184,15 @@ private fun WhiteRing(fraction: Float, label: String, size: Dp) {
                 drawArc(Color.White, -90f, 360f * animated, false, topLeft = Offset(inset, inset), size = arcSize, style = stroke)
             }
         }
-        Text(label, style = MaterialTheme.typography.titleSmall, color = Color.White, maxLines = 1)
+        // Keep a comfortable gap between the label and the ring stroke, most visible at "100%".
+        Text(
+            label,
+            style = if (compact) MaterialTheme.typography.labelMedium else MaterialTheme.typography.titleSmall,
+            color = Color.White,
+            maxLines = 1,
+            softWrap = false,
+            modifier = Modifier.padding(horizontal = 8.dp),
+        )
     }
 }
 

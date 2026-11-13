@@ -378,19 +378,22 @@ private fun QuickPill(icon: ImageVector, label: String, accent: FeatureAccent, o
     val shape = RoundedCornerShape(20.dp)
     val extras = Orbit.extras
     val accentColor = extras.accent(accent)
-    Box(Modifier.heightIn(min = Spacing.touchTarget).clickable(role = Role.Button, onClick = onClick), contentAlignment = Alignment.Center) {
+    Box(
+        Modifier
+            .heightIn(min = 34.5.dp)
+            .clip(shape)
+            .clickable(role = Role.Button, onClick = onClick)
+            .background(extras.tinted(accentColor, 0.10f))
+            .border(0.8.dp, accentColor.copy(alpha = 0.22f), shape)
+            .padding(horizontal = 12.dp, vertical = 4.5.dp),
+        contentAlignment = Alignment.Center,
+    ) {
         Row(
-            Modifier
-                .heightIn(min = 36.dp)
-                .clip(shape)
-                .background(extras.tinted(accentColor, 0.10f))
-                .border(0.8.dp, accentColor.copy(alpha = 0.22f), shape)
-                .padding(horizontal = 12.dp, vertical = 6.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(6.dp),
         ) {
             Icon(icon, contentDescription = null, tint = accentColor, modifier = Modifier.size(18.dp))
-        Text(label, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurface, maxLines = 1)
+            Text(label, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurface, maxLines = 1)
         }
     }
 }

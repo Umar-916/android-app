@@ -73,6 +73,7 @@ import com.funsol.orbit.core.common.WeekdayMask
 import com.funsol.orbit.core.designsystem.FeatureAccent
 import com.funsol.orbit.core.designsystem.IconTile
 import com.funsol.orbit.core.designsystem.Orbit
+import com.funsol.orbit.core.designsystem.OrbitFieldLabel
 import com.funsol.orbit.core.designsystem.OrbitWell
 import com.funsol.orbit.core.designsystem.Radius
 import com.funsol.orbit.core.designsystem.Spacing
@@ -335,7 +336,7 @@ private fun IntervalField(form: TaskForm, onInterval: (Int) -> Unit) {
             singleLine = true,
             shape = RoundedCornerShape(16.dp),
             colors = orbitFieldColors(),
-            label = { Text(stringResource(R.string.tasks_repeat_interval_label)) },
+            label = { OrbitFieldLabel(stringResource(R.string.tasks_repeat_interval_label)) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Done),
         )
         Text(pluralStringResource(unitRes, form.recurrenceInterval), style = MaterialTheme.typography.bodyLarge)

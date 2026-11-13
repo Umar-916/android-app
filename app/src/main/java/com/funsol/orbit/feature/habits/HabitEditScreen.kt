@@ -383,6 +383,7 @@ private fun WeekdayCircle(
     Box(
         modifier
             .heightIn(min = Spacing.touchTarget)
+            .clip(CircleShape)
             .toggleable(value = selected, role = Role.Checkbox, onValueChange = { onClick() })
             .semantics { contentDescription = full },
         contentAlignment = Alignment.Center,
