@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasks_section_details">Подробности</string>
+    <plurals name="tasks_summary_due_today">
+        <item quantity="one">%d на сегодня</item>
+        <item quantity="few">%d на сегодня</item>
+        <item quantity="many">%d на сегодня</item>
+        <item quantity="other">%d на сегодня</item>
+    </plurals>
+    <plurals name="tasks_summary_overdue">
+        <item quantity="one">%d просрочена</item>
+        <item quantity="few">%d просрочены</item>
+        <item quantity="many">%d просрочено</item>
+        <item quantity="other">%d просрочено</item>
+    </plurals>
+    <string name="tasks_filter_apply">Применить</string>
+    <string name="tasks_pick_date">Выбрать дату</string>
+    <string name="tasks_pick_range">Выбрать период</string>
+    <string name="tasks_clear_reminder">Убрать напоминание</string>
+</resources>

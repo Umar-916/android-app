@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_hint">المهام والمشاريع والملاحظات والعادات والأهداف</string>
+    <string name="search_idle_title">ابحث في كل شيء</string>
+    <string name="search_idle_message">اكتب للعثور على المهام والمشاريع والملاحظات والعادات والأهداف في مكان واحد.</string>
+    <string name="search_empty_title">لا توجد نتائج</string>
+    <string name="search_empty_message">لا شيء يطابق \"%1$s\". جرّب كلمة مختلفة.</string>
+    <string name="search_untitled_note">ملاحظة بلا عنوان</string>
+    <string name="search_goal_percent">اكتمل %1$d%%</string>
+    <plurals name="search_section_tasks">
+        <item quantity="zero">المهام (%1$d)</item>
+        <item quantity="one">المهام (%1$d)</item>
+        <item quantity="two">المهام (%1$d)</item>
+        <item quantity="few">المهام (%1$d)</item>
+        <item quantity="many">المهام (%1$d)</item>
+        <item quantity="other">المهام (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_projects">
+        <item quantity="zero">المشاريع (%1$d)</item>
+        <item quantity="one">المشاريع (%1$d)</item>
+        <item quantity="two">المشاريع (%1$d)</item>
+        <item quantity="few">المشاريع (%1$d)</item>
+        <item quantity="many">المشاريع (%1$d)</item>
+        <item quantity="other">المشاريع (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_notes">
+        <item quantity="zero">الملاحظات (%1$d)</item>
+        <item quantity="one">الملاحظات (%1$d)</item>
+        <item quantity="two">الملاحظات (%1$d)</item>
+        <item quantity="few">الملاحظات (%1$d)</item>
+        <item quantity="many">الملاحظات (%1$d)</item>
+        <item quantity="other">الملاحظات (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_habits">
+        <item quantity="zero">العادات (%1$d)</item>
+        <item quantity="one">العادات (%1$d)</item>
+        <item quantity="two">العادات (%1$d)</item>
+        <item quantity="few">العادات (%1$d)</item>
+        <item quantity="many">العادات (%1$d)</item>
+        <item quantity="other">العادات (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_goals">
+        <item quantity="zero">الأهداف (%1$d)</item>
+        <item quantity="one">الأهداف (%1$d)</item>
+        <item quantity="two">الأهداف (%1$d)</item>
+        <item quantity="few">الأهداف (%1$d)</item>
+        <item quantity="many">الأهداف (%1$d)</item>
+        <item quantity="other">الأهداف (%1$d)</item>
+    </plurals>
+</resources>

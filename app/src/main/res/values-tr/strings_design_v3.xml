@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dv3_quick_add">Hızlı ekle</string>
+    <string name="dv3_quick_add_subtitle">Ne oluşturmak istersiniz?</string>
+    <string name="dv3_new_task">Yeni görev</string>
+    <string name="dv3_new_note">Yeni not</string>
+    <string name="dv3_new_habit">Yeni alışkanlık</string>
+    <string name="dv3_new_project">Yeni proje</string>
+    <string name="dv3_new_goal">Yeni hedef</string>
+    <string name="dv3_search">Ara</string>
+    <string name="dv3_quick_add_hint">Her şeyi tek dokunuşla ekleyin</string>
+    <string name="dv3_quick_add_hint_dismiss">İpucunu kapat</string>
+</resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="prem_title">ORBIT Plus से मिलें</string>
+    <string name="prem_price_line">कीमत: %1$s</string>
+    <string name="prem_included_header">इसमें क्या शामिल है</string>
+    <string name="prem_plan_header">आपका प्लान</string>
+    <string name="prem_plan_unavailable">अभी उपलब्ध नहीं</string>
+    <string name="prem_unavailable_title">खरीदारी अभी उपलब्ध नहीं है</string>
+    <string name="prem_unavailable_body">ORBIT Plus अभी नहीं खरीदा जा सकता। ORBIT में सब कुछ मुफ़्त में काम करता रहेगा।</string>
+    <string name="prem_maybe_later">बाद में</string>
+    <string name="prem_restore">खरीदारी रीस्टोर करें</string>
+    <string name="prem_terms">भुगतान Google Play द्वारा संभाला जाता है। आप इसे अपने Play Store अकाउंट में प्रबंधित कर सकते हैं।</string>
+    <string name="prem_card_title">ORBIT Plus में अपग्रेड करें</string>
+    <string name="prem_card_cta">पूर्वावलोकन</string>
+    <string name="prem_feat_ads_body">बिना रुकावट ORBIT का आनंद लें</string>
+    <string name="prem_compare_title">प्रीमियम बनाम बेसिक</string>
+    <string name="prem_compare_subtitle">देखें ORBIT Plus में क्या जुड़ता है</string>
+    <string name="prem_col_basic">बेसिक</string>
+    <string name="prem_row_ads">कोई विज्ञापन नहीं</string>
+    <string name="prem_included_cd">शामिल</string>
+    <string name="prem_not_included_cd">शामिल नहीं</string>
+    <string name="prem_compare_row_cd">%1$s. बेसिक: %2$s. Plus: %3$s.</string>
+    <string name="prem_black_tagline">ORBIT Plus के साथ पूरा फ़ोकस। कोई रुकावट नहीं, सिर्फ़ आपकी योजनाएँ।</string>
+    <string name="prem_offline">इंटरनेट कनेक्शन नहीं है</string>
+    <string name="prem_subtitle">ORBIT का आनंद बिना विज्ञापनों के लें। प्लानर की सभी सुविधाएँ सबके लिए मुफ़्त रहती हैं।</string>
+    <string name="prem_card_subtitle">विज्ञापन हटाएँ</string>
+    <string name="prem_feat_ads_title">सभी विज्ञापन हटाएँ</string>
+    <string name="prem_feat_focus_title">बिना व्यवधान की प्लानिंग</string>
+    <string name="prem_feat_focus_body">सिर्फ़ आपके कार्य, नोट्स और आदतें</string>
+    <string name="prem_feat_support_title">ORBIT के विकास में सहयोग करें</string>
+    <string name="prem_feat_support_body">ORBIT को बेहतर बनाते रहने में हमारी मदद करें</string>
+    <string name="prem_row_all">प्लानर की सभी सुविधाएँ</string>
+    <string name="prem_row_private">ऑफ़लाइन और डिज़ाइन से ही निजी</string>
+    <string name="prem_row_support">विकास में सहयोग</string>
+    <string name="prem_slider_title">ORBIT PLUS के साथ\nविज्ञापन-मुक्त</string>
+    <string name="prem_row_backup">बैकअप और रिस्टोर</string>
+    <string name="prem_row_reminders">रिमाइंडर और सूचनाएँ</string>
+    <string name="prem_col_premium">प्रीमियम</string>
+    <string name="prem_price_after_trial">निःशुल्क ट्रायल के बाद %1$s</string>
+    <string name="prem_cancel_anytime">कभी भी रद्द करें</string>
+    <string name="prem_black_secure">कभी भी रद्द करें, Google Play के साथ सुरक्षित</string>
+    <string name="prem_zippo_title">प्रो की तरह शुरू करें</string>
+    <string name="prem_black_title">प्रीमियम प्लानर</string>
+    <string name="prem_black_cta">अभी ORBIT Plus अनलॉक करें</string>
+    <string name="prem_black_go">अभी एक्सेस पाएँ</string>
+</resources>

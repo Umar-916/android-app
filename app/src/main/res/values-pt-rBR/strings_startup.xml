@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="startup_status_1">Preparando seu espaço…</string>
+    <string name="startup_status_4">Quase pronto…</string>
+    <string name="startup_progress_description">Carregando, %1$d por cento</string>
+    <string name="startup_error_title">Não foi possível abrir seu planejador</string>
+    <string name="startup_error_message">Nada foi perdido. Tente novamente em instantes.</string>
+</resources>

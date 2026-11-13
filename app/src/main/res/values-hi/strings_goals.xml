@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goals_title">लक्ष्य</string>
+    <string name="goals_new">नया लक्ष्य</string>
+    <string name="goals_empty_title">अभी कोई लक्ष्य नहीं</string>
+    <string name="goals_empty_message">कोई मापने योग्य लक्ष्य तय करें, जैसे पढ़ने के लिए किताबें या दौड़ने के लिए किलोमीटर, और उसकी ओर अपनी प्रगति ट्रैक करें।</string>
+    <string name="goals_section_in_progress">जारी</string>
+    <string name="goals_section_in_progress_empty">कोई लक्ष्य जारी नहीं।</string>
+    <string name="goals_section_completed">पूर्ण</string>
+    <plurals name="goals_show_archived">
+        <item quantity="one">संग्रहित दिखाएँ (%1$d)</item>
+        <item quantity="other">संग्रहित दिखाएँ (%1$d)</item>
+    </plurals>
+    <plurals name="goals_hide_archived">
+        <item quantity="one">संग्रहित छिपाएँ (%1$d)</item>
+        <item quantity="other">संग्रहित छिपाएँ (%1$d)</item>
+    </plurals>
+    <string name="goals_percent">%1$d%%</string>
+    <plurals name="goals_days_left">
+        <item quantity="one">%1$d दिन बाकी</item>
+        <item quantity="other">%1$d दिन बाकी</item>
+    </plurals>
+    <string name="goals_due_today">आज देय</string>
+    <plurals name="goals_overdue_days">
+        <item quantity="one">%1$d दिन की देरी</item>
+        <item quantity="other">%1$d दिन की देरी</item>
+    </plurals>
+    <string name="goals_update_progress">प्रगति अपडेट करें</string>
+    <string name="goals_celebrate">लक्ष्य पूरा हुआ। शाबाश!</string>
+    <string name="goals_update_progress_title">“%1$s” अपडेट करें</string>
+    <string name="goals_mode_set">मान सेट करें</string>
+    <string name="goals_mode_add">मात्रा जोड़ें</string>
+    <string name="goals_field_new_value">नया मान</string>
+    <string name="goals_field_increment">जोड़ने की मात्रा</string>
+    <string name="goals_update_confirm">अपडेट करें</string>
+    <string name="goals_error_number_empty">कोई संख्या दर्ज करें।</string>
+    <string name="goals_error_number_invalid">मान्य संख्या दर्ज करें, जैसे 12 या 12.5।</string>
+    <string name="goals_error_number_negative">मान ऋणात्मक नहीं हो सकता।</string>
+    <string name="goals_error_number_zero">मान शून्य से अधिक होना चाहिए।</string>
+    <string name="goals_error_number_too_large">यह संख्या बहुत बड़ी है।</string>
+    <string name="goals_edit_new_title">नया लक्ष्य</string>
+    <string name="goals_edit_title">लक्ष्य संपादित करें</string>
+    <string name="goals_field_title">लक्ष्य</string>
+    <string name="goals_field_description">विवरण</string>
+    <string name="goals_field_target">लक्ष्य मान</string>
+    <string name="goals_field_current">मौजूदा मान</string>
+    <string name="goals_field_unit">इकाई (वैकल्पिक)</string>
+    <string name="goals_field_unit_hint">जैसे किताबें, किमी या पृष्ठ</string>
+    <string name="goals_field_start">आरंभ तिथि</string>
+    <string name="goals_field_target_date">लक्ष्य तिथि</string>
+    <string name="goals_field_status">स्थिति</string>
+    <string name="goals_error_title_required">लक्ष्य का शीर्षक दर्ज करें।</string>
+    <string name="goals_error_target_before_start">लक्ष्य तिथि आरंभ तिथि के बराबर या उसके बाद होनी चाहिए।</string>
+    <string name="goals_not_found">यह लक्ष्य अब मौजूद नहीं है।</string>
+    <string name="goals_delete_title">“%1$s” हटाएँ?</string>
+    <string name="goals_delete_message">“%1$s” हमेशा के लिए हटा दिया जाएगा। इसे पूर्ववत नहीं किया जा सकता।</string>
+    <string name="goals_delete_confirm">लक्ष्य हटाएँ</string>
+</resources>

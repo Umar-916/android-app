@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analytics_title">Statistiques</string>
+    <string name="analytics_empty_title">Pas encore de données à analyser</string>
+    <string name="analytics_empty_message">Terminez quelques tâches, suivez une habitude ou fixez un objectif : vos graphiques de productivité apparaîtront ici.</string>
+    <string name="analytics_empty_action">Ajouter une tâche</string>
+    <string name="analytics_range_7">7 jours</string>
+    <string name="analytics_range_30">30 jours</string>
+    <string name="analytics_percent">%1$d %%</string>
+    <string name="analytics_none">–</string>
+    <string name="analytics_tile_completed_7">Terminées en 7 jours</string>
+    <string name="analytics_tile_completed_30">Terminées en 30 jours</string>
+    <string name="analytics_tile_rate">Taux d\'achèvement</string>
+    <string name="analytics_tile_open">Tâches ouvertes</string>
+    <string name="analytics_tile_overdue">En retard</string>
+    <string name="analytics_tile_all_time">Terminées au total</string>
+    <string name="analytics_rate_note">Le taux d\'achèvement apparaît dès que vous avez des tâches avec une échéance sur cette période.</string>
+    <string name="analytics_daily_title">Productivité hebdomadaire</string>
+    <string name="analytics_daily_subtitle">Tâches terminées par jour, 7 derniers jours</string>
+    <string name="analytics_weekly_title">Progression mensuelle</string>
+    <string name="analytics_weekly_subtitle">Tâches terminées par semaine, 5 dernières semaines</string>
+    <string name="analytics_chart_empty">Aucune tâche terminée sur cette période.</string>
+    <string name="analytics_chart_point">%1$s : %2$d</string>
+    <string name="analytics_week_range">%1$s au %2$s</string>
+    <string name="analytics_projects_title">Avancement des projets</string>
+    <string name="analytics_projects_empty">Aucun projet pour l\'instant. Créez-en un pour suivre sa progression ici.</string>
+    <string name="analytics_project_no_tasks">Aucune tâche</string>
+    <plurals name="analytics_tasks_done_of">
+        <item quantity="one">%1$d tâche terminée sur %2$d</item>
+        <item quantity="many">%1$d tâches terminées sur %2$d</item>
+        <item quantity="other">%1$d tâches terminées sur %2$d</item>
+    </plurals>
+    <string name="analytics_habits_title">Régularité des habitudes</string>
+    <string name="analytics_habits_empty">Aucune habitude pour l\'instant. Ajoutez-en une pour suivre votre régularité.</string>
+    <string name="analytics_habit_detail">Série actuelle : %1$d · record : %2$d</string>
+    <string name="analytics_goals_title">Progression des objectifs</string>
+    <string name="analytics_goals_empty">Aucun objectif pour l\'instant. Fixez-en un pour suivre vos progrès.</string>
+</resources>

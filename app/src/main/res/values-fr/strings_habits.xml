@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="habits_title">Habitudes</string>
+    <string name="habits_new">Nouvelle habitude</string>
+    <string name="habits_empty_title">Aucune habitude</string>
+    <string name="habits_empty_message">Construisez vos routines jour après jour. Créez une habitude et validez-la chaque jour prévu.</string>
+    <string name="habits_no_active_title">Aucune habitude active</string>
+    <string name="habits_no_active_message">Toutes vos habitudes sont archivées. Créez-en une nouvelle pour lancer une série.</string>
+    <string name="habits_not_scheduled_today">Non prévue aujourd\'hui</string>
+    <string name="habits_done_today">faite aujourd\'hui</string>
+    <string name="habits_not_done_today">pas encore faite aujourd\'hui</string>
+    <string name="habits_state_archived">archivée</string>
+    <string name="habits_card_desc">%1$s, %2$s, %3$s</string>
+    <plurals name="habits_streak_days">
+        <item quantity="one">Série de %1$d jour</item>
+        <item quantity="many">Série de %1$d jours</item>
+        <item quantity="other">Série de %1$d jours</item>
+    </plurals>
+    <string name="habits_completion_percent">%1$d %% accompli</string>
+    <string name="habits_check_today">Valider %1$s pour aujourd\'hui</string>
+    <string name="habits_uncheck_today">Annuler la validation de %1$s aujourd\'hui</string>
+    <plurals name="habits_archived_section">
+        <item quantity="one">Archivées (%1$d)</item>
+        <item quantity="many">Archivées (%1$d)</item>
+        <item quantity="other">Archivées (%1$d)</item>
+    </plurals>
+    <string name="habits_expand">réduit</string>
+    <string name="habits_collapse">développé</string>
+    <string name="habits_schedule_daily_summary">Tous les jours</string>
+    <string name="habits_schedule_weekdays_summary">En semaine</string>
+    <string name="habits_schedule_weekends_summary">Le week-end</string>
+    <string name="habits_list_separator">", "</string>
+    <string name="habits_edit_new_title">Nouvelle habitude</string>
+    <string name="habits_edit_title">Modifier l\'habitude</string>
+    <string name="habits_field_name">Nom de l\'habitude</string>
+    <string name="habits_field_description">Description</string>
+    <string name="habits_field_schedule">Répéter le</string>
+    <string name="habits_field_start">Date de début</string>
+    <string name="habits_field_archive">Archiver l\'habitude</string>
+    <string name="habits_field_archive_hint">Les habitudes archivées conservent leur historique mais disparaissent des validations quotidiennes.</string>
+    <string name="habits_preset_daily">Quotidienne</string>
+    <string name="habits_preset_weekdays">En semaine</string>
+    <string name="habits_preset_weekends">Week-end</string>
+    <string name="habits_preset_custom">Personnalisée</string>
+    <string name="habits_error_name_required">Saisissez un nom d\'habitude.</string>
+    <string name="habits_error_schedule_required">Sélectionnez au moins un jour.</string>
+    <string name="habits_not_found">Cette habitude n\'existe plus.</string>
+    <string name="habits_delete_title">Supprimer « %1$s » ?</string>
+    <string name="habits_delete_message">« %1$s » et tout son historique de validations seront définitivement supprimés. Cette action est irréversible.</string>
+    <string name="habits_delete_confirm">Supprimer l\'habitude</string>
+    <string name="habits_detail_title">Habitude</string>
+    <string name="habits_check_in_today">Valider pour aujourd\'hui</string>
+    <string name="habits_undo_today">Validée aujourd\'hui · Annuler</string>
+    <string name="habits_stat_current_streak">Série actuelle</string>
+    <string name="habits_stat_longest_streak">Plus longue série</string>
+    <string name="habits_stat_completion">Réussite</string>
+    <string name="habits_stat_total_checkins">Total des validations</string>
+    <plurals name="habits_days_value">
+        <item quantity="one">%1$d jour</item>
+        <item quantity="many">%1$d jours</item>
+        <item quantity="other">%1$d jours</item>
+    </plurals>
+    <string name="habits_percent_value">%1$d %%</string>
+    <string name="habits_cal_previous">Mois précédent</string>
+    <string name="habits_cal_next">Mois suivant</string>
+    <string name="habits_cal_done">Fait</string>
+    <string name="habits_cal_missed">Manqué</string>
+    <string name="habits_cal_scheduled">Prévu</string>
+    <string name="habits_cal_not_scheduled">Non prévu</string>
+    <string name="habits_cal_day_desc">%1$s, %2$s</string>
+    <string name="habits_calendar_hint">Touchez un jour prévu, jusqu\'à aujourd\'hui, pour le cocher ou le décocher.</string>
+</resources>

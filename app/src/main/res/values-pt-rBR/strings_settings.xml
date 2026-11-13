@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Configurações</string>
+    <string name="settings_group_preferences">Preferências</string>
+    <string name="settings_group_support">Suporte e feedback</string>
+    <string name="settings_group_data">Dados e privacidade</string>
+    <string name="settings_group_about">Sobre</string>
+    <string name="settings_language">Idioma do app</string>
+    <string name="settings_theme">Tema do app</string>
+    <string name="settings_theme_system">Padrão do sistema</string>
+    <string name="settings_theme_light">Claro</string>
+    <string name="settings_theme_dark">Escuro</string>
+    <string name="settings_theme_dialog_title">Escolher tema</string>
+    <string name="settings_apply">Aplicar</string>
+    <string name="settings_reminders">Lembretes de tarefas</string>
+    <string name="settings_reminders_desc">Receba uma notificação quando uma tarefa com lembrete vencer.</string>
+    <string name="settings_notif_allowed">As notificações estão permitidas neste dispositivo.</string>
+    <string name="settings_notif_blocked">As notificações estão bloqueadas para o ORBIT, então os lembretes não podem aparecer.</string>
+    <string name="settings_notif_denied_explain">A permissão não foi concedida. Você pode permitir as notificações nas configurações do sistema.</string>
+    <string name="settings_notif_open">Abrir configurações de notificação</string>
+    <string name="settings_reminders_note">Os lembretes são aproximados e podem atrasar devido à economia de bateria ou outras configurações de energia.</string>
+    <string name="settings_rate">Avalie-nos</string>
+    <string name="settings_feedback">Feedback</string>
+    <string name="settings_share">Compartilhar app</string>
+    <string name="settings_customize_dashboard">Personalizar painel</string>
+    <string name="settings_customize_dashboard_desc">Escolha quais cartões aparecem no Início</string>
+    <string name="settings_backup">Backup e restauração</string>
+    <string name="settings_backup_desc">Exporte ou restaure seus dados</string>
+    <string name="settings_privacy">Política de privacidade</string>
+    <string name="settings_privacy_desc">Como seus dados são tratados</string>
+    <string name="settings_replay">Rever introdução</string>
+    <string name="settings_replay_desc">Veja o tour de boas-vindas novamente</string>
+    <string name="settings_about">Sobre o ORBIT</string>
+    <string name="settings_version">Versão %1$s</string>
+    <string name="rate_title">Gostando do ORBIT?</string>
+    <string name="rate_tagline">Sua avaliação nos ajuda a crescer</string>
+    <string name="rate_description">Se o ORBIT ajuda você a se organizar, uma avaliação rápida na Play Store significa muito para a nossa pequena equipe.</string>
+    <string name="rate_hint_none">Toque em uma estrela para avaliar</string>
+    <string name="rate_hint_low">Obrigado por ser sincero conosco</string>
+    <string name="rate_hint_high">Obrigado! Você alegrou nosso dia</string>
+    <string name="rate_submit">Enviar</string>
+    <string name="rate_low_title">Obrigado pelo seu feedback</string>
+    <string name="rate_low_message">Lamentamos que o ORBIT não tenha atendido totalmente às suas expectativas. Continuaremos trabalhando para melhorá-lo.</string>
+    <string name="rate_low_message_feedback">Lamentamos que o ORBIT não tenha atendido totalmente às suas expectativas. Diga o que melhorar e vamos trabalhar nisso.</string>
+    <string name="rate_improve">Diga o que melhorar</string>
+    <plurals name="rate_star_count">
+        <item quantity="one">%1$d estrela</item>
+        <item quantity="many">%1$d estrelas</item>
+        <item quantity="other">%1$d estrelas</item>
+    </plurals>
+    <string name="rate_reaction_1">😞 Queremos melhorar</string>
+    <string name="rate_reaction_2">😕 Queremos melhorar</string>
+    <string name="rate_reaction_3">😐 Queremos melhorar</string>
+    <string name="rate_reaction_4">😊 Obrigado!</string>
+    <string name="rate_reaction_5">🤩 Obrigado! Você alegrou nosso dia</string>
+</resources>

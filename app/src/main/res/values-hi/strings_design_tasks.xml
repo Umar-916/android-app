@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasks_section_details">विवरण</string>
+    <plurals name="tasks_summary_due_today">
+        <item quantity="one">%d आज देय</item>
+        <item quantity="other">%d आज देय</item>
+    </plurals>
+    <plurals name="tasks_summary_overdue">
+        <item quantity="one">%d देर से</item>
+        <item quantity="other">%d देर से</item>
+    </plurals>
+    <string name="tasks_filter_apply">लागू करें</string>
+    <string name="tasks_pick_date">तिथि चुनें</string>
+    <string name="tasks_pick_range">तिथि सीमा चुनें</string>
+    <string name="tasks_clear_reminder">रिमाइंडर हटाएँ</string>
+</resources>

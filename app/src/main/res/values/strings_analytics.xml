@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analytics_title">Analytics</string>
+    <string name="analytics_empty_title">No data to analyze yet</string>
+    <string name="analytics_empty_message">Complete a few tasks, track a habit or set a goal and your productivity charts will appear here.</string>
+    <string name="analytics_empty_action">Add a task</string>
+    <string name="analytics_range_7">7 days</string>
+    <string name="analytics_range_30">30 days</string>
+    <string name="analytics_percent">%1$d%%</string>
+    <string name="analytics_none">–</string>
+
+    <string name="analytics_tile_completed_7">Completed in 7 days</string>
+    <string name="analytics_tile_completed_30">Completed in 30 days</string>
+    <string name="analytics_tile_rate">Completion rate</string>
+    <string name="analytics_tile_open">Open tasks</string>
+    <string name="analytics_tile_overdue">Overdue now</string>
+    <string name="analytics_tile_all_time">Completed all time</string>
+    <string name="analytics_rate_note">The completion rate appears once you have tasks with due dates in this period.</string>
+
+    <string name="analytics_daily_title">Weekly productivity</string>
+    <string name="analytics_daily_subtitle">Tasks completed per day, last 7 days</string>
+    <string name="analytics_weekly_title">Monthly progress</string>
+    <string name="analytics_weekly_subtitle">Tasks completed per week, last 5 weeks</string>
+    <string name="analytics_chart_empty">No completed tasks in this period yet.</string>
+    <string name="analytics_chart_point">%1$s: %2$d</string>
+    <string name="analytics_week_range">%1$s to %2$s</string>
+
+    <string name="analytics_projects_title">Project completion</string>
+    <string name="analytics_projects_empty">No projects yet. Create one to see its progress here.</string>
+    <string name="analytics_project_no_tasks">No tasks yet</string>
+    <plurals name="analytics_tasks_done_of">
+        <item quantity="one">%1$d of %2$d task done</item>
+        <item quantity="other">%1$d of %2$d tasks done</item>
+    </plurals>
+
+    <string name="analytics_habits_title">Habit consistency</string>
+    <string name="analytics_habits_empty">No habits yet. Add one to track your consistency.</string>
+    <string name="analytics_habit_detail">Current streak %1$d · longest %2$d</string>
+
+    <string name="analytics_goals_title">Goal progress</string>
+    <string name="analytics_goals_empty">No goals yet. Set a goal to follow your progress.</string>
+</resources>

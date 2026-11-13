@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calendar_today">আজকে যান</string>
+    <string name="calendar_prev_month">আগের মাস</string>
+    <string name="calendar_next_month">পরের মাস</string>
+    <string name="calendar_mode_day">দিন</string>
+    <string name="calendar_mode_agenda">এজেন্ডা</string>
+    <string name="calendar_all_day">সারাদিন</string>
+    <string name="calendar_scheduled">নির্ধারিত</string>
+    <string name="calendar_add_task">কাজ যোগ করুন</string>
+    <string name="calendar_overdue_header">বিলম্বিত</string>
+    <string name="calendar_header_relative">%1$s · %2$s</string>
+    <string name="calendar_cell_today">আজ</string>
+    <string name="calendar_cell_overdue">%1$d বিলম্বিত</string>
+    <plurals name="calendar_cell_tasks">
+        <item quantity="one">%d কাজ</item>
+        <item quantity="other">%d কাজ</item>
+    </plurals>
+    <plurals name="calendar_day_tasks">
+        <item quantity="one">এই দিনে %d কাজ</item>
+        <item quantity="other">এই দিনে %d কাজ</item>
+    </plurals>
+    <string name="calendar_empty_day_title">কিছুই পরিকল্পিত নেই</string>
+    <string name="calendar_empty_day_message">%1$s তারিখে কোনো কাজ শেষ করার কথা নেই।</string>
+    <string name="calendar_empty_agenda_title">কোনো আসন্ন সময়সীমা নেই</string>
+    <string name="calendar_empty_agenda_message">নির্ধারিত তারিখসহ খোলা কাজ এখানে তালিকাভুক্ত হবে।</string>
+    <string name="calendar_error">ক্যালেন্ডার লোড করা যায়নি।</string>
+</resources>

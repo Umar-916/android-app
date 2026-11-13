@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="more_title">Plus</string>
+    <string name="more_section_organize">Organiser</string>
+    <string name="more_section_app">App et données</string>
+    <string name="more_notes_title">Notes</string>
+    <string name="more_notes_desc">Notes rapides et dossiers</string>
+    <string name="more_habits_title">Habitudes</string>
+    <string name="more_habits_desc">Créez des routines quotidiennes</string>
+    <string name="more_goals_title">Objectifs</string>
+    <string name="more_goals_desc">Suivez ce que vous visez</string>
+    <string name="more_analytics_title">Statistiques</string>
+    <string name="more_analytics_desc">Suivez vos progrès dans le temps</string>
+    <string name="more_search_title">Recherche</string>
+    <string name="more_search_desc">Trouvez tout dans ORBIT</string>
+    <string name="more_settings_title">Réglages</string>
+    <string name="more_settings_desc">Langue, thème et rappels</string>
+    <string name="more_backup_title">Sauvegarde et restauration</string>
+    <string name="more_backup_desc">Exportez ou restaurez vos données</string>
+    <string name="more_privacy_title">Confidentialité</string>
+    <string name="more_privacy_desc">Comment vos données sont traitées</string>
+</resources>

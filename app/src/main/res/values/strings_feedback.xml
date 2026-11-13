@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feedback_title">Feedback</string>
+    <string name="feedback_tab_issues">Issues</string>
+    <string name="feedback_tab_suggestions">Suggestions</string>
+    <string name="feedback_describe_issue">Describe the problem</string>
+    <string name="feedback_describe_idea">Share your idea</string>
+    <string name="feedback_hint">Tell us in your own words…</string>
+    <string name="feedback_counter">%1$d/%2$d</string>
+    <string name="feedback_select_label">Select item</string>
+    <string name="feedback_select_hint">Choose up to %1$d topics</string>
+    <string name="feedback_limit_reached">You can select up to %1$d topics.</string>
+    <string name="feedback_submit">Send feedback</string>
+    <string name="feedback_no_mail_app">No email app was found on this device. Please install one to send feedback.</string>
+    <string name="feedback_privacy_note">Only your message, the topics you pick and basic app and device info are included. Your tasks and notes are never shared.</string>
+    <string name="feedback_unavailable_title">Feedback is not available</string>
+    <string name="feedback_unavailable_message">Feedback is not set up for this version of ORBIT yet.</string>
+
+    <string name="feedback_subject_issue">ORBIT issue report</string>
+    <string name="feedback_subject_suggestion">ORBIT suggestion</string>
+    <string name="feedback_body_topics">Topics: %1$s</string>
+    <string name="feedback_body_app">App version: %1$s</string>
+    <string name="feedback_body_android">Android version: %1$s</string>
+    <string name="feedback_body_device">Device: %1$s</string>
+
+    <string name="feedback_issue_crash">App crashes</string>
+    <string name="feedback_issue_reminders">Reminders</string>
+    <string name="feedback_issue_notes">Notes</string>
+    <string name="feedback_issue_tasks">Tasks</string>
+    <string name="feedback_issue_calendar">Calendar</string>
+    <string name="feedback_issue_backup">Backup and restore</string>
+    <string name="feedback_issue_language">Language</string>
+    <string name="feedback_item_other">Other</string>
+    <string name="feedback_idea_feature">New feature</string>
+    <string name="feedback_idea_design">Design</string>
+    <string name="feedback_idea_reminders">Reminders</string>
+    <string name="feedback_idea_tasks">Tasks</string>
+    <string name="feedback_idea_notes">Notes</string>
+    <string name="feedback_idea_habits">Habits and goals</string>
+    <string name="feedback_idea_themes">Themes</string>
+</resources>

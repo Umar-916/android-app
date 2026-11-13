@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calendar_today">Ke hari ini</string>
+    <string name="calendar_prev_month">Bulan sebelumnya</string>
+    <string name="calendar_next_month">Bulan berikutnya</string>
+    <string name="calendar_mode_day">Hari</string>
+    <string name="calendar_mode_agenda">Agenda</string>
+    <string name="calendar_all_day">Sepanjang hari</string>
+    <string name="calendar_scheduled">Terjadwal</string>
+    <string name="calendar_add_task">Tambah tugas</string>
+    <string name="calendar_overdue_header">Terlambat</string>
+    <string name="calendar_header_relative">%1$s · %2$s</string>
+    <string name="calendar_cell_today">hari ini</string>
+    <string name="calendar_cell_overdue">%1$d terlambat</string>
+    <plurals name="calendar_cell_tasks">
+        <item quantity="other">%d tugas</item>
+    </plurals>
+    <plurals name="calendar_day_tasks">
+        <item quantity="other">%d tugas pada hari ini</item>
+    </plurals>
+    <string name="calendar_empty_day_title">Belum ada rencana</string>
+    <string name="calendar_empty_day_message">Tidak ada tugas bertenggat pada %1$s.</string>
+    <string name="calendar_empty_agenda_title">Tidak ada tenggat mendatang</string>
+    <string name="calendar_empty_agenda_message">Tugas terbuka yang memiliki tenggat akan tercantum di sini.</string>
+    <string name="calendar_error">Kalender tidak dapat dimuat.</string>
+</resources>

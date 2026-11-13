@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_greeting_morning">صباح الخير</string>
+    <string name="home_greeting_afternoon">مساء الخير</string>
+    <string name="home_greeting_evening">مساء الخير</string>
+    <string name="home_search_hint">ابحث في المهام والملاحظات والمشاريع…</string>
+    <string name="home_customize">تخصيص اللوحة</string>
+    <string name="home_percent">%1$d%%</string>
+    <string name="home_n_more">+%1$d أخرى</string>
+    <string name="home_view_all">عرض الكل</string>
+    <string name="home_welcome_title">مرحبًا بك في ORBIT</string>
+    <string name="home_welcome_message">ابدأ بأول مهمة أو مشروع أو عادة. كل شيء يبقى على هذا الجهاز.</string>
+    <string name="home_all_hidden_title">جميع البطاقات مخفية</string>
+    <string name="home_all_hidden_message">اختر البطاقات التي تظهر في لوحتك.</string>
+    <string name="home_progress_empty_title">لا شيء مخطط لهذا اليوم</string>
+    <string name="home_progress_empty_message">أضف مهمة مستحقة اليوم لبدء متابعة تقدمك.</string>
+    <string name="home_progress_all_done">أنجزت كل شيء اليوم. عمل رائع!</string>
+    <string name="home_progress_keep_going">واصل، أنت في الطريق الصحيح.</string>
+    <plurals name="home_tasks_done_of">
+        <item quantity="zero">اكتملت %1$d من %2$d مهمة</item>
+        <item quantity="one">اكتملت %1$d من %2$d مهمة</item>
+        <item quantity="two">اكتملت %1$d من %2$d مهمة</item>
+        <item quantity="few">اكتملت %1$d من %2$d مهام</item>
+        <item quantity="many">اكتملت %1$d من %2$d مهمة</item>
+        <item quantity="other">اكتملت %1$d من %2$d مهمة</item>
+    </plurals>
+    <string name="home_today_title">اليوم</string>
+    <string name="home_today_empty">لا توجد مهام مستحقة اليوم. استمتع بوقت فراغك أو خطط لشيء جديد.</string>
+    <string name="home_add_task">إضافة مهمة</string>
+    <string name="home_task_mark_done">تحديد %1$s كمنجزة</string>
+    <string name="home_task_completed">اكتملت المهمة</string>
+    <string name="home_upcoming_title">القادمة</string>
+    <string name="home_upcoming_empty">لا شيء مستحق خلال الأيام السبعة القادمة.</string>
+    <string name="home_tomorrow">غدًا</string>
+    <string name="home_date_label">%1$s، %2$s</string>
+    <plurals name="home_overdue_title">
+        <item quantity="zero">%1$d مهمة متأخرة</item>
+        <item quantity="one">%1$d مهمة متأخرة</item>
+        <item quantity="two">%1$d مهمتان متأخرتان</item>
+        <item quantity="few">%1$d مهام متأخرة</item>
+        <item quantity="many">%1$d مهمة متأخرة</item>
+        <item quantity="other">%1$d مهمة متأخرة</item>
+    </plurals>
+    <string name="home_due_on">مستحقة %1$s</string>
+    <string name="home_projects_title">المشاريع النشطة</string>
+    <string name="home_projects_empty">اجمع المهام ذات الصلة في مشروع لمتابعة تقدمها.</string>
+    <string name="home_new_project">مشروع جديد</string>
+    <string name="home_project_no_tasks">لا توجد مهام بعد</string>
+    <string name="home_habits_title">عادات اليوم</string>
+    <string name="home_habits_empty">كوّن روتينك بإضافة أول عادة.</string>
+    <string name="home_habits_summary">اكتمل %1$d من %2$d اليوم</string>
+    <string name="home_new_habit">عادة جديدة</string>
+    <plurals name="home_streak_days">
+        <item quantity="zero">سلسلة %1$d يوم</item>
+        <item quantity="one">سلسلة %1$d يوم</item>
+        <item quantity="two">سلسلة %1$d يومين</item>
+        <item quantity="few">سلسلة %1$d أيام</item>
+        <item quantity="many">سلسلة %1$d يومًا</item>
+        <item quantity="other">سلسلة %1$d يوم</item>
+    </plurals>
+    <string name="home_overview_title">نظرة عامة</string>
+    <string name="home_ov_completed">المنجز خلال 7 أيام</string>
+    <string name="home_ov_open">المهام المفتوحة</string>
+    <string name="home_ov_projects">المشاريع النشطة</string>
+    <string name="home_ov_streak">أفضل سلسلة عادات (أيام)</string>
+    <string name="home_quick_add_title">إضافة سريعة</string>
+    <string name="home_qa_task">مهمة جديدة</string>
+    <string name="home_qa_note">ملاحظة جديدة</string>
+    <string name="home_qa_habit">عادة جديدة</string>
+    <string name="home_qa_project">مشروع جديد</string>
+    <string name="home_qa_goal">هدف جديد</string>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planning_color_label">রং</string>
+    <string name="planning_color_selected">%1$s, নির্বাচিত</string>
+    <string name="planning_color_violet">ভায়োলেট</string>
+    <string name="planning_color_blue">নীল</string>
+    <string name="planning_color_teal">টিল</string>
+    <string name="planning_color_green">সবুজ</string>
+    <string name="planning_color_amber">অ্যাম্বার</string>
+    <string name="planning_color_orange">কমলা</string>
+    <string name="planning_color_red">লাল</string>
+    <string name="planning_color_pink">গোলাপি</string>
+    <string name="planning_color_purple">বেগুনি</string>
+    <string name="planning_color_slate">স্লেট</string>
+    <string name="planning_clear_date_named">%1$s মুছুন</string>
+    <string name="planning_date_range">%1$s – %2$s</string>
+    <string name="planning_date_from">%1$s থেকে</string>
+    <string name="planning_date_until">%1$s পর্যন্ত</string>
+    <string name="planning_discard_title">পরিবর্তন বাদ দেবেন?</string>
+    <string name="planning_discard_message">আপনার অসংরক্ষিত পরিবর্তনগুলো হারিয়ে যাবে।</string>
+    <string name="projects_new">নতুন প্রজেক্ট</string>
+    <string name="projects_empty_title">এখনও কোনো প্রজেক্ট নেই</string>
+    <string name="projects_empty_message">বড় লক্ষ্যের দিকে অগ্রগতি ট্র্যাক করতে সম্পর্কিত কাজগুলো একটি প্রজেক্টে রাখুন।</string>
+    <string name="projects_filter_all">সব</string>
+    <string name="projects_filter_empty_title">এখানে কিছু নেই</string>
+    <string name="projects_filter_empty_message">এই ফিল্টারের সাথে মেলে এমন কোনো প্রজেক্ট নেই।</string>
+    <string name="projects_no_tasks">এখনও কোনো কাজ নেই</string>
+    <plurals name="projects_tasks_progress">
+        <item quantity="one">%2$dটির মধ্যে %1$dটি কাজ সম্পন্ন</item>
+        <item quantity="other">%2$dটির মধ্যে %1$dটি কাজ সম্পন্ন</item>
+    </plurals>
+    <string name="projects_detail_title">প্রজেক্ট</string>
+    <string name="projects_not_found">এই প্রজেক্টটি আর নেই।</string>
+    <string name="projects_restore">প্রজেক্ট পুনরুদ্ধার করুন</string>
+    <string name="projects_mark_completed">সম্পন্ন হিসেবে চিহ্নিত করুন</string>
+    <string name="projects_mark_active">সক্রিয় হিসেবে চিহ্নিত করুন</string>
+    <string name="projects_percent">%1$d%%</string>
+    <string name="projects_progress_desc">%1$d শতাংশ সম্পন্ন</string>
+    <string name="projects_stat_total">মোট কাজ</string>
+    <string name="projects_stat_completed">সম্পন্ন</string>
+    <string name="projects_stat_in_progress">চলমান</string>
+    <string name="projects_stat_todo">করতে হবে</string>
+    <string name="projects_stat_overdue">বিলম্বিত</string>
+    <string name="projects_tasks_section">কাজ</string>
+    <string name="projects_add_task">কাজ যোগ করুন</string>
+    <string name="projects_tasks_empty_title">এই প্রজেক্টে কোনো কাজ নেই</string>
+    <string name="projects_tasks_empty_message">অগ্রগতি ট্র্যাক করতে একটি কাজ যোগ করুন।</string>
+    <string name="projects_task_due">শেষ করার তারিখ: %1$s</string>
+    <string name="projects_task_overdue">বিলম্বিত · %1$s</string>
+    <string name="projects_task_mark_done">%1$s সম্পন্ন হিসেবে চিহ্নিত করুন</string>
+    <string name="projects_task_mark_open">%1$s অসম্পন্ন হিসেবে চিহ্নিত করুন</string>
+    <string name="projects_delete_title">“%1$s” মুছবেন?</string>
+    <string name="projects_delete_simple_message">“%1$s” মুছে ফেলা হবে। এটি পূর্বাবস্থায় ফেরানো যাবে না।</string>
+    <string name="projects_delete_confirm">প্রজেক্ট মুছুন</string>
+    <plurals name="projects_delete_linked">
+        <item quantity="one">“%1$s”-এর সাথে %2$dটি কাজ যুক্ত আছে। সেটির কী করা হবে?</item>
+        <item quantity="other">“%1$s”-এর সাথে %2$dটি কাজ যুক্ত আছে। সেগুলোর কী করা হবে?</item>
+    </plurals>
+    <string name="projects_delete_keep">কাজগুলো রাখুন</string>
+    <string name="projects_delete_keep_hint">এগুলো প্রজেক্ট ছাড়াই আপনার কাজের তালিকায় থাকবে।</string>
+    <plurals name="projects_delete_all">
+        <item quantity="one">প্রজেক্ট ও এর %1$dটি কাজ মুছুন</item>
+        <item quantity="other">প্রজেক্ট ও এর %1$dটি কাজ মুছুন</item>
+    </plurals>
+    <string name="projects_edit_new_title">নতুন প্রজেক্ট</string>
+    <string name="projects_edit_title">প্রজেক্ট সম্পাদনা</string>
+    <string name="projects_field_name">নাম</string>
+    <string name="projects_field_description">বিবরণ</string>
+    <string name="projects_field_start">শুরুর তারিখ</string>
+    <string name="projects_field_end">শেষের তারিখ</string>
+    <string name="projects_field_status">অবস্থা</string>
+    <string name="projects_error_name_required">প্রজেক্টের নাম লিখুন।</string>
+    <string name="projects_error_end_before_start">শেষের তারিখ শুরুর তারিখের সমান বা পরে হতে হবে।</string>
+</resources>

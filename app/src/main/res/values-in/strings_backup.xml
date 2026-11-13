@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dashboard customise -->
+    <string name="backup_customize_title">Sesuaikan dasbor</string>
+    <string name="backup_customize_intro">Dasbor Beranda Anda terdiri dari kartu. Aktifkan yang ingin Anda lihat dan sembunyikan sisanya.</string>
+    <string name="backup_customize_note">Sapaan, pencarian, dan tombol tambah cepat selalu ditampilkan.</string>
+    <string name="backup_customize_reset">Setel ulang ke default</string>
+    <string name="backup_widget_progress">Kemajuan hari ini</string>
+    <string name="backup_widget_progress_desc">Cincin yang menunjukkan berapa tugas hari ini yang sudah selesai.</string>
+    <string name="backup_widget_today">Tugas hari ini</string>
+    <string name="backup_widget_today_desc">Tugas terbuka yang bertenggat hari ini, siap dicentang.</string>
+    <string name="backup_widget_upcoming">Mendatang</string>
+    <string name="backup_widget_upcoming_desc">Tugas yang bertenggat dalam 7 hari ke depan, dikelompokkan per hari.</string>
+    <string name="backup_widget_overdue">Terlambat</string>
+    <string name="backup_widget_overdue_desc">Tugas terbuka yang melewati tenggat. Hanya ditampilkan jika ada.</string>
+    <string name="backup_widget_projects">Proyek aktif</string>
+    <string name="backup_widget_projects_desc">Bilah kemajuan untuk proyek yang sedang Anda kerjakan.</string>
+    <string name="backup_widget_habits">Kebiasaan</string>
+    <string name="backup_widget_habits_desc">Centang kebiasaan hari ini dan lihat rentetan Anda.</string>
+    <string name="backup_widget_overview">Ringkasan</string>
+    <string name="backup_widget_overview_desc">Tugas selesai, tugas terbuka, proyek, dan rentetan terbaik sekilas.</string>
+
+    <!-- Backup and restore -->
+    <string name="backup_title">Cadangan &amp; pemulihan</string>
+    <string name="backup_info_title">Data Anda hanya ada di perangkat ini</string>
+    <string name="backup_info_message">Cadangan berupa berkas JSON biasa yang Anda kendalikan. Simpan di mana pun Anda suka, misalnya folder Unduhan atau flash drive USB.</string>
+    <string name="backup_export_title">Ekspor cadangan</string>
+    <string name="backup_export_desc">Simpan semua tugas, proyek, catatan, kebiasaan, dan tujuan Anda dalam satu berkas.</string>
+    <string name="backup_export_button">Ekspor cadangan</string>
+    <string name="backup_restore_title">Pulihkan dari cadangan</string>
+    <string name="backup_restore_desc">Pilih berkas cadangan yang dibuat oleh ORBIT. Anda akan melihat isinya sebelum ada yang berubah.</string>
+    <string name="backup_restore_button">Pilih berkas cadangan</string>
+    <string name="backup_csv_title">Ekspor ke spreadsheet</string>
+    <string name="backup_csv_desc">Buat berkas CSV yang dapat dibuka di aplikasi spreadsheet. Berkas CSV tidak dapat dipulihkan ke ORBIT.</string>
+    <string name="backup_csv_tasks">Ekspor tugas (CSV)</string>
+    <string name="backup_csv_habits">Ekspor centang kebiasaan (CSV)</string>
+    <string name="backup_working_export">Menyimpan berkas Anda…</string>
+    <string name="backup_working_restore">Memproses cadangan Anda…</string>
+    <string name="backup_success_export">Cadangan tersimpan. Simpan berkas di tempat yang aman.</string>
+    <string name="backup_success_csv">Berkas spreadsheet tersimpan.</string>
+    <string name="backup_success_restore">Cadangan dipulihkan. Data Anda telah diganti.</string>
+    <string name="backup_failed_export">Berkas tidak dapat disimpan. Data Anda tidak berubah. Silakan coba lagi atau pilih lokasi lain.</string>
+    <string name="backup_failed_restore">Cadangan tidak dapat dipulihkan. Data Anda yang ada tidak tersentuh.</string>
+    <string name="backup_invalid_not_backup">Berkas ini bukan cadangan ORBIT. Pilih berkas yang diekspor dari ORBIT.</string>
+    <string name="backup_invalid_version">Cadangan ini dibuat oleh ORBIT versi yang lebih baru. Perbarui aplikasi lalu coba lagi.</string>
+    <string name="backup_invalid_corrupt">Berkas cadangan ini rusak dan tidak dapat dibaca.</string>
+    <string name="backup_invalid_inconsistent">Berkas cadangan ini tidak lengkap atau berisi data yang bertentangan, sehingga tidak dipulihkan.</string>
+    <string name="backup_invalid_too_large">Berkas ini terlalu besar untuk menjadi cadangan ORBIT (batas 25 MB).</string>
+    <string name="backup_confirm_title">Ganti semua data saat ini?</string>
+    <string name="backup_confirm_exported">Cadangan dari %1$s</string>
+    <string name="backup_confirm_contains">Cadangan ini berisi:</string>
+    <string name="backup_confirm_tasks">Tugas: %1$d</string>
+    <string name="backup_confirm_projects">Proyek: %1$d</string>
+    <string name="backup_confirm_notes">Catatan: %1$d</string>
+    <string name="backup_confirm_habits">Kebiasaan: %1$d</string>
+    <string name="backup_confirm_goals">Tujuan: %1$d</string>
+    <string name="backup_confirm_warning">Pemulihan akan mengganti SEMUA data yang ada di ORBIT saat ini. Tindakan ini tidak dapat dibatalkan. Jika ragu, batalkan dan ekspor cadangan terlebih dahulu.</string>
+    <string name="backup_confirm_action">Ganti semua data</string>
+
+    <!-- Privacy -->
+    <string name="privacy_title">Privasi</string>
+    <string name="privacy_headline">Data Anda tetap di perangkat Anda</string>
+    <string name="privacy_intro">ORBIT menyimpan perencana Anda di perangkat dan berfungsi offline. Internet hanya digunakan untuk iklan, formulir persetujuan, dan pengaturan jarak jauh. Berikut penjelasan tepatnya.</string>
+    <string name="privacy_stored_title">Yang disimpan</string>
+    <string name="privacy_stored_body">Tugas, proyek, catatan, kebiasaan, tujuan, dan pengaturan aplikasi Anda disimpan dalam basis data di perangkat ini saja. Data tersebut tidak pernah diunggah kepada kami atau jaringan iklan mana pun.</string>
+    <string name="privacy_account_title">Tanpa akun, tanpa login</string>
+    <string name="privacy_account_body">Anda tidak perlu mendaftar atau masuk. Tidak ada profil dan tidak perlu memberikan alamat email.</string>
+    <string name="privacy_tracking_title">Iklan dan analitik</string>
+    <string name="privacy_tracking_body">ORBIT menampilkan iklan yang disajikan oleh Google AdMob. Untuk menampilkan dan mengukur iklan, Google dapat memproses ID iklan perangkat, alamat IP, dan perkiraan lokasi Anda, seperti dijelaskan dalam kebijakan privasi Google. Anda dapat mengatur ulang atau membatasi ID iklan di pengaturan Android. ORBIT sendiri tidak menjalankan analitik atau pelaporan error dan tidak pernah membaca tugas atau catatan Anda untuk iklan. Iklan dapat dihapus dengan premium setelah tersedia.</string>
+    <string name="privacy_network_title">Penggunaan internet</string>
+    <string name="privacy_network_body">ORBIT meminta izin INTERNET dan ACCESS_NETWORK_STATE. Izin ini hanya digunakan untuk memeriksa apakah Anda online, memuat iklan, menampilkan formulir persetujuan (pilihan privasi Anda), dan mengambil pengaturan aplikasi. Semua fitur perencana tetap berfungsi offline, dan tidak ada iklan yang diminta saat Anda offline. Jika berlaku, Anda dapat mengubah persetujuan iklan di Pengaturan pada Opsi privasi.</string>
+    <string name="privacy_permissions_title">Izin yang kami gunakan</string>
+    <string name="privacy_permissions_intro">Selain akses internet yang dijelaskan di atas, ORBIT meminta dua izin, keduanya untuk pengingat:</string>
+    <string name="privacy_perm_notifications_title">Notifikasi</string>
+    <string name="privacy_perm_notifications_body">Memungkinkan ORBIT menampilkan pengingat tugas Anda. Anda boleh menolak dan bagian aplikasi lainnya tetap berfungsi.</string>
+    <string name="privacy_perm_boot_title">Pulihkan pengingat setelah restart</string>
+    <string name="privacy_perm_boot_body">Memungkinkan ORBIT menjadwalkan ulang pengingat Anda setelah ponsel dihidupkan ulang. Tidak digunakan untuk hal lain.</string>
+    <string name="privacy_backups_title">Cadangan milik Anda</string>
+    <string name="privacy_backups_body">Berkas cadangan adalah berkas JSON biasa yang disimpan di tempat pilihan Anda. Berkas ini TIDAK dienkripsi, sehingga siapa pun yang dapat membukanya dapat membacanya. Simpan di tempat yang aman.</string>
+    <string name="privacy_cloud_title">Tanpa cadangan cloud</string>
+    <string name="privacy_cloud_body">Cadangan cloud Android dan pencadangan otomatis untuk data ORBIT dinonaktifkan. Data Anda hanya keluar dari perangkat saat Anda mengekspornya sendiri.</string>
+    <string name="privacy_delete_title">Menghapus semuanya</string>
+    <string name="privacy_delete_body">Menghapus instalasi ORBIT akan menghapus semua datanya dari perangkat Anda. Untuk memulai dari awal tanpa menghapus aplikasi, pulihkan cadangan yang tidak berisi data.</string>
+
+    <!-- About -->
+    <string name="about_title">Tentang</string>
+    <string name="about_version">Versi %1$s (%2$d)</string>
+    <string name="about_description">ORBIT adalah perencana privat untuk tugas, proyek, catatan, kebiasaan, dan tujuan. Aplikasi ini berfungsi tanpa akun dan tanpa koneksi internet, dan semua yang Anda tulis tetap di perangkat Anda. Internet hanya digunakan untuk iklan, pilihan privasi, dan pengaturan aplikasi.</string>
+    <string name="about_made_with">Dibuat dengan</string>
+    <string name="about_privacy_title">Privasi</string>
+    <string name="about_privacy_subtitle">Cara ORBIT memperlakukan data Anda</string>
+    <string name="privacy_intro_offline">ORBIT menyimpan perencana Anda di perangkat dan berfungsi sepenuhnya secara offline. Berikut artinya secara tepat.</string>
+    <string name="privacy_permissions_intro_offline">ORBIT meminta dua izin, keduanya untuk pengingat:</string>
+    <string name="about_description_offline">ORBIT adalah perencana pribadi untuk tugas, proyek, catatan, kebiasaan, dan target. Berfungsi tanpa akun dan tanpa koneksi internet, dan semua yang Anda tulis tetap di perangkat Anda.</string>
+</resources>

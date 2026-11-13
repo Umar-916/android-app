@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feedback_title">फ़ीडबैक</string>
+    <string name="feedback_tab_issues">समस्याएँ</string>
+    <string name="feedback_tab_suggestions">सुझाव</string>
+    <string name="feedback_describe_issue">समस्या बताएँ</string>
+    <string name="feedback_describe_idea">अपना विचार साझा करें</string>
+    <string name="feedback_hint">अपने शब्दों में बताएँ…</string>
+    <string name="feedback_counter">%1$d/%2$d</string>
+    <string name="feedback_select_label">आइटम चुनें</string>
+    <string name="feedback_select_hint">अधिकतम %1$d विषय चुनें</string>
+    <string name="feedback_limit_reached">आप अधिकतम %1$d विषय चुन सकते हैं।</string>
+    <string name="feedback_submit">फ़ीडबैक भेजें</string>
+    <string name="feedback_no_mail_app">इस डिवाइस पर कोई ईमेल ऐप नहीं मिला। फ़ीडबैक भेजने के लिए कृपया कोई इंस्टॉल करें।</string>
+    <string name="feedback_privacy_note">केवल आपका संदेश, चुने गए विषय और ऐप व डिवाइस की बुनियादी जानकारी शामिल होती है। आपके कार्य और नोट कभी साझा नहीं किए जाते।</string>
+    <string name="feedback_unavailable_title">फ़ीडबैक उपलब्ध नहीं है</string>
+    <string name="feedback_unavailable_message">ORBIT के इस संस्करण के लिए फ़ीडबैक अभी सेट नहीं है।</string>
+    <string name="feedback_subject_issue">ORBIT समस्या रिपोर्ट</string>
+    <string name="feedback_subject_suggestion">ORBIT सुझाव</string>
+    <string name="feedback_body_topics">विषय: %1$s</string>
+    <string name="feedback_body_app">ऐप संस्करण: %1$s</string>
+    <string name="feedback_body_android">Android संस्करण: %1$s</string>
+    <string name="feedback_body_device">डिवाइस: %1$s</string>
+    <string name="feedback_issue_crash">ऐप क्रैश होना</string>
+    <string name="feedback_issue_reminders">रिमाइंडर</string>
+    <string name="feedback_issue_notes">नोट</string>
+    <string name="feedback_issue_tasks">कार्य</string>
+    <string name="feedback_issue_calendar">कैलेंडर</string>
+    <string name="feedback_issue_backup">बैकअप और रीस्टोर</string>
+    <string name="feedback_issue_language">भाषा</string>
+    <string name="feedback_item_other">अन्य</string>
+    <string name="feedback_idea_feature">नई सुविधा</string>
+    <string name="feedback_idea_design">डिज़ाइन</string>
+    <string name="feedback_idea_reminders">रिमाइंडर</string>
+    <string name="feedback_idea_tasks">कार्य</string>
+    <string name="feedback_idea_notes">नोट</string>
+    <string name="feedback_idea_habits">आदतें और लक्ष्य</string>
+    <string name="feedback_idea_themes">थीम</string>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List -->
+    <string name="habits_title">Alışkanlıklar</string>
+    <string name="habits_new">Yeni alışkanlık</string>
+    <string name="habits_empty_title">Henüz alışkanlık yok</string>
+    <string name="habits_empty_message">Rutinleri gün gün oluşturun. Bir alışkanlık ekleyin ve planlandığı her gün işaretleyin.</string>
+    <string name="habits_no_active_title">Aktif alışkanlık yok</string>
+    <string name="habits_no_active_message">Tüm alışkanlıklarınız arşivde. Seri başlatmak için yeni bir tane oluşturun.</string>
+    <string name="habits_not_scheduled_today">Bugün planlanmadı</string>
+    <string name="habits_done_today">bugün tamamlandı</string>
+    <string name="habits_not_done_today">bugün henüz tamamlanmadı</string>
+    <string name="habits_state_archived">arşivlendi</string>
+    <string name="habits_card_desc">%1$s, %2$s, %3$s</string>
+    <plurals name="habits_streak_days">
+        <item quantity="one">%1$d günlük seri</item>
+        <item quantity="other">%1$d günlük seri</item>
+    </plurals>
+    <string name="habits_completion_percent">%%%1$d tamamlandı</string>
+    <string name="habits_check_today">%1$s alışkanlığını bugün için işaretle</string>
+    <string name="habits_uncheck_today">%1$s alışkanlığının bugünkü işaretini geri al</string>
+    <plurals name="habits_archived_section">
+        <item quantity="one">Arşivlenen (%1$d)</item>
+        <item quantity="other">Arşivlenen (%1$d)</item>
+    </plurals>
+    <string name="habits_expand">daraltıldı</string>
+    <string name="habits_collapse">genişletildi</string>
+    <string name="habits_schedule_daily_summary">Her gün</string>
+    <string name="habits_schedule_weekdays_summary">Hafta içi</string>
+    <string name="habits_schedule_weekends_summary">Hafta sonu</string>
+    <string name="habits_list_separator">", "</string>
+
+    <!-- Edit -->
+    <string name="habits_edit_new_title">Yeni alışkanlık</string>
+    <string name="habits_edit_title">Alışkanlığı düzenle</string>
+    <string name="habits_field_name">Alışkanlık adı</string>
+    <string name="habits_field_description">Açıklama</string>
+    <string name="habits_field_schedule">Tekrar günleri</string>
+    <string name="habits_field_start">Başlangıç tarihi</string>
+    <string name="habits_field_archive">Alışkanlığı arşivle</string>
+    <string name="habits_field_archive_hint">Arşivlenen alışkanlıklar geçmişini korur ancak günlük işaretlemelerde gizlenir.</string>
+    <string name="habits_preset_daily">Günlük</string>
+    <string name="habits_preset_weekdays">Hafta içi</string>
+    <string name="habits_preset_weekends">Hafta sonu</string>
+    <string name="habits_preset_custom">Özel</string>
+    <string name="habits_error_name_required">Bir alışkanlık adı girin.</string>
+    <string name="habits_error_schedule_required">En az bir gün seçin.</string>
+    <string name="habits_not_found">Bu alışkanlık artık yok.</string>
+    <string name="habits_delete_title">“%1$s” silinsin mi?</string>
+    <string name="habits_delete_message">“%1$s” ve tüm işaretleme geçmişi kalıcı olarak silinecek. Bu işlem geri alınamaz.</string>
+    <string name="habits_delete_confirm">Alışkanlığı sil</string>
+
+    <!-- Detail -->
+    <string name="habits_detail_title">Alışkanlık</string>
+    <string name="habits_check_in_today">Bugün için işaretle</string>
+    <string name="habits_undo_today">Bugün işaretlendi · Geri al</string>
+    <string name="habits_stat_current_streak">Güncel seri</string>
+    <string name="habits_stat_longest_streak">En uzun seri</string>
+    <string name="habits_stat_completion">Tamamlama</string>
+    <string name="habits_stat_total_checkins">Toplam işaret</string>
+    <plurals name="habits_days_value">
+        <item quantity="one">%1$d gün</item>
+        <item quantity="other">%1$d gün</item>
+    </plurals>
+    <string name="habits_percent_value">%%%1$d</string>
+    <string name="habits_cal_previous">Önceki ay</string>
+    <string name="habits_cal_next">Sonraki ay</string>
+    <string name="habits_cal_done">Yapıldı</string>
+    <string name="habits_cal_missed">Kaçırıldı</string>
+    <string name="habits_cal_scheduled">Planlandı</string>
+    <string name="habits_cal_not_scheduled">Planlanmadı</string>
+    <string name="habits_cal_day_desc">%1$s, %2$s</string>
+    <string name="habits_calendar_hint">Bugüne kadar planlanmış bir güne dokunarak işaretleyin veya işareti kaldırın.</string>
+</resources>

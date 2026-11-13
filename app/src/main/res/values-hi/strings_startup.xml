@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="startup_status_1">आपकी जगह तैयार हो रही है…</string>
+    <string name="startup_status_4">लगभग तैयार…</string>
+    <string name="startup_progress_description">लोड हो रहा है, %1$d प्रतिशत</string>
+    <string name="startup_error_title">हम आपका प्लानर नहीं खोल सके</string>
+    <string name="startup_error_message">कुछ भी खोया नहीं है। कृपया थोड़ी देर में फिर कोशिश करें।</string>
+</resources>

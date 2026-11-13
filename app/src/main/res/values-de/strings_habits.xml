@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="habits_title">Gewohnheiten</string>
+    <string name="habits_new">Neue Gewohnheit</string>
+    <string name="habits_empty_title">Noch keine Gewohnheiten</string>
+    <string name="habits_empty_message">Bauen Sie Routinen Tag für Tag auf. Erstellen Sie eine Gewohnheit und haken Sie sie an jedem geplanten Tag ab.</string>
+    <string name="habits_no_active_title">Keine aktiven Gewohnheiten</string>
+    <string name="habits_no_active_message">Alle Ihre Gewohnheiten sind archiviert. Erstellen Sie eine neue, um eine Serie zu starten.</string>
+    <string name="habits_not_scheduled_today">Heute nicht geplant</string>
+    <string name="habits_done_today">heute erledigt</string>
+    <string name="habits_not_done_today">heute noch nicht erledigt</string>
+    <string name="habits_state_archived">archiviert</string>
+    <string name="habits_card_desc">%1$s, %2$s, %3$s</string>
+    <plurals name="habits_streak_days">
+        <item quantity="one">%1$d Tag in Folge</item>
+        <item quantity="other">%1$d Tage in Folge</item>
+    </plurals>
+    <string name="habits_completion_percent">%1$d %% erreicht</string>
+    <string name="habits_check_today">„%1$s“ für heute abhaken</string>
+    <string name="habits_uncheck_today">Check-in für „%1$s“ heute rückgängig machen</string>
+    <plurals name="habits_archived_section">
+        <item quantity="one">Archiviert (%1$d)</item>
+        <item quantity="other">Archiviert (%1$d)</item>
+    </plurals>
+    <string name="habits_expand">eingeklappt</string>
+    <string name="habits_collapse">ausgeklappt</string>
+    <string name="habits_schedule_daily_summary">Jeden Tag</string>
+    <string name="habits_schedule_weekdays_summary">Wochentage</string>
+    <string name="habits_schedule_weekends_summary">Wochenenden</string>
+    <string name="habits_list_separator">", "</string>
+    <string name="habits_edit_new_title">Neue Gewohnheit</string>
+    <string name="habits_edit_title">Gewohnheit bearbeiten</string>
+    <string name="habits_field_name">Name der Gewohnheit</string>
+    <string name="habits_field_description">Beschreibung</string>
+    <string name="habits_field_schedule">Wiederholen an</string>
+    <string name="habits_field_start">Startdatum</string>
+    <string name="habits_field_archive">Gewohnheit archivieren</string>
+    <string name="habits_field_archive_hint">Archivierte Gewohnheiten behalten ihren Verlauf, werden aber bei den täglichen Check-ins ausgeblendet.</string>
+    <string name="habits_preset_daily">Täglich</string>
+    <string name="habits_preset_weekdays">Wochentage</string>
+    <string name="habits_preset_weekends">Wochenende</string>
+    <string name="habits_preset_custom">Eigene</string>
+    <string name="habits_error_name_required">Geben Sie einen Namen ein.</string>
+    <string name="habits_error_schedule_required">Wählen Sie mindestens einen Tag.</string>
+    <string name="habits_not_found">Diese Gewohnheit existiert nicht mehr.</string>
+    <string name="habits_delete_title">„%1$s“ löschen?</string>
+    <string name="habits_delete_message">„%1$s“ und der gesamte Check-in-Verlauf werden endgültig gelöscht. Dies kann nicht rückgängig gemacht werden.</string>
+    <string name="habits_delete_confirm">Gewohnheit löschen</string>
+    <string name="habits_detail_title">Gewohnheit</string>
+    <string name="habits_check_in_today">Für heute abhaken</string>
+    <string name="habits_undo_today">Heute abgehakt · Rückgängig</string>
+    <string name="habits_stat_current_streak">Aktuelle Serie</string>
+    <string name="habits_stat_longest_streak">Längste Serie</string>
+    <string name="habits_stat_completion">Erfüllung</string>
+    <string name="habits_stat_total_checkins">Check-ins gesamt</string>
+    <plurals name="habits_days_value">
+        <item quantity="one">%1$d Tag</item>
+        <item quantity="other">%1$d Tage</item>
+    </plurals>
+    <string name="habits_percent_value">%1$d %%</string>
+    <string name="habits_cal_previous">Voriger Monat</string>
+    <string name="habits_cal_next">Nächster Monat</string>
+    <string name="habits_cal_done">Erledigt</string>
+    <string name="habits_cal_missed">Verpasst</string>
+    <string name="habits_cal_scheduled">Geplant</string>
+    <string name="habits_cal_not_scheduled">Nicht geplant</string>
+    <string name="habits_cal_day_desc">%1$s, %2$s</string>
+    <string name="habits_calendar_hint">Tippen Sie auf einen geplanten Tag bis heute, um ihn zu markieren oder die Markierung zu entfernen.</string>
+</resources>

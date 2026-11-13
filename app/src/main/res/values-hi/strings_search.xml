@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_hint">कार्य, प्रोजेक्ट, नोट, आदतें, लक्ष्य</string>
+    <string name="search_idle_title">सब कुछ खोजें</string>
+    <string name="search_idle_message">कार्य, प्रोजेक्ट, नोट, आदतें और लक्ष्य एक ही जगह खोजने के लिए टाइप करें।</string>
+    <string name="search_empty_title">कोई नतीजा नहीं</string>
+    <string name="search_empty_message">\"%1$s\" से कुछ मेल नहीं खाता। कोई दूसरा शब्द आज़माएँ।</string>
+    <string name="search_untitled_note">बिना शीर्षक का नोट</string>
+    <string name="search_goal_percent">%1$d%% पूर्ण</string>
+    <plurals name="search_section_tasks">
+        <item quantity="one">कार्य (%1$d)</item>
+        <item quantity="other">कार्य (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_projects">
+        <item quantity="one">प्रोजेक्ट (%1$d)</item>
+        <item quantity="other">प्रोजेक्ट (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_notes">
+        <item quantity="one">नोट (%1$d)</item>
+        <item quantity="other">नोट (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_habits">
+        <item quantity="one">आदतें (%1$d)</item>
+        <item quantity="other">आदतें (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_goals">
+        <item quantity="one">लक्ष्य (%1$d)</item>
+        <item quantity="other">लक्ष्य (%1$d)</item>
+    </plurals>
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Ajustes</string>
+    <string name="settings_group_preferences">Preferencias</string>
+    <string name="settings_group_support">Soporte y opiniones</string>
+    <string name="settings_group_data">Datos y privacidad</string>
+    <string name="settings_group_about">Acerca de</string>
+
+    <string name="settings_language">Idioma de la app</string>
+    <string name="settings_theme">Tema de la app</string>
+    <string name="settings_theme_system">Predeterminado del sistema</string>
+    <string name="settings_theme_light">Claro</string>
+    <string name="settings_theme_dark">Oscuro</string>
+    <string name="settings_theme_dialog_title">Elegir tema</string>
+    <string name="settings_apply">Aplicar</string>
+
+    <string name="settings_reminders">Recordatorios de tareas</string>
+    <string name="settings_reminders_desc">Recibe una notificación cuando venza una tarea con recordatorio.</string>
+    <string name="settings_notif_allowed">Las notificaciones están permitidas en este dispositivo.</string>
+    <string name="settings_notif_blocked">Las notificaciones están bloqueadas para ORBIT, así que los recordatorios no pueden aparecer.</string>
+    <string name="settings_notif_denied_explain">No se concedió el permiso. Puedes permitir las notificaciones en los ajustes del sistema.</string>
+    <string name="settings_notif_open">Abrir ajustes de notificaciones</string>
+    <string name="settings_reminders_note">Los recordatorios son aproximados y pueden retrasarse por el ahorro de batería u otros ajustes de energía.</string>
+
+    <string name="settings_rate">Valóranos</string>
+    <string name="settings_feedback">Opiniones</string>
+    <string name="settings_share">Compartir app</string>
+    <string name="settings_customize_dashboard">Personalizar panel</string>
+    <string name="settings_customize_dashboard_desc">Elige qué tarjetas aparecen en Inicio</string>
+    <string name="settings_backup">Copia de seguridad</string>
+    <string name="settings_backup_desc">Exporta o restaura tus datos</string>
+    <string name="settings_privacy">Política de privacidad</string>
+    <string name="settings_privacy_desc">Cómo se tratan tus datos</string>
+    <string name="settings_replay">Repetir la introducción</string>
+    <string name="settings_replay_desc">Vuelve a ver el recorrido de bienvenida</string>
+    <string name="settings_about">Acerca de ORBIT</string>
+    <string name="settings_version">Versión %1$s</string>
+
+    <string name="rate_title">¿Te gusta ORBIT?</string>
+    <string name="rate_tagline">Tu valoración nos ayuda a crecer</string>
+    <string name="rate_description">Si ORBIT te ayuda a mantenerte organizado, una valoración rápida en Play Store significa mucho para nuestro pequeño equipo.</string>
+    <string name="rate_hint_none">Toca una estrella para valorar</string>
+    <string name="rate_hint_low">Gracias por ser sincero con nosotros</string>
+    <string name="rate_hint_high">¡Gracias! Nos has alegrado el día</string>
+    <string name="rate_submit">Enviar</string>
+    <string name="rate_low_title">Gracias por tu opinión</string>
+    <string name="rate_low_message">Lamentamos que ORBIT no haya cumplido del todo tus expectativas. Seguiremos trabajando para mejorarlo.</string>
+    <string name="rate_low_message_feedback">Lamentamos que ORBIT no haya cumplido del todo tus expectativas. Cuéntanos qué mejorar y trabajaremos en ello.</string>
+    <string name="rate_improve">Cuéntanos qué mejorar</string>
+    <plurals name="rate_star_count">
+        <item quantity="one">%1$d estrella</item>
+        <item quantity="many">%1$d estrellas</item>
+        <item quantity="other">%1$d estrellas</item>
+    </plurals>
+    <string name="rate_reaction_1">😞 Nos encantaría mejorar</string>
+    <string name="rate_reaction_2">😕 Nos encantaría mejorar</string>
+    <string name="rate_reaction_3">😐 Nos encantaría mejorar</string>
+    <string name="rate_reaction_4">😊 ¡Gracias!</string>
+    <string name="rate_reaction_5">🤩 ¡Gracias! Nos has alegrado el día</string>
+</resources>

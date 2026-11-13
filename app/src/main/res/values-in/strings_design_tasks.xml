@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasks_section_details">Detail</string>
+    <plurals name="tasks_summary_due_today">
+        <item quantity="other">%d bertenggat hari ini</item>
+    </plurals>
+    <plurals name="tasks_summary_overdue">
+        <item quantity="other">%d terlambat</item>
+    </plurals>
+    <string name="tasks_filter_apply">Terapkan</string>
+    <string name="tasks_pick_date">Pilih tanggal</string>
+    <string name="tasks_pick_range">Pilih rentang tanggal</string>
+    <string name="tasks_clear_reminder">Hapus pengingat</string>
+</resources>

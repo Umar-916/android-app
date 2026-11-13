@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List -->
+    <string name="habits_title">Habits</string>
+    <string name="habits_new">New habit</string>
+    <string name="habits_empty_title">No habits yet</string>
+    <string name="habits_empty_message">Build routines one day at a time. Create a habit and check it in every day it is scheduled.</string>
+    <string name="habits_no_active_title">No active habits</string>
+    <string name="habits_no_active_message">All your habits are archived. Create a new one to start a streak.</string>
+    <string name="habits_not_scheduled_today">Not scheduled today</string>
+    <string name="habits_done_today">done today</string>
+    <string name="habits_not_done_today">not done yet today</string>
+    <string name="habits_state_archived">archived</string>
+    <string name="habits_card_desc">%1$s, %2$s, %3$s</string>
+    <plurals name="habits_streak_days">
+        <item quantity="one">%1$d day streak</item>
+        <item quantity="other">%1$d day streak</item>
+    </plurals>
+    <string name="habits_completion_percent">%1$d%% complete</string>
+    <string name="habits_check_today">Check in %1$s for today</string>
+    <string name="habits_uncheck_today">Undo check-in for %1$s today</string>
+    <plurals name="habits_archived_section">
+        <item quantity="one">Archived (%1$d)</item>
+        <item quantity="other">Archived (%1$d)</item>
+    </plurals>
+    <string name="habits_expand">collapsed</string>
+    <string name="habits_collapse">expanded</string>
+    <string name="habits_schedule_daily_summary">Every day</string>
+    <string name="habits_schedule_weekdays_summary">Weekdays</string>
+    <string name="habits_schedule_weekends_summary">Weekends</string>
+    <string name="habits_list_separator">", "</string>
+
+    <!-- Edit -->
+    <string name="habits_edit_new_title">New habit</string>
+    <string name="habits_edit_title">Edit habit</string>
+    <string name="habits_field_name">Habit name</string>
+    <string name="habits_field_description">Description</string>
+    <string name="habits_field_schedule">Repeat on</string>
+    <string name="habits_field_start">Start date</string>
+    <string name="habits_field_archive">Archive habit</string>
+    <string name="habits_field_archive_hint">Archived habits keep their history but are hidden from daily check-ins.</string>
+    <string name="habits_preset_daily">Daily</string>
+    <string name="habits_preset_weekdays">Weekdays</string>
+    <string name="habits_preset_weekends">Weekends</string>
+    <string name="habits_preset_custom">Custom</string>
+    <string name="habits_error_name_required">Enter a habit name.</string>
+    <string name="habits_error_schedule_required">Select at least one day.</string>
+    <string name="habits_not_found">This habit no longer exists.</string>
+    <string name="habits_delete_title">Delete “%1$s”?</string>
+    <string name="habits_delete_message">“%1$s” and its entire check-in history will be permanently deleted. This cannot be undone.</string>
+    <string name="habits_delete_confirm">Delete habit</string>
+
+    <!-- Detail -->
+    <string name="habits_detail_title">Habit</string>
+    <string name="habits_check_in_today">Check in for today</string>
+    <string name="habits_undo_today">Checked in today · Undo</string>
+    <string name="habits_stat_current_streak">Current streak</string>
+    <string name="habits_stat_longest_streak">Longest streak</string>
+    <string name="habits_stat_completion">Completion</string>
+    <string name="habits_stat_total_checkins">Total check-ins</string>
+    <plurals name="habits_days_value">
+        <item quantity="one">%1$d day</item>
+        <item quantity="other">%1$d days</item>
+    </plurals>
+    <string name="habits_percent_value">%1$d%%</string>
+    <string name="habits_cal_previous">Previous month</string>
+    <string name="habits_cal_next">Next month</string>
+    <string name="habits_cal_done">Done</string>
+    <string name="habits_cal_missed">Missed</string>
+    <string name="habits_cal_scheduled">Scheduled</string>
+    <string name="habits_cal_not_scheduled">Not scheduled</string>
+    <string name="habits_cal_day_desc">%1$s, %2$s</string>
+    <string name="habits_calendar_hint">Tap a scheduled day up to today to mark or unmark it.</string>
+</resources>

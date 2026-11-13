@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- AppCompat parent: required by AppCompatActivity (per-app language). Compose draws the real UI. -->
+    <style name="Theme.Orbit" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/orbit_window_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>

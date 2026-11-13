@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasks_section_details">Ayrıntılar</string>
+    <plurals name="tasks_summary_due_today">
+        <item quantity="one">%d bugün bitiyor</item>
+        <item quantity="other">%d bugün bitiyor</item>
+    </plurals>
+    <plurals name="tasks_summary_overdue">
+        <item quantity="one">%d gecikmiş</item>
+        <item quantity="other">%d gecikmiş</item>
+    </plurals>
+    <string name="tasks_filter_apply">Uygula</string>
+    <string name="tasks_pick_date">Tarih seç</string>
+    <string name="tasks_pick_range">Tarih aralığı seç</string>
+    <string name="tasks_clear_reminder">Hatırlatıcıyı kaldır</string>
+</resources>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List: views, search, sort -->
+    <string name="tasks_search_hint">Cari tugas</string>
+    <string name="tasks_view_all">Semua</string>
+    <string name="tasks_view_today">Hari ini</string>
+    <string name="tasks_view_upcoming">Mendatang</string>
+    <string name="tasks_view_overdue">Terlambat</string>
+    <string name="tasks_view_completed">Selesai</string>
+    <string name="tasks_view_archived">Diarsipkan</string>
+    <string name="tasks_view_with_count">%1$s (%2$d)</string>
+    <string name="tasks_new">Tugas baru</string>
+    <string name="tasks_sort_action">Urutkan tugas</string>
+    <string name="tasks_sort_due">Tenggat</string>
+    <string name="tasks_sort_priority">Prioritas</string>
+    <string name="tasks_sort_created">Tanggal dibuat</string>
+    <string name="tasks_sort_title">Judul (A–Z)</string>
+    <string name="tasks_sort_reverse">Balik urutan</string>
+    <plurals name="tasks_count">
+        <item quantity="other">%d tugas</item>
+    </plurals>
+
+    <!-- Filters -->
+    <string name="tasks_filter_action">Filter tugas</string>
+    <string name="tasks_filter_title">Filter tugas</string>
+    <string name="tasks_filters_clear">Hapus filter</string>
+    <plurals name="tasks_filters_active">
+        <item quantity="other">%d filter aktif</item>
+    </plurals>
+    <string name="tasks_filter_date">Tenggat</string>
+    <string name="tasks_filter_date_any">Kapan saja</string>
+    <string name="tasks_filter_date_today">Hari ini</string>
+    <string name="tasks_filter_date_next7">7 hari ke depan</string>
+    <string name="tasks_filter_date_month">Bulan ini</string>
+    <string name="tasks_filter_date_none">Tanpa tanggal</string>
+    <string name="tasks_filter_date_custom">Rentang kustom</string>
+    <string name="tasks_filter_date_range">%1$s – %2$s</string>
+    <string name="tasks_filter_priority">Prioritas</string>
+    <string name="tasks_filter_status">Status</string>
+    <string name="tasks_filter_project">Proyek</string>
+    <string name="tasks_filter_project_any">Proyek apa pun</string>
+    <string name="tasks_filter_project_none">Tanpa proyek</string>
+
+    <!-- Rows -->
+    <string name="tasks_due_today">Hari ini</string>
+    <string name="tasks_due_tomorrow">Besok</string>
+    <string name="tasks_due_yesterday">Kemarin</string>
+    <string name="tasks_due_at">%1$s, %2$s</string>
+    <string name="tasks_overdue_label">Terlambat: %1$s</string>
+    <string name="tasks_subtasks_progress">%1$d/%2$d</string>
+    <string name="tasks_row_menu">Tindakan untuk %1$s</string>
+    <string name="tasks_menu_in_progress">Tandai sedang dikerjakan</string>
+    <string name="tasks_menu_reopen">Buka kembali</string>
+    <string name="tasks_a11y_due">tenggat %1$s</string>
+    <string name="tasks_a11y_priority">prioritas %1$s</string>
+    <string name="tasks_a11y_subtasks">%1$d dari %2$d subtugas</string>
+    <string name="tasks_a11y_recurring">berulang</string>
+    <string name="tasks_reminder_info">Pengingat: %1$s</string>
+
+    <!-- Feedback -->
+    <string name="tasks_deleted">Tugas dihapus</string>
+    <string name="tasks_archived_msg">Tugas diarsipkan</string>
+    <string name="tasks_error_load">Tugas Anda tidak dapat dimuat.</string>
+    <string name="tasks_delete_recurring_title">Hapus tugas berulang?</string>
+    <string name="tasks_delete_recurring_message">“%1$s” berulang. Menghapusnya juga menghentikan rangkaiannya, karena kemunculan berikutnya baru dibuat saat tugas ini selesai.</string>
+    <string name="tasks_delete_confirm">Hapus tugas</string>
+
+    <!-- Empty states -->
+    <string name="tasks_empty_all_title">Belum ada tugas</string>
+    <string name="tasks_empty_all_message">Catat apa yang perlu Anda lakukan dan ORBIT akan menjaganya tetap teratur.</string>
+    <string name="tasks_empty_today_title">Tidak ada tenggat hari ini</string>
+    <string name="tasks_empty_today_message">Nikmati waktu luang, atau rencanakan sesuatu yang baru.</string>
+    <string name="tasks_empty_today_action">Tambah tugas untuk hari ini</string>
+    <string name="tasks_empty_upcoming_title">Tidak ada yang mendatang</string>
+    <string name="tasks_empty_upcoming_message">Tugas dengan tenggat di masa depan akan muncul di sini.</string>
+    <string name="tasks_empty_overdue_title">Semua sudah beres</string>
+    <string name="tasks_empty_overdue_message">Tidak ada tugas yang melewati tenggat.</string>
+    <string name="tasks_empty_completed_title">Belum ada tugas selesai</string>
+    <string name="tasks_empty_completed_message">Tugas yang Anda selesaikan akan muncul di sini.</string>
+    <string name="tasks_empty_archived_title">Arsip kosong</string>
+    <string name="tasks_empty_archived_message">Tugas yang diarsipkan disimpan di sini agar tidak mengganggu.</string>
+    <string name="tasks_empty_filtered_title">Tidak ada tugas yang cocok</string>
+    <string name="tasks_empty_filtered_message">Coba pencarian lain atau hapus filter.</string>
+
+    <!-- Editor -->
+    <string name="tasks_edit_new_title">Tugas baru</string>
+    <string name="tasks_edit_title">Ubah tugas</string>
+    <string name="tasks_field_title">Judul</string>
+    <string name="tasks_field_description">Deskripsi (opsional)</string>
+    <string name="tasks_error_title_required">Masukkan judul untuk tugas ini</string>
+    <string name="tasks_error_title_long">Judul maksimal %1$d karakter</string>
+    <string name="tasks_title_counter">%1$d/%2$d</string>
+    <string name="tasks_field_priority">Prioritas</string>
+    <string name="tasks_field_status">Status</string>
+    <string name="tasks_section_schedule">Jadwal</string>
+    <string name="tasks_field_due_date">Tanggal tenggat</string>
+    <string name="tasks_field_due_time">Waktu tenggat</string>
+    <string name="tasks_not_set">Belum diatur</string>
+    <string name="tasks_clear_date">Hapus tanggal tenggat</string>
+    <string name="tasks_clear_time">Hapus waktu tenggat</string>
+    <string name="tasks_pick_time">Pilih waktu</string>
+    <string name="tasks_field_reminder">Pengingat</string>
+    <string name="tasks_reminder_none">Tidak ada</string>
+    <string name="tasks_reminder_at_due">Saat tenggat</string>
+    <string name="tasks_reminder_10m">10 menit sebelumnya</string>
+    <string name="tasks_reminder_30m">30 menit sebelumnya</string>
+    <string name="tasks_reminder_1h">1 jam sebelumnya</string>
+    <string name="tasks_reminder_1d">1 hari sebelumnya</string>
+    <string name="tasks_reminder_custom">%1$d menit sebelumnya</string>
+    <string name="tasks_reminder_needs_date">Atur tanggal tenggat untuk menambahkan pengingat.</string>
+    <string name="tasks_reminder_note">Pengingat dikirim kira-kira tepat waktu dan dapat tertunda oleh optimalisasi baterai.</string>
+    <string name="tasks_notif_denied">Notifikasi dimatikan untuk ORBIT, sehingga pengingat ini tidak akan muncul sampai Anda mengizinkannya di pengaturan sistem.</string>
+    <string name="tasks_field_project">Proyek</string>
+    <string name="tasks_project_none">Tanpa proyek</string>
+
+    <string name="tasks_section_subtasks">Subtugas</string>
+    <string name="tasks_subtasks_empty">Pecah tugas menjadi langkah-langkah yang lebih kecil.</string>
+    <string name="tasks_subtask_hint">Tambah subtugas</string>
+    <string name="tasks_subtask_add">Tambah subtugas</string>
+    <string name="tasks_subtask_delete">Hapus subtugas: %1$s</string>
+    <string name="tasks_subtask_move_up">Pindah ke atas: %1$s</string>
+    <string name="tasks_subtask_move_down">Pindah ke bawah: %1$s</string>
+
+    <string name="tasks_section_repeat">Ulangi</string>
+    <string name="tasks_repeat_none">Tidak pernah</string>
+    <string name="tasks_repeat_daily">Harian</string>
+    <string name="tasks_repeat_weekly">Mingguan</string>
+    <string name="tasks_repeat_monthly">Bulanan</string>
+    <string name="tasks_repeat_yearly">Tahunan</string>
+    <string name="tasks_repeat_needs_date">Tugas berulang memerlukan tenggat. Jika belum diatur, hari ini yang digunakan.</string>
+    <string name="tasks_repeat_interval_label">Setiap</string>
+    <string name="tasks_repeat_weekdays">Ulangi pada</string>
+    <string name="tasks_repeat_ends">Berakhir</string>
+    <string name="tasks_repeat_never">Tidak pernah</string>
+    <string name="tasks_repeat_clear_end">Hapus tanggal berakhir</string>
+    <string name="tasks_repeat_occurrence_hint">Perubahan berlaku untuk kemunculan ini dan kemunculan berikutnya yang dibuat darinya.</string>
+    <string name="tasks_summary_until">%1$s, hingga %2$s</string>
+    <plurals name="tasks_unit_day">
+        <item quantity="other">hari</item>
+    </plurals>
+    <plurals name="tasks_unit_week">
+        <item quantity="other">minggu</item>
+    </plurals>
+    <plurals name="tasks_unit_month">
+        <item quantity="other">bulan</item>
+    </plurals>
+    <plurals name="tasks_unit_year">
+        <item quantity="other">tahun</item>
+    </plurals>
+    <plurals name="tasks_summary_daily">
+        <item quantity="other">Berulang setiap %1$d hari</item>
+    </plurals>
+    <plurals name="tasks_summary_weekly">
+        <item quantity="other">Berulang setiap %1$d minggu</item>
+    </plurals>
+    <plurals name="tasks_summary_weekly_on">
+        <item quantity="other">Berulang setiap %1$d minggu pada %2$s</item>
+    </plurals>
+    <plurals name="tasks_summary_monthly">
+        <item quantity="other">Berulang setiap %1$d bulan</item>
+    </plurals>
+    <plurals name="tasks_summary_yearly">
+        <item quantity="other">Berulang setiap %1$d tahun</item>
+    </plurals>
+
+    <!-- Dialogs and errors -->
+    <string name="tasks_discard_title">Buang perubahan?</string>
+    <string name="tasks_discard_message">Anda memiliki perubahan yang belum disimpan pada tugas ini.</string>
+    <string name="tasks_delete_title">Hapus tugas?</string>
+    <string name="tasks_delete_message">“%1$s” akan dihapus permanen.</string>
+    <string name="tasks_not_found">Tugas ini sudah tidak ada.</string>
+    <string name="tasks_error_duplicate">Kemunculan tugas berulang ini sudah ada pada tanggal tersebut.</string>
+    <string name="tasks_error_save">Tugas tidak dapat disimpan. Silakan coba lagi.</string>
+</resources>

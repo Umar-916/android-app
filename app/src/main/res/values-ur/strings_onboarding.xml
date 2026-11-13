@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Language -->
+    <string name="lang_screen_title">ایپ کی زبان</string>
+    <string name="lang_settings_title">زبان</string>
+    <string name="lang_selected_header">منتخب زبان</string>
+    <string name="lang_all_header">تمام زبانیں</string>
+    <string name="lang_selected_state">منتخب</string>
+
+    <!-- Onboarding -->
+    <string name="onb_page1_title">اپنے دن کی منصوبہ بندی کریں</string>
+    <string name="onb_page1_body">کام درج کریں اور یاد دہانیاں لگائیں تاکہ کوئی چیز رہ نہ جائے۔</string>
+    <string name="onb_page2_title">سب کچھ منظم رکھیں</string>
+    <string name="onb_page2_body">منصوبے، نوٹس اور اہداف ایک پرسکون جگہ پر رکھیں۔</string>
+    <string name="onb_page3_title">اچھی عادات بنائیں</string>
+    <string name="onb_page3_body">روزانہ کی عادات کو ٹریک کریں اور اپنی پیش رفت بڑھتی دیکھیں۔</string>
+    <string name="onb_page4_title">آپ کا ڈیٹا آپ ہی کا ہے</string>
+    <string name="onb_page4_body">ٹاسکس، نوٹس اور عادات آپ کے آلے پر محفوظ رہتے ہیں اور کبھی اپ لوڈ نہیں ہوتے۔ اشتہارات اور سیٹنگز انٹرنیٹ استعمال کرتی ہیں؛ ایپ مکمل طور پر آف لائن بھی کام کرتی ہے۔</string>
+    <string name="onb_page4_body_offline">ٹاسکس، نوٹس اور عادات آپ کے آلے پر محفوظ رہتے ہیں اور کبھی اپ لوڈ نہیں ہوتے۔ ایپ مکمل طور پر آف لائن کام کرتی ہے۔</string>
+    <string name="onb_get_started">شروع کریں</string>
+    <string name="onb_page_indicator">صفحہ %1$d از %2$d</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="startup_status_1">جارٍ تجهيز مساحتك…</string>
+    <string name="startup_status_4">أوشك على الاكتمال…</string>
+    <string name="startup_progress_description">جارٍ التحميل، %1$d بالمئة</string>
+    <string name="startup_error_title">تعذّر فتح مخططك</string>
+    <string name="startup_error_message">لم يُفقد أي شيء. يرجى المحاولة مرة أخرى بعد قليل.</string>
+</resources>

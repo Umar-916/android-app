@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calendar_today">Aller à aujourd\'hui</string>
+    <string name="calendar_prev_month">Mois précédent</string>
+    <string name="calendar_next_month">Mois suivant</string>
+    <string name="calendar_mode_day">Jour</string>
+    <string name="calendar_mode_agenda">Agenda</string>
+    <string name="calendar_all_day">Toute la journée</string>
+    <string name="calendar_scheduled">Planifiées</string>
+    <string name="calendar_add_task">Ajouter une tâche</string>
+    <string name="calendar_overdue_header">En retard</string>
+    <string name="calendar_header_relative">%1$s · %2$s</string>
+    <string name="calendar_cell_today">aujourd\'hui</string>
+    <string name="calendar_cell_overdue">%1$d en retard</string>
+    <plurals name="calendar_cell_tasks">
+        <item quantity="one">%d tâche</item>
+        <item quantity="many">%d tâches</item>
+        <item quantity="other">%d tâches</item>
+    </plurals>
+    <plurals name="calendar_day_tasks">
+        <item quantity="one">%d tâche ce jour-là</item>
+        <item quantity="many">%d tâches ce jour-là</item>
+        <item quantity="other">%d tâches ce jour-là</item>
+    </plurals>
+    <string name="calendar_empty_day_title">Rien de prévu</string>
+    <string name="calendar_empty_day_message">Aucune tâche à échéance le %1$s.</string>
+    <string name="calendar_empty_agenda_title">Aucune échéance à venir</string>
+    <string name="calendar_empty_agenda_message">Les tâches ouvertes avec une échéance seront listées ici.</string>
+    <string name="calendar_error">Impossible de charger le calendrier.</string>
+</resources>

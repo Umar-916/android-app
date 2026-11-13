@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_hint">Tâches, projets, notes, habitudes, objectifs</string>
+    <string name="search_idle_title">Rechercher partout</string>
+    <string name="search_idle_message">Saisissez un mot pour trouver tâches, projets, notes, habitudes et objectifs au même endroit.</string>
+    <string name="search_empty_title">Aucun résultat</string>
+    <string name="search_empty_message">Rien ne correspond à \"%1$s\". Essayez un autre mot.</string>
+    <string name="search_untitled_note">Note sans titre</string>
+    <string name="search_goal_percent">%1$d %% accompli</string>
+    <plurals name="search_section_tasks">
+        <item quantity="one">Tâches (%1$d)</item>
+        <item quantity="many">Tâches (%1$d)</item>
+        <item quantity="other">Tâches (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_projects">
+        <item quantity="one">Projets (%1$d)</item>
+        <item quantity="many">Projets (%1$d)</item>
+        <item quantity="other">Projets (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_notes">
+        <item quantity="one">Notes (%1$d)</item>
+        <item quantity="many">Notes (%1$d)</item>
+        <item quantity="other">Notes (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_habits">
+        <item quantity="one">Habitudes (%1$d)</item>
+        <item quantity="many">Habitudes (%1$d)</item>
+        <item quantity="other">Habitudes (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_goals">
+        <item quantity="one">Objectifs (%1$d)</item>
+        <item quantity="many">Objectifs (%1$d)</item>
+        <item quantity="other">Objectifs (%1$d)</item>
+    </plurals>
+</resources>

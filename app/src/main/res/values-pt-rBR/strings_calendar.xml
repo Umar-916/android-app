@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calendar_today">Ir para hoje</string>
+    <string name="calendar_prev_month">Mês anterior</string>
+    <string name="calendar_next_month">Próximo mês</string>
+    <string name="calendar_mode_day">Dia</string>
+    <string name="calendar_mode_agenda">Agenda</string>
+    <string name="calendar_all_day">Dia inteiro</string>
+    <string name="calendar_scheduled">Agendadas</string>
+    <string name="calendar_add_task">Adicionar tarefa</string>
+    <string name="calendar_overdue_header">Atrasadas</string>
+    <string name="calendar_header_relative">%1$s · %2$s</string>
+    <string name="calendar_cell_today">hoje</string>
+    <string name="calendar_cell_overdue">%1$d atrasadas</string>
+    <plurals name="calendar_cell_tasks">
+        <item quantity="one">%d tarefa</item>
+        <item quantity="many">%d tarefas</item>
+        <item quantity="other">%d tarefas</item>
+    </plurals>
+    <plurals name="calendar_day_tasks">
+        <item quantity="one">%d tarefa neste dia</item>
+        <item quantity="many">%d tarefas neste dia</item>
+        <item quantity="other">%d tarefas neste dia</item>
+    </plurals>
+    <string name="calendar_empty_day_title">Nada planejado</string>
+    <string name="calendar_empty_day_message">Nenhuma tarefa vence em %1$s.</string>
+    <string name="calendar_empty_agenda_title">Nenhum prazo próximo</string>
+    <string name="calendar_empty_agenda_message">As tarefas abertas com data de vencimento serão listadas aqui.</string>
+    <string name="calendar_error">Não foi possível carregar o calendário.</string>
+</resources>

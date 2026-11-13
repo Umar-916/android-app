@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goals_title">Metas</string>
+    <string name="goals_new">Nova meta</string>
+    <string name="goals_empty_title">Ainda não há metas</string>
+    <string name="goals_empty_message">Defina um objetivo mensurável, como livros para ler ou quilômetros para correr, e acompanhe seu progresso.</string>
+    <string name="goals_section_in_progress">Em andamento</string>
+    <string name="goals_section_in_progress_empty">Nenhuma meta em andamento.</string>
+    <string name="goals_section_completed">Concluídas</string>
+    <plurals name="goals_show_archived">
+        <item quantity="one">Mostrar arquivadas (%1$d)</item>
+        <item quantity="many">Mostrar arquivadas (%1$d)</item>
+        <item quantity="other">Mostrar arquivadas (%1$d)</item>
+    </plurals>
+    <plurals name="goals_hide_archived">
+        <item quantity="one">Ocultar arquivadas (%1$d)</item>
+        <item quantity="many">Ocultar arquivadas (%1$d)</item>
+        <item quantity="other">Ocultar arquivadas (%1$d)</item>
+    </plurals>
+    <string name="goals_percent">%1$d%%</string>
+    <plurals name="goals_days_left">
+        <item quantity="one">Resta %1$d dia</item>
+        <item quantity="many">Restam %1$d dias</item>
+        <item quantity="other">Restam %1$d dias</item>
+    </plurals>
+    <string name="goals_due_today">Vence hoje</string>
+    <plurals name="goals_overdue_days">
+        <item quantity="one">Atrasada há %1$d dia</item>
+        <item quantity="many">Atrasada há %1$d dias</item>
+        <item quantity="other">Atrasada há %1$d dias</item>
+    </plurals>
+    <string name="goals_update_progress">Atualizar progresso</string>
+    <string name="goals_celebrate">Meta atingida. Parabéns!</string>
+    <string name="goals_update_progress_title">Atualizar “%1$s”</string>
+    <string name="goals_mode_set">Definir valor</string>
+    <string name="goals_mode_add">Somar quantia</string>
+    <string name="goals_field_new_value">Novo valor</string>
+    <string name="goals_field_increment">Quantia a somar</string>
+    <string name="goals_update_confirm">Atualizar</string>
+    <string name="goals_error_number_empty">Digite um número.</string>
+    <string name="goals_error_number_invalid">Digite um número válido, como 12 ou 12,5.</string>
+    <string name="goals_error_number_negative">O valor não pode ser negativo.</string>
+    <string name="goals_error_number_zero">O valor deve ser maior que zero.</string>
+    <string name="goals_error_number_too_large">Esse número é grande demais.</string>
+    <string name="goals_edit_new_title">Nova meta</string>
+    <string name="goals_edit_title">Editar meta</string>
+    <string name="goals_field_title">Meta</string>
+    <string name="goals_field_description">Descrição</string>
+    <string name="goals_field_target">Valor-alvo</string>
+    <string name="goals_field_current">Valor atual</string>
+    <string name="goals_field_unit">Unidade (opcional)</string>
+    <string name="goals_field_unit_hint">Por exemplo: livros, km ou páginas</string>
+    <string name="goals_field_start">Data de início</string>
+    <string name="goals_field_target_date">Data-alvo</string>
+    <string name="goals_field_status">Status</string>
+    <string name="goals_error_title_required">Digite um título para a meta.</string>
+    <string name="goals_error_target_before_start">A data-alvo deve ser igual ou posterior à data de início.</string>
+    <string name="goals_not_found">Esta meta não existe mais.</string>
+    <string name="goals_delete_title">Excluir “%1$s”?</string>
+    <string name="goals_delete_message">“%1$s” será excluída permanentemente. Esta ação não pode ser desfeita.</string>
+    <string name="goals_delete_confirm">Excluir meta</string>
+</resources>

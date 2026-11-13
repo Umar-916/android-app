@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ڈیش بورڈ حسبِ ضرورت -->
+    <string name="backup_customize_title">ڈیش بورڈ حسبِ ضرورت بنائیں</string>
+    <string name="backup_customize_intro">آپ کا ہوم ڈیش بورڈ کارڈز پر مشتمل ہے۔ جو کارڈز دیکھنا چاہتے ہیں انہیں آن کریں اور باقی چھپا دیں۔</string>
+    <string name="backup_customize_note">خوش آمدیدی پیغام، تلاش اور فوری اضافے کے بٹن ہمیشہ نظر آتے ہیں۔</string>
+    <string name="backup_customize_reset">ڈیفالٹ پر واپس لائیں</string>
+    <string name="backup_widget_progress">آج کی پیش رفت</string>
+    <string name="backup_widget_progress_desc">ایک دائرہ جو دکھاتا ہے کہ آج کے کتنے ٹاسک مکمل ہو چکے ہیں۔</string>
+    <string name="backup_widget_today">آج کے ٹاسکس</string>
+    <string name="backup_widget_today_desc">آج کے کھلے ٹاسکس، جنہیں آپ فوراً مکمل نشان زد کر سکتے ہیں۔</string>
+    <string name="backup_widget_upcoming">آنے والے</string>
+    <string name="backup_widget_upcoming_desc">اگلے 7 دنوں کے ٹاسکس، دن کے لحاظ سے ترتیب شدہ۔</string>
+    <string name="backup_widget_overdue">مدت گزر چکے</string>
+    <string name="backup_widget_overdue_desc">وہ کھلے ٹاسکس جن کی آخری تاریخ گزر چکی ہے۔ صرف تب نظر آتا ہے جب ایسے ٹاسکس ہوں۔</string>
+    <string name="backup_widget_projects">فعال پروجیکٹس</string>
+    <string name="backup_widget_projects_desc">ان پروجیکٹس کی پروگریس بار جن پر آپ کام کر رہے ہیں۔</string>
+    <string name="backup_widget_habits">عادات</string>
+    <string name="backup_widget_habits_desc">آج کی عادات درج کریں اور اپنا تسلسل دیکھیں۔</string>
+    <string name="backup_widget_overview">جائزہ</string>
+    <string name="backup_widget_overview_desc">مکمل ٹاسکس، کھلے ٹاسکس، پروجیکٹس اور بہترین تسلسل ایک نظر میں۔</string>
+
+    <!-- بیک اپ اور بحالی -->
+    <string name="backup_title">بیک اپ اور بحالی</string>
+    <string name="backup_info_title">آپ کا ڈیٹا صرف اسی ڈیوائس پر ہے</string>
+    <string name="backup_info_message">بیک اپ سادہ JSON فائلیں ہیں جو آپ کے اختیار میں ہیں۔ انہیں جہاں چاہیں محفوظ کریں، مثلاً ڈاؤن لوڈز فولڈر یا USB ڈرائیو میں۔</string>
+    <string name="backup_export_title">بیک اپ برآمد کریں</string>
+    <string name="backup_export_desc">اپنے تمام ٹاسکس، پروجیکٹس، نوٹس، عادات اور اہداف ایک ہی فائل میں محفوظ کریں۔</string>
+    <string name="backup_export_button">بیک اپ برآمد کریں</string>
+    <string name="backup_restore_title">بیک اپ سے بحال کریں</string>
+    <string name="backup_restore_desc">ORBIT کی بنائی ہوئی بیک اپ فائل منتخب کریں۔ کچھ بدلنے سے پہلے آپ دیکھ سکیں گے کہ اس میں کیا ہے۔</string>
+    <string name="backup_restore_button">بیک اپ فائل منتخب کریں</string>
+    <string name="backup_csv_title">اسپریڈ شیٹ میں برآمد کریں</string>
+    <string name="backup_csv_desc">CSV فائلیں بنائیں جنہیں آپ اسپریڈ شیٹ ایپ میں کھول سکتے ہیں۔ CSV فائلیں ORBIT میں بحال نہیں کی جا سکتیں۔</string>
+    <string name="backup_csv_tasks">ٹاسکس برآمد کریں (CSV)</string>
+    <string name="backup_csv_habits">عادات کے اندراجات برآمد کریں (CSV)</string>
+    <string name="backup_working_export">آپ کی فائل محفوظ ہو رہی ہے…</string>
+    <string name="backup_working_restore">آپ کا بیک اپ پروسیس ہو رہا ہے…</string>
+    <string name="backup_success_export">بیک اپ محفوظ ہو گیا۔ فائل کو کسی محفوظ جگہ رکھیں۔</string>
+    <string name="backup_success_csv">اسپریڈ شیٹ فائل محفوظ ہو گئی۔</string>
+    <string name="backup_success_restore">بیک اپ بحال ہو گیا۔ آپ کا ڈیٹا تبدیل کر دیا گیا ہے۔</string>
+    <string name="backup_failed_export">فائل محفوظ نہیں ہو سکی۔ آپ کا ڈیٹا جوں کا توں ہے۔ دوبارہ کوشش کریں یا کوئی اور جگہ منتخب کریں۔</string>
+    <string name="backup_failed_restore">بیک اپ بحال نہیں ہو سکا۔ آپ کا موجودہ ڈیٹا محفوظ ہے۔</string>
+    <string name="backup_invalid_not_backup">یہ فائل ORBIT کا بیک اپ نہیں ہے۔ ORBIT سے برآمد کی گئی فائل منتخب کریں۔</string>
+    <string name="backup_invalid_version">یہ بیک اپ ORBIT کے نئے ورژن نے بنایا ہے۔ ایپ اپ ڈیٹ کر کے دوبارہ کوشش کریں۔</string>
+    <string name="backup_invalid_corrupt">یہ بیک اپ فائل خراب ہے اور پڑھی نہیں جا سکتی۔</string>
+    <string name="backup_invalid_inconsistent">یہ بیک اپ فائل نامکمل ہے یا اس میں متضاد ڈیٹا ہے، اس لیے بحال نہیں کی گئی۔</string>
+    <string name="backup_invalid_too_large">یہ فائل ORBIT کا بیک اپ ہونے کے لیے بہت بڑی ہے (حد 25 MB)۔</string>
+    <string name="backup_confirm_title">کیا موجودہ تمام ڈیٹا تبدیل کریں؟</string>
+    <string name="backup_confirm_exported">%1$s کا بیک اپ</string>
+    <string name="backup_confirm_contains">اس بیک اپ میں شامل ہیں:</string>
+    <string name="backup_confirm_tasks">ٹاسکس: %1$d</string>
+    <string name="backup_confirm_projects">پروجیکٹس: %1$d</string>
+    <string name="backup_confirm_notes">نوٹس: %1$d</string>
+    <string name="backup_confirm_habits">عادات: %1$d</string>
+    <string name="backup_confirm_goals">اہداف: %1$d</string>
+    <string name="backup_confirm_warning">بحالی سے ORBIT میں موجود تمام ڈیٹا تبدیل ہو جائے گا۔ اسے واپس نہیں کیا جا سکتا۔ اگر یقین نہ ہو تو منسوخ کریں اور پہلے بیک اپ برآمد کر لیں۔</string>
+    <string name="backup_confirm_action">تمام ڈیٹا تبدیل کریں</string>
+
+    <!-- رازداری -->
+    <string name="privacy_title">رازداری</string>
+    <string name="privacy_headline">آپ کا ڈیٹا آپ کی ڈیوائس پر رہتا ہے</string>
+    <string name="privacy_intro">ORBIT آپ کا پلانر آپ کی ڈیوائس پر رکھتا ہے اور آف لائن کام کرتا ہے۔ انٹرنیٹ صرف اشتہارات، رضامندی کے فارم اور ریموٹ سیٹنگز کے لیے استعمال ہوتا ہے۔ اس کا مطلب بالکل یہ ہے۔</string>
+    <string name="privacy_stored_title">کیا محفوظ ہوتا ہے</string>
+    <string name="privacy_stored_body">آپ کے ٹاسکس، پروجیکٹس، نوٹس، عادات، اہداف اور ایپ کی ترتیبات صرف اسی ڈیوائس کے ڈیٹا بیس میں محفوظ ہوتی ہیں۔ انہیں ہمیں یا کسی اشتہاری نیٹ ورک کو کبھی اپ لوڈ نہیں کیا جاتا۔</string>
+    <string name="privacy_account_title">کوئی اکاؤنٹ نہیں، کوئی لاگ اِن نہیں</string>
+    <string name="privacy_account_body">آپ کو کبھی سائن اپ یا سائن اِن نہیں کرنا پڑتا۔ نہ کوئی پروفائل ہے اور نہ ہمیں ای میل ایڈریس دینا ہوتا ہے۔</string>
+    <string name="privacy_tracking_title">اشتہارات اور اینالیٹکس</string>
+    <string name="privacy_tracking_body">ORBIT میں Google AdMob کے اشتہارات دکھائے جاتے ہیں۔ اشتہارات دکھانے اور ان کی پیمائش کے لیے Google آپ کی ڈیوائس کی اشتہاری شناخت، IP ایڈریس اور تقریبی مقام اپنی رازداری کی پالیسی کے مطابق پراسیس کر سکتا ہے۔ آپ اینڈرائیڈ کی ترتیبات میں اشتہاری شناخت ری سیٹ یا محدود کر سکتے ہیں۔ ORBIT خود اینالیٹکس یا کریش رپورٹنگ نہیں چلاتا اور اشتہارات کے لیے آپ کے ٹاسکس یا نوٹس نہیں پڑھتا۔ پریمیم دستیاب ہونے پر اشتہارات ہٹائے جا سکیں گے۔</string>
+    <string name="privacy_network_title">انٹرنیٹ کا استعمال</string>
+    <string name="privacy_network_body">ORBIT INTERNET اور ACCESS_NETWORK_STATE کی اجازتیں مانگتا ہے۔ یہ اجازتیں صرف یہ دیکھنے کے لیے ہیں کہ آپ آن لائن ہیں یا نہیں، اور اشتہارات لوڈ کرنے، رضامندی کا فارم دکھانے اور ایپ کی ترتیبات حاصل کرنے کے لیے استعمال ہوتی ہیں۔ پلانر کی تمام خصوصیات آف لائن بھی کام کرتی ہیں، اور آف لائن ہونے پر کوئی اشتہار طلب نہیں کیا جاتا۔ جہاں لاگو ہو، آپ ترتیبات میں “رازداری کے اختیارات” سے اپنی رضامندی بدل سکتے ہیں۔</string>
+    <string name="privacy_permissions_title">جو اجازتیں ہم استعمال کرتے ہیں</string>
+    <string name="privacy_permissions_intro">اوپر بیان کی گئی انٹرنیٹ رسائی کے علاوہ، ORBIT دو اور اجازتیں مانگتا ہے، اور دونوں یاد دہانیوں کے لیے ہیں:</string>
+    <string name="privacy_perm_notifications_title">نوٹیفکیشنز</string>
+    <string name="privacy_perm_notifications_body">ORBIT کو آپ کے ٹاسکس کی یاد دہانیاں دکھانے دیتی ہے۔ آپ انکار کر سکتے ہیں، پھر بھی باقی ایپ کام کرے گی۔</string>
+    <string name="privacy_perm_boot_title">ری اسٹارٹ کے بعد یاد دہانیاں بحال کرنا</string>
+    <string name="privacy_perm_boot_body">فون ری اسٹارٹ ہونے کے بعد ORBIT کو آپ کی یاد دہانیاں دوبارہ مقرر کرنے دیتی ہے۔ اسے کسی اور کام کے لیے استعمال نہیں کیا جاتا۔</string>
+    <string name="privacy_backups_title">بیک اپ آپ کے اختیار میں ہیں</string>
+    <string name="privacy_backups_body">بیک اپ فائلیں سادہ JSON فائلیں ہیں جو آپ کی منتخب کردہ جگہ پر محفوظ ہوتی ہیں۔ یہ خفیہ کاری شدہ نہیں ہیں، لہٰذا جو بھی فائل کھول سکے وہ اسے پڑھ سکتا ہے۔ انہیں محفوظ جگہ رکھیں۔</string>
+    <string name="privacy_cloud_title">کلاؤڈ بیک اپ نہیں</string>
+    <string name="privacy_cloud_body">اینڈرائیڈ کا کلاؤڈ بیک اپ اور ORBIT کے ڈیٹا کا خودکار بیک اپ بند ہے۔ آپ کا ڈیٹا صرف تب ڈیوائس سے باہر جاتا ہے جب آپ خود اسے برآمد کریں۔</string>
+    <string name="privacy_delete_title">سب کچھ حذف کرنا</string>
+    <string name="privacy_delete_body">ORBIT ان انسٹال کرنے سے اس کا تمام ڈیٹا آپ کی ڈیوائس سے ہٹ جاتا ہے۔ ان انسٹال کیے بغیر نئے سرے سے آغاز کرنے کے لیے ایسا بیک اپ بحال کریں جس میں کوئی ڈیٹا نہ ہو۔</string>
+
+    <!-- ہمارے بارے میں -->
+    <string name="about_title">ہمارے بارے میں</string>
+    <string name="about_version">ورژن %1$s (%2$d)</string>
+    <string name="about_description">ORBIT ٹاسکس، پروجیکٹس، نوٹس، عادات اور اہداف کے لیے ایک نجی پلانر ہے۔ یہ اکاؤنٹ اور انٹرنیٹ کے بغیر کام کرتا ہے، اور آپ جو کچھ لکھتے ہیں وہ آپ کی ڈیوائس پر ہی رہتا ہے۔ انٹرنیٹ صرف اشتہارات، رازداری کے انتخاب اور ایپ کی ترتیبات کے لیے استعمال ہوتا ہے۔</string>
+    <string name="about_made_with">بنانے میں استعمال ہوا</string>
+    <string name="about_privacy_title">رازداری</string>
+    <string name="about_privacy_subtitle">ORBIT آپ کے ڈیٹا کے ساتھ کیا کرتا ہے</string>
+    <string name="privacy_intro_offline">ORBIT آپ کا پلانر آپ کے آلے پر رکھتا ہے اور مکمل آف لائن کام کرتا ہے۔ اس کا مطلب بالکل یہ ہے۔</string>
+    <string name="privacy_permissions_intro_offline">ORBIT دو اجازتیں مانگتا ہے، دونوں یاد دہانیوں کے لیے:</string>
+    <string name="about_description_offline">ORBIT ٹاسکس، پراجیکٹس، نوٹس، عادات اور اہداف کے لیے ایک نجی پلانر ہے۔ یہ اکاؤنٹ اور انٹرنیٹ کے بغیر کام کرتا ہے، اور آپ جو کچھ لکھتے ہیں وہ آپ کے آلے پر ہی رہتا ہے۔</string>
+</resources>

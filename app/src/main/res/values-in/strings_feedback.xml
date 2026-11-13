@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feedback_title">Masukan</string>
+    <string name="feedback_tab_issues">Masalah</string>
+    <string name="feedback_tab_suggestions">Saran</string>
+    <string name="feedback_describe_issue">Jelaskan masalahnya</string>
+    <string name="feedback_describe_idea">Bagikan ide Anda</string>
+    <string name="feedback_hint">Ceritakan dengan kata-kata Anda sendiri…</string>
+    <string name="feedback_counter">%1$d/%2$d</string>
+    <string name="feedback_select_label">Pilih item</string>
+    <string name="feedback_select_hint">Pilih hingga %1$d topik</string>
+    <string name="feedback_limit_reached">Anda dapat memilih hingga %1$d topik.</string>
+    <string name="feedback_submit">Kirim masukan</string>
+    <string name="feedback_no_mail_app">Aplikasi email tidak ditemukan di perangkat ini. Silakan pasang satu untuk mengirim masukan.</string>
+    <string name="feedback_privacy_note">Hanya pesan Anda, topik yang dipilih, serta info dasar aplikasi dan perangkat yang disertakan. Tugas dan catatan Anda tidak pernah dibagikan.</string>
+    <string name="feedback_unavailable_title">Masukan tidak tersedia</string>
+    <string name="feedback_unavailable_message">Masukan belum disiapkan untuk versi ORBIT ini.</string>
+
+    <string name="feedback_subject_issue">Laporan masalah ORBIT</string>
+    <string name="feedback_subject_suggestion">Saran untuk ORBIT</string>
+    <string name="feedback_body_topics">Topik: %1$s</string>
+    <string name="feedback_body_app">Versi aplikasi: %1$s</string>
+    <string name="feedback_body_android">Versi Android: %1$s</string>
+    <string name="feedback_body_device">Perangkat: %1$s</string>
+
+    <string name="feedback_issue_crash">Aplikasi mogok</string>
+    <string name="feedback_issue_reminders">Pengingat</string>
+    <string name="feedback_issue_notes">Catatan</string>
+    <string name="feedback_issue_tasks">Tugas</string>
+    <string name="feedback_issue_calendar">Kalender</string>
+    <string name="feedback_issue_backup">Cadangan dan pemulihan</string>
+    <string name="feedback_issue_language">Bahasa</string>
+    <string name="feedback_item_other">Lainnya</string>
+    <string name="feedback_idea_feature">Fitur baru</string>
+    <string name="feedback_idea_design">Desain</string>
+    <string name="feedback_idea_reminders">Pengingat</string>
+    <string name="feedback_idea_tasks">Tugas</string>
+    <string name="feedback_idea_notes">Catatan</string>
+    <string name="feedback_idea_habits">Kebiasaan dan tujuan</string>
+    <string name="feedback_idea_themes">Tema</string>
+</resources>

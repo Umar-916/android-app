@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_greeting_morning">Bonjour</string>
+    <string name="home_greeting_afternoon">Bon après-midi</string>
+    <string name="home_greeting_evening">Bonsoir</string>
+    <string name="home_search_hint">Rechercher tâches, notes, projets…</string>
+    <string name="home_customize">Personnaliser le tableau de bord</string>
+    <string name="home_percent">%1$d %%</string>
+    <string name="home_n_more">+%1$d de plus</string>
+    <string name="home_view_all">Tout voir</string>
+    <string name="home_welcome_title">Bienvenue dans ORBIT</string>
+    <string name="home_welcome_message">Commencez par votre première tâche, projet ou habitude. Tout reste sur cet appareil.</string>
+    <string name="home_all_hidden_title">Toutes les cartes sont masquées</string>
+    <string name="home_all_hidden_message">Choisissez les cartes à afficher sur votre tableau de bord.</string>
+    <string name="home_progress_empty_title">Rien de prévu aujourd\'hui</string>
+    <string name="home_progress_empty_message">Ajoutez une tâche pour aujourd\'hui afin de suivre votre progression.</string>
+    <string name="home_progress_all_done">Tout est fait pour aujourd\'hui. Bravo !</string>
+    <string name="home_progress_keep_going">Continuez, vous êtes sur la bonne voie.</string>
+    <plurals name="home_tasks_done_of">
+        <item quantity="one">%1$d tâche terminée sur %2$d</item>
+        <item quantity="many">%1$d tâches terminées sur %2$d</item>
+        <item quantity="other">%1$d tâches terminées sur %2$d</item>
+    </plurals>
+    <string name="home_today_title">Aujourd\'hui</string>
+    <string name="home_today_empty">Aucune tâche pour aujourd\'hui. Profitez de ce temps libre ou planifiez quelque chose.</string>
+    <string name="home_add_task">Ajouter une tâche</string>
+    <string name="home_task_mark_done">Marquer %1$s comme terminée</string>
+    <string name="home_task_completed">Tâche terminée</string>
+    <string name="home_upcoming_title">À venir</string>
+    <string name="home_upcoming_empty">Rien à échéance dans les 7 prochains jours.</string>
+    <string name="home_tomorrow">Demain</string>
+    <string name="home_date_label">%1$s, %2$s</string>
+    <plurals name="home_overdue_title">
+        <item quantity="one">%1$d tâche en retard</item>
+        <item quantity="many">%1$d tâches en retard</item>
+        <item quantity="other">%1$d tâches en retard</item>
+    </plurals>
+    <string name="home_due_on">Échéance : %1$s</string>
+    <string name="home_projects_title">Projets actifs</string>
+    <string name="home_projects_empty">Regroupez des tâches liées dans un projet pour suivre leur avancement.</string>
+    <string name="home_new_project">Nouveau projet</string>
+    <string name="home_project_no_tasks">Aucune tâche</string>
+    <string name="home_habits_title">Habitudes du jour</string>
+    <string name="home_habits_empty">Créez une routine en ajoutant votre première habitude.</string>
+    <string name="home_habits_summary">%1$d sur %2$d faites aujourd\'hui</string>
+    <string name="home_new_habit">Nouvelle habitude</string>
+    <plurals name="home_streak_days">
+        <item quantity="one">Série de %1$d jour</item>
+        <item quantity="many">Série de %1$d jours</item>
+        <item quantity="other">Série de %1$d jours</item>
+    </plurals>
+    <string name="home_overview_title">Votre aperçu</string>
+    <string name="home_ov_completed">Terminées en 7 jours</string>
+    <string name="home_ov_open">Tâches ouvertes</string>
+    <string name="home_ov_projects">Projets actifs</string>
+    <string name="home_ov_streak">Meilleure série (jours)</string>
+    <string name="home_quick_add_title">Ajout rapide</string>
+    <string name="home_qa_task">Nouvelle tâche</string>
+    <string name="home_qa_note">Nouvelle note</string>
+    <string name="home_qa_habit">Nouvelle habitude</string>
+    <string name="home_qa_project">Nouveau projet</string>
+    <string name="home_qa_goal">Nouvel objectif</string>
+</resources>

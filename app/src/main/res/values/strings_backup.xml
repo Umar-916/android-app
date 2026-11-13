@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dashboard customise -->
+    <string name="backup_customize_title">Customize dashboard</string>
+    <string name="backup_customize_intro">Your Home dashboard is made of cards. Switch on the ones you want to see and hide the rest.</string>
+    <string name="backup_customize_note">The greeting, search and quick-add buttons are always shown.</string>
+    <string name="backup_customize_reset">Reset to default</string>
+    <string name="backup_widget_progress">Today\'s progress</string>
+    <string name="backup_widget_progress_desc">A ring showing how many of today\'s tasks are done.</string>
+    <string name="backup_widget_today">Today\'s tasks</string>
+    <string name="backup_widget_today_desc">Open tasks due today, ready to tick off.</string>
+    <string name="backup_widget_upcoming">Upcoming</string>
+    <string name="backup_widget_upcoming_desc">Tasks due in the next 7 days, grouped by day.</string>
+    <string name="backup_widget_overdue">Overdue</string>
+    <string name="backup_widget_overdue_desc">Open tasks that are past their due date. Shown only when there are any.</string>
+    <string name="backup_widget_projects">Active projects</string>
+    <string name="backup_widget_projects_desc">Progress bars for the projects you are working on.</string>
+    <string name="backup_widget_habits">Habits</string>
+    <string name="backup_widget_habits_desc">Check in today\'s habits and see your streaks.</string>
+    <string name="backup_widget_overview">Overview</string>
+    <string name="backup_widget_overview_desc">Completed tasks, open tasks, projects and best streak at a glance.</string>
+
+    <!-- Backup and restore -->
+    <string name="backup_title">Backup &amp; restore</string>
+    <string name="backup_info_title">Your data lives only on this device</string>
+    <string name="backup_info_message">Backups are plain JSON files that you control. Save them anywhere you like, such as your Downloads folder or a USB drive.</string>
+    <string name="backup_export_title">Export a backup</string>
+    <string name="backup_export_desc">Save all your tasks, projects, notes, habits and goals to a single file.</string>
+    <string name="backup_export_button">Export backup</string>
+    <string name="backup_restore_title">Restore from a backup</string>
+    <string name="backup_restore_desc">Choose a backup file made by ORBIT. You will see what it contains before anything changes.</string>
+    <string name="backup_restore_button">Choose backup file</string>
+    <string name="backup_csv_title">Export to spreadsheet</string>
+    <string name="backup_csv_desc">Create CSV files you can open in a spreadsheet app. CSV files cannot be restored into ORBIT.</string>
+    <string name="backup_csv_tasks">Export tasks (CSV)</string>
+    <string name="backup_csv_habits">Export habit check-ins (CSV)</string>
+    <string name="backup_working_export">Saving your file…</string>
+    <string name="backup_working_restore">Working on your backup…</string>
+    <string name="backup_success_export">Backup saved. Keep the file somewhere safe.</string>
+    <string name="backup_success_csv">Spreadsheet file saved.</string>
+    <string name="backup_success_restore">Backup restored. Your data has been replaced.</string>
+    <string name="backup_failed_export">The file could not be saved. Your data is unchanged. Please try again or pick another location.</string>
+    <string name="backup_failed_restore">The backup could not be restored. Your existing data is untouched.</string>
+    <string name="backup_invalid_not_backup">This file is not an ORBIT backup. Pick a file that was exported from ORBIT.</string>
+    <string name="backup_invalid_version">This backup was made by a newer version of ORBIT. Update the app and try again.</string>
+    <string name="backup_invalid_corrupt">This backup file is damaged and cannot be read.</string>
+    <string name="backup_invalid_inconsistent">This backup file is incomplete or contains conflicting data, so it was not restored.</string>
+    <string name="backup_invalid_too_large">This file is too large to be an ORBIT backup (limit 25 MB).</string>
+    <string name="backup_confirm_title">Replace all current data?</string>
+    <string name="backup_confirm_exported">Backup from %1$s</string>
+    <string name="backup_confirm_contains">This backup contains:</string>
+    <string name="backup_confirm_tasks">Tasks: %1$d</string>
+    <string name="backup_confirm_projects">Projects: %1$d</string>
+    <string name="backup_confirm_notes">Notes: %1$d</string>
+    <string name="backup_confirm_habits">Habits: %1$d</string>
+    <string name="backup_confirm_goals">Goals: %1$d</string>
+    <string name="backup_confirm_warning">Restoring will replace ALL the data currently in ORBIT. This cannot be undone. If you are not sure, cancel and export a backup first.</string>
+    <string name="backup_confirm_action">Replace all data</string>
+
+    <!-- Privacy -->
+    <string name="privacy_title">Privacy</string>
+    <string name="privacy_headline">Your data stays on your device</string>
+    <string name="privacy_intro">ORBIT keeps your planner on your device and works offline. The internet is used only for ads, the consent form and remote settings. Here is exactly what that means.</string>
+    <string name="privacy_stored_title">What is stored</string>
+    <string name="privacy_stored_body">Your tasks, projects, notes, habits, goals and app settings are saved in a database on this device only. They are never uploaded to us or to any ad network.</string>
+    <string name="privacy_account_title">No account, no login</string>
+    <string name="privacy_account_body">You never have to sign up or sign in. There is no profile and no email address to give us.</string>
+    <string name="privacy_tracking_title">Ads and analytics</string>
+    <string name="privacy_tracking_body">ORBIT shows ads served by Google AdMob. To show and measure ads, Google may process your device advertising ID, IP address and approximate location, as described in Google privacy policy. You can reset or limit the advertising ID in your Android settings. ORBIT itself runs no analytics or crash reporting and never reads your tasks or notes for advertising. Ads can be removed with premium once it is available.</string>
+    <string name="privacy_network_title">Internet use</string>
+    <string name="privacy_network_body">ORBIT requests the INTERNET and ACCESS_NETWORK_STATE permissions. They are used only to check whether you are online, to load ads, to show the consent form (your privacy choices) and to fetch app settings. Every planner feature keeps working offline, and no ad is requested while you are offline. Where it applies, you can change your ad consent in Settings under Privacy options.</string>
+    <string name="privacy_permissions_title">Permissions we use</string>
+    <string name="privacy_permissions_intro">Besides the internet access described above, ORBIT asks for two permissions, both for reminders:</string>
+    <string name="privacy_perm_notifications_title">Notifications</string>
+    <string name="privacy_perm_notifications_body">Lets ORBIT show your task reminders. You can say no and the rest of the app still works.</string>
+    <string name="privacy_perm_boot_title">Restore reminders after a restart</string>
+    <string name="privacy_perm_boot_body">Lets ORBIT re-schedule your reminders after your phone restarts. It is used for nothing else.</string>
+    <string name="privacy_backups_title">Backups are yours</string>
+    <string name="privacy_backups_body">Backup files are plain JSON files saved where you choose. They are NOT encrypted, so anyone who can open the file can read it. Store them somewhere safe.</string>
+    <string name="privacy_cloud_title">No cloud backup</string>
+    <string name="privacy_cloud_body">Android cloud backup and automatic backup of ORBIT\'s data are turned off. Your data only leaves the device when you export it yourself.</string>
+    <string name="privacy_delete_title">Deleting everything</string>
+    <string name="privacy_delete_body">Uninstalling ORBIT removes all of its data from your device. To start fresh without uninstalling, restore a backup that contains no data.</string>
+
+    <!-- About -->
+    <string name="about_title">About</string>
+    <string name="about_version">Version %1$s (%2$d)</string>
+    <string name="about_description">ORBIT is a private planner for tasks, projects, notes, habits and goals. It works without an account and without an internet connection, and everything you write stays on your device. The internet is used only for ads, privacy choices and app settings.</string>
+    <string name="about_made_with">Made with</string>
+    <string name="about_tech_kotlin" translatable="false">Kotlin</string>
+    <string name="about_tech_compose" translatable="false">Jetpack Compose</string>
+    <string name="about_tech_room" translatable="false">Room</string>
+    <string name="about_tech_workmanager" translatable="false">WorkManager</string>
+    <string name="about_privacy_title">Privacy</string>
+    <string name="about_privacy_subtitle">How ORBIT treats your data</string>
+    <string name="privacy_intro_offline">ORBIT keeps your planner on your device and works fully offline. Here is exactly what that means.</string>
+    <string name="privacy_permissions_intro_offline">ORBIT asks for two permissions, both for reminders:</string>
+    <string name="about_description_offline">ORBIT is a private planner for tasks, projects, notes, habits and goals. It works without an account and without an internet connection, and everything you write stays on your device.</string>
+</resources>

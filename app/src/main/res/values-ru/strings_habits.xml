@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List -->
+    <string name="habits_title">Привычки</string>
+    <string name="habits_new">Новая привычка</string>
+    <string name="habits_empty_title">Привычек пока нет</string>
+    <string name="habits_empty_message">Формируйте режим день за днём. Создайте привычку и отмечайте её в каждый запланированный день.</string>
+    <string name="habits_no_active_title">Нет активных привычек</string>
+    <string name="habits_no_active_message">Все ваши привычки в архиве. Создайте новую, чтобы начать серию.</string>
+    <string name="habits_not_scheduled_today">Сегодня не по расписанию</string>
+    <string name="habits_done_today">выполнено сегодня</string>
+    <string name="habits_not_done_today">ещё не выполнено сегодня</string>
+    <string name="habits_state_archived">в архиве</string>
+    <string name="habits_card_desc">%1$s, %2$s, %3$s</string>
+    <plurals name="habits_streak_days">
+        <item quantity="one">Серия: %1$d день</item>
+        <item quantity="few">Серия: %1$d дня</item>
+        <item quantity="many">Серия: %1$d дней</item>
+        <item quantity="other">Серия: %1$d дня</item>
+    </plurals>
+    <string name="habits_completion_percent">Выполнено: %1$d%%</string>
+    <string name="habits_check_today">Отметить «%1$s» на сегодня</string>
+    <string name="habits_uncheck_today">Снять отметку «%1$s» за сегодня</string>
+    <plurals name="habits_archived_section">
+        <item quantity="one">В архиве (%1$d)</item>
+        <item quantity="few">В архиве (%1$d)</item>
+        <item quantity="many">В архиве (%1$d)</item>
+        <item quantity="other">В архиве (%1$d)</item>
+    </plurals>
+    <string name="habits_expand">свёрнуто</string>
+    <string name="habits_collapse">развёрнуто</string>
+    <string name="habits_schedule_daily_summary">Каждый день</string>
+    <string name="habits_schedule_weekdays_summary">По будням</string>
+    <string name="habits_schedule_weekends_summary">По выходным</string>
+    <string name="habits_list_separator">", "</string>
+
+    <!-- Edit -->
+    <string name="habits_edit_new_title">Новая привычка</string>
+    <string name="habits_edit_title">Изменить привычку</string>
+    <string name="habits_field_name">Название привычки</string>
+    <string name="habits_field_description">Описание</string>
+    <string name="habits_field_schedule">Повторять</string>
+    <string name="habits_field_start">Дата начала</string>
+    <string name="habits_field_archive">В архив</string>
+    <string name="habits_field_archive_hint">Привычки в архиве сохраняют историю, но не показываются в ежедневных отметках.</string>
+    <string name="habits_preset_daily">Ежедневно</string>
+    <string name="habits_preset_weekdays">По будням</string>
+    <string name="habits_preset_weekends">По выходным</string>
+    <string name="habits_preset_custom">Свои дни</string>
+    <string name="habits_error_name_required">Введите название привычки.</string>
+    <string name="habits_error_schedule_required">Выберите хотя бы один день.</string>
+    <string name="habits_not_found">Эта привычка больше не существует.</string>
+    <string name="habits_delete_title">Удалить «%1$s»?</string>
+    <string name="habits_delete_message">«%1$s» и вся история отметок будут удалены безвозвратно. Это действие нельзя отменить.</string>
+    <string name="habits_delete_confirm">Удалить привычку</string>
+
+    <!-- Detail -->
+    <string name="habits_detail_title">Привычка</string>
+    <string name="habits_check_in_today">Отметить на сегодня</string>
+    <string name="habits_undo_today">Отмечено сегодня · Отменить</string>
+    <string name="habits_stat_current_streak">Текущая серия</string>
+    <string name="habits_stat_longest_streak">Лучшая серия</string>
+    <string name="habits_stat_completion">Выполнение</string>
+    <string name="habits_stat_total_checkins">Всего отметок</string>
+    <plurals name="habits_days_value">
+        <item quantity="one">%1$d день</item>
+        <item quantity="few">%1$d дня</item>
+        <item quantity="many">%1$d дней</item>
+        <item quantity="other">%1$d дня</item>
+    </plurals>
+    <string name="habits_percent_value">%1$d%%</string>
+    <string name="habits_cal_previous">Предыдущий месяц</string>
+    <string name="habits_cal_next">Следующий месяц</string>
+    <string name="habits_cal_done">Выполнено</string>
+    <string name="habits_cal_missed">Пропущено</string>
+    <string name="habits_cal_scheduled">Запланировано</string>
+    <string name="habits_cal_not_scheduled">Не по расписанию</string>
+    <string name="habits_cal_day_desc">%1$s, %2$s</string>
+    <string name="habits_calendar_hint">Нажмите на запланированный день (не позже сегодняшнего), чтобы поставить или снять отметку.</string>
+</resources>

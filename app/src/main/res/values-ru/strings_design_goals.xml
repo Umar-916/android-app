@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goals_of_target">/ %1$s</string>
+    <string name="goals_of_target_unit">/ %1$s %2$s</string>
+    <string name="goals_progress_desc">Выполнено: %1$d процентов</string>
+    <string name="goals_hero_none_active">Нет целей в процессе</string>
+    <plurals name="goals_hero_active">
+        <item quantity="one">%1$d цель в процессе</item>
+        <item quantity="few">%1$d цели в процессе</item>
+        <item quantity="many">%1$d целей в процессе</item>
+        <item quantity="other">%1$d цели в процессе</item>
+    </plurals>
+    <plurals name="goals_hero_completed">
+        <item quantity="one">%1$d цель достигнута</item>
+        <item quantity="few">%1$d цели достигнуты</item>
+        <item quantity="many">%1$d целей достигнуто</item>
+        <item quantity="other">%1$d цели достигнуто</item>
+    </plurals>
+
+    <string name="goals_preview_label">Новая сумма</string>
+    <string name="goals_preview_completes">Вы достигнете цели, и она будет выполнена.</string>
+
+    <string name="goals_section_details">Подробности</string>
+    <string name="goals_section_target">Цель и прогресс</string>
+    <string name="goals_section_dates">Даты</string>
+</resources>

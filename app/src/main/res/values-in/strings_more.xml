@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="more_title">Lainnya</string>
+    <string name="more_section_organize">Atur</string>
+    <string name="more_section_app">Aplikasi dan data</string>
+    <string name="more_notes_title">Catatan</string>
+    <string name="more_notes_desc">Catatan cepat dan folder</string>
+    <string name="more_habits_title">Kebiasaan</string>
+    <string name="more_habits_desc">Bangun rutinitas harian</string>
+    <string name="more_goals_title">Tujuan</string>
+    <string name="more_goals_desc">Pantau apa yang Anda kejar</string>
+    <string name="more_analytics_title">Analitik</string>
+    <string name="more_analytics_desc">Lihat kemajuan Anda dari waktu ke waktu</string>
+    <string name="more_search_title">Cari</string>
+    <string name="more_search_desc">Temukan apa saja di ORBIT</string>
+    <string name="more_settings_title">Pengaturan</string>
+    <string name="more_settings_desc">Bahasa, tema, dan pengingat</string>
+    <string name="more_backup_title">Cadangan dan pemulihan</string>
+    <string name="more_backup_desc">Ekspor atau pulihkan data Anda</string>
+    <string name="more_privacy_title">Privasi</string>
+    <string name="more_privacy_desc">Cara data Anda ditangani</string>
+</resources>

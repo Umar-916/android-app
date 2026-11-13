@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dv3_quick_add">Быстрое добавление</string>
+    <string name="dv3_quick_add_subtitle">Что вы хотите создать?</string>
+    <string name="dv3_new_task">Новая задача</string>
+    <string name="dv3_new_note">Новая заметка</string>
+    <string name="dv3_new_habit">Новая привычка</string>
+    <string name="dv3_new_project">Новый проект</string>
+    <string name="dv3_new_goal">Новая цель</string>
+    <string name="dv3_search">Поиск</string>
+    <string name="dv3_quick_add_hint">Добавляйте что угодно одним касанием</string>
+    <string name="dv3_quick_add_hint_dismiss">Скрыть подсказку</string>
+</resources>

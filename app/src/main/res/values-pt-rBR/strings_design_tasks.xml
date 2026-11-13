@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasks_section_details">Detalhes</string>
+    <plurals name="tasks_summary_due_today">
+        <item quantity="one">%d vence hoje</item>
+        <item quantity="many">%d vencem hoje</item>
+        <item quantity="other">%d vencem hoje</item>
+    </plurals>
+    <plurals name="tasks_summary_overdue">
+        <item quantity="one">%d atrasada</item>
+        <item quantity="many">%d atrasadas</item>
+        <item quantity="other">%d atrasadas</item>
+    </plurals>
+    <string name="tasks_filter_apply">Aplicar</string>
+    <string name="tasks_pick_date">Selecionar data</string>
+    <string name="tasks_pick_range">Selecionar período</string>
+    <string name="tasks_clear_reminder">Remover lembrete</string>
+</resources>

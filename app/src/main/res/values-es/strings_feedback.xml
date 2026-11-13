@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feedback_title">Opiniones</string>
+    <string name="feedback_tab_issues">Problemas</string>
+    <string name="feedback_tab_suggestions">Sugerencias</string>
+    <string name="feedback_describe_issue">Describe el problema</string>
+    <string name="feedback_describe_idea">Comparte tu idea</string>
+    <string name="feedback_hint">Cuéntanoslo con tus palabras…</string>
+    <string name="feedback_counter">%1$d/%2$d</string>
+    <string name="feedback_select_label">Selecciona un tema</string>
+    <string name="feedback_select_hint">Elige hasta %1$d temas</string>
+    <string name="feedback_limit_reached">Puedes seleccionar hasta %1$d temas.</string>
+    <string name="feedback_submit">Enviar opinión</string>
+    <string name="feedback_no_mail_app">No se encontró ninguna app de correo en este dispositivo. Instala una para enviar tu opinión.</string>
+    <string name="feedback_privacy_note">Solo se incluyen tu mensaje, los temas elegidos y datos básicos de la app y del dispositivo. Tus tareas y notas nunca se comparten.</string>
+    <string name="feedback_unavailable_title">Opiniones no disponibles</string>
+    <string name="feedback_unavailable_message">El envío de opiniones aún no está configurado en esta versión de ORBIT.</string>
+
+    <string name="feedback_subject_issue">Informe de problema de ORBIT</string>
+    <string name="feedback_subject_suggestion">Sugerencia para ORBIT</string>
+    <string name="feedback_body_topics">Temas: %1$s</string>
+    <string name="feedback_body_app">Versión de la app: %1$s</string>
+    <string name="feedback_body_android">Versión de Android: %1$s</string>
+    <string name="feedback_body_device">Dispositivo: %1$s</string>
+
+    <string name="feedback_issue_crash">La app se cierra</string>
+    <string name="feedback_issue_reminders">Recordatorios</string>
+    <string name="feedback_issue_notes">Notas</string>
+    <string name="feedback_issue_tasks">Tareas</string>
+    <string name="feedback_issue_calendar">Calendario</string>
+    <string name="feedback_issue_backup">Copia de seguridad</string>
+    <string name="feedback_issue_language">Idioma</string>
+    <string name="feedback_item_other">Otro</string>
+    <string name="feedback_idea_feature">Nueva función</string>
+    <string name="feedback_idea_design">Diseño</string>
+    <string name="feedback_idea_reminders">Recordatorios</string>
+    <string name="feedback_idea_tasks">Tareas</string>
+    <string name="feedback_idea_notes">Notas</string>
+    <string name="feedback_idea_habits">Hábitos y metas</string>
+    <string name="feedback_idea_themes">Temas</string>
+</resources>

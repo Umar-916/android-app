@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_hint">Tasks, projects, notes, habits, goals</string>
+    <string name="search_idle_title">Search everything</string>
+    <string name="search_idle_message">Type to find tasks, projects, notes, habits and goals in one place.</string>
+    <string name="search_empty_title">No results</string>
+    <string name="search_empty_message">Nothing matches \"%1$s\". Try a different word.</string>
+    <string name="search_untitled_note">Untitled note</string>
+    <string name="search_goal_percent">%1$d%% complete</string>
+    <plurals name="search_section_tasks">
+        <item quantity="one">Tasks (%1$d)</item>
+        <item quantity="other">Tasks (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_projects">
+        <item quantity="one">Projects (%1$d)</item>
+        <item quantity="other">Projects (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_notes">
+        <item quantity="one">Notes (%1$d)</item>
+        <item quantity="other">Notes (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_habits">
+        <item quantity="one">Habits (%1$d)</item>
+        <item quantity="other">Habits (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_goals">
+        <item quantity="one">Goals (%1$d)</item>
+        <item quantity="other">Goals (%1$d)</item>
+    </plurals>
+</resources>

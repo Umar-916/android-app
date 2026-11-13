@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="startup_status_1">Подготовка вашего пространства…</string>
+    <string name="startup_status_4">Почти готово…</string>
+    <string name="startup_progress_description">Загрузка, %1$d процентов</string>
+    <string name="startup_error_title">Не удалось открыть планировщик</string>
+    <string name="startup_error_message">Ничего не потеряно. Повторите попытку через минуту.</string>
+</resources>

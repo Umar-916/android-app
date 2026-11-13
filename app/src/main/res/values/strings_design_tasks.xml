@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasks_section_details">Details</string>
+    <plurals name="tasks_summary_due_today">
+        <item quantity="one">%d due today</item>
+        <item quantity="other">%d due today</item>
+    </plurals>
+    <plurals name="tasks_summary_overdue">
+        <item quantity="one">%d overdue</item>
+        <item quantity="other">%d overdue</item>
+    </plurals>
+    <string name="tasks_filter_apply">Apply</string>
+    <string name="tasks_pick_date">Select date</string>
+    <string name="tasks_pick_range">Select date range</string>
+    <string name="tasks_clear_reminder">Remove reminder</string>
+</resources>

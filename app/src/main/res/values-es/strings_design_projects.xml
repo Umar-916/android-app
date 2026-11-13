@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planning_date_not_set">Sin definir</string>
+
+    <plurals name="projects_overdue_count">
+        <item quantity="one">%1$d vencida</item>
+        <item quantity="many">%1$d vencidas</item>
+        <item quantity="other">%1$d vencidas</item>
+    </plurals>
+    <plurals name="projects_delete_all_consequence">
+        <item quantity="one">El proyecto y su %1$d tarea se eliminarán de forma permanente. Esta acción no se puede deshacer.</item>
+        <item quantity="many">El proyecto y sus %1$d tareas se eliminarán de forma permanente. Esta acción no se puede deshacer.</item>
+        <item quantity="other">El proyecto y sus %1$d tareas se eliminarán de forma permanente. Esta acción no se puede deshacer.</item>
+    </plurals>
+
+    <string name="projects_section_details">Detalles</string>
+    <string name="projects_section_appearance">Apariencia</string>
+    <string name="projects_section_schedule">Calendario</string>
+</resources>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_greeting_morning">Доброе утро</string>
+    <string name="home_greeting_afternoon">Добрый день</string>
+    <string name="home_greeting_evening">Добрый вечер</string>
+    <string name="home_search_hint">Поиск задач, заметок, проектов…</string>
+    <string name="home_customize">Настроить главную</string>
+    <string name="home_percent">%1$d%%</string>
+    <string name="home_n_more">ещё %1$d</string>
+    <string name="home_view_all">Показать все</string>
+
+    <string name="home_welcome_title">Добро пожаловать в ORBIT</string>
+    <string name="home_welcome_message">Начните с первой задачи, проекта или привычки. Всё хранится на этом устройстве.</string>
+    <string name="home_all_hidden_title">Все карточки скрыты</string>
+    <string name="home_all_hidden_message">Выберите, какие карточки показывать на главном экране.</string>
+
+    <string name="home_progress_empty_title">На сегодня ничего не запланировано</string>
+    <string name="home_progress_empty_message">Добавьте задачу со сроком сегодня, чтобы отслеживать прогресс.</string>
+    <string name="home_progress_all_done">На сегодня всё сделано. Отлично!</string>
+    <string name="home_progress_keep_going">Так держать, вы на верном пути.</string>
+    <plurals name="home_tasks_done_of">
+        <item quantity="one">%1$d из %2$d задачи выполнена</item>
+        <item quantity="few">%1$d из %2$d задач выполнено</item>
+        <item quantity="many">%1$d из %2$d задач выполнено</item>
+        <item quantity="other">%1$d из %2$d задачи выполнено</item>
+    </plurals>
+
+    <string name="home_today_title">Сегодня</string>
+    <string name="home_today_empty">На сегодня задач нет. Отдохните или запланируйте что-нибудь новое.</string>
+    <string name="home_add_task">Добавить задачу</string>
+    <string name="home_task_mark_done">Отметить «%1$s» выполненной</string>
+    <string name="home_task_completed">Задача выполнена</string>
+
+    <string name="home_upcoming_title">Скоро</string>
+    <string name="home_upcoming_empty">На ближайшие 7 дней сроков нет.</string>
+    <string name="home_tomorrow">Завтра</string>
+    <string name="home_date_label">%1$s, %2$s</string>
+
+    <plurals name="home_overdue_title">
+        <item quantity="one">%1$d просроченная задача</item>
+        <item quantity="few">%1$d просроченные задачи</item>
+        <item quantity="many">%1$d просроченных задач</item>
+        <item quantity="other">%1$d просроченной задачи</item>
+    </plurals>
+    <string name="home_due_on">Срок: %1$s</string>
+
+    <string name="home_projects_title">Активные проекты</string>
+    <string name="home_projects_empty">Объедините связанные задачи в проект, чтобы следить за прогрессом.</string>
+    <string name="home_new_project">Новый проект</string>
+    <string name="home_project_no_tasks">Задач пока нет</string>
+
+    <string name="home_habits_title">Привычки на сегодня</string>
+    <string name="home_habits_empty">Начните формировать режим — добавьте первую привычку.</string>
+    <string name="home_habits_summary">Сегодня выполнено %1$d из %2$d</string>
+    <string name="home_new_habit">Новая привычка</string>
+    <plurals name="home_streak_days">
+        <item quantity="one">Серия: %1$d день</item>
+        <item quantity="few">Серия: %1$d дня</item>
+        <item quantity="many">Серия: %1$d дней</item>
+        <item quantity="other">Серия: %1$d дня</item>
+    </plurals>
+
+    <string name="home_overview_title">Ваш обзор</string>
+    <string name="home_ov_completed">Выполнено за 7 дней</string>
+    <string name="home_ov_open">Открытые задачи</string>
+    <string name="home_ov_projects">Активные проекты</string>
+    <string name="home_ov_streak">Лучшая серия привычек (дней)</string>
+
+    <string name="home_quick_add_title">Быстрое добавление</string>
+    <string name="home_qa_task">Новая задача</string>
+    <string name="home_qa_note">Новая заметка</string>
+    <string name="home_qa_habit">Новая привычка</string>
+    <string name="home_qa_project">Новый проект</string>
+    <string name="home_qa_goal">Новая цель</string>
+</resources>

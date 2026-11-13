@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        RELEASE: paste ORBIT's real AdMob APP id here (ca-app-pub-XXXXXXXXXXXXXXXX~YYYYYYYYYY).
+        The release guard task in app/build.gradle.kts FAILS assemble/bundle/package Release while this still holds
+        the placeholder below or Google's sample id. The ad UNIT ids live in core/ads/AdIds.kt.
+    -->
+    <string name="admob_app_id" translatable="false">REPLACE_WITH_REAL_ADMOB_APP_ID</string>
+</resources>

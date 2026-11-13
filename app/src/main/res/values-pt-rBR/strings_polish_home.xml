@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_search_hint_tasks">Pesquisar tarefas…</string>
+    <string name="home_search_hint_notes">Pesquisar notas…</string>
+    <string name="home_search_hint_projects">Pesquisar projetos…</string>
+    <string name="search_try_title">Tente pesquisar por…</string>
+    <string name="search_suggestion_desc">Pesquisar por %1$s</string>
+    <string name="search_edu_title">Encontre tudo em segundos</string>
+    <string name="search_edu_message">Depois que você adicionar tarefas, notas ou projetos, eles aparecem aqui como sugestões rápidas. A pesquisa analisa títulos e detalhes em todo o ORBIT.</string>
+    <string name="search_empty_tip">Verifique a ortografia ou tente menos palavras.</string>
+    <string name="more_projects_title">Projetos</string>
+    <string name="more_projects_desc">Agrupe tarefas por meta</string>
+</resources>

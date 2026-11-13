@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ads_label">বিজ্ঞাপন</string>
+    <string name="ads_content_description">বিজ্ঞাপন</string>
+    <string name="ads_loading">বিজ্ঞাপন লোড হচ্ছে…</string>
+    <string name="ads_no_internet">ইন্টারনেট সংযোগ নেই। ইন্টারনেটে সংযুক্ত হয়ে আবার চেষ্টা করুন।</string>
+    <string name="ads_privacy_options_title">গোপনীয়তার বিকল্প</string>
+    <string name="ads_privacy_options_subtitle">আপনার বিজ্ঞাপন সম্মতির পছন্দ দেখুন বা পরিবর্তন করুন</string>
+</resources>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notes_title">Заметки</string>
+    <string name="notes_archived_title">Архив заметок</string>
+    <string name="notes_untitled">Без названия</string>
+    <string name="notes_search_hint">Поиск заметок</string>
+    <string name="notes_filter_all">Все</string>
+    <string name="notes_filter_none">Без папки</string>
+    <string name="notes_new">Новая заметка</string>
+    <string name="notes_show_archived">Показать архив заметок</string>
+    <string name="notes_hide_archived">Ко всем заметкам</string>
+    <string name="notes_menu_new_folder">Новая папка</string>
+    <string name="notes_menu_rename_folder">Переименовать папку</string>
+    <string name="notes_menu_delete_folder">Удалить папку</string>
+    <string name="notes_pin">Закрепить</string>
+    <string name="notes_unpin">Открепить</string>
+    <string name="notes_pinned">Закреплено</string>
+    <string name="notes_move_to_folder">Переместить в папку</string>
+    <string name="notes_modified">Изменено: %1$s</string>
+    <string name="notes_folder_tag">Папка: %1$s</string>
+    <string name="notes_card_options">Действия с заметкой «%1$s»</string>
+
+    <string name="notes_empty_title">Заметок пока нет</string>
+    <string name="notes_empty_msg">Записывайте идеи, списки и заметки со встреч. Они сохраняются автоматически.</string>
+    <string name="notes_empty_action">Создать заметку</string>
+    <string name="notes_empty_folder_title">Эта папка пуста</string>
+    <string name="notes_empty_folder_msg">Заметки, которые вы добавите или переместите сюда, появятся в этом списке.</string>
+    <string name="notes_empty_archive_title">В архиве пусто</string>
+    <string name="notes_empty_archive_msg">Заметки из архива хранятся здесь и не мешают.</string>
+    <string name="notes_empty_search_title">Заметки не найдены</string>
+    <string name="notes_empty_search_msg">Попробуйте другие слова или проверьте другую папку.</string>
+
+    <string name="notes_folder_new_title">Новая папка</string>
+    <string name="notes_folder_rename_title">Переименовать папку</string>
+    <string name="notes_folder_name">Название папки</string>
+    <string name="notes_folder_create">Создать папку</string>
+    <string name="notes_folder_rename_confirm">Переименовать</string>
+    <string name="notes_folder_delete_title">Удалить папку «%1$s»?</string>
+    <string name="notes_folder_delete_msg">Заметки из этой папки будут перемещены в раздел «Без папки». Заметки не удаляются.</string>
+    <string name="notes_folder_delete_confirm">Удалить папку</string>
+    <string name="notes_note_deleted">Заметка удалена</string>
+    <string name="notes_move_title">Переместить в папку</string>
+    <string name="notes_new_folder_item">Новая папка…</string>
+
+    <!-- Editor -->
+    <string name="note_edit_title_hint">Заголовок</string>
+    <string name="note_edit_body_hint">Начните писать…</string>
+    <string name="note_saving">Сохранение…</string>
+    <string name="note_saved">Сохранено</string>
+    <string name="note_created">Создано: %1$s</string>
+    <string name="note_choose_folder">Выбрать папку</string>
+    <string name="note_delete_title">Удалить эту заметку?</string>
+    <string name="note_delete_msg">«%1$s» будет удалена безвозвратно.</string>
+    <string name="note_delete_confirm">Удалить заметку</string>
+    <string name="note_delete_action">Удалить заметку</string>
+</resources>

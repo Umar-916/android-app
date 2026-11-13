@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Remote Config defaults. These MUST match AdConfig.DEFAULT (core/remote/AdConfig.kt): the same values are
+    compiled into the app, so the app behaves identically when Firebase is not configured or the device is offline.
+    Documented in docs/REMOTE_CONFIG.md.
+-->
+<defaultsMap>
+    <entry><key>ads_enabled</key><value>true</value></entry>
+    <entry><key>banner_enabled</key><value>true</value></entry>
+    <entry><key>banner_screens</key><value>home,tasks,calendar,more</value></entry>
+    <entry><key>native_language_enabled</key><value>true</value></entry>
+    <entry><key>native_onboarding_enabled</key><value>true</value></entry>
+    <entry><key>native_exit_enabled</key><value>true</value></entry>
+    <entry><key>native_home_enabled</key><value>true</value></entry>
+    <entry><key>language_ad_type</key><value>rect</value></entry>
+    <entry><key>interstitial_splash_first_run</key><value>false</value></entry>
+    <entry><key>interstitial_splash_returning</key><value>true</value></entry>
+    <entry><key>interstitial_nav_enabled</key><value>true</value></entry>
+    <entry><key>interstitial_nav_every_n_actions</key><value>4</value></entry>
+    <entry><key>interstitial_min_interval_seconds</key><value>90</value></entry>
+    <entry><key>app_open_enabled</key><value>false</value></entry>
+    <entry><key>app_open_min_background_seconds</key><value>60</value></entry>
+    <entry><key>splash_max_wait_seconds</key><value>7</value></entry>
+    <entry><key>onboarding_flow_first_run</key><value></value></entry>
+    <entry><key>onboarding_flow_returning</key><value></value></entry>
+    <entry><key>premium_close_mode</key><value>2</value></entry>
+    <entry><key>premium_variant_inner</key><value>1</value></entry>
+</defaultsMap>

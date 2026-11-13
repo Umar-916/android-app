@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ads_label">Ad</string>
+    <string name="ads_content_description">Advertisement</string>
+    <string name="ads_loading">Loading ad…</string>
+    <string name="ads_no_internet">No internet connection. Connect to the internet and try again.</string>
+    <string name="ads_privacy_options_title">Privacy options</string>
+    <string name="ads_privacy_options_subtitle">Review or change your ad consent choices</string>
+</resources>

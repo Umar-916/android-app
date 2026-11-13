@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lang_screen_title">لغة التطبيق</string>
+    <string name="lang_settings_title">اللغة</string>
+    <string name="lang_selected_header">اللغة المختارة</string>
+    <string name="lang_all_header">جميع اللغات</string>
+    <string name="lang_selected_state">محدّدة</string>
+    <string name="onb_page1_title">خطط ليومك</string>
+    <string name="onb_page1_body">دوّن المهام واضبط التذكيرات حتى لا يفوتك شيء.</string>
+    <string name="onb_page2_title">نظّم كل شيء</string>
+    <string name="onb_page2_body">اجمع المشاريع والملاحظات والأهداف في مكان واحد هادئ.</string>
+    <string name="onb_page3_title">كوّن عادات</string>
+    <string name="onb_page3_body">تابع عاداتك اليومية وشاهد تقدمك ينمو.</string>
+    <string name="onb_page4_title">بياناتك تبقى لك</string>
+    <string name="onb_page4_body">المهام والملاحظات والعادات مخزّنة على جهازك ولا تُرفع أبدًا. الإعلانات والإعدادات تستخدم الإنترنت، ويعمل التطبيق بالكامل بدون اتصال.</string>
+    <string name="onb_page4_body_offline">المهام والملاحظات والعادات مخزّنة على جهازك ولا تُرفع أبدًا. يعمل التطبيق بالكامل دون اتصال.</string>
+    <string name="onb_get_started">ابدأ الآن</string>
+    <string name="onb_page_indicator">الصفحة %1$d من %2$d</string>
+</resources>

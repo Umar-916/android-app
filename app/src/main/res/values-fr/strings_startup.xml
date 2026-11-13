@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="startup_status_1">Préparation de votre espace…</string>
+    <string name="startup_status_4">Presque prêt…</string>
+    <string name="startup_progress_description">Chargement, %1$d pour cent</string>
+    <string name="startup_error_title">Impossible d\'ouvrir votre organiseur</string>
+    <string name="startup_error_message">Rien n\'a été perdu. Veuillez réessayer dans un instant.</string>
+</resources>

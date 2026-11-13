@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="more_title">Ещё</string>
+    <string name="more_section_organize">Организация</string>
+    <string name="more_section_app">Приложение и данные</string>
+    <string name="more_notes_title">Заметки</string>
+    <string name="more_notes_desc">Быстрые заметки и папки</string>
+    <string name="more_habits_title">Привычки</string>
+    <string name="more_habits_desc">Формируйте ежедневный режим</string>
+    <string name="more_goals_title">Цели</string>
+    <string name="more_goals_desc">Следите за тем, к чему стремитесь</string>
+    <string name="more_analytics_title">Аналитика</string>
+    <string name="more_analytics_desc">Ваш прогресс со временем</string>
+    <string name="more_search_title">Поиск</string>
+    <string name="more_search_desc">Найдите что угодно в ORBIT</string>
+    <string name="more_settings_title">Настройки</string>
+    <string name="more_settings_desc">Язык, тема и напоминания</string>
+    <string name="more_backup_title">Резервные копии</string>
+    <string name="more_backup_desc">Экспорт и восстановление данных</string>
+    <string name="more_privacy_title">Конфиденциальность</string>
+    <string name="more_privacy_desc">Как обрабатываются ваши данные</string>
+</resources>

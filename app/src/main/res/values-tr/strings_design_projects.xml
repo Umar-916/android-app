@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planning_date_not_set">Ayarlanmadı</string>
+
+    <plurals name="projects_overdue_count">
+        <item quantity="one">%1$d gecikmiş</item>
+        <item quantity="other">%1$d gecikmiş</item>
+    </plurals>
+    <plurals name="projects_delete_all_consequence">
+        <item quantity="one">Proje ve %1$d görevi kalıcı olarak silinir. Bu işlem geri alınamaz.</item>
+        <item quantity="other">Proje ve tüm %1$d görevi kalıcı olarak silinir. Bu işlem geri alınamaz.</item>
+    </plurals>
+
+    <string name="projects_section_details">Ayrıntılar</string>
+    <string name="projects_section_appearance">Görünüm</string>
+    <string name="projects_section_schedule">Program</string>
+</resources>

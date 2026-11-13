@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notes_title">نوٹس</string>
+    <string name="notes_archived_title">محفوظ شدہ نوٹس</string>
+    <string name="notes_untitled">بلا عنوان</string>
+    <string name="notes_search_hint">نوٹس تلاش کریں</string>
+    <string name="notes_filter_all">تمام</string>
+    <string name="notes_filter_none">بغیر فولڈر</string>
+    <string name="notes_new">نیا نوٹ</string>
+    <string name="notes_show_archived">محفوظ شدہ نوٹس دکھائیں</string>
+    <string name="notes_hide_archived">تمام نوٹس پر واپس جائیں</string>
+    <string name="notes_menu_new_folder">نیا فولڈر</string>
+    <string name="notes_menu_rename_folder">فولڈر کا نام بدلیں</string>
+    <string name="notes_menu_delete_folder">فولڈر حذف کریں</string>
+    <string name="notes_pin">پن کریں</string>
+    <string name="notes_unpin">پن ہٹائیں</string>
+    <string name="notes_pinned">پن شدہ</string>
+    <string name="notes_move_to_folder">فولڈر میں منتقل کریں</string>
+    <string name="notes_modified">ترمیم: %1$s</string>
+    <string name="notes_folder_tag">فولڈر: %1$s</string>
+    <string name="notes_card_options">نوٹ %1$s کے اختیارات</string>
+
+    <string name="notes_empty_title">ابھی کوئی نوٹ نہیں</string>
+    <string name="notes_empty_msg">خیالات، فہرستیں اور میٹنگ کے نوٹس لکھیں۔ یہ خود بخود محفوظ ہو جاتے ہیں۔</string>
+    <string name="notes_empty_action">نوٹ بنائیں</string>
+    <string name="notes_empty_folder_title">یہ فولڈر خالی ہے</string>
+    <string name="notes_empty_folder_msg">جو نوٹس آپ یہاں شامل یا منتقل کریں گے وہ اس فہرست میں نظر آئیں گے۔</string>
+    <string name="notes_empty_archive_title">کچھ بھی محفوظ شدہ نہیں</string>
+    <string name="notes_empty_archive_msg">محفوظ شدہ نوٹس یہاں رکھے جاتے ہیں تاکہ راستے میں نہ آئیں۔</string>
+    <string name="notes_empty_search_title">کوئی مماثل نوٹ نہیں</string>
+    <string name="notes_empty_search_msg">مختلف الفاظ آزمائیں یا کوئی دوسرا فولڈر دیکھیں۔</string>
+
+    <string name="notes_folder_new_title">نیا فولڈر</string>
+    <string name="notes_folder_rename_title">فولڈر کا نام بدلیں</string>
+    <string name="notes_folder_name">فولڈر کا نام</string>
+    <string name="notes_folder_create">فولڈر بنائیں</string>
+    <string name="notes_folder_rename_confirm">نام بدلیں</string>
+    <string name="notes_folder_delete_title">فولڈر “%1$s” حذف کریں؟</string>
+    <string name="notes_folder_delete_msg">اس فولڈر کے نوٹس “بغیر فولڈر” میں منتقل ہو جائیں گے۔ کوئی نوٹ حذف نہیں ہوگا۔</string>
+    <string name="notes_folder_delete_confirm">فولڈر حذف کریں</string>
+    <string name="notes_note_deleted">نوٹ حذف ہو گیا</string>
+    <string name="notes_move_title">فولڈر میں منتقل کریں</string>
+    <string name="notes_new_folder_item">نیا فولڈر…</string>
+
+    <string name="note_edit_title_hint">عنوان</string>
+    <string name="note_edit_body_hint">لکھنا شروع کریں…</string>
+    <string name="note_saving">محفوظ ہو رہا ہے…</string>
+    <string name="note_saved">محفوظ ہو گیا</string>
+    <string name="note_created">بنایا گیا: %1$s</string>
+    <string name="note_choose_folder">فولڈر منتخب کریں</string>
+    <string name="note_delete_title">یہ نوٹ حذف کریں؟</string>
+    <string name="note_delete_msg">“%1$s” مستقل طور پر حذف ہو جائے گا۔</string>
+    <string name="note_delete_confirm">نوٹ حذف کریں</string>
+    <string name="note_delete_action">نوٹ حذف کریں</string>
+</resources>

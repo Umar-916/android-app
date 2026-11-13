@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared by Projects, Habits and Goals -->
+    <string name="planning_color_label">Color</string>
+    <string name="planning_color_selected">%1$s, selected</string>
+    <string name="planning_color_violet">Violet</string>
+    <string name="planning_color_blue">Blue</string>
+    <string name="planning_color_teal">Teal</string>
+    <string name="planning_color_green">Green</string>
+    <string name="planning_color_amber">Amber</string>
+    <string name="planning_color_orange">Orange</string>
+    <string name="planning_color_red">Red</string>
+    <string name="planning_color_pink">Pink</string>
+    <string name="planning_color_purple">Purple</string>
+    <string name="planning_color_slate">Slate</string>
+    <string name="planning_clear_date_named">Clear %1$s</string>
+    <string name="planning_date_range">%1$s – %2$s</string>
+    <string name="planning_date_from">From %1$s</string>
+    <string name="planning_date_until">Until %1$s</string>
+    <string name="planning_discard_title">Discard changes?</string>
+    <string name="planning_discard_message">Your unsaved changes will be lost.</string>
+
+    <!-- Projects list -->
+    <string name="projects_new">New project</string>
+    <string name="projects_empty_title">No projects yet</string>
+    <string name="projects_empty_message">Group related tasks into a project to track progress toward a bigger goal.</string>
+    <string name="projects_filter_all">All</string>
+    <string name="projects_filter_empty_title">Nothing here</string>
+    <string name="projects_filter_empty_message">No projects match this filter.</string>
+    <string name="projects_no_tasks">No tasks yet</string>
+    <plurals name="projects_tasks_progress">
+        <item quantity="one">%1$d of %2$d task done</item>
+        <item quantity="other">%1$d of %2$d tasks done</item>
+    </plurals>
+
+    <!-- Project detail -->
+    <string name="projects_detail_title">Project</string>
+    <string name="projects_not_found">This project no longer exists.</string>
+    <string name="projects_restore">Restore project</string>
+    <string name="projects_mark_completed">Mark as completed</string>
+    <string name="projects_mark_active">Mark as active</string>
+    <string name="projects_percent">%1$d%%</string>
+    <string name="projects_progress_desc">%1$d percent complete</string>
+    <string name="projects_stat_total">Total tasks</string>
+    <string name="projects_stat_completed">Completed</string>
+    <string name="projects_stat_in_progress">In progress</string>
+    <string name="projects_stat_todo">To do</string>
+    <string name="projects_stat_overdue">Overdue</string>
+    <string name="projects_tasks_section">Tasks</string>
+    <string name="projects_add_task">Add task</string>
+    <string name="projects_tasks_empty_title">No tasks in this project</string>
+    <string name="projects_tasks_empty_message">Add a task to start tracking progress.</string>
+    <string name="projects_task_due">Due %1$s</string>
+    <string name="projects_task_overdue">Overdue · %1$s</string>
+    <string name="projects_task_mark_done">Mark %1$s as done</string>
+    <string name="projects_task_mark_open">Mark %1$s as not done</string>
+
+    <!-- Project deletion -->
+    <string name="projects_delete_title">Delete “%1$s”?</string>
+    <string name="projects_delete_simple_message">“%1$s” will be deleted. This cannot be undone.</string>
+    <string name="projects_delete_confirm">Delete project</string>
+    <plurals name="projects_delete_linked">
+        <item quantity="one">“%1$s” has %2$d linked task. What should happen to it?</item>
+        <item quantity="other">“%1$s” has %2$d linked tasks. What should happen to them?</item>
+    </plurals>
+    <string name="projects_delete_keep">Keep tasks</string>
+    <string name="projects_delete_keep_hint">They stay in your task list without a project.</string>
+    <plurals name="projects_delete_all">
+        <item quantity="one">Delete project and its %1$d task</item>
+        <item quantity="other">Delete project and its %1$d tasks</item>
+    </plurals>
+
+    <!-- Project edit -->
+    <string name="projects_edit_new_title">New project</string>
+    <string name="projects_edit_title">Edit project</string>
+    <string name="projects_field_name">Name</string>
+    <string name="projects_field_description">Description</string>
+    <string name="projects_field_start">Start date</string>
+    <string name="projects_field_end">End date</string>
+    <string name="projects_field_status">Status</string>
+    <string name="projects_error_name_required">Enter a project name.</string>
+    <string name="projects_error_end_before_start">End date must be on or after the start date.</string>
+</resources>

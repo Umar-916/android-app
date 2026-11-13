@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Réglages</string>
+    <string name="settings_group_preferences">Préférences</string>
+    <string name="settings_group_support">Assistance &amp; commentaires</string>
+    <string name="settings_group_data">Données &amp; confidentialité</string>
+    <string name="settings_group_about">À propos</string>
+    <string name="settings_language">Langue de l\'app</string>
+    <string name="settings_theme">Thème de l\'app</string>
+    <string name="settings_theme_system">Par défaut du système</string>
+    <string name="settings_theme_light">Clair</string>
+    <string name="settings_theme_dark">Sombre</string>
+    <string name="settings_theme_dialog_title">Choisir un thème</string>
+    <string name="settings_apply">Appliquer</string>
+    <string name="settings_reminders">Rappels de tâches</string>
+    <string name="settings_reminders_desc">Recevez une notification lorsque l\'échéance d\'une tâche avec rappel arrive.</string>
+    <string name="settings_notif_allowed">Les notifications sont autorisées sur cet appareil.</string>
+    <string name="settings_notif_blocked">Les notifications sont bloquées pour ORBIT ; les rappels ne peuvent donc pas s\'afficher.</string>
+    <string name="settings_notif_denied_explain">L\'autorisation n\'a pas été accordée. Vous pouvez autoriser les notifications dans les réglages système.</string>
+    <string name="settings_notif_open">Ouvrir les réglages de notifications</string>
+    <string name="settings_reminders_note">Les rappels sont approximatifs et peuvent être retardés par l\'économiseur de batterie ou d\'autres réglages d\'alimentation.</string>
+    <string name="settings_rate">Noter l\'app</string>
+    <string name="settings_feedback">Commentaires</string>
+    <string name="settings_share">Partager l\'app</string>
+    <string name="settings_customize_dashboard">Personnaliser le tableau de bord</string>
+    <string name="settings_customize_dashboard_desc">Choisissez les cartes affichées sur l\'accueil</string>
+    <string name="settings_backup">Sauvegarde et restauration</string>
+    <string name="settings_backup_desc">Exportez ou restaurez vos données</string>
+    <string name="settings_privacy">Politique de confidentialité</string>
+    <string name="settings_privacy_desc">Comment vos données sont traitées</string>
+    <string name="settings_replay">Revoir la présentation</string>
+    <string name="settings_replay_desc">Revoir la visite de bienvenue</string>
+    <string name="settings_about">À propos d\'ORBIT</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="rate_title">ORBIT vous plaît ?</string>
+    <string name="rate_tagline">Votre note nous aide à progresser</string>
+    <string name="rate_description">Si ORBIT vous aide à rester organisé, une note rapide sur le Play Store compte beaucoup pour notre petite équipe.</string>
+    <string name="rate_hint_none">Touchez une étoile pour noter</string>
+    <string name="rate_hint_low">Merci de votre franchise</string>
+    <string name="rate_hint_high">Merci ! Vous nous avez fait plaisir</string>
+    <string name="rate_submit">Envoyer</string>
+    <string name="rate_low_title">Merci pour votre avis</string>
+    <string name="rate_low_message">Nous sommes désolés qu\'ORBIT n\'ait pas répondu à toutes vos attentes. Nous continuerons de l\'améliorer.</string>
+    <string name="rate_low_message_feedback">Nous sommes désolés qu\'ORBIT n\'ait pas répondu à toutes vos attentes. Dites-nous ce qu\'il faut améliorer et nous y travaillerons.</string>
+    <string name="rate_improve">Dites-nous quoi améliorer</string>
+    <plurals name="rate_star_count">
+        <item quantity="one">%1$d étoile</item>
+        <item quantity="many">%1$d étoiles</item>
+        <item quantity="other">%1$d étoiles</item>
+    </plurals>
+    <string name="rate_reaction_1">😞 Nous aimerions nous améliorer</string>
+    <string name="rate_reaction_2">😕 Nous aimerions nous améliorer</string>
+    <string name="rate_reaction_3">😐 Nous aimerions nous améliorer</string>
+    <string name="rate_reaction_4">😊 Merci !</string>
+    <string name="rate_reaction_5">🤩 Merci ! Vous nous avez fait plaisir</string>
+</resources>

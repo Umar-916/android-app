@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planning_date_not_set">Не задано</string>
+
+    <plurals name="projects_overdue_count">
+        <item quantity="one">%1$d просрочена</item>
+        <item quantity="few">%1$d просрочены</item>
+        <item quantity="many">%1$d просрочено</item>
+        <item quantity="other">%1$d просрочено</item>
+    </plurals>
+    <plurals name="projects_delete_all_consequence">
+        <item quantity="one">Проект и его %1$d задача будут удалены безвозвратно. Это действие нельзя отменить.</item>
+        <item quantity="few">Проект и все его %1$d задачи будут удалены безвозвратно. Это действие нельзя отменить.</item>
+        <item quantity="many">Проект и все его %1$d задач будут удалены безвозвратно. Это действие нельзя отменить.</item>
+        <item quantity="other">Проект и все его %1$d задачи будут удалены безвозвратно. Это действие нельзя отменить.</item>
+    </plurals>
+
+    <string name="projects_section_details">Подробности</string>
+    <string name="projects_section_appearance">Оформление</string>
+    <string name="projects_section_schedule">Сроки</string>
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">ترتیبات</string>
+    <string name="settings_group_preferences">ترجیحات</string>
+    <string name="settings_group_support">معاونت اور رائے</string>
+    <string name="settings_group_data">ڈیٹا اور رازداری</string>
+    <string name="settings_group_about">تعارف</string>
+
+    <string name="settings_language">ایپ کی زبان</string>
+    <string name="settings_theme">ایپ کی تھیم</string>
+    <string name="settings_theme_system">سسٹم کے مطابق</string>
+    <string name="settings_theme_light">روشن</string>
+    <string name="settings_theme_dark">گہرا</string>
+    <string name="settings_theme_dialog_title">تھیم منتخب کریں</string>
+    <string name="settings_apply">لاگو کریں</string>
+
+    <string name="settings_reminders">کام کی یاد دہانیاں</string>
+    <string name="settings_reminders_desc">یاد دہانی والے کام کا وقت ہونے پر اطلاع حاصل کریں۔</string>
+    <string name="settings_notif_allowed">اس آلے پر اطلاعات کی اجازت ہے۔</string>
+    <string name="settings_notif_blocked">ORBIT کے لیے اطلاعات بند ہیں، اس لیے یاد دہانیاں ظاہر نہیں ہو سکتیں۔</string>
+    <string name="settings_notif_denied_explain">اجازت نہیں دی گئی۔ آپ سسٹم کی ترتیبات میں اطلاعات کی اجازت دے سکتے ہیں۔</string>
+    <string name="settings_notif_open">اطلاعات کی ترتیبات کھولیں</string>
+    <string name="settings_reminders_note">یاد دہانیاں تقریبی ہوتی ہیں اور بیٹری سیور یا پاور کی دیگر ترتیبات کی وجہ سے تاخیر سے آ سکتی ہیں۔</string>
+
+    <string name="settings_rate">ہمیں ریٹ کریں</string>
+    <string name="settings_feedback">رائے</string>
+    <string name="settings_share">ایپ شیئر کریں</string>
+    <string name="settings_customize_dashboard">ڈیش بورڈ حسب ضرورت بنائیں</string>
+    <string name="settings_customize_dashboard_desc">منتخب کریں کہ ہوم پر کون سے کارڈ نظر آئیں</string>
+    <string name="settings_backup">بیک اپ اور بحالی</string>
+    <string name="settings_backup_desc">اپنا ڈیٹا ایکسپورٹ یا بحال کریں</string>
+    <string name="settings_privacy">رازداری کی پالیسی</string>
+    <string name="settings_privacy_desc">آپ کا ڈیٹا کیسے سنبھالا جاتا ہے</string>
+    <string name="settings_replay">تعارف دوبارہ دیکھیں</string>
+    <string name="settings_replay_desc">خوش آمدیدی دورہ دوبارہ دیکھیں</string>
+    <string name="settings_about">ORBIT کے بارے میں</string>
+    <string name="settings_version">ورژن %1$s</string>
+
+    <string name="rate_title">کیا آپ کو ORBIT پسند آ رہا ہے؟</string>
+    <string name="rate_tagline">آپ کی ریٹنگ ہمیں آگے بڑھنے میں مدد دیتی ہے</string>
+    <string name="rate_description">اگر ORBIT آپ کو منظم رہنے میں مدد دیتا ہے تو پلے اسٹور پر ایک مختصر ریٹنگ ہماری چھوٹی ٹیم کے لیے بہت معنی رکھتی ہے۔</string>
+    <string name="rate_hint_none">ریٹ کرنے کے لیے ستارے پر ٹیپ کریں</string>
+    <string name="rate_hint_low">ایمانداری سے بتانے کا شکریہ</string>
+    <string name="rate_hint_high">شکریہ! آپ نے ہمارا دن بنا دیا</string>
+    <string name="rate_submit">جمع کرائیں</string>
+    <string name="rate_low_title">آپ کی رائے کا شکریہ</string>
+    <string name="rate_low_message">ہمیں افسوس ہے کہ ORBIT آپ کی توقعات پر پوری طرح پورا نہیں اترا۔ ہم اسے بہتر بنانے کی کوشش جاری رکھیں گے۔</string>
+    <string name="rate_low_message_feedback">ہمیں افسوس ہے کہ ORBIT آپ کی توقعات پر پوری طرح پورا نہیں اترا۔ ہمیں بتائیں کہ کیا بہتر کرنا ہے، ہم اس پر کام کریں گے۔</string>
+    <string name="rate_improve">بتائیں کہ کیا بہتر کریں</string>
+    <plurals name="rate_star_count">
+        <item quantity="one">%1$d ستارہ</item>
+        <item quantity="other">%1$d ستارے</item>
+    </plurals>
+    <string name="rate_reaction_1">😞 ہم بہتر بنانا چاہتے ہیں</string>
+    <string name="rate_reaction_2">😕 ہم بہتر بنانا چاہتے ہیں</string>
+    <string name="rate_reaction_3">😐 ہم بہتر بنانا چاہتے ہیں</string>
+    <string name="rate_reaction_4">😊 شکریہ!</string>
+    <string name="rate_reaction_5">🤩 شکریہ! آپ نے ہمارا دن بنا دیا</string>
+</resources>

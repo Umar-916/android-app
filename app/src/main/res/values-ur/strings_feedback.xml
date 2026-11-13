@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feedback_title">رائے</string>
+    <string name="feedback_tab_issues">مسائل</string>
+    <string name="feedback_tab_suggestions">تجاویز</string>
+    <string name="feedback_describe_issue">مسئلہ بیان کریں</string>
+    <string name="feedback_describe_idea">اپنا خیال شیئر کریں</string>
+    <string name="feedback_hint">اپنے الفاظ میں بتائیں…</string>
+    <string name="feedback_counter">%1$d/%2$d</string>
+    <string name="feedback_select_label">موضوع منتخب کریں</string>
+    <string name="feedback_select_hint">زیادہ سے زیادہ %1$d موضوعات چنیں</string>
+    <string name="feedback_limit_reached">آپ زیادہ سے زیادہ %1$d موضوعات منتخب کر سکتے ہیں۔</string>
+    <string name="feedback_submit">رائے بھیجیں</string>
+    <string name="feedback_no_mail_app">اس آلے پر کوئی ای میل ایپ نہیں ملی۔ رائے بھیجنے کے لیے براہ کرم ایک انسٹال کریں۔</string>
+    <string name="feedback_privacy_note">صرف آپ کا پیغام، منتخب کردہ موضوعات اور ایپ و آلے کی بنیادی معلومات شامل ہوتی ہیں۔ آپ کے کام اور نوٹس کبھی شیئر نہیں کیے جاتے۔</string>
+    <string name="feedback_unavailable_title">رائے دستیاب نہیں</string>
+    <string name="feedback_unavailable_message">ORBIT کے اس ورژن میں رائے کی سہولت ابھی ترتیب نہیں دی گئی۔</string>
+
+    <string name="feedback_subject_issue">ORBIT مسئلے کی رپورٹ</string>
+    <string name="feedback_subject_suggestion">ORBIT کے لیے تجویز</string>
+    <string name="feedback_body_topics">موضوعات: %1$s</string>
+    <string name="feedback_body_app">ایپ ورژن: %1$s</string>
+    <string name="feedback_body_android">اینڈرائیڈ ورژن: %1$s</string>
+    <string name="feedback_body_device">آلہ: %1$s</string>
+
+    <string name="feedback_issue_crash">ایپ بند ہو جاتی ہے</string>
+    <string name="feedback_issue_reminders">یاد دہانیاں</string>
+    <string name="feedback_issue_notes">نوٹس</string>
+    <string name="feedback_issue_tasks">کام</string>
+    <string name="feedback_issue_calendar">کیلنڈر</string>
+    <string name="feedback_issue_backup">بیک اپ اور بحالی</string>
+    <string name="feedback_issue_language">زبان</string>
+    <string name="feedback_item_other">دیگر</string>
+    <string name="feedback_idea_feature">نئی خصوصیت</string>
+    <string name="feedback_idea_design">ڈیزائن</string>
+    <string name="feedback_idea_reminders">یاد دہانیاں</string>
+    <string name="feedback_idea_tasks">کام</string>
+    <string name="feedback_idea_notes">نوٹس</string>
+    <string name="feedback_idea_habits">عادات اور اہداف</string>
+    <string name="feedback_idea_themes">تھیمز</string>
+</resources>

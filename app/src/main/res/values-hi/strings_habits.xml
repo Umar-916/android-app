@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="habits_title">आदतें</string>
+    <string name="habits_new">नई आदत</string>
+    <string name="habits_empty_title">अभी कोई आदत नहीं</string>
+    <string name="habits_empty_message">एक-एक दिन करके दिनचर्या बनाएँ। आदत बनाएँ और निर्धारित हर दिन उसे चेक-इन करें।</string>
+    <string name="habits_no_active_title">कोई सक्रिय आदत नहीं</string>
+    <string name="habits_no_active_message">आपकी सभी आदतें संग्रहित हैं। स्ट्रीक शुरू करने के लिए नई आदत बनाएँ।</string>
+    <string name="habits_not_scheduled_today">आज निर्धारित नहीं</string>
+    <string name="habits_done_today">आज पूर्ण</string>
+    <string name="habits_not_done_today">आज अभी पूर्ण नहीं</string>
+    <string name="habits_state_archived">संग्रहित</string>
+    <string name="habits_card_desc">%1$s, %2$s, %3$s</string>
+    <plurals name="habits_streak_days">
+        <item quantity="one">%1$d दिन की स्ट्रीक</item>
+        <item quantity="other">%1$d दिन की स्ट्रीक</item>
+    </plurals>
+    <string name="habits_completion_percent">%1$d%% पूर्ण</string>
+    <string name="habits_check_today">आज के लिए %1$s चेक-इन करें</string>
+    <string name="habits_uncheck_today">आज का %1$s चेक-इन पूर्ववत करें</string>
+    <plurals name="habits_archived_section">
+        <item quantity="one">संग्रहित (%1$d)</item>
+        <item quantity="other">संग्रहित (%1$d)</item>
+    </plurals>
+    <string name="habits_expand">समेटा हुआ</string>
+    <string name="habits_collapse">फैला हुआ</string>
+    <string name="habits_schedule_daily_summary">हर दिन</string>
+    <string name="habits_schedule_weekdays_summary">कार्यदिवस</string>
+    <string name="habits_schedule_weekends_summary">सप्ताहांत</string>
+    <string name="habits_list_separator">", "</string>
+    <string name="habits_edit_new_title">नई आदत</string>
+    <string name="habits_edit_title">आदत संपादित करें</string>
+    <string name="habits_field_name">आदत का नाम</string>
+    <string name="habits_field_description">विवरण</string>
+    <string name="habits_field_schedule">इन दिनों दोहराएँ</string>
+    <string name="habits_field_start">आरंभ तिथि</string>
+    <string name="habits_field_archive">आदत संग्रहित करें</string>
+    <string name="habits_field_archive_hint">संग्रहित आदतें अपना इतिहास रखती हैं, पर रोज़ के चेक-इन से छिप जाती हैं।</string>
+    <string name="habits_preset_daily">रोज़</string>
+    <string name="habits_preset_weekdays">कार्यदिवस</string>
+    <string name="habits_preset_weekends">सप्ताहांत</string>
+    <string name="habits_preset_custom">कस्टम</string>
+    <string name="habits_error_name_required">आदत का नाम दर्ज करें।</string>
+    <string name="habits_error_schedule_required">कम से कम एक दिन चुनें।</string>
+    <string name="habits_not_found">यह आदत अब मौजूद नहीं है।</string>
+    <string name="habits_delete_title">“%1$s” हटाएँ?</string>
+    <string name="habits_delete_message">“%1$s” और उसका पूरा चेक-इन इतिहास हमेशा के लिए हटा दिया जाएगा। इसे पूर्ववत नहीं किया जा सकता।</string>
+    <string name="habits_delete_confirm">आदत हटाएँ</string>
+    <string name="habits_detail_title">आदत</string>
+    <string name="habits_check_in_today">आज का चेक-इन करें</string>
+    <string name="habits_undo_today">आज चेक-इन किया · पूर्ववत करें</string>
+    <string name="habits_stat_current_streak">मौजूदा स्ट्रीक</string>
+    <string name="habits_stat_longest_streak">सबसे लंबी स्ट्रीक</string>
+    <string name="habits_stat_completion">पूर्णता</string>
+    <string name="habits_stat_total_checkins">कुल चेक-इन</string>
+    <plurals name="habits_days_value">
+        <item quantity="one">%1$d दिन</item>
+        <item quantity="other">%1$d दिन</item>
+    </plurals>
+    <string name="habits_percent_value">%1$d%%</string>
+    <string name="habits_cal_previous">पिछला महीना</string>
+    <string name="habits_cal_next">अगला महीना</string>
+    <string name="habits_cal_done">पूर्ण</string>
+    <string name="habits_cal_missed">छूटा</string>
+    <string name="habits_cal_scheduled">निर्धारित</string>
+    <string name="habits_cal_not_scheduled">निर्धारित नहीं</string>
+    <string name="habits_cal_day_desc">%1$s, %2$s</string>
+    <string name="habits_calendar_hint">आज तक के किसी निर्धारित दिन पर टैप करके उसे चिह्नित या अचिह्नित करें।</string>
+</resources>

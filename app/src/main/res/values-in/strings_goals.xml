@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List -->
+    <string name="goals_title">Tujuan</string>
+    <string name="goals_new">Tujuan baru</string>
+    <string name="goals_empty_title">Belum ada tujuan</string>
+    <string name="goals_empty_message">Tetapkan target yang terukur, misalnya buku yang akan dibaca atau kilometer yang akan dilari, lalu pantau kemajuan Anda.</string>
+    <string name="goals_section_in_progress">Sedang berjalan</string>
+    <string name="goals_section_in_progress_empty">Tidak ada tujuan yang sedang berjalan.</string>
+    <string name="goals_section_completed">Tercapai</string>
+    <plurals name="goals_show_archived">
+        <item quantity="other">Tampilkan arsip (%1$d)</item>
+    </plurals>
+    <plurals name="goals_hide_archived">
+        <item quantity="other">Sembunyikan arsip (%1$d)</item>
+    </plurals>
+    <string name="goals_percent">%1$d%%</string>
+    <plurals name="goals_days_left">
+        <item quantity="other">Sisa %1$d hari</item>
+    </plurals>
+    <string name="goals_due_today">Tenggat hari ini</string>
+    <plurals name="goals_overdue_days">
+        <item quantity="other">Terlambat %1$d hari</item>
+    </plurals>
+    <string name="goals_update_progress">Perbarui kemajuan</string>
+    <string name="goals_celebrate">Tujuan tercapai. Kerja bagus!</string>
+
+    <!-- Update progress dialog -->
+    <string name="goals_update_progress_title">Perbarui “%1$s”</string>
+    <string name="goals_mode_set">Atur nilai</string>
+    <string name="goals_mode_add">Tambah jumlah</string>
+    <string name="goals_field_new_value">Nilai baru</string>
+    <string name="goals_field_increment">Jumlah yang ditambahkan</string>
+    <string name="goals_update_confirm">Perbarui</string>
+    <string name="goals_error_number_empty">Masukkan angka.</string>
+    <string name="goals_error_number_invalid">Masukkan angka yang valid, misalnya 12 atau 12.5.</string>
+    <string name="goals_error_number_negative">Nilai tidak boleh negatif.</string>
+    <string name="goals_error_number_zero">Nilai harus lebih besar dari nol.</string>
+    <string name="goals_error_number_too_large">Angka tersebut terlalu besar.</string>
+
+    <!-- Edit -->
+    <string name="goals_edit_new_title">Tujuan baru</string>
+    <string name="goals_edit_title">Ubah tujuan</string>
+    <string name="goals_field_title">Tujuan</string>
+    <string name="goals_field_description">Deskripsi</string>
+    <string name="goals_field_target">Nilai target</string>
+    <string name="goals_field_current">Nilai saat ini</string>
+    <string name="goals_field_unit">Satuan (opsional)</string>
+    <string name="goals_field_unit_hint">Misalnya buku, km, atau halaman</string>
+    <string name="goals_field_start">Tanggal mulai</string>
+    <string name="goals_field_target_date">Tanggal target</string>
+    <string name="goals_field_status">Status</string>
+    <string name="goals_error_title_required">Masukkan judul tujuan.</string>
+    <string name="goals_error_target_before_start">Tanggal target harus sama dengan atau setelah tanggal mulai.</string>
+    <string name="goals_not_found">Tujuan ini sudah tidak ada.</string>
+    <string name="goals_delete_title">Hapus “%1$s”?</string>
+    <string name="goals_delete_message">“%1$s” akan dihapus permanen. Tindakan ini tidak dapat dibatalkan.</string>
+    <string name="goals_delete_confirm">Hapus tujuan</string>
+</resources>

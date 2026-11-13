@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ads_label">Реклама</string>
+    <string name="ads_content_description">Рекламное объявление</string>
+    <string name="ads_loading">Загрузка рекламы…</string>
+    <string name="ads_no_internet">Нет подключения к интернету. Подключитесь к сети и повторите попытку.</string>
+    <string name="ads_privacy_options_title">Параметры конфиденциальности</string>
+    <string name="ads_privacy_options_subtitle">Просмотрите или измените согласие на показ рекламы</string>
+</resources>

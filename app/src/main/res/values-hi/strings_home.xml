@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_greeting_morning">सुप्रभात</string>
+    <string name="home_greeting_afternoon">नमस्कार</string>
+    <string name="home_greeting_evening">शुभ संध्या</string>
+    <string name="home_search_hint">कार्य, नोट, प्रोजेक्ट खोजें…</string>
+    <string name="home_customize">डैशबोर्ड कस्टमाइज़ करें</string>
+    <string name="home_percent">%1$d%%</string>
+    <string name="home_n_more">+%1$d और</string>
+    <string name="home_view_all">सभी देखें</string>
+    <string name="home_welcome_title">ORBIT में आपका स्वागत है</string>
+    <string name="home_welcome_message">अपने पहले कार्य, प्रोजेक्ट या आदत से शुरू करें। सब कुछ इसी डिवाइस पर रहता है।</string>
+    <string name="home_all_hidden_title">सभी कार्ड छिपे हैं</string>
+    <string name="home_all_hidden_message">चुनें कि आपके डैशबोर्ड पर कौन से कार्ड दिखें।</string>
+    <string name="home_progress_empty_title">आज के लिए कुछ योजनाबद्ध नहीं</string>
+    <string name="home_progress_empty_message">प्रगति ट्रैक करने के लिए आज देय कोई कार्य जोड़ें।</string>
+    <string name="home_progress_all_done">आज का सब पूरा हो गया। बढ़िया काम!</string>
+    <string name="home_progress_keep_going">लगे रहिए, आप सही राह पर हैं।</string>
+    <plurals name="home_tasks_done_of">
+        <item quantity="one">%2$d में से %1$d कार्य पूर्ण</item>
+        <item quantity="other">%2$d में से %1$d कार्य पूर्ण</item>
+    </plurals>
+    <string name="home_today_title">आज</string>
+    <string name="home_today_empty">आज कोई कार्य देय नहीं। खाली समय का आनंद लें या कुछ नया योजनाबद्ध करें।</string>
+    <string name="home_add_task">कार्य जोड़ें</string>
+    <string name="home_task_mark_done">%1$s को पूर्ण चिह्नित करें</string>
+    <string name="home_task_completed">कार्य पूर्ण हुआ</string>
+    <string name="home_upcoming_title">आगामी</string>
+    <string name="home_upcoming_empty">अगले 7 दिनों में कुछ भी देय नहीं।</string>
+    <string name="home_tomorrow">कल</string>
+    <string name="home_date_label">%1$s, %2$s</string>
+    <plurals name="home_overdue_title">
+        <item quantity="one">%1$d कार्य देर से</item>
+        <item quantity="other">%1$d कार्य देर से</item>
+    </plurals>
+    <string name="home_due_on">देय: %1$s</string>
+    <string name="home_projects_title">सक्रिय प्रोजेक्ट</string>
+    <string name="home_projects_empty">प्रगति देखने के लिए संबंधित कार्यों को एक प्रोजेक्ट में रखें।</string>
+    <string name="home_new_project">नया प्रोजेक्ट</string>
+    <string name="home_project_no_tasks">अभी कोई कार्य नहीं</string>
+    <string name="home_habits_title">आज की आदतें</string>
+    <string name="home_habits_empty">अपनी पहली आदत जोड़कर दिनचर्या बनाएँ।</string>
+    <string name="home_habits_summary">आज %2$d में से %1$d पूर्ण</string>
+    <string name="home_new_habit">नई आदत</string>
+    <plurals name="home_streak_days">
+        <item quantity="one">%1$d दिन की स्ट्रीक</item>
+        <item quantity="other">%1$d दिन की स्ट्रीक</item>
+    </plurals>
+    <string name="home_overview_title">आपका ओवरव्यू</string>
+    <string name="home_ov_completed">7 दिनों में पूर्ण</string>
+    <string name="home_ov_open">खुले कार्य</string>
+    <string name="home_ov_projects">सक्रिय प्रोजेक्ट</string>
+    <string name="home_ov_streak">सर्वश्रेष्ठ आदत स्ट्रीक (दिन)</string>
+    <string name="home_quick_add_title">त्वरित जोड़ें</string>
+    <string name="home_qa_task">नया कार्य</string>
+    <string name="home_qa_note">नया नोट</string>
+    <string name="home_qa_habit">नई आदत</string>
+    <string name="home_qa_project">नया प्रोजेक्ट</string>
+    <string name="home_qa_goal">नया लक्ष्य</string>
+</resources>

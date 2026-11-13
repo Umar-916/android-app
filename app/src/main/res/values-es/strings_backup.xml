@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Personalizar panel -->
+    <string name="backup_customize_title">Personalizar panel</string>
+    <string name="backup_customize_intro">Tu panel de inicio está formado por tarjetas. Activa las que quieras ver y oculta el resto.</string>
+    <string name="backup_customize_note">El saludo, la búsqueda y los botones de añadir rápido siempre se muestran.</string>
+    <string name="backup_customize_reset">Restablecer valores</string>
+    <string name="backup_widget_progress">Progreso de hoy</string>
+    <string name="backup_widget_progress_desc">Un anillo que muestra cuántas tareas de hoy están hechas.</string>
+    <string name="backup_widget_today">Tareas de hoy</string>
+    <string name="backup_widget_today_desc">Tareas abiertas para hoy, listas para marcar.</string>
+    <string name="backup_widget_upcoming">Próximas</string>
+    <string name="backup_widget_upcoming_desc">Tareas de los próximos 7 días, agrupadas por día.</string>
+    <string name="backup_widget_overdue">Vencidas</string>
+    <string name="backup_widget_overdue_desc">Tareas abiertas que han pasado su fecha límite. Solo se muestra si hay alguna.</string>
+    <string name="backup_widget_projects">Proyectos activos</string>
+    <string name="backup_widget_projects_desc">Barras de progreso de los proyectos en los que trabajas.</string>
+    <string name="backup_widget_habits">Hábitos</string>
+    <string name="backup_widget_habits_desc">Registra los hábitos de hoy y consulta tus rachas.</string>
+    <string name="backup_widget_overview">Resumen</string>
+    <string name="backup_widget_overview_desc">Tareas completadas, abiertas, proyectos y mejor racha de un vistazo.</string>
+
+    <!-- Copia de seguridad -->
+    <string name="backup_title">Copia de seguridad</string>
+    <string name="backup_info_title">Tus datos viven solo en este dispositivo</string>
+    <string name="backup_info_message">Las copias son archivos JSON simples que tú controlas. Guárdalas donde quieras, por ejemplo en Descargas o en una memoria USB.</string>
+    <string name="backup_export_title">Exportar una copia</string>
+    <string name="backup_export_desc">Guarda todas tus tareas, proyectos, notas, hábitos y metas en un único archivo.</string>
+    <string name="backup_export_button">Exportar copia</string>
+    <string name="backup_restore_title">Restaurar desde una copia</string>
+    <string name="backup_restore_desc">Elige un archivo de copia creado por ORBIT. Verás lo que contiene antes de que cambie nada.</string>
+    <string name="backup_restore_button">Elegir archivo de copia</string>
+    <string name="backup_csv_title">Exportar a hoja de cálculo</string>
+    <string name="backup_csv_desc">Crea archivos CSV que puedes abrir en una app de hojas de cálculo. Los archivos CSV no se pueden restaurar en ORBIT.</string>
+    <string name="backup_csv_tasks">Exportar tareas (CSV)</string>
+    <string name="backup_csv_habits">Exportar registros de hábitos (CSV)</string>
+    <string name="backup_working_export">Guardando tu archivo…</string>
+    <string name="backup_working_restore">Procesando tu copia…</string>
+    <string name="backup_success_export">Copia guardada. Conserva el archivo en un lugar seguro.</string>
+    <string name="backup_success_csv">Archivo de hoja de cálculo guardado.</string>
+    <string name="backup_success_restore">Copia restaurada. Tus datos han sido reemplazados.</string>
+    <string name="backup_failed_export">No se pudo guardar el archivo. Tus datos no han cambiado. Inténtalo de nuevo o elige otra ubicación.</string>
+    <string name="backup_failed_restore">No se pudo restaurar la copia. Tus datos actuales siguen intactos.</string>
+    <string name="backup_invalid_not_backup">Este archivo no es una copia de ORBIT. Elige un archivo exportado desde ORBIT.</string>
+    <string name="backup_invalid_version">Esta copia fue creada con una versión más reciente de ORBIT. Actualiza la app e inténtalo de nuevo.</string>
+    <string name="backup_invalid_corrupt">Este archivo de copia está dañado y no se puede leer.</string>
+    <string name="backup_invalid_inconsistent">Este archivo de copia está incompleto o contiene datos contradictorios, por lo que no se restauró.</string>
+    <string name="backup_invalid_too_large">Este archivo es demasiado grande para ser una copia de ORBIT (límite de 25 MB).</string>
+    <string name="backup_confirm_title">¿Reemplazar todos los datos actuales?</string>
+    <string name="backup_confirm_exported">Copia del %1$s</string>
+    <string name="backup_confirm_contains">Esta copia contiene:</string>
+    <string name="backup_confirm_tasks">Tareas: %1$d</string>
+    <string name="backup_confirm_projects">Proyectos: %1$d</string>
+    <string name="backup_confirm_notes">Notas: %1$d</string>
+    <string name="backup_confirm_habits">Hábitos: %1$d</string>
+    <string name="backup_confirm_goals">Metas: %1$d</string>
+    <string name="backup_confirm_warning">Al restaurar se reemplazarán TODOS los datos que hay ahora en ORBIT. No se puede deshacer. Si tienes dudas, cancela y exporta una copia primero.</string>
+    <string name="backup_confirm_action">Reemplazar todos los datos</string>
+
+    <!-- Privacidad -->
+    <string name="privacy_title">Privacidad</string>
+    <string name="privacy_headline">Tus datos se quedan en tu dispositivo</string>
+    <string name="privacy_intro">ORBIT guarda tu planificador en tu dispositivo y funciona sin conexión. Internet se usa solo para los anuncios, el formulario de consentimiento y los ajustes remotos. Esto es exactamente lo que significa.</string>
+    <string name="privacy_stored_title">Qué se guarda</string>
+    <string name="privacy_stored_body">Tus tareas, proyectos, notas, hábitos, metas y ajustes se guardan en una base de datos solo en este dispositivo. Nunca se suben a nosotros ni a ninguna red publicitaria.</string>
+    <string name="privacy_account_title">Sin cuenta ni inicio de sesión</string>
+    <string name="privacy_account_body">Nunca tienes que registrarte ni iniciar sesión. No hay perfil ni correo electrónico que darnos.</string>
+    <string name="privacy_tracking_title">Anuncios y analíticas</string>
+    <string name="privacy_tracking_body">ORBIT muestra anuncios de Google AdMob. Para mostrarlos y medirlos, Google puede tratar el identificador de publicidad de tu dispositivo, la dirección IP y la ubicación aproximada, según su política de privacidad. Puedes restablecer o limitar el identificador de publicidad en los ajustes de Android. ORBIT no usa analíticas ni informes de fallos propios y nunca lee tus tareas o notas para la publicidad. Los anuncios se podrán quitar con premium cuando esté disponible.</string>
+    <string name="privacy_network_title">Uso de internet</string>
+    <string name="privacy_network_body">ORBIT solicita los permisos INTERNET y ACCESS_NETWORK_STATE. Solo se usan para comprobar si estás en línea, cargar anuncios, mostrar el formulario de consentimiento (tus opciones de privacidad) y obtener ajustes de la app. Todas las funciones del planificador siguen funcionando sin conexión y no se solicita ningún anuncio mientras estás sin conexión. Cuando corresponda, puedes cambiar tu consentimiento en Ajustes, en Opciones de privacidad.</string>
+    <string name="privacy_permissions_title">Permisos que usamos</string>
+    <string name="privacy_permissions_intro">Además del acceso a internet descrito arriba, ORBIT pide dos permisos, ambos para los recordatorios:</string>
+    <string name="privacy_perm_notifications_title">Notificaciones</string>
+    <string name="privacy_perm_notifications_body">Permiten que ORBIT muestre los recordatorios de tus tareas. Puedes decir que no y el resto de la app seguirá funcionando.</string>
+    <string name="privacy_perm_boot_title">Restaurar recordatorios tras reiniciar</string>
+    <string name="privacy_perm_boot_body">Permite que ORBIT vuelva a programar tus recordatorios cuando se reinicia el teléfono. No se usa para nada más.</string>
+    <string name="privacy_backups_title">Las copias son tuyas</string>
+    <string name="privacy_backups_body">Las copias son archivos JSON simples guardados donde tú elijas. NO están cifradas, así que cualquiera que pueda abrir el archivo puede leerlo. Guárdalas en un lugar seguro.</string>
+    <string name="privacy_cloud_title">Sin copia en la nube</string>
+    <string name="privacy_cloud_body">La copia de seguridad en la nube de Android y la copia automática de los datos de ORBIT están desactivadas. Tus datos solo salen del dispositivo cuando tú los exportas.</string>
+    <string name="privacy_delete_title">Borrar todo</string>
+    <string name="privacy_delete_body">Al desinstalar ORBIT se eliminan todos sus datos del dispositivo. Para empezar de cero sin desinstalar, restaura una copia que no contenga datos.</string>
+
+    <!-- Acerca de -->
+    <string name="about_title">Acerca de</string>
+    <string name="about_version">Versión %1$s (%2$d)</string>
+    <string name="about_description">ORBIT es un planificador privado de tareas, proyectos, notas, hábitos y metas. Funciona sin cuenta y sin conexión a internet, y todo lo que escribes se queda en tu dispositivo. Internet se usa solo para los anuncios, las opciones de privacidad y los ajustes de la app.</string>
+    <string name="about_made_with">Creado con</string>
+    <string name="about_privacy_title">Privacidad</string>
+    <string name="about_privacy_subtitle">Cómo trata ORBIT tus datos</string>
+    <string name="privacy_intro_offline">ORBIT guarda tu planificador en tu dispositivo y funciona totalmente sin conexión. Esto es exactamente lo que significa.</string>
+    <string name="privacy_permissions_intro_offline">ORBIT pide dos permisos, ambos para los recordatorios:</string>
+    <string name="about_description_offline">ORBIT es un planificador privado para tareas, proyectos, notas, hábitos y metas. Funciona sin cuenta y sin conexión a internet, y todo lo que escribes permanece en tu dispositivo.</string>
+</resources>

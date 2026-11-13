@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List -->
+    <string name="goals_title">Hedefler</string>
+    <string name="goals_new">Yeni hedef</string>
+    <string name="goals_empty_title">Henüz hedef yok</string>
+    <string name="goals_empty_message">Okunacak kitap veya koşulacak kilometre gibi ölçülebilir bir hedef belirleyin ve ilerlemenizi takip edin.</string>
+    <string name="goals_section_in_progress">Devam edenler</string>
+    <string name="goals_section_in_progress_empty">Devam eden hedef yok.</string>
+    <string name="goals_section_completed">Tamamlananlar</string>
+    <plurals name="goals_show_archived">
+        <item quantity="one">Arşivlenenleri göster (%1$d)</item>
+        <item quantity="other">Arşivlenenleri göster (%1$d)</item>
+    </plurals>
+    <plurals name="goals_hide_archived">
+        <item quantity="one">Arşivlenenleri gizle (%1$d)</item>
+        <item quantity="other">Arşivlenenleri gizle (%1$d)</item>
+    </plurals>
+    <string name="goals_percent">%%%1$d</string>
+    <plurals name="goals_days_left">
+        <item quantity="one">%1$d gün kaldı</item>
+        <item quantity="other">%1$d gün kaldı</item>
+    </plurals>
+    <string name="goals_due_today">Son tarih bugün</string>
+    <plurals name="goals_overdue_days">
+        <item quantity="one">%1$d gün gecikti</item>
+        <item quantity="other">%1$d gün gecikti</item>
+    </plurals>
+    <string name="goals_update_progress">İlerlemeyi güncelle</string>
+    <string name="goals_celebrate">Hedefe ulaşıldı. Tebrikler!</string>
+
+    <!-- Update progress dialog -->
+    <string name="goals_update_progress_title">“%1$s” güncelle</string>
+    <string name="goals_mode_set">Değer belirle</string>
+    <string name="goals_mode_add">Miktar ekle</string>
+    <string name="goals_field_new_value">Yeni değer</string>
+    <string name="goals_field_increment">Eklenecek miktar</string>
+    <string name="goals_update_confirm">Güncelle</string>
+    <string name="goals_error_number_empty">Bir sayı girin.</string>
+    <string name="goals_error_number_invalid">12 veya 12.5 gibi geçerli bir sayı girin.</string>
+    <string name="goals_error_number_negative">Değer negatif olamaz.</string>
+    <string name="goals_error_number_zero">Değer sıfırdan büyük olmalıdır.</string>
+    <string name="goals_error_number_too_large">Bu sayı çok büyük.</string>
+
+    <!-- Edit -->
+    <string name="goals_edit_new_title">Yeni hedef</string>
+    <string name="goals_edit_title">Hedefi düzenle</string>
+    <string name="goals_field_title">Hedef</string>
+    <string name="goals_field_description">Açıklama</string>
+    <string name="goals_field_target">Hedef değer</string>
+    <string name="goals_field_current">Mevcut değer</string>
+    <string name="goals_field_unit">Birim (isteğe bağlı)</string>
+    <string name="goals_field_unit_hint">Örneğin kitap, km veya sayfa</string>
+    <string name="goals_field_start">Başlangıç tarihi</string>
+    <string name="goals_field_target_date">Hedef tarih</string>
+    <string name="goals_field_status">Durum</string>
+    <string name="goals_error_title_required">Bir hedef başlığı girin.</string>
+    <string name="goals_error_target_before_start">Hedef tarih, başlangıç tarihiyle aynı veya sonrası olmalıdır.</string>
+    <string name="goals_not_found">Bu hedef artık yok.</string>
+    <string name="goals_delete_title">“%1$s” silinsin mi?</string>
+    <string name="goals_delete_message">“%1$s” kalıcı olarak silinecek. Bu işlem geri alınamaz.</string>
+    <string name="goals_delete_confirm">Hedefi sil</string>
+</resources>

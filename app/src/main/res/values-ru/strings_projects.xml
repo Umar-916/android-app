@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared by Projects, Habits and Goals -->
+    <string name="planning_color_label">Цвет</string>
+    <string name="planning_color_selected">%1$s, выбрано</string>
+    <string name="planning_color_violet">Фиолетовый</string>
+    <string name="planning_color_blue">Синий</string>
+    <string name="planning_color_teal">Бирюзовый</string>
+    <string name="planning_color_green">Зелёный</string>
+    <string name="planning_color_amber">Янтарный</string>
+    <string name="planning_color_orange">Оранжевый</string>
+    <string name="planning_color_red">Красный</string>
+    <string name="planning_color_pink">Розовый</string>
+    <string name="planning_color_purple">Пурпурный</string>
+    <string name="planning_color_slate">Сланцевый</string>
+    <string name="planning_clear_date_named">Очистить: %1$s</string>
+    <string name="planning_date_range">%1$s – %2$s</string>
+    <string name="planning_date_from">С %1$s</string>
+    <string name="planning_date_until">До %1$s</string>
+    <string name="planning_discard_title">Отменить изменения?</string>
+    <string name="planning_discard_message">Несохранённые изменения будут потеряны.</string>
+
+    <!-- Projects list -->
+    <string name="projects_new">Новый проект</string>
+    <string name="projects_empty_title">Проектов пока нет</string>
+    <string name="projects_empty_message">Объедините связанные задачи в проект, чтобы следить за прогрессом к большой цели.</string>
+    <string name="projects_filter_all">Все</string>
+    <string name="projects_filter_empty_title">Здесь пусто</string>
+    <string name="projects_filter_empty_message">Нет проектов, подходящих под этот фильтр.</string>
+    <string name="projects_no_tasks">Задач пока нет</string>
+    <plurals name="projects_tasks_progress">
+        <item quantity="one">%1$d из %2$d задачи выполнена</item>
+        <item quantity="few">%1$d из %2$d задач выполнено</item>
+        <item quantity="many">%1$d из %2$d задач выполнено</item>
+        <item quantity="other">%1$d из %2$d задачи выполнено</item>
+    </plurals>
+
+    <!-- Project detail -->
+    <string name="projects_detail_title">Проект</string>
+    <string name="projects_not_found">Этот проект больше не существует.</string>
+    <string name="projects_restore">Восстановить проект</string>
+    <string name="projects_mark_completed">Отметить завершённым</string>
+    <string name="projects_mark_active">Отметить активным</string>
+    <string name="projects_percent">%1$d%%</string>
+    <string name="projects_progress_desc">Выполнено: %1$d процентов</string>
+    <string name="projects_stat_total">Всего задач</string>
+    <string name="projects_stat_completed">Выполнено</string>
+    <string name="projects_stat_in_progress">В работе</string>
+    <string name="projects_stat_todo">К выполнению</string>
+    <string name="projects_stat_overdue">Просрочено</string>
+    <string name="projects_tasks_section">Задачи</string>
+    <string name="projects_add_task">Добавить задачу</string>
+    <string name="projects_tasks_empty_title">В проекте нет задач</string>
+    <string name="projects_tasks_empty_message">Добавьте задачу, чтобы отслеживать прогресс.</string>
+    <string name="projects_task_due">Срок: %1$s</string>
+    <string name="projects_task_overdue">Просрочено · %1$s</string>
+    <string name="projects_task_mark_done">Отметить «%1$s» выполненной</string>
+    <string name="projects_task_mark_open">Отметить «%1$s» невыполненной</string>
+
+    <!-- Project deletion -->
+    <string name="projects_delete_title">Удалить «%1$s»?</string>
+    <string name="projects_delete_simple_message">«%1$s» будет удалён. Это действие нельзя отменить.</string>
+    <string name="projects_delete_confirm">Удалить проект</string>
+    <plurals name="projects_delete_linked">
+        <item quantity="one">С проектом «%1$s» связана %2$d задача. Что с ней сделать?</item>
+        <item quantity="few">С проектом «%1$s» связаны %2$d задачи. Что с ними сделать?</item>
+        <item quantity="many">С проектом «%1$s» связано %2$d задач. Что с ними сделать?</item>
+        <item quantity="other">С проектом «%1$s» связано %2$d задачи. Что с ними сделать?</item>
+    </plurals>
+    <string name="projects_delete_keep">Оставить задачи</string>
+    <string name="projects_delete_keep_hint">Они останутся в списке задач без проекта.</string>
+    <plurals name="projects_delete_all">
+        <item quantity="one">Удалить проект и его %1$d задачу</item>
+        <item quantity="few">Удалить проект и его %1$d задачи</item>
+        <item quantity="many">Удалить проект и его %1$d задач</item>
+        <item quantity="other">Удалить проект и его %1$d задачи</item>
+    </plurals>
+
+    <!-- Project edit -->
+    <string name="projects_edit_new_title">Новый проект</string>
+    <string name="projects_edit_title">Изменить проект</string>
+    <string name="projects_field_name">Название</string>
+    <string name="projects_field_description">Описание</string>
+    <string name="projects_field_start">Дата начала</string>
+    <string name="projects_field_end">Дата окончания</string>
+    <string name="projects_field_status">Статус</string>
+    <string name="projects_error_name_required">Введите название проекта.</string>
+    <string name="projects_error_end_before_start">Дата окончания не может быть раньше даты начала.</string>
+</resources>

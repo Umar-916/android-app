@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planning_color_label">Couleur</string>
+    <string name="planning_color_selected">%1$s, sélectionnée</string>
+    <string name="planning_color_violet">Violet</string>
+    <string name="planning_color_blue">Bleu</string>
+    <string name="planning_color_teal">Turquoise</string>
+    <string name="planning_color_green">Vert</string>
+    <string name="planning_color_amber">Ambre</string>
+    <string name="planning_color_orange">Orange</string>
+    <string name="planning_color_red">Rouge</string>
+    <string name="planning_color_pink">Rose</string>
+    <string name="planning_color_purple">Pourpre</string>
+    <string name="planning_color_slate">Ardoise</string>
+    <string name="planning_clear_date_named">Effacer %1$s</string>
+    <string name="planning_date_range">%1$s – %2$s</string>
+    <string name="planning_date_from">Du %1$s</string>
+    <string name="planning_date_until">Jusqu\'au %1$s</string>
+    <string name="planning_discard_title">Abandonner les modifications ?</string>
+    <string name="planning_discard_message">Vos modifications non enregistrées seront perdues.</string>
+    <string name="projects_new">Nouveau projet</string>
+    <string name="projects_empty_title">Aucun projet</string>
+    <string name="projects_empty_message">Regroupez des tâches liées dans un projet pour suivre l\'avancement vers un objectif plus grand.</string>
+    <string name="projects_filter_all">Tous</string>
+    <string name="projects_filter_empty_title">Rien ici</string>
+    <string name="projects_filter_empty_message">Aucun projet ne correspond à ce filtre.</string>
+    <string name="projects_no_tasks">Aucune tâche</string>
+    <plurals name="projects_tasks_progress">
+        <item quantity="one">%1$d tâche terminée sur %2$d</item>
+        <item quantity="many">%1$d tâches terminées sur %2$d</item>
+        <item quantity="other">%1$d tâches terminées sur %2$d</item>
+    </plurals>
+    <string name="projects_detail_title">Projet</string>
+    <string name="projects_not_found">Ce projet n\'existe plus.</string>
+    <string name="projects_restore">Restaurer le projet</string>
+    <string name="projects_mark_completed">Marquer comme terminé</string>
+    <string name="projects_mark_active">Marquer comme actif</string>
+    <string name="projects_percent">%1$d %%</string>
+    <string name="projects_progress_desc">%1$d pour cent accompli</string>
+    <string name="projects_stat_total">Total des tâches</string>
+    <string name="projects_stat_completed">Terminées</string>
+    <string name="projects_stat_in_progress">En cours</string>
+    <string name="projects_stat_todo">À faire</string>
+    <string name="projects_stat_overdue">En retard</string>
+    <string name="projects_tasks_section">Tâches</string>
+    <string name="projects_add_task">Ajouter une tâche</string>
+    <string name="projects_tasks_empty_title">Aucune tâche dans ce projet</string>
+    <string name="projects_tasks_empty_message">Ajoutez une tâche pour suivre l\'avancement.</string>
+    <string name="projects_task_due">Échéance : %1$s</string>
+    <string name="projects_task_overdue">En retard · %1$s</string>
+    <string name="projects_task_mark_done">Marquer %1$s comme terminée</string>
+    <string name="projects_task_mark_open">Marquer %1$s comme non terminée</string>
+    <string name="projects_delete_title">Supprimer « %1$s » ?</string>
+    <string name="projects_delete_simple_message">« %1$s » sera supprimé. Cette action est irréversible.</string>
+    <string name="projects_delete_confirm">Supprimer le projet</string>
+    <plurals name="projects_delete_linked">
+        <item quantity="one">« %1$s » contient %2$d tâche liée. Que faire de cette tâche ?</item>
+        <item quantity="many">« %1$s » contient %2$d tâches liées. Que faire de ces tâches ?</item>
+        <item quantity="other">« %1$s » contient %2$d tâches liées. Que faire de ces tâches ?</item>
+    </plurals>
+    <string name="projects_delete_keep">Conserver les tâches</string>
+    <string name="projects_delete_keep_hint">Elles restent dans votre liste de tâches, sans projet.</string>
+    <plurals name="projects_delete_all">
+        <item quantity="one">Supprimer le projet et sa tâche (%1$d)</item>
+        <item quantity="many">Supprimer le projet et ses %1$d tâches</item>
+        <item quantity="other">Supprimer le projet et ses %1$d tâches</item>
+    </plurals>
+    <string name="projects_edit_new_title">Nouveau projet</string>
+    <string name="projects_edit_title">Modifier le projet</string>
+    <string name="projects_field_name">Nom</string>
+    <string name="projects_field_description">Description</string>
+    <string name="projects_field_start">Date de début</string>
+    <string name="projects_field_end">Date de fin</string>
+    <string name="projects_field_status">Statut</string>
+    <string name="projects_error_name_required">Saisissez un nom de projet.</string>
+    <string name="projects_error_end_before_start">La date de fin doit être égale ou postérieure à la date de début.</string>
+</resources>

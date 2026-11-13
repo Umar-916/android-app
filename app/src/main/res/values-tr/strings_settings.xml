@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Ayarlar</string>
+    <string name="settings_group_preferences">Tercihler</string>
+    <string name="settings_group_support">Destek ve geri bildirim</string>
+    <string name="settings_group_data">Veri ve gizlilik</string>
+    <string name="settings_group_about">Hakkında</string>
+
+    <string name="settings_language">Uygulama dili</string>
+    <string name="settings_theme">Uygulama teması</string>
+    <string name="settings_theme_system">Sistem varsayılanı</string>
+    <string name="settings_theme_light">Açık</string>
+    <string name="settings_theme_dark">Koyu</string>
+    <string name="settings_theme_dialog_title">Tema seç</string>
+    <string name="settings_apply">Uygula</string>
+
+    <string name="settings_reminders">Görev hatırlatıcıları</string>
+    <string name="settings_reminders_desc">Hatırlatıcısı olan bir görevin zamanı geldiğinde bildirim alın.</string>
+    <string name="settings_notif_allowed">Bu cihazda bildirimlere izin verildi.</string>
+    <string name="settings_notif_blocked">ORBIT için bildirimler engellendi, bu yüzden hatırlatıcılar görünmez.</string>
+    <string name="settings_notif_denied_explain">İzin verilmedi. Bildirimlere sistem ayarlarından izin verebilirsiniz.</string>
+    <string name="settings_notif_open">Bildirim ayarlarını aç</string>
+    <string name="settings_reminders_note">Hatırlatıcılar yaklaşık zamanında gelir ve pil tasarrufu veya diğer güç ayarları nedeniyle gecikebilir.</string>
+
+    <string name="settings_rate">Bizi puanlayın</string>
+    <string name="settings_feedback">Geri bildirim</string>
+    <string name="settings_share">Uygulamayı paylaş</string>
+    <string name="settings_customize_dashboard">Panoyu özelleştir</string>
+    <string name="settings_customize_dashboard_desc">Ana sayfada hangi kartların görüneceğini seçin</string>
+    <string name="settings_backup">Yedekleme ve geri yükleme</string>
+    <string name="settings_backup_desc">Verilerinizi dışa aktarın veya geri yükleyin</string>
+    <string name="settings_privacy">Gizlilik politikası</string>
+    <string name="settings_privacy_desc">Verileriniz nasıl ele alınır</string>
+    <string name="settings_replay">Tanıtımı yeniden oynat</string>
+    <string name="settings_replay_desc">Karşılama turunu tekrar görün</string>
+    <string name="settings_about">ORBIT hakkında</string>
+    <string name="settings_version">Sürüm %1$s</string>
+
+    <string name="rate_title">ORBIT\'i beğeniyor musunuz?</string>
+    <string name="rate_tagline">Puanınız büyümemize yardımcı olur</string>
+    <string name="rate_description">ORBIT düzenli kalmanıza yardımcı oluyorsa, Play Store\'da vereceğiniz kısa bir puan küçük ekibimiz için çok değerli.</string>
+    <string name="rate_hint_none">Puan vermek için bir yıldıza dokunun</string>
+    <string name="rate_hint_low">Bize dürüst olduğunuz için teşekkürler</string>
+    <string name="rate_hint_high">Teşekkürler! Günümüzü güzelleştirdiniz</string>
+    <string name="rate_submit">Gönder</string>
+    <string name="rate_low_title">Geri bildiriminiz için teşekkürler</string>
+    <string name="rate_low_message">ORBIT\'in beklentilerinizi tam karşılamamasına üzüldük. Daha iyi hale getirmek için çalışmaya devam edeceğiz.</string>
+    <string name="rate_low_message_feedback">ORBIT\'in beklentilerinizi tam karşılamamasına üzüldük. Nelerin geliştirilmesi gerektiğini bize söyleyin, üzerinde çalışalım.</string>
+    <string name="rate_improve">Nelerin geliştirilmesi gerektiğini söyleyin</string>
+    <plurals name="rate_star_count">
+        <item quantity="one">%1$d yıldız</item>
+        <item quantity="other">%1$d yıldız</item>
+    </plurals>
+    <string name="rate_reaction_1">😞 Geliştirmek isteriz</string>
+    <string name="rate_reaction_2">😕 Geliştirmek isteriz</string>
+    <string name="rate_reaction_3">😐 Geliştirmek isteriz</string>
+    <string name="rate_reaction_4">😊 Teşekkürler!</string>
+    <string name="rate_reaction_5">🤩 Teşekkürler! Günümüzü güzelleştirdiniz</string>
+</resources>

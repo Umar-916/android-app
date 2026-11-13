@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_search_hint_tasks">कार्य खोजें…</string>
+    <string name="home_search_hint_notes">नोट खोजें…</string>
+    <string name="home_search_hint_projects">प्रोजेक्ट खोजें…</string>
+    <string name="search_try_title">यह खोजकर देखें…</string>
+    <string name="search_suggestion_desc">%1$s खोजें</string>
+    <string name="search_edu_title">कुछ भी सेकंडों में ढूँढें</string>
+    <string name="search_edu_message">कार्य, नोट या प्रोजेक्ट जोड़ने के बाद वे यहाँ त्वरित सुझावों के रूप में दिखेंगे। खोज पूरे ORBIT में शीर्षक और विवरण देखती है।</string>
+    <string name="search_empty_tip">वर्तनी जाँचें या कम शब्द आज़माएँ।</string>
+    <string name="more_projects_title">प्रोजेक्ट</string>
+    <string name="more_projects_desc">कार्यों को लक्ष्य के अनुसार समूहित करें</string>
+</resources>

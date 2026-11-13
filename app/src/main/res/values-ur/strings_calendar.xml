@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calendar_today">آج پر جائیں</string>
+    <string name="calendar_prev_month">پچھلا مہینہ</string>
+    <string name="calendar_next_month">اگلا مہینہ</string>
+    <string name="calendar_mode_day">دن</string>
+    <string name="calendar_mode_agenda">ایجنڈا</string>
+    <string name="calendar_all_day">سارا دن</string>
+    <string name="calendar_scheduled">وقت مقرر</string>
+    <string name="calendar_add_task">ٹاسک شامل کریں</string>
+    <string name="calendar_overdue_header">مقررہ تاریخ گزر چکی</string>
+    <string name="calendar_header_relative">%1$s · %2$s</string>
+    <string name="calendar_cell_today">آج</string>
+    <string name="calendar_cell_overdue">%1$d کی تاریخ گزر چکی</string>
+    <plurals name="calendar_cell_tasks">
+        <item quantity="one">%d ٹاسک</item>
+        <item quantity="other">%d ٹاسک</item>
+    </plurals>
+    <plurals name="calendar_day_tasks">
+        <item quantity="one">اس دن %d ٹاسک</item>
+        <item quantity="other">اس دن %d ٹاسک</item>
+    </plurals>
+    <string name="calendar_empty_day_title">کچھ طے نہیں</string>
+    <string name="calendar_empty_day_message">%1$s کے لیے کوئی ٹاسک مقرر نہیں۔</string>
+    <string name="calendar_empty_agenda_title">کوئی آنے والی ڈیڈ لائن نہیں</string>
+    <string name="calendar_empty_agenda_message">مقررہ تاریخ والے کھلے ٹاسک یہاں درج ہوں گے۔</string>
+    <string name="calendar_error">کیلنڈر لوڈ نہیں ہو سکا۔</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planning_date_not_set">Belum diatur</string>
+
+    <plurals name="projects_overdue_count">
+        <item quantity="other">%1$d terlambat</item>
+    </plurals>
+    <plurals name="projects_delete_all_consequence">
+        <item quantity="other">Proyek beserta %1$d tugasnya akan dihapus permanen. Tindakan ini tidak dapat dibatalkan.</item>
+    </plurals>
+
+    <string name="projects_section_details">Detail</string>
+    <string name="projects_section_appearance">Tampilan</string>
+    <string name="projects_section_schedule">Jadwal</string>
+</resources>

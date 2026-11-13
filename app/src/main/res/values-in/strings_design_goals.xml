@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goals_of_target">/ %1$s</string>
+    <string name="goals_of_target_unit">/ %1$s %2$s</string>
+    <string name="goals_progress_desc">%1$d persen selesai</string>
+    <string name="goals_hero_none_active">Tidak ada tujuan yang sedang berjalan</string>
+    <plurals name="goals_hero_active">
+        <item quantity="other">%1$d tujuan sedang berjalan</item>
+    </plurals>
+    <plurals name="goals_hero_completed">
+        <item quantity="other">%1$d tujuan tercapai</item>
+    </plurals>
+
+    <string name="goals_preview_label">Total baru</string>
+    <string name="goals_preview_completes">Ini mencapai target Anda dan menyelesaikan tujuan.</string>
+
+    <string name="goals_section_details">Detail</string>
+    <string name="goals_section_target">Target dan kemajuan</string>
+    <string name="goals_section_dates">Tanggal</string>
+</resources>

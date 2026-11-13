@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_greeting_morning">Selamat pagi</string>
+    <string name="home_greeting_afternoon">Selamat siang</string>
+    <string name="home_greeting_evening">Selamat malam</string>
+    <string name="home_search_hint">Cari tugas, catatan, proyek…</string>
+    <string name="home_customize">Sesuaikan dasbor</string>
+    <string name="home_percent">%1$d%%</string>
+    <string name="home_n_more">+%1$d lagi</string>
+    <string name="home_view_all">Lihat semua</string>
+
+    <string name="home_welcome_title">Selamat datang di ORBIT</string>
+    <string name="home_welcome_message">Mulailah dengan tugas, proyek, atau kebiasaan pertama Anda. Semuanya tetap di perangkat ini.</string>
+    <string name="home_all_hidden_title">Semua kartu disembunyikan</string>
+    <string name="home_all_hidden_message">Pilih kartu mana yang tampil di dasbor Anda.</string>
+
+    <string name="home_progress_empty_title">Belum ada rencana untuk hari ini</string>
+    <string name="home_progress_empty_message">Tambahkan tugas yang bertenggat hari ini untuk mulai memantau kemajuan Anda.</string>
+    <string name="home_progress_all_done">Semua selesai hari ini. Kerja bagus!</string>
+    <string name="home_progress_keep_going">Terus semangat, Anda di jalur yang tepat.</string>
+    <plurals name="home_tasks_done_of">
+        <item quantity="other">%1$d dari %2$d tugas selesai</item>
+    </plurals>
+
+    <string name="home_today_title">Hari ini</string>
+    <string name="home_today_empty">Tidak ada tugas bertenggat hari ini. Nikmati waktu luang atau rencanakan sesuatu yang baru.</string>
+    <string name="home_add_task">Tambah tugas</string>
+    <string name="home_task_mark_done">Tandai %1$s sebagai selesai</string>
+    <string name="home_task_completed">Tugas selesai</string>
+
+    <string name="home_upcoming_title">Mendatang</string>
+    <string name="home_upcoming_empty">Tidak ada tenggat dalam 7 hari ke depan.</string>
+    <string name="home_tomorrow">Besok</string>
+    <string name="home_date_label">%1$s, %2$s</string>
+
+    <plurals name="home_overdue_title">
+        <item quantity="other">%1$d tugas terlambat</item>
+    </plurals>
+    <string name="home_due_on">Tenggat %1$s</string>
+
+    <string name="home_projects_title">Proyek aktif</string>
+    <string name="home_projects_empty">Kelompokkan tugas terkait ke dalam proyek untuk memantau kemajuannya.</string>
+    <string name="home_new_project">Proyek baru</string>
+    <string name="home_project_no_tasks">Belum ada tugas</string>
+
+    <string name="home_habits_title">Kebiasaan hari ini</string>
+    <string name="home_habits_empty">Bangun rutinitas dengan menambahkan kebiasaan pertama Anda.</string>
+    <string name="home_habits_summary">%1$d dari %2$d selesai hari ini</string>
+    <string name="home_new_habit">Kebiasaan baru</string>
+    <plurals name="home_streak_days">
+        <item quantity="other">Rentetan %1$d hari</item>
+    </plurals>
+
+    <string name="home_overview_title">Ringkasan Anda</string>
+    <string name="home_ov_completed">Selesai dalam 7 hari</string>
+    <string name="home_ov_open">Tugas terbuka</string>
+    <string name="home_ov_projects">Proyek aktif</string>
+    <string name="home_ov_streak">Rentetan kebiasaan terbaik (hari)</string>
+
+    <string name="home_quick_add_title">Tambah cepat</string>
+    <string name="home_qa_task">Tugas baru</string>
+    <string name="home_qa_note">Catatan baru</string>
+    <string name="home_qa_habit">Kebiasaan baru</string>
+    <string name="home_qa_project">Proyek baru</string>
+    <string name="home_qa_goal">Tujuan baru</string>
+</resources>

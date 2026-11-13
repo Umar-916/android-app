@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ads_label">Reklam</string>
+    <string name="ads_content_description">Reklam</string>
+    <string name="ads_loading">Reklam yükleniyor…</string>
+    <string name="ads_no_internet">İnternet bağlantısı yok. İnternete bağlanıp tekrar deneyin.</string>
+    <string name="ads_privacy_options_title">Gizlilik seçenekleri</string>
+    <string name="ads_privacy_options_subtitle">Reklam izni tercihlerinizi gözden geçirin veya değiştirin</string>
+</resources>

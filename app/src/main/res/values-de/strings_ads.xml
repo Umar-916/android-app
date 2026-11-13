@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ads_label">Anzeige</string>
+    <string name="ads_content_description">Werbeanzeige</string>
+    <string name="ads_loading">Anzeige wird geladen…</string>
+    <string name="ads_no_internet">Keine Internetverbindung. Verbinden Sie sich mit dem Internet und versuchen Sie es erneut.</string>
+    <string name="ads_privacy_options_title">Datenschutzoptionen</string>
+    <string name="ads_privacy_options_subtitle">Ihre Werbeeinwilligung prüfen oder ändern</string>
+</resources>

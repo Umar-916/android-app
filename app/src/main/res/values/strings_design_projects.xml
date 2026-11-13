@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planning_date_not_set">Not set</string>
+
+    <plurals name="projects_overdue_count">
+        <item quantity="one">%1$d overdue</item>
+        <item quantity="other">%1$d overdue</item>
+    </plurals>
+    <plurals name="projects_delete_all_consequence">
+        <item quantity="one">The project and its %1$d task are permanently deleted. This cannot be undone.</item>
+        <item quantity="other">The project and all %1$d tasks are permanently deleted. This cannot be undone.</item>
+    </plurals>
+
+    <string name="projects_section_details">Details</string>
+    <string name="projects_section_appearance">Appearance</string>
+    <string name="projects_section_schedule">Schedule</string>
+</resources>

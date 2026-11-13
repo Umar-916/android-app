@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goals_of_target">/ %1$s</string>
+    <string name="goals_of_target_unit">/ %1$s %2$s</string>
+    <string name="goals_progress_desc">اكتمل %1$d بالمئة</string>
+    <string name="goals_hero_none_active">لا توجد أهداف قيد التنفيذ</string>
+    <plurals name="goals_hero_active">
+        <item quantity="zero">%1$d هدف قيد التنفيذ</item>
+        <item quantity="one">%1$d هدف قيد التنفيذ</item>
+        <item quantity="two">%1$d هدفان قيد التنفيذ</item>
+        <item quantity="few">%1$d أهداف قيد التنفيذ</item>
+        <item quantity="many">%1$d هدفًا قيد التنفيذ</item>
+        <item quantity="other">%1$d هدف قيد التنفيذ</item>
+    </plurals>
+    <plurals name="goals_hero_completed">
+        <item quantity="zero">%1$d هدف مكتمل</item>
+        <item quantity="one">%1$d هدف مكتمل</item>
+        <item quantity="two">%1$d هدفان مكتملان</item>
+        <item quantity="few">%1$d أهداف مكتملة</item>
+        <item quantity="many">%1$d هدفًا مكتملًا</item>
+        <item quantity="other">%1$d هدف مكتمل</item>
+    </plurals>
+    <string name="goals_preview_label">الإجمالي الجديد</string>
+    <string name="goals_preview_completes">يبلغ هذا هدفك ويكمل الهدف.</string>
+    <string name="goals_section_details">التفاصيل</string>
+    <string name="goals_section_target">الهدف والتقدم</string>
+    <string name="goals_section_dates">التواريخ</string>
+</resources>

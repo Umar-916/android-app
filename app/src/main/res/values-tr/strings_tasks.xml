@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List: views, search, sort -->
+    <string name="tasks_search_hint">Görevlerde ara</string>
+    <string name="tasks_view_all">Tümü</string>
+    <string name="tasks_view_today">Bugün</string>
+    <string name="tasks_view_upcoming">Yaklaşan</string>
+    <string name="tasks_view_overdue">Geciken</string>
+    <string name="tasks_view_completed">Tamamlanan</string>
+    <string name="tasks_view_archived">Arşivlenen</string>
+    <string name="tasks_view_with_count">%1$s (%2$d)</string>
+    <string name="tasks_new">Yeni görev</string>
+    <string name="tasks_sort_action">Görevleri sırala</string>
+    <string name="tasks_sort_due">Son tarih</string>
+    <string name="tasks_sort_priority">Öncelik</string>
+    <string name="tasks_sort_created">Oluşturma tarihi</string>
+    <string name="tasks_sort_title">Başlık (A–Z)</string>
+    <string name="tasks_sort_reverse">Ters sırala</string>
+    <plurals name="tasks_count">
+        <item quantity="one">%d görev</item>
+        <item quantity="other">%d görev</item>
+    </plurals>
+
+    <!-- Filters -->
+    <string name="tasks_filter_action">Görevleri filtrele</string>
+    <string name="tasks_filter_title">Görevleri filtrele</string>
+    <string name="tasks_filters_clear">Filtreleri temizle</string>
+    <plurals name="tasks_filters_active">
+        <item quantity="one">%d filtre etkin</item>
+        <item quantity="other">%d filtre etkin</item>
+    </plurals>
+    <string name="tasks_filter_date">Son tarih</string>
+    <string name="tasks_filter_date_any">Her zaman</string>
+    <string name="tasks_filter_date_today">Bugün</string>
+    <string name="tasks_filter_date_next7">Sonraki 7 gün</string>
+    <string name="tasks_filter_date_month">Bu ay</string>
+    <string name="tasks_filter_date_none">Tarihsiz</string>
+    <string name="tasks_filter_date_custom">Özel aralık</string>
+    <string name="tasks_filter_date_range">%1$s – %2$s</string>
+    <string name="tasks_filter_priority">Öncelik</string>
+    <string name="tasks_filter_status">Durum</string>
+    <string name="tasks_filter_project">Proje</string>
+    <string name="tasks_filter_project_any">Herhangi bir proje</string>
+    <string name="tasks_filter_project_none">Projesiz</string>
+
+    <!-- Rows -->
+    <string name="tasks_due_today">Bugün</string>
+    <string name="tasks_due_tomorrow">Yarın</string>
+    <string name="tasks_due_yesterday">Dün</string>
+    <string name="tasks_due_at">%1$s, %2$s</string>
+    <string name="tasks_overdue_label">Gecikmiş: %1$s</string>
+    <string name="tasks_subtasks_progress">%1$d/%2$d</string>
+    <string name="tasks_row_menu">%1$s için işlemler</string>
+    <string name="tasks_menu_in_progress">Devam ediyor olarak işaretle</string>
+    <string name="tasks_menu_reopen">Yeniden aç</string>
+    <string name="tasks_a11y_due">son tarih %1$s</string>
+    <string name="tasks_a11y_priority">%1$s öncelik</string>
+    <string name="tasks_a11y_subtasks">%2$d alt görevin %1$d tanesi</string>
+    <string name="tasks_a11y_recurring">tekrarlanır</string>
+    <string name="tasks_reminder_info">Hatırlatıcı: %1$s</string>
+
+    <!-- Feedback -->
+    <string name="tasks_deleted">Görev silindi</string>
+    <string name="tasks_archived_msg">Görev arşivlendi</string>
+    <string name="tasks_error_load">Görevleriniz yüklenemedi.</string>
+    <string name="tasks_delete_recurring_title">Tekrarlayan görev silinsin mi?</string>
+    <string name="tasks_delete_recurring_message">“%1$s” tekrarlanıyor. Silerseniz seri de durur, çünkü sonraki tekrar yalnızca bu görev tamamlandığında oluşturulur.</string>
+    <string name="tasks_delete_confirm">Görevi sil</string>
+
+    <!-- Empty states -->
+    <string name="tasks_empty_all_title">Henüz görev yok</string>
+    <string name="tasks_empty_all_message">Yapmanız gerekenleri kaydedin, ORBIT düzenli tutsun.</string>
+    <string name="tasks_empty_today_title">Bugün son tarihi olan görev yok</string>
+    <string name="tasks_empty_today_message">Boş zamanın tadını çıkarın veya yeni bir şey planlayın.</string>
+    <string name="tasks_empty_today_action">Bugün için görev ekle</string>
+    <string name="tasks_empty_upcoming_title">Yaklaşan bir şey yok</string>
+    <string name="tasks_empty_upcoming_message">Son tarihi ilerideki görevler burada görünür.</string>
+    <string name="tasks_empty_overdue_title">Her şey güncel</string>
+    <string name="tasks_empty_overdue_message">Son tarihi geçmiş görev yok.</string>
+    <string name="tasks_empty_completed_title">Henüz tamamlanan görev yok</string>
+    <string name="tasks_empty_completed_message">Bitirdiğiniz görevler burada görünür.</string>
+    <string name="tasks_empty_archived_title">Arşiv boş</string>
+    <string name="tasks_empty_archived_message">Arşivlenen görevler burada, yolunuzdan uzakta saklanır.</string>
+    <string name="tasks_empty_filtered_title">Eşleşen görev yok</string>
+    <string name="tasks_empty_filtered_message">Farklı bir arama deneyin veya filtreleri temizleyin.</string>
+
+    <!-- Editor -->
+    <string name="tasks_edit_new_title">Yeni görev</string>
+    <string name="tasks_edit_title">Görevi düzenle</string>
+    <string name="tasks_field_title">Başlık</string>
+    <string name="tasks_field_description">Açıklama (isteğe bağlı)</string>
+    <string name="tasks_error_title_required">Bu görev için bir başlık girin</string>
+    <string name="tasks_error_title_long">Başlık en fazla %1$d karakter olabilir</string>
+    <string name="tasks_title_counter">%1$d/%2$d</string>
+    <string name="tasks_field_priority">Öncelik</string>
+    <string name="tasks_field_status">Durum</string>
+    <string name="tasks_section_schedule">Program</string>
+    <string name="tasks_field_due_date">Son tarih</string>
+    <string name="tasks_field_due_time">Son saat</string>
+    <string name="tasks_not_set">Ayarlanmadı</string>
+    <string name="tasks_clear_date">Son tarihi temizle</string>
+    <string name="tasks_clear_time">Son saati temizle</string>
+    <string name="tasks_pick_time">Saat seç</string>
+    <string name="tasks_field_reminder">Hatırlatıcı</string>
+    <string name="tasks_reminder_none">Yok</string>
+    <string name="tasks_reminder_at_due">Son tarih anında</string>
+    <string name="tasks_reminder_10m">10 dakika önce</string>
+    <string name="tasks_reminder_30m">30 dakika önce</string>
+    <string name="tasks_reminder_1h">1 saat önce</string>
+    <string name="tasks_reminder_1d">1 gün önce</string>
+    <string name="tasks_reminder_custom">%1$d dakika önce</string>
+    <string name="tasks_reminder_needs_date">Hatırlatıcı eklemek için bir son tarih belirleyin.</string>
+    <string name="tasks_reminder_note">Hatırlatıcılar yaklaşık zamanında iletilir ve pil optimizasyonu nedeniyle gecikebilir.</string>
+    <string name="tasks_notif_denied">ORBIT için bildirimler kapalı, bu yüzden sistem ayarlarından izin verene kadar bu hatırlatıcı görünmez.</string>
+    <string name="tasks_field_project">Proje</string>
+    <string name="tasks_project_none">Projesiz</string>
+
+    <string name="tasks_section_subtasks">Alt görevler</string>
+    <string name="tasks_subtasks_empty">Görevi daha küçük adımlara bölün.</string>
+    <string name="tasks_subtask_hint">Alt görev ekle</string>
+    <string name="tasks_subtask_add">Alt görev ekle</string>
+    <string name="tasks_subtask_delete">Alt görevi sil: %1$s</string>
+    <string name="tasks_subtask_move_up">Yukarı taşı: %1$s</string>
+    <string name="tasks_subtask_move_down">Aşağı taşı: %1$s</string>
+
+    <string name="tasks_section_repeat">Tekrar</string>
+    <string name="tasks_repeat_none">Asla</string>
+    <string name="tasks_repeat_daily">Günlük</string>
+    <string name="tasks_repeat_weekly">Haftalık</string>
+    <string name="tasks_repeat_monthly">Aylık</string>
+    <string name="tasks_repeat_yearly">Yıllık</string>
+    <string name="tasks_repeat_needs_date">Tekrarlayan görevler için son tarih gerekir. Belirlenmezse bugün kullanılır.</string>
+    <string name="tasks_repeat_interval_label">Her</string>
+    <string name="tasks_repeat_weekdays">Tekrar günleri</string>
+    <string name="tasks_repeat_ends">Bitiş</string>
+    <string name="tasks_repeat_never">Asla</string>
+    <string name="tasks_repeat_clear_end">Bitiş tarihini kaldır</string>
+    <string name="tasks_repeat_occurrence_hint">Değişiklikler bu tekrara ve ondan oluşturulan sonraki tekrarlara uygulanır.</string>
+    <string name="tasks_summary_until">%1$s, %2$s tarihine kadar</string>
+    <plurals name="tasks_unit_day">
+        <item quantity="one">gün</item>
+        <item quantity="other">gün</item>
+    </plurals>
+    <plurals name="tasks_unit_week">
+        <item quantity="one">hafta</item>
+        <item quantity="other">hafta</item>
+    </plurals>
+    <plurals name="tasks_unit_month">
+        <item quantity="one">ay</item>
+        <item quantity="other">ay</item>
+    </plurals>
+    <plurals name="tasks_unit_year">
+        <item quantity="one">yıl</item>
+        <item quantity="other">yıl</item>
+    </plurals>
+    <plurals name="tasks_summary_daily">
+        <item quantity="one">Her gün tekrarlanır</item>
+        <item quantity="other">%1$d günde bir tekrarlanır</item>
+    </plurals>
+    <plurals name="tasks_summary_weekly">
+        <item quantity="one">Her hafta tekrarlanır</item>
+        <item quantity="other">%1$d haftada bir tekrarlanır</item>
+    </plurals>
+    <plurals name="tasks_summary_weekly_on">
+        <item quantity="one">Her hafta %2$s günleri tekrarlanır</item>
+        <item quantity="other">%1$d haftada bir %2$s günleri tekrarlanır</item>
+    </plurals>
+    <plurals name="tasks_summary_monthly">
+        <item quantity="one">Her ay tekrarlanır</item>
+        <item quantity="other">%1$d ayda bir tekrarlanır</item>
+    </plurals>
+    <plurals name="tasks_summary_yearly">
+        <item quantity="one">Her yıl tekrarlanır</item>
+        <item quantity="other">%1$d yılda bir tekrarlanır</item>
+    </plurals>
+
+    <!-- Dialogs and errors -->
+    <string name="tasks_discard_title">Değişikliklerden vazgeçilsin mi?</string>
+    <string name="tasks_discard_message">Bu görevde kaydedilmemiş değişiklikleriniz var.</string>
+    <string name="tasks_delete_title">Görev silinsin mi?</string>
+    <string name="tasks_delete_message">“%1$s” kalıcı olarak silinecek.</string>
+    <string name="tasks_not_found">Bu görev artık yok.</string>
+    <string name="tasks_error_duplicate">Bu tekrarlayan görevin o tarihte zaten bir tekrarı var.</string>
+    <string name="tasks_error_save">Görev kaydedilemedi. Lütfen tekrar deneyin.</string>
+</resources>

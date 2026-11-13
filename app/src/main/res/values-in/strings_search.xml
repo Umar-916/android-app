@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_hint">Tugas, proyek, catatan, kebiasaan, tujuan</string>
+    <string name="search_idle_title">Cari semuanya</string>
+    <string name="search_idle_message">Ketik untuk menemukan tugas, proyek, catatan, kebiasaan, dan tujuan di satu tempat.</string>
+    <string name="search_empty_title">Tidak ada hasil</string>
+    <string name="search_empty_message">Tidak ada yang cocok dengan \"%1$s\". Coba kata lain.</string>
+    <string name="search_untitled_note">Catatan tanpa judul</string>
+    <string name="search_goal_percent">%1$d%% selesai</string>
+    <plurals name="search_section_tasks">
+        <item quantity="other">Tugas (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_projects">
+        <item quantity="other">Proyek (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_notes">
+        <item quantity="other">Catatan (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_habits">
+        <item quantity="other">Kebiasaan (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_goals">
+        <item quantity="other">Tujuan (%1$d)</item>
+    </plurals>
+</resources>

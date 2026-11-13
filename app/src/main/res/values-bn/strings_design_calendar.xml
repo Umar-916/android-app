@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calendar_today_chip">আজ</string>
+    <string name="calendar_cell_more">+%1$d</string>
+    <string name="calendar_mode_label">ক্যালেন্ডার ভিউ</string>
+</resources>

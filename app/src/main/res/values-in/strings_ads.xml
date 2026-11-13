@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ads_label">Iklan</string>
+    <string name="ads_content_description">Iklan</string>
+    <string name="ads_loading">Memuat iklan…</string>
+    <string name="ads_no_internet">Tidak ada koneksi internet. Hubungkan ke internet lalu coba lagi.</string>
+    <string name="ads_privacy_options_title">Opsi privasi</string>
+    <string name="ads_privacy_options_subtitle">Tinjau atau ubah pilihan persetujuan iklan Anda</string>
+</resources>

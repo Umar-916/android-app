@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="prem_title">ORBIT Plus ile tanışın</string>
+    <string name="prem_price_line">Fiyat: %1$s</string>
+    <string name="prem_included_header">Neler dahil</string>
+    <string name="prem_plan_header">Planınız</string>
+    <string name="prem_plan_unavailable">Henüz kullanılamıyor</string>
+    <string name="prem_unavailable_title">Satın alma henüz kullanılamıyor</string>
+    <string name="prem_unavailable_body">ORBIT Plus şu anda satın alınamıyor. ORBIT\'teki her şey ücretsiz çalışmaya devam eder.</string>
+    <string name="prem_maybe_later">Belki sonra</string>
+    <string name="prem_restore">Satın alımı geri yükle</string>
+    <string name="prem_terms">Ödeme Google Play tarafından yönetilir. Play Store hesabınızdan yönetebilirsiniz.</string>
+    <string name="prem_card_title">ORBIT Plus\'a yükseltin</string>
+    <string name="prem_card_cta">Önizleme</string>
+    <string name="prem_feat_ads_body">ORBIT\'in keyfini kesintisiz çıkarın</string>
+    <string name="prem_compare_title">Premium ve Temel</string>
+    <string name="prem_compare_subtitle">ORBIT Plus\'ın neler eklediğini görün</string>
+    <string name="prem_col_basic">Temel</string>
+    <string name="prem_row_ads">Reklam yok</string>
+    <string name="prem_included_cd">Dahil</string>
+    <string name="prem_not_included_cd">Dahil değil</string>
+    <string name="prem_compare_row_cd">%1$s. Temel: %2$s. Plus: %3$s.</string>
+    <string name="prem_black_tagline">ORBIT Plus ile tam odaklanma. Kesinti yok, yalnızca planlarınız.</string>
+    <string name="prem_offline">İnternet bağlantısı yok</string>
+    <string name="prem_subtitle">ORBIT\'i reklamsız kullanın. Tüm planlayıcı özellikleri herkes için ücretsiz kalır.</string>
+    <string name="prem_card_subtitle">Reklamları kaldır</string>
+    <string name="prem_feat_ads_title">Tüm reklamları kaldır</string>
+    <string name="prem_feat_focus_title">Dikkat dağıtmayan planlama</string>
+    <string name="prem_feat_focus_body">Yalnızca görevleriniz, notlarınız ve alışkanlıklarınız</string>
+    <string name="prem_feat_support_title">ORBIT\'in gelişimine destek ol</string>
+    <string name="prem_feat_support_body">ORBIT\'i geliştirmeye devam etmemize yardım edin</string>
+    <string name="prem_row_all">Tüm planlayıcı özellikleri</string>
+    <string name="prem_row_private">Çevrimdışı ve tasarım gereği gizli</string>
+    <string name="prem_row_support">Gelişime destek</string>
+    <string name="prem_slider_title">ORBIT PLUS İLE\nREKLAMSIZ</string>
+    <string name="prem_row_backup">Yedekleme ve geri yükleme</string>
+    <string name="prem_row_reminders">Hatırlatıcılar ve bildirimler</string>
+    <string name="prem_col_premium">Premium</string>
+    <string name="prem_price_after_trial">Ücretsiz denemeden sonra %1$s</string>
+    <string name="prem_cancel_anytime">İstediğiniz zaman iptal edin</string>
+    <string name="prem_black_secure">İstediğiniz zaman iptal edin, Google Play ile güvenli</string>
+    <string name="prem_zippo_title">PROFESYONEL GİBİ BAŞLAYIN</string>
+    <string name="prem_black_title">Premium Planlayıcı</string>
+    <string name="prem_black_cta">ORBIT Plus\'ı şimdi açın</string>
+    <string name="prem_black_go">Hemen erişim edin</string>
+</resources>

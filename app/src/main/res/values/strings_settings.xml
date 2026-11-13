@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Settings</string>
+    <string name="settings_group_preferences">Preferences</string>
+    <string name="settings_group_support">Support &amp; feedback</string>
+    <string name="settings_group_data">Data &amp; privacy</string>
+    <string name="settings_group_about">About</string>
+
+    <string name="settings_language">App language</string>
+    <string name="settings_theme">App theme</string>
+    <string name="settings_theme_system">System default</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_theme_dialog_title">Choose theme</string>
+    <string name="settings_apply">Apply</string>
+
+    <string name="settings_reminders">Task reminders</string>
+    <string name="settings_reminders_desc">Get a notification when a task with a reminder is due.</string>
+    <string name="settings_notif_allowed">Notifications are allowed on this device.</string>
+    <string name="settings_notif_blocked">Notifications are blocked for ORBIT, so reminders cannot appear.</string>
+    <string name="settings_notif_denied_explain">Permission was not granted. You can allow notifications in the system settings.</string>
+    <string name="settings_notif_open">Open notification settings</string>
+    <string name="settings_reminders_note">Reminders are approximate and may be delayed by battery saver or other power settings.</string>
+
+    <string name="settings_rate">Rate us</string>
+    <string name="settings_feedback">Feedback</string>
+    <string name="settings_share">Share app</string>
+    <string name="settings_customize_dashboard">Customize dashboard</string>
+    <string name="settings_customize_dashboard_desc">Choose which cards appear on Home</string>
+    <string name="settings_backup">Backup and restore</string>
+    <string name="settings_backup_desc">Export or restore your data</string>
+    <string name="settings_privacy">Privacy policy</string>
+    <string name="settings_privacy_desc">How your data is handled</string>
+    <string name="settings_replay">Replay onboarding</string>
+    <string name="settings_replay_desc">See the welcome tour again</string>
+    <string name="settings_about">About ORBIT</string>
+    <string name="settings_version">Version %1$s</string>
+
+    <string name="rate_title">Enjoying ORBIT?</string>
+    <string name="rate_tagline">Your rating helps us grow</string>
+    <string name="rate_description">If ORBIT helps you stay organized, a quick rating on the Play Store means a lot to our small team.</string>
+    <string name="rate_hint_none">Tap a star to rate</string>
+    <string name="rate_hint_low">Thanks for being honest with us</string>
+    <string name="rate_hint_high">Thank you! You just made our day</string>
+    <string name="rate_submit">Submit</string>
+    <string name="rate_low_title">Thank you for your feedback</string>
+    <string name="rate_low_message">We are sorry ORBIT did not fully meet your expectations. We will keep working to make it better.</string>
+    <string name="rate_low_message_feedback">We are sorry ORBIT did not fully meet your expectations. Tell us what to improve and we will work on it.</string>
+    <string name="rate_improve">Tell us what to improve</string>
+    <plurals name="rate_star_count">
+        <item quantity="one">%1$d star</item>
+        <item quantity="other">%1$d stars</item>
+    </plurals>
+    <string name="rate_reaction_1">😞 We\'d love to improve</string>
+    <string name="rate_reaction_2">😕 We\'d love to improve</string>
+    <string name="rate_reaction_3">😐 We\'d love to improve</string>
+    <string name="rate_reaction_4">😊 Thanks!</string>
+    <string name="rate_reaction_5">🤩 Thanks! You made our day</string>
+</resources>

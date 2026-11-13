@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasks_section_details">تفصیلات</string>
+    <plurals name="tasks_summary_due_today">
+        <item quantity="one">%d آج مقررہ</item>
+        <item quantity="other">%d آج مقررہ</item>
+    </plurals>
+    <plurals name="tasks_summary_overdue">
+        <item quantity="one">%d تاخیر کا شکار</item>
+        <item quantity="other">%d تاخیر کا شکار</item>
+    </plurals>
+    <string name="tasks_filter_apply">لاگو کریں</string>
+    <string name="tasks_pick_date">تاریخ منتخب کریں</string>
+    <string name="tasks_pick_range">تاریخوں کی حد منتخب کریں</string>
+    <string name="tasks_clear_reminder">یاد دہانی ہٹائیں</string>
+</resources>

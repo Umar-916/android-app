@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planning_date_not_set">নির্ধারিত নয়</string>
+    <plurals name="projects_overdue_count">
+        <item quantity="one">%1$d বিলম্বিত</item>
+        <item quantity="other">%1$d বিলম্বিত</item>
+    </plurals>
+    <plurals name="projects_delete_all_consequence">
+        <item quantity="one">প্রজেক্ট এবং এর %1$dটি কাজ স্থায়ীভাবে মুছে ফেলা হবে। এটি পূর্বাবস্থায় ফেরানো যাবে না।</item>
+        <item quantity="other">প্রজেক্ট এবং এর সব %1$dটি কাজ স্থায়ীভাবে মুছে ফেলা হবে। এটি পূর্বাবস্থায় ফেরানো যাবে না।</item>
+    </plurals>
+    <string name="projects_section_details">বিবরণ</string>
+    <string name="projects_section_appearance">চেহারা</string>
+    <string name="projects_section_schedule">সময়সূচি</string>
+</resources>

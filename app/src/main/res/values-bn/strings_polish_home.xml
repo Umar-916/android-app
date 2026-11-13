@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_search_hint_tasks">কাজ খুঁজুন…</string>
+    <string name="home_search_hint_notes">নোট খুঁজুন…</string>
+    <string name="home_search_hint_projects">প্রজেক্ট খুঁজুন…</string>
+    <string name="search_try_title">এগুলো খুঁজে দেখুন…</string>
+    <string name="search_suggestion_desc">%1$s খুঁজুন</string>
+    <string name="search_edu_title">সেকেন্ডেই যেকোনো কিছু খুঁজে নিন</string>
+    <string name="search_edu_message">কাজ, নোট বা প্রজেক্ট যোগ করলে সেগুলো এখানে দ্রুত পরামর্শ হিসেবে দেখা যাবে। সার্চ পুরো ORBIT জুড়ে শিরোনাম ও বিবরণ দেখে।</string>
+    <string name="search_empty_tip">বানান দেখে নিন বা কম শব্দ চেষ্টা করুন।</string>
+    <string name="more_projects_title">প্রজেক্ট</string>
+    <string name="more_projects_desc">লক্ষ্য অনুযায়ী কাজ গুছিয়ে রাখুন</string>
+</resources>

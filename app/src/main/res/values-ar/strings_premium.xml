@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="prem_title">تعرّف على ORBIT Plus</string>
+    <string name="prem_price_line">السعر: %1$s</string>
+    <string name="prem_included_header">ما الذي يتضمنه</string>
+    <string name="prem_plan_header">خطتك</string>
+    <string name="prem_plan_unavailable">غير متاحة بعد</string>
+    <string name="prem_unavailable_title">عمليات الشراء غير متاحة بعد</string>
+    <string name="prem_unavailable_body">لا يمكن شراء ORBIT Plus حاليًا. كل ما في ORBIT يستمر في العمل مجانًا.</string>
+    <string name="prem_maybe_later">لاحقًا</string>
+    <string name="prem_restore">استعادة الشراء</string>
+    <string name="prem_terms">تتم معالجة الدفع عبر Google Play. يمكنك إدارته من حسابك في متجر Play.</string>
+    <string name="prem_card_title">الترقية إلى ORBIT Plus</string>
+    <string name="prem_card_cta">معاينة</string>
+    <string name="prem_feat_ads_body">استمتع بـ ORBIT دون انقطاع</string>
+    <string name="prem_compare_title">المميز مقابل الأساسي</string>
+    <string name="prem_compare_subtitle">اطلع على ما يضيفه ORBIT Plus</string>
+    <string name="prem_col_basic">أساسي</string>
+    <string name="prem_row_ads">بلا إعلانات</string>
+    <string name="prem_included_cd">مشمول</string>
+    <string name="prem_not_included_cd">غير مشمول</string>
+    <string name="prem_compare_row_cd">%1$s. الأساسي: %2$s. Plus: %3$s.</string>
+    <string name="prem_black_tagline">تركيز تام مع ORBIT Plus. بلا مقاطعات، خططك فقط.</string>
+    <string name="prem_offline">لا يوجد اتصال بالإنترنت</string>
+    <string name="prem_subtitle">استمتع بـ ORBIT بدون إعلانات. تبقى جميع ميزات المخطط مجانية للجميع.</string>
+    <string name="prem_card_subtitle">إزالة الإعلانات</string>
+    <string name="prem_feat_ads_title">إزالة جميع الإعلانات</string>
+    <string name="prem_feat_focus_title">تخطيط بلا تشتيت</string>
+    <string name="prem_feat_focus_body">مهامك وملاحظاتك وعاداتك فقط</string>
+    <string name="prem_feat_support_title">ادعم تطوير ORBIT</string>
+    <string name="prem_feat_support_body">ساعدنا على مواصلة تحسين ORBIT</string>
+    <string name="prem_row_all">جميع ميزات المخطط</string>
+    <string name="prem_row_private">يعمل دون إنترنت وخاص بالتصميم</string>
+    <string name="prem_row_support">دعم التطوير</string>
+    <string name="prem_slider_title">بدون إعلانات\nمع ORBIT PLUS</string>
+    <string name="prem_row_backup">النسخ الاحتياطي والاستعادة</string>
+    <string name="prem_row_reminders">التذكيرات والإشعارات</string>
+    <string name="prem_col_premium">بريميوم</string>
+    <string name="prem_price_after_trial">%1$s بعد الفترة التجريبية المجانية</string>
+    <string name="prem_cancel_anytime">ألغِ في أي وقت</string>
+    <string name="prem_black_secure">ألغِ في أي وقت، آمن مع Google Play</string>
+    <string name="prem_zippo_title">ابدأ كالمحترفين</string>
+    <string name="prem_black_title">مخطط بريميوم</string>
+    <string name="prem_black_cta">افتح ORBIT Plus الآن</string>
+    <string name="prem_black_go">احصل على الوصول الآن</string>
+</resources>

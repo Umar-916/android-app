@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List -->
+    <string name="goals_title">Objectifs</string>
+    <string name="goals_new">Nouvel objectif</string>
+    <string name="goals_empty_title">Aucun objectif</string>
+    <string name="goals_empty_message">Fixez une cible mesurable, comme des livres à lire ou des kilomètres à courir, et suivez votre progression.</string>
+    <string name="goals_section_in_progress">En cours</string>
+    <string name="goals_section_in_progress_empty">Aucun objectif en cours.</string>
+    <string name="goals_section_completed">Atteints</string>
+    <plurals name="goals_show_archived">
+        <item quantity="one">Afficher les archivés (%1$d)</item>
+        <item quantity="many">Afficher les archivés (%1$d)</item>
+        <item quantity="other">Afficher les archivés (%1$d)</item>
+    </plurals>
+    <plurals name="goals_hide_archived">
+        <item quantity="one">Masquer les archivés (%1$d)</item>
+        <item quantity="many">Masquer les archivés (%1$d)</item>
+        <item quantity="other">Masquer les archivés (%1$d)</item>
+    </plurals>
+    <string name="goals_percent">%1$d %%</string>
+    <plurals name="goals_days_left">
+        <item quantity="one">%1$d jour restant</item>
+        <item quantity="many">%1$d jours restants</item>
+        <item quantity="other">%1$d jours restants</item>
+    </plurals>
+    <string name="goals_due_today">Échéance aujourd\'hui</string>
+    <plurals name="goals_overdue_days">
+        <item quantity="one">En retard de %1$d jour</item>
+        <item quantity="many">En retard de %1$d jours</item>
+        <item quantity="other">En retard de %1$d jours</item>
+    </plurals>
+    <string name="goals_update_progress">Mettre à jour</string>
+    <string name="goals_celebrate">Objectif atteint. Bravo !</string>
+    <!-- Update progress dialog -->
+    <string name="goals_update_progress_title">Mettre à jour « %1$s »</string>
+    <string name="goals_mode_set">Définir la valeur</string>
+    <string name="goals_mode_add">Ajouter</string>
+    <string name="goals_field_new_value">Nouvelle valeur</string>
+    <string name="goals_field_increment">Quantité à ajouter</string>
+    <string name="goals_update_confirm">Mettre à jour</string>
+    <string name="goals_error_number_empty">Saisissez un nombre.</string>
+    <string name="goals_error_number_invalid">Saisissez un nombre valide, par exemple 12 ou 12,5.</string>
+    <string name="goals_error_number_negative">La valeur ne peut pas être négative.</string>
+    <string name="goals_error_number_zero">La valeur doit être supérieure à zéro.</string>
+    <string name="goals_error_number_too_large">Ce nombre est trop grand.</string>
+    <!-- Edit -->
+    <string name="goals_edit_new_title">Nouvel objectif</string>
+    <string name="goals_edit_title">Modifier l\'objectif</string>
+    <string name="goals_field_title">Objectif</string>
+    <string name="goals_field_description">Description</string>
+    <string name="goals_field_target">Valeur cible</string>
+    <string name="goals_field_current">Valeur actuelle</string>
+    <string name="goals_field_unit">Unité (facultatif)</string>
+    <string name="goals_field_unit_hint">Par exemple livres, km ou pages</string>
+    <string name="goals_field_start">Date de début</string>
+    <string name="goals_field_target_date">Date cible</string>
+    <string name="goals_field_status">Statut</string>
+    <string name="goals_error_title_required">Saisissez un titre d\'objectif.</string>
+    <string name="goals_error_target_before_start">La date cible doit être égale ou postérieure à la date de début.</string>
+    <string name="goals_not_found">Cet objectif n\'existe plus.</string>
+    <string name="goals_delete_title">Supprimer « %1$s » ?</string>
+    <string name="goals_delete_message">« %1$s » sera définitivement supprimé. Cette action est irréversible.</string>
+    <string name="goals_delete_confirm">Supprimer l\'objectif</string>
+</resources>

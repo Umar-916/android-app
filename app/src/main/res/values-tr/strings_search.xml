@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_hint">Görevler, projeler, notlar, alışkanlıklar, hedefler</string>
+    <string name="search_idle_title">Her şeyde ara</string>
+    <string name="search_idle_message">Görevleri, projeleri, notları, alışkanlıkları ve hedefleri tek yerde bulmak için yazın.</string>
+    <string name="search_empty_title">Sonuç yok</string>
+    <string name="search_empty_message">\"%1$s\" ile eşleşen bir şey yok. Farklı bir sözcük deneyin.</string>
+    <string name="search_untitled_note">Başlıksız not</string>
+    <string name="search_goal_percent">%%%1$d tamamlandı</string>
+    <plurals name="search_section_tasks">
+        <item quantity="one">Görevler (%1$d)</item>
+        <item quantity="other">Görevler (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_projects">
+        <item quantity="one">Projeler (%1$d)</item>
+        <item quantity="other">Projeler (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_notes">
+        <item quantity="one">Notlar (%1$d)</item>
+        <item quantity="other">Notlar (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_habits">
+        <item quantity="one">Alışkanlıklar (%1$d)</item>
+        <item quantity="other">Alışkanlıklar (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_goals">
+        <item quantity="one">Hedefler (%1$d)</item>
+        <item quantity="other">Hedefler (%1$d)</item>
+    </plurals>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_search_hint_tasks">Cari tugas…</string>
+    <string name="home_search_hint_notes">Cari catatan…</string>
+    <string name="home_search_hint_projects">Cari proyek…</string>
+    <string name="search_try_title">Coba cari…</string>
+    <string name="search_suggestion_desc">Cari %1$s</string>
+    <string name="search_edu_title">Temukan apa saja dalam hitungan detik</string>
+    <string name="search_edu_message">Setelah Anda menambahkan tugas, catatan, atau proyek, semuanya akan muncul di sini sebagai saran cepat. Pencarian memeriksa judul dan detail di seluruh ORBIT.</string>
+    <string name="search_empty_tip">Periksa ejaan atau coba lebih sedikit kata.</string>
+    <string name="more_projects_title">Proyek</string>
+    <string name="more_projects_desc">Kelompokkan tugas berdasarkan tujuan</string>
+</resources>

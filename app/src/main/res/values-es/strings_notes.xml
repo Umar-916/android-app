@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notes_title">Notas</string>
+    <string name="notes_archived_title">Notas archivadas</string>
+    <string name="notes_untitled">Sin título</string>
+    <string name="notes_search_hint">Buscar notas</string>
+    <string name="notes_filter_all">Todas</string>
+    <string name="notes_filter_none">Sin carpeta</string>
+    <string name="notes_new">Nueva nota</string>
+    <string name="notes_show_archived">Mostrar notas archivadas</string>
+    <string name="notes_hide_archived">Volver a todas las notas</string>
+    <string name="notes_menu_new_folder">Nueva carpeta</string>
+    <string name="notes_menu_rename_folder">Renombrar carpeta</string>
+    <string name="notes_menu_delete_folder">Eliminar carpeta</string>
+    <string name="notes_pin">Fijar</string>
+    <string name="notes_unpin">Desfijar</string>
+    <string name="notes_pinned">Fijada</string>
+    <string name="notes_move_to_folder">Mover a carpeta</string>
+    <string name="notes_modified">Modificada %1$s</string>
+    <string name="notes_folder_tag">Carpeta: %1$s</string>
+    <string name="notes_card_options">Opciones de la nota %1$s</string>
+
+    <string name="notes_empty_title">Aún no hay notas</string>
+    <string name="notes_empty_msg">Escribe ideas, listas y notas de reuniones. Se guardan automáticamente.</string>
+    <string name="notes_empty_action">Crear una nota</string>
+    <string name="notes_empty_folder_title">Esta carpeta está vacía</string>
+    <string name="notes_empty_folder_msg">Las notas que añadas o muevas aquí aparecerán en esta lista.</string>
+    <string name="notes_empty_archive_title">Nada archivado</string>
+    <string name="notes_empty_archive_msg">Las notas archivadas se guardan aquí, fuera de tu camino.</string>
+    <string name="notes_empty_search_title">Ninguna nota coincide</string>
+    <string name="notes_empty_search_msg">Prueba con otras palabras o revisa otra carpeta.</string>
+
+    <string name="notes_folder_new_title">Nueva carpeta</string>
+    <string name="notes_folder_rename_title">Renombrar carpeta</string>
+    <string name="notes_folder_name">Nombre de la carpeta</string>
+    <string name="notes_folder_create">Crear carpeta</string>
+    <string name="notes_folder_rename_confirm">Renombrar</string>
+    <string name="notes_folder_delete_title">¿Eliminar la carpeta “%1$s”?</string>
+    <string name="notes_folder_delete_msg">Las notas de esta carpeta pasan a “Sin carpeta”. No se elimina ninguna nota.</string>
+    <string name="notes_folder_delete_confirm">Eliminar carpeta</string>
+    <string name="notes_note_deleted">Nota eliminada</string>
+    <string name="notes_move_title">Mover a carpeta</string>
+    <string name="notes_new_folder_item">Nueva carpeta…</string>
+
+    <string name="note_edit_title_hint">Título</string>
+    <string name="note_edit_body_hint">Empieza a escribir…</string>
+    <string name="note_saving">Guardando…</string>
+    <string name="note_saved">Guardado</string>
+    <string name="note_created">Creada %1$s</string>
+    <string name="note_choose_folder">Elegir carpeta</string>
+    <string name="note_delete_title">¿Eliminar esta nota?</string>
+    <string name="note_delete_msg">“%1$s” se eliminará de forma permanente.</string>
+    <string name="note_delete_confirm">Eliminar nota</string>
+    <string name="note_delete_action">Eliminar nota</string>
+</resources>

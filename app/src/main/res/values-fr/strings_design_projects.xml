@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planning_date_not_set">Non définie</string>
+    <plurals name="projects_overdue_count">
+        <item quantity="one">%1$d en retard</item>
+        <item quantity="many">%1$d en retard</item>
+        <item quantity="other">%1$d en retard</item>
+    </plurals>
+    <plurals name="projects_delete_all_consequence">
+        <item quantity="one">Le projet et sa tâche (%1$d) seront définitivement supprimés. Cette action est irréversible.</item>
+        <item quantity="many">Le projet et ses %1$d tâches seront définitivement supprimés. Cette action est irréversible.</item>
+        <item quantity="other">Le projet et ses %1$d tâches seront définitivement supprimés. Cette action est irréversible.</item>
+    </plurals>
+    <string name="projects_section_details">Détails</string>
+    <string name="projects_section_appearance">Apparence</string>
+    <string name="projects_section_schedule">Planning</string>
+</resources>

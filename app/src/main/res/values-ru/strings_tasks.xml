@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List: views, search, sort -->
+    <string name="tasks_search_hint">Поиск задач</string>
+    <string name="tasks_view_all">Все</string>
+    <string name="tasks_view_today">Сегодня</string>
+    <string name="tasks_view_upcoming">Скоро</string>
+    <string name="tasks_view_overdue">Просроченные</string>
+    <string name="tasks_view_completed">Выполненные</string>
+    <string name="tasks_view_archived">В архиве</string>
+    <string name="tasks_view_with_count">%1$s (%2$d)</string>
+    <string name="tasks_new">Новая задача</string>
+    <string name="tasks_sort_action">Сортировка задач</string>
+    <string name="tasks_sort_due">По сроку</string>
+    <string name="tasks_sort_priority">По приоритету</string>
+    <string name="tasks_sort_created">По дате создания</string>
+    <string name="tasks_sort_title">По названию (А–Я)</string>
+    <string name="tasks_sort_reverse">Обратный порядок</string>
+    <plurals name="tasks_count">
+        <item quantity="one">%d задача</item>
+        <item quantity="few">%d задачи</item>
+        <item quantity="many">%d задач</item>
+        <item quantity="other">%d задачи</item>
+    </plurals>
+
+    <!-- Filters -->
+    <string name="tasks_filter_action">Фильтр задач</string>
+    <string name="tasks_filter_title">Фильтр задач</string>
+    <string name="tasks_filters_clear">Сбросить фильтры</string>
+    <plurals name="tasks_filters_active">
+        <item quantity="one">Активен %d фильтр</item>
+        <item quantity="few">Активно %d фильтра</item>
+        <item quantity="many">Активно %d фильтров</item>
+        <item quantity="other">Активно %d фильтра</item>
+    </plurals>
+    <string name="tasks_filter_date">Срок</string>
+    <string name="tasks_filter_date_any">Любое время</string>
+    <string name="tasks_filter_date_today">Сегодня</string>
+    <string name="tasks_filter_date_next7">Следующие 7 дней</string>
+    <string name="tasks_filter_date_month">В этом месяце</string>
+    <string name="tasks_filter_date_none">Без срока</string>
+    <string name="tasks_filter_date_custom">Свой период</string>
+    <string name="tasks_filter_date_range">%1$s – %2$s</string>
+    <string name="tasks_filter_priority">Приоритет</string>
+    <string name="tasks_filter_status">Статус</string>
+    <string name="tasks_filter_project">Проект</string>
+    <string name="tasks_filter_project_any">Любой проект</string>
+    <string name="tasks_filter_project_none">Без проекта</string>
+
+    <!-- Rows -->
+    <string name="tasks_due_today">Сегодня</string>
+    <string name="tasks_due_tomorrow">Завтра</string>
+    <string name="tasks_due_yesterday">Вчера</string>
+    <string name="tasks_due_at">%1$s, %2$s</string>
+    <string name="tasks_overdue_label">Просрочено: %1$s</string>
+    <string name="tasks_subtasks_progress">%1$d/%2$d</string>
+    <string name="tasks_row_menu">Действия: %1$s</string>
+    <string name="tasks_menu_in_progress">В работу</string>
+    <string name="tasks_menu_reopen">Открыть снова</string>
+    <string name="tasks_a11y_due">срок: %1$s</string>
+    <string name="tasks_a11y_priority">приоритет: %1$s</string>
+    <string name="tasks_a11y_subtasks">подзадач: %1$d из %2$d</string>
+    <string name="tasks_a11y_recurring">повторяется</string>
+    <string name="tasks_reminder_info">Напоминание: %1$s</string>
+
+    <!-- Feedback -->
+    <string name="tasks_deleted">Задача удалена</string>
+    <string name="tasks_archived_msg">Задача перенесена в архив</string>
+    <string name="tasks_error_load">Не удалось загрузить задачи.</string>
+    <string name="tasks_delete_recurring_title">Удалить повторяющуюся задачу?</string>
+    <string name="tasks_delete_recurring_message">Задача «%1$s» повторяется. При её удалении серия прекратится, так как следующее повторение создаётся только после выполнения текущего.</string>
+    <string name="tasks_delete_confirm">Удалить задачу</string>
+
+    <!-- Empty states -->
+    <string name="tasks_empty_all_title">Задач пока нет</string>
+    <string name="tasks_empty_all_message">Записывайте, что нужно сделать, а ORBIT наведёт порядок.</string>
+    <string name="tasks_empty_today_title">На сегодня задач нет</string>
+    <string name="tasks_empty_today_message">Отдохните или запланируйте что-нибудь новое.</string>
+    <string name="tasks_empty_today_action">Добавить задачу на сегодня</string>
+    <string name="tasks_empty_upcoming_title">Ничего впереди</string>
+    <string name="tasks_empty_upcoming_message">Здесь появятся задачи с будущим сроком.</string>
+    <string name="tasks_empty_overdue_title">Всё в порядке</string>
+    <string name="tasks_empty_overdue_message">Нет задач с истёкшим сроком.</string>
+    <string name="tasks_empty_completed_title">Выполненных задач пока нет</string>
+    <string name="tasks_empty_completed_message">Завершённые задачи появятся здесь.</string>
+    <string name="tasks_empty_archived_title">Архив пуст</string>
+    <string name="tasks_empty_archived_message">Задачи из архива хранятся здесь и не мешают.</string>
+    <string name="tasks_empty_filtered_title">Задачи не найдены</string>
+    <string name="tasks_empty_filtered_message">Измените запрос или сбросьте фильтры.</string>
+
+    <!-- Editor -->
+    <string name="tasks_edit_new_title">Новая задача</string>
+    <string name="tasks_edit_title">Изменить задачу</string>
+    <string name="tasks_field_title">Название</string>
+    <string name="tasks_field_description">Описание (необязательно)</string>
+    <string name="tasks_error_title_required">Введите название задачи</string>
+    <string name="tasks_error_title_long">Название может содержать не более %1$d символов</string>
+    <string name="tasks_title_counter">%1$d/%2$d</string>
+    <string name="tasks_field_priority">Приоритет</string>
+    <string name="tasks_field_status">Статус</string>
+    <string name="tasks_section_schedule">Расписание</string>
+    <string name="tasks_field_due_date">Срок (дата)</string>
+    <string name="tasks_field_due_time">Срок (время)</string>
+    <string name="tasks_not_set">Не задано</string>
+    <string name="tasks_clear_date">Убрать дату срока</string>
+    <string name="tasks_clear_time">Убрать время срока</string>
+    <string name="tasks_pick_time">Выбрать время</string>
+    <string name="tasks_field_reminder">Напоминание</string>
+    <string name="tasks_reminder_none">Нет</string>
+    <string name="tasks_reminder_at_due">В момент срока</string>
+    <string name="tasks_reminder_10m">За 10 минут</string>
+    <string name="tasks_reminder_30m">За 30 минут</string>
+    <string name="tasks_reminder_1h">За 1 час</string>
+    <string name="tasks_reminder_1d">За 1 день</string>
+    <string name="tasks_reminder_custom">За %1$d мин</string>
+    <string name="tasks_reminder_needs_date">Чтобы добавить напоминание, задайте срок.</string>
+    <string name="tasks_reminder_note">Напоминания приходят примерно вовремя и могут задерживаться из-за оптимизации батареи.</string>
+    <string name="tasks_notif_denied">Уведомления ORBIT отключены, поэтому напоминание не появится, пока вы не разрешите их в системных настройках.</string>
+    <string name="tasks_field_project">Проект</string>
+    <string name="tasks_project_none">Без проекта</string>
+
+    <string name="tasks_section_subtasks">Подзадачи</string>
+    <string name="tasks_subtasks_empty">Разбейте задачу на небольшие шаги.</string>
+    <string name="tasks_subtask_hint">Добавить подзадачу</string>
+    <string name="tasks_subtask_add">Добавить подзадачу</string>
+    <string name="tasks_subtask_delete">Удалить подзадачу: %1$s</string>
+    <string name="tasks_subtask_move_up">Переместить вверх: %1$s</string>
+    <string name="tasks_subtask_move_down">Переместить вниз: %1$s</string>
+
+    <string name="tasks_section_repeat">Повтор</string>
+    <string name="tasks_repeat_none">Никогда</string>
+    <string name="tasks_repeat_daily">Ежедневно</string>
+    <string name="tasks_repeat_weekly">Еженедельно</string>
+    <string name="tasks_repeat_monthly">Ежемесячно</string>
+    <string name="tasks_repeat_yearly">Ежегодно</string>
+    <string name="tasks_repeat_needs_date">Повторяющимся задачам нужен срок. Если он не задан, используется сегодняшняя дата.</string>
+    <string name="tasks_repeat_interval_label">Каждые</string>
+    <string name="tasks_repeat_weekdays">Повторять по дням</string>
+    <string name="tasks_repeat_ends">Окончание</string>
+    <string name="tasks_repeat_never">Никогда</string>
+    <string name="tasks_repeat_clear_end">Убрать дату окончания</string>
+    <string name="tasks_repeat_occurrence_hint">Изменения применяются к этому повторению и к следующим, созданным на его основе.</string>
+    <string name="tasks_summary_until">%1$s, до %2$s</string>
+    <plurals name="tasks_unit_day">
+        <item quantity="one">день</item>
+        <item quantity="few">дня</item>
+        <item quantity="many">дней</item>
+        <item quantity="other">дня</item>
+    </plurals>
+    <plurals name="tasks_unit_week">
+        <item quantity="one">неделя</item>
+        <item quantity="few">недели</item>
+        <item quantity="many">недель</item>
+        <item quantity="other">недели</item>
+    </plurals>
+    <plurals name="tasks_unit_month">
+        <item quantity="one">месяц</item>
+        <item quantity="few">месяца</item>
+        <item quantity="many">месяцев</item>
+        <item quantity="other">месяца</item>
+    </plurals>
+    <plurals name="tasks_unit_year">
+        <item quantity="one">год</item>
+        <item quantity="few">года</item>
+        <item quantity="many">лет</item>
+        <item quantity="other">года</item>
+    </plurals>
+    <plurals name="tasks_summary_daily">
+        <item quantity="one">Интервал повтора: %1$d дн.</item>
+        <item quantity="few">Интервал повтора: %1$d дн.</item>
+        <item quantity="many">Интервал повтора: %1$d дн.</item>
+        <item quantity="other">Интервал повтора: %1$d дн.</item>
+    </plurals>
+    <plurals name="tasks_summary_weekly">
+        <item quantity="one">Интервал повтора: %1$d нед.</item>
+        <item quantity="few">Интервал повтора: %1$d нед.</item>
+        <item quantity="many">Интервал повтора: %1$d нед.</item>
+        <item quantity="other">Интервал повтора: %1$d нед.</item>
+    </plurals>
+    <plurals name="tasks_summary_weekly_on">
+        <item quantity="one">Интервал повтора: %1$d нед., %2$s</item>
+        <item quantity="few">Интервал повтора: %1$d нед., %2$s</item>
+        <item quantity="many">Интервал повтора: %1$d нед., %2$s</item>
+        <item quantity="other">Интервал повтора: %1$d нед., %2$s</item>
+    </plurals>
+    <plurals name="tasks_summary_monthly">
+        <item quantity="one">Интервал повтора: %1$d мес.</item>
+        <item quantity="few">Интервал повтора: %1$d мес.</item>
+        <item quantity="many">Интервал повтора: %1$d мес.</item>
+        <item quantity="other">Интервал повтора: %1$d мес.</item>
+    </plurals>
+    <plurals name="tasks_summary_yearly">
+        <item quantity="one">Интервал повтора: %1$d г.</item>
+        <item quantity="few">Интервал повтора: %1$d г.</item>
+        <item quantity="many">Интервал повтора: %1$d л.</item>
+        <item quantity="other">Интервал повтора: %1$d г.</item>
+    </plurals>
+
+    <!-- Dialogs and errors -->
+    <string name="tasks_discard_title">Отменить изменения?</string>
+    <string name="tasks_discard_message">В этой задаче есть несохранённые изменения.</string>
+    <string name="tasks_delete_title">Удалить задачу?</string>
+    <string name="tasks_delete_message">«%1$s» будет удалена безвозвратно.</string>
+    <string name="tasks_not_found">Эта задача больше не существует.</string>
+    <string name="tasks_error_duplicate">Повторение этой задачи на эту дату уже существует.</string>
+    <string name="tasks_error_save">Не удалось сохранить задачу. Повторите попытку.</string>
+</resources>

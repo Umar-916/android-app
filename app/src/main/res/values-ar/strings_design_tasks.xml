@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasks_section_details">التفاصيل</string>
+    <plurals name="tasks_summary_due_today">
+        <item quantity="zero">%d مستحقة اليوم</item>
+        <item quantity="one">%d مستحقة اليوم</item>
+        <item quantity="two">%d مستحقتان اليوم</item>
+        <item quantity="few">%d مستحقة اليوم</item>
+        <item quantity="many">%d مستحقة اليوم</item>
+        <item quantity="other">%d مستحقة اليوم</item>
+    </plurals>
+    <plurals name="tasks_summary_overdue">
+        <item quantity="zero">%d متأخرة</item>
+        <item quantity="one">%d متأخرة</item>
+        <item quantity="two">%d متأخرتان</item>
+        <item quantity="few">%d متأخرة</item>
+        <item quantity="many">%d متأخرة</item>
+        <item quantity="other">%d متأخرة</item>
+    </plurals>
+    <string name="tasks_filter_apply">تطبيق</string>
+    <string name="tasks_pick_date">اختيار التاريخ</string>
+    <string name="tasks_pick_range">اختيار نطاق التواريخ</string>
+    <string name="tasks_clear_reminder">إزالة التذكير</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="more_title">المزيد</string>
+    <string name="more_section_organize">التنظيم</string>
+    <string name="more_section_app">التطبيق والبيانات</string>
+    <string name="more_notes_title">الملاحظات</string>
+    <string name="more_notes_desc">ملاحظات سريعة ومجلدات</string>
+    <string name="more_habits_title">العادات</string>
+    <string name="more_habits_desc">كوّن روتينًا يوميًا</string>
+    <string name="more_goals_title">الأهداف</string>
+    <string name="more_goals_desc">تابع ما تسعى لتحقيقه</string>
+    <string name="more_analytics_title">التحليلات</string>
+    <string name="more_analytics_desc">اطلع على تقدمك عبر الزمن</string>
+    <string name="more_search_title">بحث</string>
+    <string name="more_search_desc">ابحث عن أي شيء في ORBIT</string>
+    <string name="more_settings_title">الإعدادات</string>
+    <string name="more_settings_desc">اللغة والمظهر والتذكيرات</string>
+    <string name="more_backup_title">النسخ الاحتياطي والاستعادة</string>
+    <string name="more_backup_desc">صدّر بياناتك أو استعدها</string>
+    <string name="more_privacy_title">الخصوصية</string>
+    <string name="more_privacy_desc">كيف نتعامل مع بياناتك</string>
+</resources>

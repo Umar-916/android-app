@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_greeting_morning">Bom dia</string>
+    <string name="home_greeting_afternoon">Boa tarde</string>
+    <string name="home_greeting_evening">Boa noite</string>
+    <string name="home_search_hint">Pesquisar tarefas, notas, projetos…</string>
+    <string name="home_customize">Personalizar painel</string>
+    <string name="home_percent">%1$d%%</string>
+    <string name="home_n_more">+%1$d mais</string>
+    <string name="home_view_all">Ver tudo</string>
+    <string name="home_welcome_title">Boas-vindas ao ORBIT</string>
+    <string name="home_welcome_message">Comece com sua primeira tarefa, projeto ou hábito. Tudo fica neste dispositivo.</string>
+    <string name="home_all_hidden_title">Todos os cartões estão ocultos</string>
+    <string name="home_all_hidden_message">Escolha quais cartões aparecem no seu painel.</string>
+    <string name="home_progress_empty_title">Nada planejado para hoje</string>
+    <string name="home_progress_empty_message">Adicione uma tarefa com vencimento hoje para acompanhar seu progresso.</string>
+    <string name="home_progress_all_done">Tudo concluído por hoje. Bom trabalho!</string>
+    <string name="home_progress_keep_going">Continue assim, você está no caminho certo.</string>
+    <plurals name="home_tasks_done_of">
+        <item quantity="one">%1$d de %2$d tarefa concluída</item>
+        <item quantity="many">%1$d de %2$d tarefas concluídas</item>
+        <item quantity="other">%1$d de %2$d tarefas concluídas</item>
+    </plurals>
+    <string name="home_today_title">Hoje</string>
+    <string name="home_today_empty">Nenhuma tarefa para hoje. Aproveite o tempo livre ou planeje algo novo.</string>
+    <string name="home_add_task">Adicionar tarefa</string>
+    <string name="home_task_mark_done">Marcar %1$s como concluída</string>
+    <string name="home_task_completed">Tarefa concluída</string>
+    <string name="home_upcoming_title">Próximas</string>
+    <string name="home_upcoming_empty">Nada vence nos próximos 7 dias.</string>
+    <string name="home_tomorrow">Amanhã</string>
+    <string name="home_date_label">%1$s, %2$s</string>
+    <plurals name="home_overdue_title">
+        <item quantity="one">%1$d tarefa atrasada</item>
+        <item quantity="many">%1$d tarefas atrasadas</item>
+        <item quantity="other">%1$d tarefas atrasadas</item>
+    </plurals>
+    <string name="home_due_on">Vence %1$s</string>
+    <string name="home_projects_title">Projetos ativos</string>
+    <string name="home_projects_empty">Agrupe tarefas relacionadas em um projeto para acompanhar o progresso.</string>
+    <string name="home_new_project">Novo projeto</string>
+    <string name="home_project_no_tasks">Ainda sem tarefas</string>
+    <string name="home_habits_title">Hábitos de hoje</string>
+    <string name="home_habits_empty">Crie uma rotina adicionando seu primeiro hábito.</string>
+    <string name="home_habits_summary">%1$d de %2$d concluídos hoje</string>
+    <string name="home_new_habit">Novo hábito</string>
+    <plurals name="home_streak_days">
+        <item quantity="one">Sequência de %1$d dia</item>
+        <item quantity="many">Sequência de %1$d dias</item>
+        <item quantity="other">Sequência de %1$d dias</item>
+    </plurals>
+    <string name="home_overview_title">Sua visão geral</string>
+    <string name="home_ov_completed">Concluídas em 7 dias</string>
+    <string name="home_ov_open">Tarefas abertas</string>
+    <string name="home_ov_projects">Projetos ativos</string>
+    <string name="home_ov_streak">Melhor sequência (dias)</string>
+    <string name="home_quick_add_title">Adição rápida</string>
+    <string name="home_qa_task">Nova tarefa</string>
+    <string name="home_qa_note">Nova nota</string>
+    <string name="home_qa_habit">Novo hábito</string>
+    <string name="home_qa_project">Novo projeto</string>
+    <string name="home_qa_goal">Nova meta</string>
+</resources>

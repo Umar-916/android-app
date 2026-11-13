@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Pengaturan</string>
+    <string name="settings_group_preferences">Preferensi</string>
+    <string name="settings_group_support">Dukungan &amp; masukan</string>
+    <string name="settings_group_data">Data &amp; privasi</string>
+    <string name="settings_group_about">Tentang</string>
+
+    <string name="settings_language">Bahasa aplikasi</string>
+    <string name="settings_theme">Tema aplikasi</string>
+    <string name="settings_theme_system">Default sistem</string>
+    <string name="settings_theme_light">Terang</string>
+    <string name="settings_theme_dark">Gelap</string>
+    <string name="settings_theme_dialog_title">Pilih tema</string>
+    <string name="settings_apply">Terapkan</string>
+
+    <string name="settings_reminders">Pengingat tugas</string>
+    <string name="settings_reminders_desc">Dapatkan notifikasi saat tugas yang memiliki pengingat jatuh tempo.</string>
+    <string name="settings_notif_allowed">Notifikasi diizinkan di perangkat ini.</string>
+    <string name="settings_notif_blocked">Notifikasi diblokir untuk ORBIT, sehingga pengingat tidak dapat muncul.</string>
+    <string name="settings_notif_denied_explain">Izin tidak diberikan. Anda dapat mengizinkan notifikasi di pengaturan sistem.</string>
+    <string name="settings_notif_open">Buka pengaturan notifikasi</string>
+    <string name="settings_reminders_note">Pengingat bersifat perkiraan dan dapat tertunda oleh penghemat baterai atau pengaturan daya lainnya.</string>
+
+    <string name="settings_rate">Beri kami nilai</string>
+    <string name="settings_feedback">Masukan</string>
+    <string name="settings_share">Bagikan aplikasi</string>
+    <string name="settings_customize_dashboard">Sesuaikan dasbor</string>
+    <string name="settings_customize_dashboard_desc">Pilih kartu yang tampil di Beranda</string>
+    <string name="settings_backup">Cadangan dan pemulihan</string>
+    <string name="settings_backup_desc">Ekspor atau pulihkan data Anda</string>
+    <string name="settings_privacy">Kebijakan privasi</string>
+    <string name="settings_privacy_desc">Cara data Anda ditangani</string>
+    <string name="settings_replay">Putar ulang pengenalan</string>
+    <string name="settings_replay_desc">Lihat lagi tur sambutan</string>
+    <string name="settings_about">Tentang ORBIT</string>
+    <string name="settings_version">Versi %1$s</string>
+
+    <string name="rate_title">Suka dengan ORBIT?</string>
+    <string name="rate_tagline">Penilaian Anda membantu kami berkembang</string>
+    <string name="rate_description">Jika ORBIT membantu Anda tetap teratur, penilaian singkat di Play Store sangat berarti bagi tim kecil kami.</string>
+    <string name="rate_hint_none">Ketuk bintang untuk menilai</string>
+    <string name="rate_hint_low">Terima kasih sudah jujur kepada kami</string>
+    <string name="rate_hint_high">Terima kasih! Anda membuat hari kami menyenangkan</string>
+    <string name="rate_submit">Kirim</string>
+    <string name="rate_low_title">Terima kasih atas masukan Anda</string>
+    <string name="rate_low_message">Kami menyesal ORBIT belum sepenuhnya memenuhi harapan Anda. Kami akan terus berusaha memperbaikinya.</string>
+    <string name="rate_low_message_feedback">Kami menyesal ORBIT belum sepenuhnya memenuhi harapan Anda. Beri tahu kami apa yang perlu diperbaiki dan kami akan mengerjakannya.</string>
+    <string name="rate_improve">Beri tahu apa yang perlu diperbaiki</string>
+    <plurals name="rate_star_count">
+        <item quantity="other">%1$d bintang</item>
+    </plurals>
+    <string name="rate_reaction_1">😞 Kami ingin menjadi lebih baik</string>
+    <string name="rate_reaction_2">😕 Kami ingin menjadi lebih baik</string>
+    <string name="rate_reaction_3">😐 Kami ingin menjadi lebih baik</string>
+    <string name="rate_reaction_4">😊 Terima kasih!</string>
+    <string name="rate_reaction_5">🤩 Terima kasih! Anda membuat hari kami menyenangkan</string>
+</resources>

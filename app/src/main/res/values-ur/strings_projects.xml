@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planning_color_label">رنگ</string>
+    <string name="planning_color_selected">%1$s، منتخب</string>
+    <string name="planning_color_violet">بنفشی</string>
+    <string name="planning_color_blue">نیلا</string>
+    <string name="planning_color_teal">فیروزی</string>
+    <string name="planning_color_green">سبز</string>
+    <string name="planning_color_amber">عنبری</string>
+    <string name="planning_color_orange">نارنجی</string>
+    <string name="planning_color_red">سرخ</string>
+    <string name="planning_color_pink">گلابی</string>
+    <string name="planning_color_purple">جامنی</string>
+    <string name="planning_color_slate">سلیٹی</string>
+    <string name="planning_clear_date_named">%1$s صاف کریں</string>
+    <string name="planning_date_range">%1$s – %2$s</string>
+    <string name="planning_date_from">%1$s سے</string>
+    <string name="planning_date_until">%1$s تک</string>
+    <string name="planning_discard_title">تبدیلیاں رد کریں؟</string>
+    <string name="planning_discard_message">آپ کی غیر محفوظ شدہ تبدیلیاں ضائع ہو جائیں گی۔</string>
+
+    <string name="projects_new">نیا پراجیکٹ</string>
+    <string name="projects_empty_title">ابھی کوئی پراجیکٹ نہیں</string>
+    <string name="projects_empty_message">بڑے مقصد کی پیش رفت دیکھنے کے لیے متعلقہ کاموں کو ایک پراجیکٹ میں جمع کریں۔</string>
+    <string name="projects_filter_all">تمام</string>
+    <string name="projects_filter_empty_title">یہاں کچھ نہیں</string>
+    <string name="projects_filter_empty_message">اس فلٹر سے کوئی پراجیکٹ میل نہیں کھاتا۔</string>
+    <string name="projects_no_tasks">ابھی کوئی کام نہیں</string>
+    <plurals name="projects_tasks_progress">
+        <item quantity="one">%2$d میں سے %1$d کام مکمل</item>
+        <item quantity="other">%2$d میں سے %1$d کام مکمل</item>
+    </plurals>
+
+    <string name="projects_detail_title">پراجیکٹ</string>
+    <string name="projects_not_found">یہ پراجیکٹ اب موجود نہیں۔</string>
+    <string name="projects_restore">پراجیکٹ بحال کریں</string>
+    <string name="projects_mark_completed">مکمل کے طور پر نشان زد کریں</string>
+    <string name="projects_mark_active">فعال کے طور پر نشان زد کریں</string>
+    <string name="projects_percent">%1$d%%</string>
+    <string name="projects_progress_desc">%1$d فیصد مکمل</string>
+    <string name="projects_stat_total">کل کام</string>
+    <string name="projects_stat_completed">مکمل</string>
+    <string name="projects_stat_in_progress">جاری</string>
+    <string name="projects_stat_todo">کرنا ہے</string>
+    <string name="projects_stat_overdue">تاخیر شدہ</string>
+    <string name="projects_tasks_section">کام</string>
+    <string name="projects_add_task">کام شامل کریں</string>
+    <string name="projects_tasks_empty_title">اس پراجیکٹ میں کوئی کام نہیں</string>
+    <string name="projects_tasks_empty_message">پیش رفت دیکھنے کے لیے کوئی کام شامل کریں۔</string>
+    <string name="projects_task_due">آخری تاریخ %1$s</string>
+    <string name="projects_task_overdue">تاخیر شدہ · %1$s</string>
+    <string name="projects_task_mark_done">%1$s کو مکمل نشان زد کریں</string>
+    <string name="projects_task_mark_open">%1$s کو نامکمل نشان زد کریں</string>
+
+    <string name="projects_delete_title">“%1$s” حذف کریں؟</string>
+    <string name="projects_delete_simple_message">“%1$s” حذف ہو جائے گا۔ یہ عمل واپس نہیں ہو سکتا۔</string>
+    <string name="projects_delete_confirm">پراجیکٹ حذف کریں</string>
+    <plurals name="projects_delete_linked">
+        <item quantity="one">“%1$s” سے %2$d کام منسلک ہے۔ اس کا کیا کرنا ہے؟</item>
+        <item quantity="other">“%1$s” سے %2$d کام منسلک ہیں۔ ان کا کیا کرنا ہے؟</item>
+    </plurals>
+    <string name="projects_delete_keep">کام رکھیں</string>
+    <string name="projects_delete_keep_hint">وہ پراجیکٹ کے بغیر آپ کی کاموں کی فہرست میں رہیں گے۔</string>
+    <plurals name="projects_delete_all">
+        <item quantity="one">پراجیکٹ اور اس کا %1$d کام حذف کریں</item>
+        <item quantity="other">پراجیکٹ اور اس کے %1$d کام حذف کریں</item>
+    </plurals>
+
+    <string name="projects_edit_new_title">نیا پراجیکٹ</string>
+    <string name="projects_edit_title">پراجیکٹ میں ترمیم</string>
+    <string name="projects_field_name">نام</string>
+    <string name="projects_field_description">تفصیل</string>
+    <string name="projects_field_start">آغاز کی تاریخ</string>
+    <string name="projects_field_end">اختتام کی تاریخ</string>
+    <string name="projects_field_status">حیثیت</string>
+    <string name="projects_error_name_required">پراجیکٹ کا نام درج کریں۔</string>
+    <string name="projects_error_end_before_start">اختتام کی تاریخ آغاز کی تاریخ کے برابر یا بعد کی ہونی چاہیے۔</string>
+</resources>

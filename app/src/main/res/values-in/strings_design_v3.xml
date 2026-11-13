@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dv3_quick_add">Tambah cepat</string>
+    <string name="dv3_quick_add_subtitle">Apa yang ingin Anda buat?</string>
+    <string name="dv3_new_task">Tugas baru</string>
+    <string name="dv3_new_note">Catatan baru</string>
+    <string name="dv3_new_habit">Kebiasaan baru</string>
+    <string name="dv3_new_project">Proyek baru</string>
+    <string name="dv3_new_goal">Tujuan baru</string>
+    <string name="dv3_search">Cari</string>
+    <string name="dv3_quick_add_hint">Tambahkan apa saja dengan satu ketukan</string>
+    <string name="dv3_quick_add_hint_dismiss">Tutup petunjuk</string>
+</resources>

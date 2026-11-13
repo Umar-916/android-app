@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planning_date_not_set">مقرر نہیں</string>
+
+    <plurals name="projects_overdue_count">
+        <item quantity="one">%1$d تاخیر کا شکار</item>
+        <item quantity="other">%1$d تاخیر کا شکار</item>
+    </plurals>
+    <plurals name="projects_delete_all_consequence">
+        <item quantity="one">پراجیکٹ اور اس کا %1$d کام ہمیشہ کے لیے حذف ہو جائیں گے۔ یہ عمل واپس نہیں ہو سکتا۔</item>
+        <item quantity="other">پراجیکٹ اور اس کے تمام %1$d کام ہمیشہ کے لیے حذف ہو جائیں گے۔ یہ عمل واپس نہیں ہو سکتا۔</item>
+    </plurals>
+
+    <string name="projects_section_details">تفصیلات</string>
+    <string name="projects_section_appearance">ظاہری شکل</string>
+    <string name="projects_section_schedule">شیڈول</string>
+</resources>

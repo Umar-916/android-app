@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List: views, search, sort -->
+    <string name="tasks_search_hint">Search tasks</string>
+    <string name="tasks_view_all">All</string>
+    <string name="tasks_view_today">Today</string>
+    <string name="tasks_view_upcoming">Upcoming</string>
+    <string name="tasks_view_overdue">Overdue</string>
+    <string name="tasks_view_completed">Completed</string>
+    <string name="tasks_view_archived">Archived</string>
+    <string name="tasks_view_with_count">%1$s (%2$d)</string>
+    <string name="tasks_new">New task</string>
+    <string name="tasks_sort_action">Sort tasks</string>
+    <string name="tasks_sort_due">Due date</string>
+    <string name="tasks_sort_priority">Priority</string>
+    <string name="tasks_sort_created">Date created</string>
+    <string name="tasks_sort_title">Title (A to Z)</string>
+    <string name="tasks_sort_reverse">Reverse order</string>
+    <plurals name="tasks_count">
+        <item quantity="one">%d task</item>
+        <item quantity="other">%d tasks</item>
+    </plurals>
+
+    <!-- Filters -->
+    <string name="tasks_filter_action">Filter tasks</string>
+    <string name="tasks_filter_title">Filter tasks</string>
+    <string name="tasks_filters_clear">Clear filters</string>
+    <plurals name="tasks_filters_active">
+        <item quantity="one">%d filter active</item>
+        <item quantity="other">%d filters active</item>
+    </plurals>
+    <string name="tasks_filter_date">Due date</string>
+    <string name="tasks_filter_date_any">Any time</string>
+    <string name="tasks_filter_date_today">Today</string>
+    <string name="tasks_filter_date_next7">Next 7 days</string>
+    <string name="tasks_filter_date_month">This month</string>
+    <string name="tasks_filter_date_none">No date</string>
+    <string name="tasks_filter_date_custom">Custom range</string>
+    <string name="tasks_filter_date_range">%1$s – %2$s</string>
+    <string name="tasks_filter_priority">Priority</string>
+    <string name="tasks_filter_status">Status</string>
+    <string name="tasks_filter_project">Project</string>
+    <string name="tasks_filter_project_any">Any project</string>
+    <string name="tasks_filter_project_none">No project</string>
+
+    <!-- Rows -->
+    <string name="tasks_due_today">Today</string>
+    <string name="tasks_due_tomorrow">Tomorrow</string>
+    <string name="tasks_due_yesterday">Yesterday</string>
+    <string name="tasks_due_at">%1$s, %2$s</string>
+    <string name="tasks_overdue_label">Overdue: %1$s</string>
+    <string name="tasks_subtasks_progress">%1$d/%2$d</string>
+    <string name="tasks_row_menu">Actions for %1$s</string>
+    <string name="tasks_menu_in_progress">Mark in progress</string>
+    <string name="tasks_menu_reopen">Reopen</string>
+    <string name="tasks_a11y_due">due %1$s</string>
+    <string name="tasks_a11y_priority">%1$s priority</string>
+    <string name="tasks_a11y_subtasks">%1$d of %2$d subtasks</string>
+    <string name="tasks_a11y_recurring">repeats</string>
+    <string name="tasks_reminder_info">Reminder: %1$s</string>
+
+    <!-- Feedback -->
+    <string name="tasks_deleted">Task deleted</string>
+    <string name="tasks_archived_msg">Task archived</string>
+    <string name="tasks_error_load">We couldn\'t load your tasks.</string>
+    <string name="tasks_delete_recurring_title">Delete repeating task?</string>
+    <string name="tasks_delete_recurring_message">“%1$s” repeats. Deleting it also stops the series, because the next occurrence is only created when this one is completed.</string>
+    <string name="tasks_delete_confirm">Delete task</string>
+
+    <!-- Empty states -->
+    <string name="tasks_empty_all_title">No tasks yet</string>
+    <string name="tasks_empty_all_message">Capture what you need to do and ORBIT will keep it organized.</string>
+    <string name="tasks_empty_today_title">Nothing due today</string>
+    <string name="tasks_empty_today_message">Enjoy the free time, or plan something new.</string>
+    <string name="tasks_empty_today_action">Add a task for today</string>
+    <string name="tasks_empty_upcoming_title">Nothing upcoming</string>
+    <string name="tasks_empty_upcoming_message">Tasks with a future due date will appear here.</string>
+    <string name="tasks_empty_overdue_title">You\'re all caught up</string>
+    <string name="tasks_empty_overdue_message">No task is past its due date.</string>
+    <string name="tasks_empty_completed_title">No completed tasks yet</string>
+    <string name="tasks_empty_completed_message">Tasks you finish will show up here.</string>
+    <string name="tasks_empty_archived_title">Archive is empty</string>
+    <string name="tasks_empty_archived_message">Archived tasks are kept here, out of your way.</string>
+    <string name="tasks_empty_filtered_title">No matching tasks</string>
+    <string name="tasks_empty_filtered_message">Try a different search or clear the filters.</string>
+
+    <!-- Editor -->
+    <string name="tasks_edit_new_title">New task</string>
+    <string name="tasks_edit_title">Edit task</string>
+    <string name="tasks_field_title">Title</string>
+    <string name="tasks_field_description">Description (optional)</string>
+    <string name="tasks_error_title_required">Enter a title for this task</string>
+    <string name="tasks_error_title_long">The title can be up to %1$d characters</string>
+    <string name="tasks_title_counter">%1$d/%2$d</string>
+    <string name="tasks_field_priority">Priority</string>
+    <string name="tasks_field_status">Status</string>
+    <string name="tasks_section_schedule">Schedule</string>
+    <string name="tasks_field_due_date">Due date</string>
+    <string name="tasks_field_due_time">Due time</string>
+    <string name="tasks_not_set">Not set</string>
+    <string name="tasks_clear_date">Clear due date</string>
+    <string name="tasks_clear_time">Clear due time</string>
+    <string name="tasks_pick_time">Select time</string>
+    <string name="tasks_field_reminder">Reminder</string>
+    <string name="tasks_reminder_none">None</string>
+    <string name="tasks_reminder_at_due">At due time</string>
+    <string name="tasks_reminder_10m">10 minutes before</string>
+    <string name="tasks_reminder_30m">30 minutes before</string>
+    <string name="tasks_reminder_1h">1 hour before</string>
+    <string name="tasks_reminder_1d">1 day before</string>
+    <string name="tasks_reminder_custom">%1$d minutes before</string>
+    <string name="tasks_reminder_needs_date">Set a due date to add a reminder.</string>
+    <string name="tasks_reminder_note">Reminders are delivered approximately on time and may be delayed by battery optimization.</string>
+    <string name="tasks_notif_denied">Notifications are turned off for ORBIT, so this reminder won\'t appear until you allow them in system settings.</string>
+    <string name="tasks_field_project">Project</string>
+    <string name="tasks_project_none">No project</string>
+
+    <string name="tasks_section_subtasks">Subtasks</string>
+    <string name="tasks_subtasks_empty">Break the task into smaller steps.</string>
+    <string name="tasks_subtask_hint">Add a subtask</string>
+    <string name="tasks_subtask_add">Add subtask</string>
+    <string name="tasks_subtask_delete">Delete subtask: %1$s</string>
+    <string name="tasks_subtask_move_up">Move up: %1$s</string>
+    <string name="tasks_subtask_move_down">Move down: %1$s</string>
+
+    <string name="tasks_section_repeat">Repeat</string>
+    <string name="tasks_repeat_none">Never</string>
+    <string name="tasks_repeat_daily">Daily</string>
+    <string name="tasks_repeat_weekly">Weekly</string>
+    <string name="tasks_repeat_monthly">Monthly</string>
+    <string name="tasks_repeat_yearly">Yearly</string>
+    <string name="tasks_repeat_needs_date">Repeating tasks need a due date. If none is set, today is used.</string>
+    <string name="tasks_repeat_interval_label">Every</string>
+    <string name="tasks_repeat_weekdays">Repeat on</string>
+    <string name="tasks_repeat_ends">Ends</string>
+    <string name="tasks_repeat_never">Never</string>
+    <string name="tasks_repeat_clear_end">Remove end date</string>
+    <string name="tasks_repeat_occurrence_hint">Changes apply to this occurrence and future ones generated from it.</string>
+    <string name="tasks_summary_until">%1$s, until %2$s</string>
+    <plurals name="tasks_unit_day">
+        <item quantity="one">day</item>
+        <item quantity="other">days</item>
+    </plurals>
+    <plurals name="tasks_unit_week">
+        <item quantity="one">week</item>
+        <item quantity="other">weeks</item>
+    </plurals>
+    <plurals name="tasks_unit_month">
+        <item quantity="one">month</item>
+        <item quantity="other">months</item>
+    </plurals>
+    <plurals name="tasks_unit_year">
+        <item quantity="one">year</item>
+        <item quantity="other">years</item>
+    </plurals>
+    <plurals name="tasks_summary_daily">
+        <item quantity="one">Repeats every day</item>
+        <item quantity="other">Repeats every %1$d days</item>
+    </plurals>
+    <plurals name="tasks_summary_weekly">
+        <item quantity="one">Repeats every week</item>
+        <item quantity="other">Repeats every %1$d weeks</item>
+    </plurals>
+    <plurals name="tasks_summary_weekly_on">
+        <item quantity="one">Repeats every week on %2$s</item>
+        <item quantity="other">Repeats every %1$d weeks on %2$s</item>
+    </plurals>
+    <plurals name="tasks_summary_monthly">
+        <item quantity="one">Repeats every month</item>
+        <item quantity="other">Repeats every %1$d months</item>
+    </plurals>
+    <plurals name="tasks_summary_yearly">
+        <item quantity="one">Repeats every year</item>
+        <item quantity="other">Repeats every %1$d years</item>
+    </plurals>
+
+    <!-- Dialogs and errors -->
+    <string name="tasks_discard_title">Discard changes?</string>
+    <string name="tasks_discard_message">You have unsaved changes to this task.</string>
+    <string name="tasks_delete_title">Delete task?</string>
+    <string name="tasks_delete_message">“%1$s” will be permanently deleted.</string>
+    <string name="tasks_not_found">This task no longer exists.</string>
+    <string name="tasks_error_duplicate">An occurrence of this repeating task already exists on that date.</string>
+    <string name="tasks_error_save">We couldn\'t save the task. Please try again.</string>
+</resources>

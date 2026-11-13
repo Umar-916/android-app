@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calendar_today">Go to today</string>
+    <string name="calendar_prev_month">Previous month</string>
+    <string name="calendar_next_month">Next month</string>
+    <string name="calendar_mode_day">Day</string>
+    <string name="calendar_mode_agenda">Agenda</string>
+    <string name="calendar_all_day">All day</string>
+    <string name="calendar_scheduled">Scheduled</string>
+    <string name="calendar_add_task">Add task</string>
+    <string name="calendar_overdue_header">Overdue</string>
+    <string name="calendar_header_relative">%1$s · %2$s</string>
+    <string name="calendar_cell_today">today</string>
+    <string name="calendar_cell_overdue">%1$d overdue</string>
+    <plurals name="calendar_cell_tasks">
+        <item quantity="one">%d task</item>
+        <item quantity="other">%d tasks</item>
+    </plurals>
+    <plurals name="calendar_day_tasks">
+        <item quantity="one">%d task on this day</item>
+        <item quantity="other">%d tasks on this day</item>
+    </plurals>
+    <string name="calendar_empty_day_title">Nothing planned</string>
+    <string name="calendar_empty_day_message">No tasks are due on %1$s.</string>
+    <string name="calendar_empty_agenda_title">No upcoming deadlines</string>
+    <string name="calendar_empty_agenda_message">Open tasks with a due date will be listed here.</string>
+    <string name="calendar_error">We couldn\'t load the calendar.</string>
+</resources>

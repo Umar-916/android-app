@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasks_search_hint">ٹاسک تلاش کریں</string>
+    <string name="tasks_view_all">تمام</string>
+    <string name="tasks_view_today">آج</string>
+    <string name="tasks_view_upcoming">آنے والے</string>
+    <string name="tasks_view_overdue">مقررہ تاریخ گزر چکی</string>
+    <string name="tasks_view_completed">مکمل</string>
+    <string name="tasks_view_archived">آرکائیو شدہ</string>
+    <string name="tasks_view_with_count">%1$s (%2$d)</string>
+    <string name="tasks_new">نیا ٹاسک</string>
+    <string name="tasks_sort_action">ٹاسک ترتیب دیں</string>
+    <string name="tasks_sort_due">مقررہ تاریخ</string>
+    <string name="tasks_sort_priority">ترجیح</string>
+    <string name="tasks_sort_created">بنانے کی تاریخ</string>
+    <string name="tasks_sort_title">عنوان (الف تا ی)</string>
+    <string name="tasks_sort_reverse">ترتیب الٹ دیں</string>
+    <plurals name="tasks_count">
+        <item quantity="one">%d ٹاسک</item>
+        <item quantity="other">%d ٹاسک</item>
+    </plurals>
+
+    <string name="tasks_filter_action">ٹاسک فلٹر کریں</string>
+    <string name="tasks_filter_title">ٹاسک فلٹر کریں</string>
+    <string name="tasks_filters_clear">فلٹر صاف کریں</string>
+    <plurals name="tasks_filters_active">
+        <item quantity="one">%d فلٹر فعال</item>
+        <item quantity="other">%d فلٹر فعال</item>
+    </plurals>
+    <string name="tasks_filter_date">مقررہ تاریخ</string>
+    <string name="tasks_filter_date_any">کوئی بھی وقت</string>
+    <string name="tasks_filter_date_today">آج</string>
+    <string name="tasks_filter_date_next7">اگلے 7 دن</string>
+    <string name="tasks_filter_date_month">اس مہینے</string>
+    <string name="tasks_filter_date_none">بغیر تاریخ</string>
+    <string name="tasks_filter_date_custom">اپنی مرضی کی حد</string>
+    <string name="tasks_filter_date_range">%1$s – %2$s</string>
+    <string name="tasks_filter_priority">ترجیح</string>
+    <string name="tasks_filter_status">حالت</string>
+    <string name="tasks_filter_project">پروجیکٹ</string>
+    <string name="tasks_filter_project_any">کوئی بھی پروجیکٹ</string>
+    <string name="tasks_filter_project_none">بغیر پروجیکٹ</string>
+
+    <string name="tasks_due_today">آج</string>
+    <string name="tasks_due_tomorrow">کل</string>
+    <string name="tasks_due_yesterday">گزشتہ کل</string>
+    <string name="tasks_due_at">%1$s، %2$s</string>
+    <string name="tasks_overdue_label">مقررہ تاریخ گزر چکی: %1$s</string>
+    <string name="tasks_subtasks_progress">%1$d/%2$d</string>
+    <string name="tasks_row_menu">%1$s کے اختیارات</string>
+    <string name="tasks_menu_in_progress">جاری کے طور پر نشان زد کریں</string>
+    <string name="tasks_menu_reopen">دوبارہ کھولیں</string>
+    <string name="tasks_a11y_due">مقررہ تاریخ %1$s</string>
+    <string name="tasks_a11y_priority">ترجیح: %1$s</string>
+    <string name="tasks_a11y_subtasks">%2$d میں سے %1$d ذیلی ٹاسک</string>
+    <string name="tasks_a11y_recurring">دہرایا جاتا ہے</string>
+    <string name="tasks_reminder_info">یاددہانی: %1$s</string>
+
+    <string name="tasks_deleted">ٹاسک حذف ہو گیا</string>
+    <string name="tasks_archived_msg">ٹاسک آرکائیو ہو گیا</string>
+    <string name="tasks_error_load">آپ کے ٹاسک لوڈ نہیں ہو سکے۔</string>
+    <string name="tasks_delete_recurring_title">دہرایا جانے والا ٹاسک حذف کریں؟</string>
+    <string name="tasks_delete_recurring_message">“%1$s” دہرایا جاتا ہے۔ اسے حذف کرنے سے پوری سیریز رک جائے گی، کیونکہ اگلا ٹاسک صرف اس کے مکمل ہونے پر بنتا ہے۔</string>
+    <string name="tasks_delete_confirm">ٹاسک حذف کریں</string>
+
+    <string name="tasks_empty_all_title">ابھی کوئی ٹاسک نہیں</string>
+    <string name="tasks_empty_all_message">جو کام کرنا ہے وہ لکھ لیں، ORBIT اسے منظم رکھے گا۔</string>
+    <string name="tasks_empty_today_title">آج کچھ مقرر نہیں</string>
+    <string name="tasks_empty_today_message">فرصت سے لطف اٹھائیں یا کچھ نیا طے کریں۔</string>
+    <string name="tasks_empty_today_action">آج کے لیے ٹاسک شامل کریں</string>
+    <string name="tasks_empty_upcoming_title">کچھ آنے والا نہیں</string>
+    <string name="tasks_empty_upcoming_message">مستقبل کی تاریخ والے ٹاسک یہاں نظر آئیں گے۔</string>
+    <string name="tasks_empty_overdue_title">آپ سب کچھ نمٹا چکے ہیں</string>
+    <string name="tasks_empty_overdue_message">کوئی ٹاسک اپنی مقررہ تاریخ سے پیچھے نہیں۔</string>
+    <string name="tasks_empty_completed_title">ابھی کوئی ٹاسک مکمل نہیں ہوا</string>
+    <string name="tasks_empty_completed_message">جو ٹاسک آپ مکمل کریں گے وہ یہاں نظر آئیں گے۔</string>
+    <string name="tasks_empty_archived_title">آرکائیو خالی ہے</string>
+    <string name="tasks_empty_archived_message">آرکائیو شدہ ٹاسک یہاں محفوظ رہتے ہیں۔</string>
+    <string name="tasks_empty_filtered_title">کوئی ٹاسک نہیں ملا</string>
+    <string name="tasks_empty_filtered_message">کوئی اور تلاش آزمائیں یا فلٹر صاف کریں۔</string>
+
+    <string name="tasks_edit_new_title">نیا ٹاسک</string>
+    <string name="tasks_edit_title">ٹاسک میں ترمیم</string>
+    <string name="tasks_field_title">عنوان</string>
+    <string name="tasks_field_description">تفصیل (اختیاری)</string>
+    <string name="tasks_error_title_required">اس ٹاسک کا عنوان لکھیں</string>
+    <string name="tasks_error_title_long">عنوان زیادہ سے زیادہ %1$d حروف کا ہو سکتا ہے</string>
+    <string name="tasks_title_counter">%1$d/%2$d</string>
+    <string name="tasks_field_priority">ترجیح</string>
+    <string name="tasks_field_status">حالت</string>
+    <string name="tasks_section_schedule">شیڈول</string>
+    <string name="tasks_field_due_date">مقررہ تاریخ</string>
+    <string name="tasks_field_due_time">مقررہ وقت</string>
+    <string name="tasks_not_set">مقرر نہیں</string>
+    <string name="tasks_clear_date">مقررہ تاریخ ہٹائیں</string>
+    <string name="tasks_clear_time">مقررہ وقت ہٹائیں</string>
+    <string name="tasks_pick_time">وقت منتخب کریں</string>
+    <string name="tasks_field_reminder">یاددہانی</string>
+    <string name="tasks_reminder_none">کوئی نہیں</string>
+    <string name="tasks_reminder_at_due">مقررہ وقت پر</string>
+    <string name="tasks_reminder_10m">10 منٹ پہلے</string>
+    <string name="tasks_reminder_30m">30 منٹ پہلے</string>
+    <string name="tasks_reminder_1h">1 گھنٹہ پہلے</string>
+    <string name="tasks_reminder_1d">1 دن پہلے</string>
+    <string name="tasks_reminder_custom">%1$d منٹ پہلے</string>
+    <string name="tasks_reminder_needs_date">یاددہانی شامل کرنے کے لیے مقررہ تاریخ منتخب کریں۔</string>
+    <string name="tasks_reminder_note">یاددہانیاں تقریباً وقت پر پہنچتی ہیں اور بیٹری آپٹمائزیشن کی وجہ سے ان میں تاخیر ہو سکتی ہے۔</string>
+    <string name="tasks_notif_denied">ORBIT کے لیے اطلاعات بند ہیں، اس لیے جب تک آپ سسٹم سیٹنگز میں اجازت نہیں دیں گے یہ یاددہانی ظاہر نہیں ہوگی۔</string>
+    <string name="tasks_field_project">پروجیکٹ</string>
+    <string name="tasks_project_none">بغیر پروجیکٹ</string>
+
+    <string name="tasks_section_subtasks">ذیلی ٹاسک</string>
+    <string name="tasks_subtasks_empty">ٹاسک کو چھوٹے مراحل میں تقسیم کریں۔</string>
+    <string name="tasks_subtask_hint">ذیلی ٹاسک شامل کریں</string>
+    <string name="tasks_subtask_add">ذیلی ٹاسک شامل کریں</string>
+    <string name="tasks_subtask_delete">ذیلی ٹاسک حذف کریں: %1$s</string>
+    <string name="tasks_subtask_move_up">اوپر لے جائیں: %1$s</string>
+    <string name="tasks_subtask_move_down">نیچے لے جائیں: %1$s</string>
+
+    <string name="tasks_section_repeat">تکرار</string>
+    <string name="tasks_repeat_none">کبھی نہیں</string>
+    <string name="tasks_repeat_daily">روزانہ</string>
+    <string name="tasks_repeat_weekly">ہفتہ وار</string>
+    <string name="tasks_repeat_monthly">ماہانہ</string>
+    <string name="tasks_repeat_yearly">سالانہ</string>
+    <string name="tasks_repeat_needs_date">دہرائے جانے والے ٹاسک کے لیے مقررہ تاریخ ضروری ہے۔ اگر کوئی تاریخ نہ ہو تو آج کی تاریخ لی جاتی ہے۔</string>
+    <string name="tasks_repeat_interval_label">ہر</string>
+    <string name="tasks_repeat_weekdays">ان دنوں دہرائیں</string>
+    <string name="tasks_repeat_ends">اختتام</string>
+    <string name="tasks_repeat_never">کبھی نہیں</string>
+    <string name="tasks_repeat_clear_end">اختتامی تاریخ ہٹائیں</string>
+    <string name="tasks_repeat_occurrence_hint">تبدیلیاں اس ٹاسک اور اس سے آگے بننے والے ٹاسک پر لاگو ہوں گی۔</string>
+    <string name="tasks_summary_until">%1$s، %2$s تک</string>
+    <plurals name="tasks_unit_day">
+        <item quantity="one">دن</item>
+        <item quantity="other">دن</item>
+    </plurals>
+    <plurals name="tasks_unit_week">
+        <item quantity="one">ہفتہ</item>
+        <item quantity="other">ہفتے</item>
+    </plurals>
+    <plurals name="tasks_unit_month">
+        <item quantity="one">مہینہ</item>
+        <item quantity="other">مہینے</item>
+    </plurals>
+    <plurals name="tasks_unit_year">
+        <item quantity="one">سال</item>
+        <item quantity="other">سال</item>
+    </plurals>
+    <plurals name="tasks_summary_daily">
+        <item quantity="one">ہر دن دہرایا جاتا ہے</item>
+        <item quantity="other">ہر %1$d دن بعد دہرایا جاتا ہے</item>
+    </plurals>
+    <plurals name="tasks_summary_weekly">
+        <item quantity="one">ہر ہفتے دہرایا جاتا ہے</item>
+        <item quantity="other">ہر %1$d ہفتے بعد دہرایا جاتا ہے</item>
+    </plurals>
+    <plurals name="tasks_summary_weekly_on">
+        <item quantity="one">ہر ہفتے دہرایا جاتا ہے: %2$s</item>
+        <item quantity="other">ہر %1$d ہفتے بعد دہرایا جاتا ہے: %2$s</item>
+    </plurals>
+    <plurals name="tasks_summary_monthly">
+        <item quantity="one">ہر مہینے دہرایا جاتا ہے</item>
+        <item quantity="other">ہر %1$d مہینے بعد دہرایا جاتا ہے</item>
+    </plurals>
+    <plurals name="tasks_summary_yearly">
+        <item quantity="one">ہر سال دہرایا جاتا ہے</item>
+        <item quantity="other">ہر %1$d سال بعد دہرایا جاتا ہے</item>
+    </plurals>
+
+    <string name="tasks_discard_title">تبدیلیاں رد کریں؟</string>
+    <string name="tasks_discard_message">اس ٹاسک میں آپ کی تبدیلیاں محفوظ نہیں ہوئیں۔</string>
+    <string name="tasks_delete_title">ٹاسک حذف کریں؟</string>
+    <string name="tasks_delete_message">“%1$s” ہمیشہ کے لیے حذف ہو جائے گا۔</string>
+    <string name="tasks_not_found">یہ ٹاسک اب موجود نہیں ہے۔</string>
+    <string name="tasks_error_duplicate">اس تاریخ پر اس دہرائے جانے والے ٹاسک کی ایک نقل پہلے سے موجود ہے۔</string>
+    <string name="tasks_error_save">ٹاسک محفوظ نہیں ہو سکا۔ دوبارہ کوشش کریں۔</string>
+</resources>

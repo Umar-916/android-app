@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goals_of_target">/ %1$s</string>
+    <string name="goals_of_target_unit">/ %1$s %2$s</string>
+    <string name="goals_progress_desc">%1$d Prozent erreicht</string>
+    <string name="goals_hero_none_active">Keine Ziele in Arbeit</string>
+    <plurals name="goals_hero_active">
+        <item quantity="one">%1$d Ziel in Arbeit</item>
+        <item quantity="other">%1$d Ziele in Arbeit</item>
+    </plurals>
+    <plurals name="goals_hero_completed">
+        <item quantity="one">%1$d Ziel erreicht</item>
+        <item quantity="other">%1$d Ziele erreicht</item>
+    </plurals>
+    <string name="goals_preview_label">Neuer Gesamtwert</string>
+    <string name="goals_preview_completes">Damit erreichen Sie Ihr Ziel und schließen es ab.</string>
+    <string name="goals_section_details">Details</string>
+    <string name="goals_section_target">Zielwert und Fortschritt</string>
+    <string name="goals_section_dates">Termine</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="startup_status_1">আপনার জায়গা প্রস্তুত হচ্ছে…</string>
+    <string name="startup_status_4">প্রায় তৈরি…</string>
+    <string name="startup_progress_description">লোড হচ্ছে, %1$d শতাংশ</string>
+    <string name="startup_error_title">আপনার প্ল্যানার খোলা যায়নি</string>
+    <string name="startup_error_message">কিছুই হারায়নি। অনুগ্রহ করে কিছুক্ষণ পরে আবার চেষ্টা করুন।</string>
+</resources>

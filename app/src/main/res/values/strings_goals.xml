@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List -->
+    <string name="goals_title">Goals</string>
+    <string name="goals_new">New goal</string>
+    <string name="goals_empty_title">No goals yet</string>
+    <string name="goals_empty_message">Set a measurable target, such as books to read or kilometres to run, and track your progress toward it.</string>
+    <string name="goals_section_in_progress">In progress</string>
+    <string name="goals_section_in_progress_empty">No goals in progress.</string>
+    <string name="goals_section_completed">Completed</string>
+    <plurals name="goals_show_archived">
+        <item quantity="one">Show archived (%1$d)</item>
+        <item quantity="other">Show archived (%1$d)</item>
+    </plurals>
+    <plurals name="goals_hide_archived">
+        <item quantity="one">Hide archived (%1$d)</item>
+        <item quantity="other">Hide archived (%1$d)</item>
+    </plurals>
+    <string name="goals_percent">%1$d%%</string>
+    <plurals name="goals_days_left">
+        <item quantity="one">%1$d day left</item>
+        <item quantity="other">%1$d days left</item>
+    </plurals>
+    <string name="goals_due_today">Due today</string>
+    <plurals name="goals_overdue_days">
+        <item quantity="one">Overdue by %1$d day</item>
+        <item quantity="other">Overdue by %1$d days</item>
+    </plurals>
+    <string name="goals_update_progress">Update progress</string>
+    <string name="goals_celebrate">Goal reached. Well done!</string>
+
+    <!-- Update progress dialog -->
+    <string name="goals_update_progress_title">Update “%1$s”</string>
+    <string name="goals_mode_set">Set value</string>
+    <string name="goals_mode_add">Add amount</string>
+    <string name="goals_field_new_value">New value</string>
+    <string name="goals_field_increment">Amount to add</string>
+    <string name="goals_update_confirm">Update</string>
+    <string name="goals_error_number_empty">Enter a number.</string>
+    <string name="goals_error_number_invalid">Enter a valid number, such as 12 or 12.5.</string>
+    <string name="goals_error_number_negative">The value cannot be negative.</string>
+    <string name="goals_error_number_zero">The value must be greater than zero.</string>
+    <string name="goals_error_number_too_large">That number is too large.</string>
+
+    <!-- Edit -->
+    <string name="goals_edit_new_title">New goal</string>
+    <string name="goals_edit_title">Edit goal</string>
+    <string name="goals_field_title">Goal</string>
+    <string name="goals_field_description">Description</string>
+    <string name="goals_field_target">Target value</string>
+    <string name="goals_field_current">Current value</string>
+    <string name="goals_field_unit">Unit (optional)</string>
+    <string name="goals_field_unit_hint">For example books, km or pages</string>
+    <string name="goals_field_start">Start date</string>
+    <string name="goals_field_target_date">Target date</string>
+    <string name="goals_field_status">Status</string>
+    <string name="goals_error_title_required">Enter a goal title.</string>
+    <string name="goals_error_target_before_start">Target date must be on or after the start date.</string>
+    <string name="goals_not_found">This goal no longer exists.</string>
+    <string name="goals_delete_title">Delete “%1$s”?</string>
+    <string name="goals_delete_message">“%1$s” will be permanently deleted. This cannot be undone.</string>
+    <string name="goals_delete_confirm">Delete goal</string>
+</resources>

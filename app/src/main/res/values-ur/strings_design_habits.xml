@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="habits_hero_title">آج</string>
+    <string name="habits_hero_none">آج کوئی عادت شیڈول نہیں</string>
+    <string name="habits_hero_all_done">آج کے سب کام مکمل</string>
+    <string name="habits_hero_progress">%2$d میں سے %1$d مکمل</string>
+
+    <string name="habits_section_details">تفصیلات</string>
+    <string name="habits_section_appearance">ظاہری شکل</string>
+    <string name="habits_section_schedule">شیڈول</string>
+    <string name="habits_section_status">حالت</string>
+</resources>

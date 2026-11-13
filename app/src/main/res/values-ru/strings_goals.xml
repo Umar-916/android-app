@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List -->
+    <string name="goals_title">Цели</string>
+    <string name="goals_new">Новая цель</string>
+    <string name="goals_empty_title">Целей пока нет</string>
+    <string name="goals_empty_message">Задайте измеримую цель, например количество книг или километров, и отслеживайте прогресс.</string>
+    <string name="goals_section_in_progress">В процессе</string>
+    <string name="goals_section_in_progress_empty">Нет целей в процессе.</string>
+    <string name="goals_section_completed">Достигнутые</string>
+    <plurals name="goals_show_archived">
+        <item quantity="one">Показать архив (%1$d)</item>
+        <item quantity="few">Показать архив (%1$d)</item>
+        <item quantity="many">Показать архив (%1$d)</item>
+        <item quantity="other">Показать архив (%1$d)</item>
+    </plurals>
+    <plurals name="goals_hide_archived">
+        <item quantity="one">Скрыть архив (%1$d)</item>
+        <item quantity="few">Скрыть архив (%1$d)</item>
+        <item quantity="many">Скрыть архив (%1$d)</item>
+        <item quantity="other">Скрыть архив (%1$d)</item>
+    </plurals>
+    <string name="goals_percent">%1$d%%</string>
+    <plurals name="goals_days_left">
+        <item quantity="one">Остался %1$d день</item>
+        <item quantity="few">Осталось %1$d дня</item>
+        <item quantity="many">Осталось %1$d дней</item>
+        <item quantity="other">Осталось %1$d дня</item>
+    </plurals>
+    <string name="goals_due_today">Срок сегодня</string>
+    <plurals name="goals_overdue_days">
+        <item quantity="one">Просрочено на %1$d день</item>
+        <item quantity="few">Просрочено на %1$d дня</item>
+        <item quantity="many">Просрочено на %1$d дней</item>
+        <item quantity="other">Просрочено на %1$d дня</item>
+    </plurals>
+    <string name="goals_update_progress">Обновить прогресс</string>
+    <string name="goals_celebrate">Цель достигнута. Отлично!</string>
+
+    <!-- Update progress dialog -->
+    <string name="goals_update_progress_title">Обновить «%1$s»</string>
+    <string name="goals_mode_set">Задать значение</string>
+    <string name="goals_mode_add">Добавить</string>
+    <string name="goals_field_new_value">Новое значение</string>
+    <string name="goals_field_increment">Сколько добавить</string>
+    <string name="goals_update_confirm">Обновить</string>
+    <string name="goals_error_number_empty">Введите число.</string>
+    <string name="goals_error_number_invalid">Введите корректное число, например 12 или 12.5.</string>
+    <string name="goals_error_number_negative">Значение не может быть отрицательным.</string>
+    <string name="goals_error_number_zero">Значение должно быть больше нуля.</string>
+    <string name="goals_error_number_too_large">Слишком большое число.</string>
+
+    <!-- Edit -->
+    <string name="goals_edit_new_title">Новая цель</string>
+    <string name="goals_edit_title">Изменить цель</string>
+    <string name="goals_field_title">Цель</string>
+    <string name="goals_field_description">Описание</string>
+    <string name="goals_field_target">Целевое значение</string>
+    <string name="goals_field_current">Текущее значение</string>
+    <string name="goals_field_unit">Единица (необязательно)</string>
+    <string name="goals_field_unit_hint">Например, книги, км или страницы</string>
+    <string name="goals_field_start">Дата начала</string>
+    <string name="goals_field_target_date">Целевая дата</string>
+    <string name="goals_field_status">Статус</string>
+    <string name="goals_error_title_required">Введите название цели.</string>
+    <string name="goals_error_target_before_start">Целевая дата не может быть раньше даты начала.</string>
+    <string name="goals_not_found">Эта цель больше не существует.</string>
+    <string name="goals_delete_title">Удалить «%1$s»?</string>
+    <string name="goals_delete_message">«%1$s» будет удалена безвозвратно. Это действие нельзя отменить.</string>
+    <string name="goals_delete_confirm">Удалить цель</string>
+</resources>

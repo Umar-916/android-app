@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planning_date_not_set">غير محدد</string>
+    <plurals name="projects_overdue_count">
+        <item quantity="zero">%1$d متأخرة</item>
+        <item quantity="one">%1$d متأخرة</item>
+        <item quantity="two">%1$d متأخرتان</item>
+        <item quantity="few">%1$d متأخرة</item>
+        <item quantity="many">%1$d متأخرة</item>
+        <item quantity="other">%1$d متأخرة</item>
+    </plurals>
+    <plurals name="projects_delete_all_consequence">
+        <item quantity="zero">سيتم حذف المشروع و%1$d مهمة نهائيًا. لا يمكن التراجع عن ذلك.</item>
+        <item quantity="one">سيتم حذف المشروع ومهمته (%1$d) نهائيًا. لا يمكن التراجع عن ذلك.</item>
+        <item quantity="two">سيتم حذف المشروع ومهمتيه (%1$d) نهائيًا. لا يمكن التراجع عن ذلك.</item>
+        <item quantity="few">سيتم حذف المشروع وجميع مهامه (%1$d) نهائيًا. لا يمكن التراجع عن ذلك.</item>
+        <item quantity="many">سيتم حذف المشروع وجميع مهامه (%1$d) نهائيًا. لا يمكن التراجع عن ذلك.</item>
+        <item quantity="other">سيتم حذف المشروع وجميع مهامه (%1$d) نهائيًا. لا يمكن التراجع عن ذلك.</item>
+    </plurals>
+    <string name="projects_section_details">التفاصيل</string>
+    <string name="projects_section_appearance">المظهر</string>
+    <string name="projects_section_schedule">الجدول</string>
+</resources>

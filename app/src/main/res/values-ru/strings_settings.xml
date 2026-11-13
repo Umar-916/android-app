@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Настройки</string>
+    <string name="settings_group_preferences">Предпочтения</string>
+    <string name="settings_group_support">Поддержка и отзывы</string>
+    <string name="settings_group_data">Данные и конфиденциальность</string>
+    <string name="settings_group_about">О приложении</string>
+
+    <string name="settings_language">Язык приложения</string>
+    <string name="settings_theme">Тема приложения</string>
+    <string name="settings_theme_system">Как в системе</string>
+    <string name="settings_theme_light">Светлая</string>
+    <string name="settings_theme_dark">Тёмная</string>
+    <string name="settings_theme_dialog_title">Выбор темы</string>
+    <string name="settings_apply">Применить</string>
+
+    <string name="settings_reminders">Напоминания о задачах</string>
+    <string name="settings_reminders_desc">Получайте уведомление, когда наступает срок задачи с напоминанием.</string>
+    <string name="settings_notif_allowed">Уведомления на этом устройстве разрешены.</string>
+    <string name="settings_notif_blocked">Уведомления ORBIT заблокированы, поэтому напоминания не появятся.</string>
+    <string name="settings_notif_denied_explain">Разрешение не получено. Разрешить уведомления можно в системных настройках.</string>
+    <string name="settings_notif_open">Открыть настройки уведомлений</string>
+    <string name="settings_reminders_note">Напоминания приблизительны и могут задерживаться из-за режима экономии заряда и других настроек питания.</string>
+
+    <string name="settings_rate">Оценить приложение</string>
+    <string name="settings_feedback">Обратная связь</string>
+    <string name="settings_share">Поделиться приложением</string>
+    <string name="settings_customize_dashboard">Настроить главную</string>
+    <string name="settings_customize_dashboard_desc">Выберите карточки на главном экране</string>
+    <string name="settings_backup">Резервные копии</string>
+    <string name="settings_backup_desc">Экспорт и восстановление данных</string>
+    <string name="settings_privacy">Политика конфиденциальности</string>
+    <string name="settings_privacy_desc">Как обрабатываются ваши данные</string>
+    <string name="settings_replay">Показать знакомство снова</string>
+    <string name="settings_replay_desc">Повторно открыть приветственный тур</string>
+    <string name="settings_about">Об ORBIT</string>
+    <string name="settings_version">Версия %1$s</string>
+
+    <string name="rate_title">Нравится ORBIT?</string>
+    <string name="rate_tagline">Ваша оценка помогает нам расти</string>
+    <string name="rate_description">Если ORBIT помогает вам поддерживать порядок, быстрая оценка в Play Маркете очень важна для нашей небольшой команды.</string>
+    <string name="rate_hint_none">Нажмите на звезду, чтобы оценить</string>
+    <string name="rate_hint_low">Спасибо за честность</string>
+    <string name="rate_hint_high">Спасибо! Вы сделали наш день</string>
+    <string name="rate_submit">Отправить</string>
+    <string name="rate_low_title">Спасибо за отзыв</string>
+    <string name="rate_low_message">Нам жаль, что ORBIT не полностью оправдал ваши ожидания. Мы продолжим делать его лучше.</string>
+    <string name="rate_low_message_feedback">Нам жаль, что ORBIT не полностью оправдал ваши ожидания. Расскажите, что улучшить, и мы поработаем над этим.</string>
+    <string name="rate_improve">Рассказать, что улучшить</string>
+    <plurals name="rate_star_count">
+        <item quantity="one">%1$d звезда</item>
+        <item quantity="few">%1$d звезды</item>
+        <item quantity="many">%1$d звёзд</item>
+        <item quantity="other">%1$d звезды</item>
+    </plurals>
+    <string name="rate_reaction_1">😞 Мы хотим стать лучше</string>
+    <string name="rate_reaction_2">😕 Мы хотим стать лучше</string>
+    <string name="rate_reaction_3">😐 Мы хотим стать лучше</string>
+    <string name="rate_reaction_4">😊 Спасибо!</string>
+    <string name="rate_reaction_5">🤩 Спасибо! Вы сделали наш день</string>
+</resources>

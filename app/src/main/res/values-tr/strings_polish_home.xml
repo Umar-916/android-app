@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_search_hint_tasks">Görev ara…</string>
+    <string name="home_search_hint_notes">Not ara…</string>
+    <string name="home_search_hint_projects">Proje ara…</string>
+    <string name="search_try_title">Şunları aramayı deneyin…</string>
+    <string name="search_suggestion_desc">%1$s için ara</string>
+    <string name="search_edu_title">Her şeyi saniyeler içinde bulun</string>
+    <string name="search_edu_message">Görev, not veya proje ekledikten sonra burada hızlı öneriler olarak görünürler. Arama, ORBIT genelinde başlıklara ve ayrıntılara bakar.</string>
+    <string name="search_empty_tip">Yazımı kontrol edin veya daha az sözcük deneyin.</string>
+    <string name="more_projects_title">Projeler</string>
+    <string name="more_projects_desc">Görevleri hedefe göre gruplayın</string>
+</resources>

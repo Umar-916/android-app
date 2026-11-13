@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feedback_title">Geri bildirim</string>
+    <string name="feedback_tab_issues">Sorunlar</string>
+    <string name="feedback_tab_suggestions">Öneriler</string>
+    <string name="feedback_describe_issue">Sorunu açıklayın</string>
+    <string name="feedback_describe_idea">Fikrinizi paylaşın</string>
+    <string name="feedback_hint">Kendi cümlelerinizle anlatın…</string>
+    <string name="feedback_counter">%1$d/%2$d</string>
+    <string name="feedback_select_label">Öğe seçin</string>
+    <string name="feedback_select_hint">En fazla %1$d konu seçin</string>
+    <string name="feedback_limit_reached">En fazla %1$d konu seçebilirsiniz.</string>
+    <string name="feedback_submit">Geri bildirim gönder</string>
+    <string name="feedback_no_mail_app">Bu cihazda e-posta uygulaması bulunamadı. Geri bildirim göndermek için lütfen bir tane yükleyin.</string>
+    <string name="feedback_privacy_note">Yalnızca mesajınız, seçtiğiniz konular ve temel uygulama ile cihaz bilgileri eklenir. Görevleriniz ve notlarınız asla paylaşılmaz.</string>
+    <string name="feedback_unavailable_title">Geri bildirim kullanılamıyor</string>
+    <string name="feedback_unavailable_message">Geri bildirim bu ORBIT sürümü için henüz ayarlanmadı.</string>
+
+    <string name="feedback_subject_issue">ORBIT sorun bildirimi</string>
+    <string name="feedback_subject_suggestion">ORBIT önerisi</string>
+    <string name="feedback_body_topics">Konular: %1$s</string>
+    <string name="feedback_body_app">Uygulama sürümü: %1$s</string>
+    <string name="feedback_body_android">Android sürümü: %1$s</string>
+    <string name="feedback_body_device">Cihaz: %1$s</string>
+
+    <string name="feedback_issue_crash">Uygulama çöküyor</string>
+    <string name="feedback_issue_reminders">Hatırlatıcılar</string>
+    <string name="feedback_issue_notes">Notlar</string>
+    <string name="feedback_issue_tasks">Görevler</string>
+    <string name="feedback_issue_calendar">Takvim</string>
+    <string name="feedback_issue_backup">Yedekleme ve geri yükleme</string>
+    <string name="feedback_issue_language">Dil</string>
+    <string name="feedback_item_other">Diğer</string>
+    <string name="feedback_idea_feature">Yeni özellik</string>
+    <string name="feedback_idea_design">Tasarım</string>
+    <string name="feedback_idea_reminders">Hatırlatıcılar</string>
+    <string name="feedback_idea_tasks">Görevler</string>
+    <string name="feedback_idea_notes">Notlar</string>
+    <string name="feedback_idea_habits">Alışkanlıklar ve hedefler</string>
+    <string name="feedback_idea_themes">Temalar</string>
+</resources>

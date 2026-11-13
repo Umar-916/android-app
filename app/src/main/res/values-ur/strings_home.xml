@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_greeting_morning">صبح بخیر</string>
+    <string name="home_greeting_afternoon">دوپہر بخیر</string>
+    <string name="home_greeting_evening">شام بخیر</string>
+    <string name="home_search_hint">ٹاسک، نوٹس، پروجیکٹ تلاش کریں…</string>
+    <string name="home_customize">ڈیش بورڈ حسبِ ضرورت بنائیں</string>
+    <string name="home_percent">%1$d%%</string>
+    <string name="home_n_more">+%1$d مزید</string>
+    <string name="home_view_all">سب دیکھیں</string>
+
+    <string name="home_welcome_title">ORBIT میں خوش آمدید</string>
+    <string name="home_welcome_message">اپنے پہلے ٹاسک، پروجیکٹ یا عادت سے آغاز کریں۔ سب کچھ اسی ڈیوائس پر رہتا ہے۔</string>
+    <string name="home_all_hidden_title">تمام کارڈز چھپے ہوئے ہیں</string>
+    <string name="home_all_hidden_message">منتخب کریں کہ آپ کے ڈیش بورڈ پر کون سے کارڈز نظر آئیں۔</string>
+
+    <string name="home_progress_empty_title">آج کے لیے کچھ طے نہیں ہے</string>
+    <string name="home_progress_empty_message">اپنی پیش رفت دیکھنے کے لیے آج کی تاریخ والا ٹاسک شامل کریں۔</string>
+    <string name="home_progress_all_done">آج کا سارا کام مکمل۔ شاباش!</string>
+    <string name="home_progress_keep_going">لگے رہیں، آپ صحیح راستے پر ہیں۔</string>
+    <plurals name="home_tasks_done_of">
+        <item quantity="one">%2$d میں سے %1$d ٹاسک مکمل</item>
+        <item quantity="other">%2$d میں سے %1$d ٹاسک مکمل</item>
+    </plurals>
+
+    <string name="home_today_title">آج</string>
+    <string name="home_today_empty">آج کوئی ٹاسک واجب الادا نہیں۔ فارغ وقت سے لطف اٹھائیں یا کچھ نیا منصوبہ بنائیں۔</string>
+    <string name="home_add_task">ٹاسک شامل کریں</string>
+    <string name="home_task_mark_done">%1$s کو مکمل کے طور پر نشان زد کریں</string>
+    <string name="home_task_completed">ٹاسک مکمل ہو گیا</string>
+
+    <string name="home_upcoming_title">آنے والے</string>
+    <string name="home_upcoming_empty">اگلے 7 دنوں میں کچھ واجب الادا نہیں۔</string>
+    <string name="home_tomorrow">کل</string>
+    <string name="home_date_label">%1$s، %2$s</string>
+
+    <plurals name="home_overdue_title">
+        <item quantity="one">%1$d ٹاسک کی مدت گزر چکی</item>
+        <item quantity="other">%1$d ٹاسکس کی مدت گزر چکی</item>
+    </plurals>
+    <string name="home_due_on">آخری تاریخ %1$s</string>
+
+    <string name="home_projects_title">فعال پروجیکٹس</string>
+    <string name="home_projects_empty">متعلقہ ٹاسکس کو پروجیکٹ میں جمع کریں تاکہ ان کی پیش رفت دیکھ سکیں۔</string>
+    <string name="home_new_project">نیا پروجیکٹ</string>
+    <string name="home_project_no_tasks">ابھی کوئی ٹاسک نہیں</string>
+
+    <string name="home_habits_title">آج کی عادات</string>
+    <string name="home_habits_empty">اپنی پہلی عادت شامل کر کے معمول بنائیں۔</string>
+    <string name="home_habits_summary">آج %2$d میں سے %1$d مکمل</string>
+    <string name="home_new_habit">نئی عادت</string>
+    <plurals name="home_streak_days">
+        <item quantity="one">%1$d دن کا تسلسل</item>
+        <item quantity="other">%1$d دن کا تسلسل</item>
+    </plurals>
+
+    <string name="home_overview_title">آپ کا جائزہ</string>
+    <string name="home_ov_completed">7 دنوں میں مکمل</string>
+    <string name="home_ov_open">کھلے ٹاسکس</string>
+    <string name="home_ov_projects">فعال پروجیکٹس</string>
+    <string name="home_ov_streak">عادات کا بہترین تسلسل (دن)</string>
+
+    <string name="home_quick_add_title">فوری اضافہ</string>
+    <string name="home_qa_task">نیا ٹاسک</string>
+    <string name="home_qa_note">نیا نوٹ</string>
+    <string name="home_qa_habit">نئی عادت</string>
+    <string name="home_qa_project">نیا پروجیکٹ</string>
+    <string name="home_qa_goal">نیا ہدف</string>
+</resources>

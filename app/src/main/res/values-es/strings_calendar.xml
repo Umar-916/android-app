@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calendar_today">Ir a hoy</string>
+    <string name="calendar_prev_month">Mes anterior</string>
+    <string name="calendar_next_month">Mes siguiente</string>
+    <string name="calendar_mode_day">Día</string>
+    <string name="calendar_mode_agenda">Agenda</string>
+    <string name="calendar_all_day">Todo el día</string>
+    <string name="calendar_scheduled">Programadas</string>
+    <string name="calendar_add_task">Añadir tarea</string>
+    <string name="calendar_overdue_header">Vencidas</string>
+    <string name="calendar_header_relative">%1$s · %2$s</string>
+    <string name="calendar_cell_today">hoy</string>
+    <string name="calendar_cell_overdue">%1$d vencidas</string>
+    <plurals name="calendar_cell_tasks">
+        <item quantity="one">%d tarea</item>
+        <item quantity="other">%d tareas</item>
+    </plurals>
+    <plurals name="calendar_day_tasks">
+        <item quantity="one">%d tarea este día</item>
+        <item quantity="other">%d tareas este día</item>
+    </plurals>
+    <string name="calendar_empty_day_title">Nada planificado</string>
+    <string name="calendar_empty_day_message">No hay tareas que venzan el %1$s.</string>
+    <string name="calendar_empty_agenda_title">Sin vencimientos próximos</string>
+    <string name="calendar_empty_agenda_message">Las tareas abiertas con fecha de vencimiento aparecerán aquí.</string>
+    <string name="calendar_error">No pudimos cargar el calendario.</string>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analytics_title">Analitik</string>
+    <string name="analytics_empty_title">Belum ada data untuk dianalisis</string>
+    <string name="analytics_empty_message">Selesaikan beberapa tugas, catat kebiasaan, atau tetapkan tujuan, dan grafik produktivitas Anda akan muncul di sini.</string>
+    <string name="analytics_empty_action">Tambah tugas</string>
+    <string name="analytics_range_7">7 hari</string>
+    <string name="analytics_range_30">30 hari</string>
+    <string name="analytics_percent">%1$d%%</string>
+    <string name="analytics_none">–</string>
+
+    <string name="analytics_tile_completed_7">Selesai dalam 7 hari</string>
+    <string name="analytics_tile_completed_30">Selesai dalam 30 hari</string>
+    <string name="analytics_tile_rate">Tingkat penyelesaian</string>
+    <string name="analytics_tile_open">Tugas terbuka</string>
+    <string name="analytics_tile_overdue">Terlambat saat ini</string>
+    <string name="analytics_tile_all_time">Total selesai</string>
+    <string name="analytics_rate_note">Tingkat penyelesaian muncul setelah Anda memiliki tugas bertenggat pada periode ini.</string>
+
+    <string name="analytics_daily_title">Produktivitas mingguan</string>
+    <string name="analytics_daily_subtitle">Tugas selesai per hari, 7 hari terakhir</string>
+    <string name="analytics_weekly_title">Kemajuan bulanan</string>
+    <string name="analytics_weekly_subtitle">Tugas selesai per minggu, 5 minggu terakhir</string>
+    <string name="analytics_chart_empty">Belum ada tugas selesai pada periode ini.</string>
+    <string name="analytics_chart_point">%1$s: %2$d</string>
+    <string name="analytics_week_range">%1$s hingga %2$s</string>
+
+    <string name="analytics_projects_title">Penyelesaian proyek</string>
+    <string name="analytics_projects_empty">Belum ada proyek. Buat satu untuk melihat kemajuannya di sini.</string>
+    <string name="analytics_project_no_tasks">Belum ada tugas</string>
+    <plurals name="analytics_tasks_done_of">
+        <item quantity="other">%1$d dari %2$d tugas selesai</item>
+    </plurals>
+
+    <string name="analytics_habits_title">Konsistensi kebiasaan</string>
+    <string name="analytics_habits_empty">Belum ada kebiasaan. Tambahkan satu untuk melacak konsistensi Anda.</string>
+    <string name="analytics_habit_detail">Rentetan saat ini %1$d · terpanjang %2$d</string>
+
+    <string name="analytics_goals_title">Kemajuan tujuan</string>
+    <string name="analytics_goals_empty">Belum ada tujuan. Tetapkan tujuan untuk memantau kemajuan Anda.</string>
+</resources>

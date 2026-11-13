@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_search_hint_tasks">ابحث في المهام…</string>
+    <string name="home_search_hint_notes">ابحث في الملاحظات…</string>
+    <string name="home_search_hint_projects">ابحث في المشاريع…</string>
+    <string name="search_try_title">جرّب البحث عن…</string>
+    <string name="search_suggestion_desc">البحث عن %1$s</string>
+    <string name="search_edu_title">اعثر على أي شيء في ثوانٍ</string>
+    <string name="search_edu_message">بمجرد إضافة مهام أو ملاحظات أو مشاريع، ستظهر هنا كاقتراحات سريعة. يبحث البحث في العناوين والتفاصيل عبر ORBIT.</string>
+    <string name="search_empty_tip">تحقق من الإملاء أو جرّب كلمات أقل.</string>
+    <string name="more_projects_title">المشاريع</string>
+    <string name="more_projects_desc">جمّع المهام حسب الهدف</string>
+</resources>

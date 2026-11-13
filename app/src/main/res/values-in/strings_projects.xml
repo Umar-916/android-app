@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared by Projects, Habits and Goals -->
+    <string name="planning_color_label">Warna</string>
+    <string name="planning_color_selected">%1$s, dipilih</string>
+    <string name="planning_color_violet">Ungu muda</string>
+    <string name="planning_color_blue">Biru</string>
+    <string name="planning_color_teal">Hijau kebiruan</string>
+    <string name="planning_color_green">Hijau</string>
+    <string name="planning_color_amber">Kuning amber</string>
+    <string name="planning_color_orange">Oranye</string>
+    <string name="planning_color_red">Merah</string>
+    <string name="planning_color_pink">Merah muda</string>
+    <string name="planning_color_purple">Ungu</string>
+    <string name="planning_color_slate">Abu-abu batu</string>
+    <string name="planning_clear_date_named">Hapus %1$s</string>
+    <string name="planning_date_range">%1$s – %2$s</string>
+    <string name="planning_date_from">Mulai %1$s</string>
+    <string name="planning_date_until">Hingga %1$s</string>
+    <string name="planning_discard_title">Buang perubahan?</string>
+    <string name="planning_discard_message">Perubahan yang belum disimpan akan hilang.</string>
+
+    <!-- Projects list -->
+    <string name="projects_new">Proyek baru</string>
+    <string name="projects_empty_title">Belum ada proyek</string>
+    <string name="projects_empty_message">Kelompokkan tugas terkait ke dalam proyek untuk memantau kemajuan menuju tujuan yang lebih besar.</string>
+    <string name="projects_filter_all">Semua</string>
+    <string name="projects_filter_empty_title">Tidak ada apa-apa di sini</string>
+    <string name="projects_filter_empty_message">Tidak ada proyek yang cocok dengan filter ini.</string>
+    <string name="projects_no_tasks">Belum ada tugas</string>
+    <plurals name="projects_tasks_progress">
+        <item quantity="other">%1$d dari %2$d tugas selesai</item>
+    </plurals>
+
+    <!-- Project detail -->
+    <string name="projects_detail_title">Proyek</string>
+    <string name="projects_not_found">Proyek ini sudah tidak ada.</string>
+    <string name="projects_restore">Pulihkan proyek</string>
+    <string name="projects_mark_completed">Tandai selesai</string>
+    <string name="projects_mark_active">Tandai aktif</string>
+    <string name="projects_percent">%1$d%%</string>
+    <string name="projects_progress_desc">%1$d persen selesai</string>
+    <string name="projects_stat_total">Total tugas</string>
+    <string name="projects_stat_completed">Selesai</string>
+    <string name="projects_stat_in_progress">Sedang dikerjakan</string>
+    <string name="projects_stat_todo">Akan dikerjakan</string>
+    <string name="projects_stat_overdue">Terlambat</string>
+    <string name="projects_tasks_section">Tugas</string>
+    <string name="projects_add_task">Tambah tugas</string>
+    <string name="projects_tasks_empty_title">Tidak ada tugas di proyek ini</string>
+    <string name="projects_tasks_empty_message">Tambahkan tugas untuk mulai memantau kemajuan.</string>
+    <string name="projects_task_due">Tenggat %1$s</string>
+    <string name="projects_task_overdue">Terlambat · %1$s</string>
+    <string name="projects_task_mark_done">Tandai %1$s sebagai selesai</string>
+    <string name="projects_task_mark_open">Tandai %1$s sebagai belum selesai</string>
+
+    <!-- Project deletion -->
+    <string name="projects_delete_title">Hapus “%1$s”?</string>
+    <string name="projects_delete_simple_message">“%1$s” akan dihapus. Tindakan ini tidak dapat dibatalkan.</string>
+    <string name="projects_delete_confirm">Hapus proyek</string>
+    <plurals name="projects_delete_linked">
+        <item quantity="other">“%1$s” memiliki %2$d tugas terkait. Apa yang harus dilakukan terhadapnya?</item>
+    </plurals>
+    <string name="projects_delete_keep">Pertahankan tugas</string>
+    <string name="projects_delete_keep_hint">Tugas tetap ada di daftar tugas Anda tanpa proyek.</string>
+    <plurals name="projects_delete_all">
+        <item quantity="other">Hapus proyek beserta %1$d tugasnya</item>
+    </plurals>
+
+    <!-- Project edit -->
+    <string name="projects_edit_new_title">Proyek baru</string>
+    <string name="projects_edit_title">Ubah proyek</string>
+    <string name="projects_field_name">Nama</string>
+    <string name="projects_field_description">Deskripsi</string>
+    <string name="projects_field_start">Tanggal mulai</string>
+    <string name="projects_field_end">Tanggal selesai</string>
+    <string name="projects_field_status">Status</string>
+    <string name="projects_error_name_required">Masukkan nama proyek.</string>
+    <string name="projects_error_end_before_start">Tanggal selesai harus sama dengan atau setelah tanggal mulai.</string>
+</resources>

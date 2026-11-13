@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Language -->
+    <string name="lang_screen_title">Uygulama dili</string>
+    <string name="lang_settings_title">Dil</string>
+    <string name="lang_selected_header">Seçili dil</string>
+    <string name="lang_all_header">Tüm diller</string>
+    <string name="lang_selected_state">Seçildi</string>
+
+    <!-- Onboarding -->
+    <string name="onb_page1_title">Gününüzü planlayın</string>
+    <string name="onb_page1_body">Görevleri kaydedin ve hatırlatıcılar ayarlayın; hiçbir şey gözünüzden kaçmasın.</string>
+    <string name="onb_page2_title">Her şeyi düzenleyin</string>
+    <string name="onb_page2_body">Projelerinizi, notlarınızı ve hedeflerinizi huzurlu tek bir yerde tutun.</string>
+    <string name="onb_page3_title">Alışkanlık edinin</string>
+    <string name="onb_page3_body">Günlük alışkanlıklarınızı takip edin ve ilerlemenizin büyümesini izleyin.</string>
+    <string name="onb_page4_title">Verileriniz size ait kalır</string>
+    <string name="onb_page4_body">Görevler, notlar ve alışkanlıklar cihazınızda saklanır ve asla yüklenmez. Reklamlar ve ayarlar interneti kullanır; uygulama tamamen çevrimdışı çalışır.</string>
+    <string name="onb_page4_body_offline">Görevler, notlar ve alışkanlıklar cihazınızda saklanır ve asla yüklenmez. Uygulama tamamen çevrimdışı çalışır.</string>
+    <string name="onb_get_started">Başla</string>
+    <string name="onb_page_indicator">Sayfa %1$d / %2$d</string>
+</resources>

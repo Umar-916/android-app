@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="prem_title">Découvrez ORBIT Plus</string>
+    <string name="prem_price_line">Prix : %1$s</string>
+    <string name="prem_included_header">Ce qui est inclus</string>
+    <string name="prem_plan_header">Votre formule</string>
+    <string name="prem_plan_unavailable">Pas encore disponible</string>
+    <string name="prem_unavailable_title">Achats pas encore disponibles</string>
+    <string name="prem_unavailable_body">ORBIT Plus ne peut pas être acheté pour le moment. Tout ORBIT continue de fonctionner gratuitement.</string>
+    <string name="prem_maybe_later">Plus tard</string>
+    <string name="prem_restore">Restaurer l\'achat</string>
+    <string name="prem_terms">Le paiement est géré par Google Play. Vous pouvez le gérer dans votre compte Play Store.</string>
+    <string name="prem_card_title">Passer à ORBIT Plus</string>
+    <string name="prem_card_cta">Aperçu</string>
+    <string name="prem_feat_ads_body">Profitez d\'ORBIT sans interruption</string>
+    <string name="prem_compare_title">Premium ou Basic</string>
+    <string name="prem_compare_subtitle">Découvrez ce qu\'ajoute ORBIT Plus</string>
+    <string name="prem_col_basic">Basic</string>
+    <string name="prem_row_ads">Sans publicité</string>
+    <string name="prem_included_cd">Inclus</string>
+    <string name="prem_not_included_cd">Non inclus</string>
+    <string name="prem_compare_row_cd">%1$s. Basic : %2$s. Plus : %3$s.</string>
+    <string name="prem_black_tagline">Concentration totale avec ORBIT Plus. Aucune interruption, rien que vos projets.</string>
+    <string name="prem_offline">Pas de connexion Internet</string>
+    <string name="prem_subtitle">Profitez d\'ORBIT sans publicité. Toutes les fonctions du planificateur restent gratuites pour tous.</string>
+    <string name="prem_card_subtitle">Supprimer les pubs</string>
+    <string name="prem_feat_ads_title">Supprimer toutes les publicités</string>
+    <string name="prem_feat_focus_title">Planification sans distraction</string>
+    <string name="prem_feat_focus_body">Uniquement vos tâches, notes et habitudes</string>
+    <string name="prem_feat_support_title">Soutenir le développement d\'ORBIT</string>
+    <string name="prem_feat_support_body">Aidez-nous à améliorer ORBIT en continu</string>
+    <string name="prem_row_all">Toutes les fonctions du planificateur</string>
+    <string name="prem_row_private">Hors ligne et privé par conception</string>
+    <string name="prem_row_support">Soutenir le développement</string>
+    <string name="prem_slider_title">SANS PUB\nAVEC ORBIT PLUS</string>
+    <string name="prem_row_backup">Sauvegarde et restauration</string>
+    <string name="prem_row_reminders">Rappels et notifications</string>
+    <string name="prem_col_premium">Premium</string>
+    <string name="prem_price_after_trial">%1$s après l\'essai gratuit</string>
+    <string name="prem_cancel_anytime">Annulez à tout moment</string>
+    <string name="prem_black_secure">Annulez à tout moment, sécurisé par Google Play</string>
+    <string name="prem_zippo_title">DÉMARREZ COMME UN PRO</string>
+    <string name="prem_black_title">Planificateur Premium</string>
+    <string name="prem_black_cta">Débloquez ORBIT Plus maintenant</string>
+    <string name="prem_black_go">Obtenir l\'accès maintenant</string>
+</resources>

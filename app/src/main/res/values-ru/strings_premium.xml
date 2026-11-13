@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="prem_title">Знакомьтесь: ORBIT Plus</string>
+    <string name="prem_price_line">Цена: %1$s</string>
+    <string name="prem_included_header">Что входит</string>
+    <string name="prem_plan_header">Ваш тариф</string>
+    <string name="prem_plan_unavailable">Пока недоступно</string>
+    <string name="prem_unavailable_title">Покупки пока недоступны</string>
+    <string name="prem_unavailable_body">Сейчас ORBIT Plus приобрести нельзя. Всё в ORBIT продолжает работать бесплатно.</string>
+    <string name="prem_maybe_later">Может быть позже</string>
+    <string name="prem_restore">Восстановить покупку</string>
+    <string name="prem_terms">Оплата проходит через Google Play. Управлять ею можно в аккаунте Play Маркета.</string>
+    <string name="prem_card_title">Перейти на ORBIT Plus</string>
+    <string name="prem_card_cta">Обзор</string>
+    <string name="prem_feat_ads_body">Пользуйтесь ORBIT без отвлекающей рекламы</string>
+    <string name="prem_compare_title">Premium и Basic</string>
+    <string name="prem_compare_subtitle">Что добавляет ORBIT Plus</string>
+    <string name="prem_col_basic">Basic</string>
+    <string name="prem_row_ads">Без рекламы</string>
+    <string name="prem_included_cd">Включено</string>
+    <string name="prem_not_included_cd">Не включено</string>
+    <string name="prem_compare_row_cd">%1$s. Basic: %2$s. Plus: %3$s.</string>
+    <string name="prem_black_tagline">Полный фокус с ORBIT Plus. Никаких помех, только ваши планы.</string>
+    <string name="prem_offline">Нет подключения к интернету</string>
+    <string name="prem_subtitle">Пользуйтесь ORBIT без рекламы. Все функции планировщика остаются бесплатными для всех.</string>
+    <string name="prem_card_subtitle">Отключить рекламу</string>
+    <string name="prem_feat_ads_title">Отключить всю рекламу</string>
+    <string name="prem_feat_focus_title">Планирование без отвлечений</string>
+    <string name="prem_feat_focus_body">Только ваши задачи, заметки и привычки</string>
+    <string name="prem_feat_support_title">Поддержка развития ORBIT</string>
+    <string name="prem_feat_support_body">Помогите нам продолжать улучшать ORBIT</string>
+    <string name="prem_row_all">Все функции планировщика</string>
+    <string name="prem_row_private">Офлайн и приватность по умолчанию</string>
+    <string name="prem_row_support">Поддержка развития</string>
+    <string name="prem_slider_title">БЕЗ РЕКЛАМЫ\nС ORBIT PLUS</string>
+    <string name="prem_row_backup">Резервное копирование и восстановление</string>
+    <string name="prem_row_reminders">Напоминания и уведомления</string>
+    <string name="prem_col_premium">Премиум</string>
+    <string name="prem_price_after_trial">%1$s после бесплатного периода</string>
+    <string name="prem_cancel_anytime">Отмена в любой момент</string>
+    <string name="prem_black_secure">Отмена в любой момент, безопасно через Google Play</string>
+    <string name="prem_zippo_title">НАЧНИТЕ КАК ПРОФИ</string>
+    <string name="prem_black_title">Премиум-планировщик</string>
+    <string name="prem_black_cta">Откройте ORBIT Plus сейчас</string>
+    <string name="prem_black_go">Получить доступ</string>
+</resources>

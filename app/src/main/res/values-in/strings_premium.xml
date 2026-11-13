@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="prem_title">Kenali ORBIT Plus</string>
+    <string name="prem_price_line">Harga: %1$s</string>
+    <string name="prem_included_header">Yang termasuk</string>
+    <string name="prem_plan_header">Paket Anda</string>
+    <string name="prem_plan_unavailable">Belum tersedia</string>
+    <string name="prem_unavailable_title">Pembelian belum tersedia</string>
+    <string name="prem_unavailable_body">ORBIT Plus belum dapat dibeli saat ini. Semua yang ada di ORBIT tetap berfungsi gratis.</string>
+    <string name="prem_maybe_later">Nanti saja</string>
+    <string name="prem_restore">Pulihkan pembelian</string>
+    <string name="prem_terms">Pembayaran diproses oleh Google Play. Anda dapat mengelolanya di akun Play Store Anda.</string>
+    <string name="prem_card_title">Tingkatkan ke ORBIT Plus</string>
+    <string name="prem_card_cta">Pratinjau</string>
+    <string name="prem_feat_ads_body">Nikmati ORBIT tanpa gangguan</string>
+    <string name="prem_compare_title">Premium vs Dasar</string>
+    <string name="prem_compare_subtitle">Lihat apa yang ditambahkan ORBIT Plus</string>
+    <string name="prem_col_basic">Dasar</string>
+    <string name="prem_row_ads">Tanpa iklan</string>
+    <string name="prem_included_cd">Termasuk</string>
+    <string name="prem_not_included_cd">Tidak termasuk</string>
+    <string name="prem_compare_row_cd">%1$s. Dasar: %2$s. Plus: %3$s.</string>
+    <string name="prem_black_tagline">Fokus penuh dengan ORBIT Plus. Tanpa gangguan, hanya rencana Anda.</string>
+    <string name="prem_offline">Tidak ada koneksi internet</string>
+    <string name="prem_subtitle">Nikmati ORBIT tanpa iklan. Semua fitur perencana tetap gratis untuk semua orang.</string>
+    <string name="prem_card_subtitle">Hapus iklan</string>
+    <string name="prem_feat_ads_title">Hapus semua iklan</string>
+    <string name="prem_feat_focus_title">Perencanaan tanpa gangguan</string>
+    <string name="prem_feat_focus_body">Hanya tugas, catatan, dan kebiasaan Anda</string>
+    <string name="prem_feat_support_title">Dukung pengembangan ORBIT</string>
+    <string name="prem_feat_support_body">Bantu kami terus menyempurnakan ORBIT</string>
+    <string name="prem_row_all">Semua fitur perencana</string>
+    <string name="prem_row_private">Offline dan privat sejak desain</string>
+    <string name="prem_row_support">Dukung pengembangan</string>
+    <string name="prem_slider_title">BEBAS IKLAN\nDENGAN ORBIT PLUS</string>
+    <string name="prem_row_backup">Cadangan &amp; pemulihan</string>
+    <string name="prem_row_reminders">Pengingat &amp; notifikasi</string>
+    <string name="prem_col_premium">Premium</string>
+    <string name="prem_price_after_trial">%1$s setelah uji coba gratis</string>
+    <string name="prem_cancel_anytime">Batalkan kapan saja</string>
+    <string name="prem_black_secure">Batalkan kapan saja, aman dengan Google Play</string>
+    <string name="prem_zippo_title">MULAI SEPERTI PROFESIONAL</string>
+    <string name="prem_black_title">Perencana Premium</string>
+    <string name="prem_black_cta">Buka ORBIT Plus sekarang</string>
+    <string name="prem_black_go">Dapatkan akses sekarang</string>
+</resources>

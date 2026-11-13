@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="habits_title">عادات</string>
+    <string name="habits_new">نئی عادت</string>
+    <string name="habits_empty_title">ابھی کوئی عادت نہیں</string>
+    <string name="habits_empty_message">روزانہ ایک قدم سے معمولات بنائیں۔ ایک عادت بنائیں اور جس دن مقرر ہو اسے درج کریں۔</string>
+    <string name="habits_no_active_title">کوئی فعال عادت نہیں</string>
+    <string name="habits_no_active_message">آپ کی تمام عادات محفوظ شدہ ہیں۔ نیا سلسلہ شروع کرنے کے لیے نئی عادت بنائیں۔</string>
+    <string name="habits_not_scheduled_today">آج مقرر نہیں</string>
+    <string name="habits_done_today">آج مکمل</string>
+    <string name="habits_not_done_today">آج ابھی مکمل نہیں</string>
+    <string name="habits_state_archived">محفوظ شدہ</string>
+    <string name="habits_card_desc">%1$s، %2$s، %3$s</string>
+    <plurals name="habits_streak_days">
+        <item quantity="one">%1$d دن کا سلسلہ</item>
+        <item quantity="other">%1$d دن کا سلسلہ</item>
+    </plurals>
+    <string name="habits_completion_percent">%1$d%% مکمل</string>
+    <string name="habits_check_today">%1$s کو آج کے لیے درج کریں</string>
+    <string name="habits_uncheck_today">%1$s کا آج کا اندراج واپس لیں</string>
+    <plurals name="habits_archived_section">
+        <item quantity="one">محفوظ شدہ (%1$d)</item>
+        <item quantity="other">محفوظ شدہ (%1$d)</item>
+    </plurals>
+    <string name="habits_expand">بند</string>
+    <string name="habits_collapse">کھلا ہوا</string>
+    <string name="habits_schedule_daily_summary">ہر دن</string>
+    <string name="habits_schedule_weekdays_summary">ہفتے کے کام کے دن</string>
+    <string name="habits_schedule_weekends_summary">ہفتہ وار تعطیل</string>
+    <string name="habits_list_separator">"، "</string>
+
+    <string name="habits_edit_new_title">نئی عادت</string>
+    <string name="habits_edit_title">عادت میں ترمیم</string>
+    <string name="habits_field_name">عادت کا نام</string>
+    <string name="habits_field_description">تفصیل</string>
+    <string name="habits_field_schedule">ان دنوں دہرائیں</string>
+    <string name="habits_field_start">آغاز کی تاریخ</string>
+    <string name="habits_field_archive">عادت محفوظ شدہ کریں</string>
+    <string name="habits_field_archive_hint">محفوظ شدہ عادات کی تاریخ برقرار رہتی ہے مگر وہ روزانہ اندراج سے چھپ جاتی ہیں۔</string>
+    <string name="habits_preset_daily">روزانہ</string>
+    <string name="habits_preset_weekdays">کام کے دن</string>
+    <string name="habits_preset_weekends">ہفتہ وار تعطیل</string>
+    <string name="habits_preset_custom">مرضی کے مطابق</string>
+    <string name="habits_error_name_required">عادت کا نام درج کریں۔</string>
+    <string name="habits_error_schedule_required">کم از کم ایک دن منتخب کریں۔</string>
+    <string name="habits_not_found">یہ عادت اب موجود نہیں۔</string>
+    <string name="habits_delete_title">“%1$s” حذف کریں؟</string>
+    <string name="habits_delete_message">“%1$s” اور اس کی اندراج کی پوری تاریخ مستقل طور پر حذف ہو جائے گی۔ یہ عمل واپس نہیں ہو سکتا۔</string>
+    <string name="habits_delete_confirm">عادت حذف کریں</string>
+
+    <string name="habits_detail_title">عادت</string>
+    <string name="habits_check_in_today">آج کے لیے درج کریں</string>
+    <string name="habits_undo_today">آج درج ہو چکی · واپس لیں</string>
+    <string name="habits_stat_current_streak">موجودہ سلسلہ</string>
+    <string name="habits_stat_longest_streak">طویل ترین سلسلہ</string>
+    <string name="habits_stat_completion">تکمیل</string>
+    <string name="habits_stat_total_checkins">کل اندراجات</string>
+    <plurals name="habits_days_value">
+        <item quantity="one">%1$d دن</item>
+        <item quantity="other">%1$d دن</item>
+    </plurals>
+    <string name="habits_percent_value">%1$d%%</string>
+    <string name="habits_cal_previous">پچھلا مہینہ</string>
+    <string name="habits_cal_next">اگلا مہینہ</string>
+    <string name="habits_cal_done">مکمل</string>
+    <string name="habits_cal_missed">چھوٹ گیا</string>
+    <string name="habits_cal_scheduled">مقرر</string>
+    <string name="habits_cal_not_scheduled">مقرر نہیں</string>
+    <string name="habits_cal_day_desc">%1$s، %2$s</string>
+    <string name="habits_calendar_hint">آج تک کے کسی مقررہ دن پر ٹیپ کر کے اسے درج یا منسوخ کریں۔</string>
+</resources>

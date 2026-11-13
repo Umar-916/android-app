@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planning_color_label">Color</string>
+    <string name="planning_color_selected">%1$s, seleccionado</string>
+    <string name="planning_color_violet">Violeta</string>
+    <string name="planning_color_blue">Azul</string>
+    <string name="planning_color_teal">Turquesa</string>
+    <string name="planning_color_green">Verde</string>
+    <string name="planning_color_amber">Ámbar</string>
+    <string name="planning_color_orange">Naranja</string>
+    <string name="planning_color_red">Rojo</string>
+    <string name="planning_color_pink">Rosa</string>
+    <string name="planning_color_purple">Púrpura</string>
+    <string name="planning_color_slate">Gris pizarra</string>
+    <string name="planning_clear_date_named">Borrar %1$s</string>
+    <string name="planning_date_range">%1$s – %2$s</string>
+    <string name="planning_date_from">Desde %1$s</string>
+    <string name="planning_date_until">Hasta %1$s</string>
+    <string name="planning_discard_title">¿Descartar los cambios?</string>
+    <string name="planning_discard_message">Se perderán los cambios sin guardar.</string>
+
+    <string name="projects_new">Nuevo proyecto</string>
+    <string name="projects_empty_title">Aún no hay proyectos</string>
+    <string name="projects_empty_message">Agrupa tareas relacionadas en un proyecto para seguir el progreso hacia un objetivo mayor.</string>
+    <string name="projects_filter_all">Todos</string>
+    <string name="projects_filter_empty_title">No hay nada aquí</string>
+    <string name="projects_filter_empty_message">Ningún proyecto coincide con este filtro.</string>
+    <string name="projects_no_tasks">Aún no hay tareas</string>
+    <plurals name="projects_tasks_progress">
+        <item quantity="one">%1$d de %2$d tarea completada</item>
+        <item quantity="many">%1$d de %2$d tareas completadas</item>
+        <item quantity="other">%1$d de %2$d tareas completadas</item>
+    </plurals>
+
+    <string name="projects_detail_title">Proyecto</string>
+    <string name="projects_not_found">Este proyecto ya no existe.</string>
+    <string name="projects_restore">Restaurar proyecto</string>
+    <string name="projects_mark_completed">Marcar como completado</string>
+    <string name="projects_mark_active">Marcar como activo</string>
+    <string name="projects_percent">%1$d%%</string>
+    <string name="projects_progress_desc">%1$d por ciento completado</string>
+    <string name="projects_stat_total">Tareas en total</string>
+    <string name="projects_stat_completed">Completadas</string>
+    <string name="projects_stat_in_progress">En curso</string>
+    <string name="projects_stat_todo">Por hacer</string>
+    <string name="projects_stat_overdue">Vencidas</string>
+    <string name="projects_tasks_section">Tareas</string>
+    <string name="projects_add_task">Añadir tarea</string>
+    <string name="projects_tasks_empty_title">No hay tareas en este proyecto</string>
+    <string name="projects_tasks_empty_message">Añade una tarea para empezar a seguir el progreso.</string>
+    <string name="projects_task_due">Vence el %1$s</string>
+    <string name="projects_task_overdue">Vencida · %1$s</string>
+    <string name="projects_task_mark_done">Marcar %1$s como hecha</string>
+    <string name="projects_task_mark_open">Marcar %1$s como no hecha</string>
+
+    <string name="projects_delete_title">¿Eliminar «%1$s»?</string>
+    <string name="projects_delete_simple_message">«%1$s» se eliminará. Esta acción no se puede deshacer.</string>
+    <string name="projects_delete_confirm">Eliminar proyecto</string>
+    <plurals name="projects_delete_linked">
+        <item quantity="one">«%1$s» tiene %2$d tarea vinculada. ¿Qué quieres hacer con ella?</item>
+        <item quantity="many">«%1$s» tiene %2$d tareas vinculadas. ¿Qué quieres hacer con ellas?</item>
+        <item quantity="other">«%1$s» tiene %2$d tareas vinculadas. ¿Qué quieres hacer con ellas?</item>
+    </plurals>
+    <string name="projects_delete_keep">Conservar las tareas</string>
+    <string name="projects_delete_keep_hint">Permanecen en tu lista de tareas sin proyecto.</string>
+    <plurals name="projects_delete_all">
+        <item quantity="one">Eliminar el proyecto y su %1$d tarea</item>
+        <item quantity="many">Eliminar el proyecto y sus %1$d tareas</item>
+        <item quantity="other">Eliminar el proyecto y sus %1$d tareas</item>
+    </plurals>
+
+    <string name="projects_edit_new_title">Nuevo proyecto</string>
+    <string name="projects_edit_title">Editar proyecto</string>
+    <string name="projects_field_name">Nombre</string>
+    <string name="projects_field_description">Descripción</string>
+    <string name="projects_field_start">Fecha de inicio</string>
+    <string name="projects_field_end">Fecha de fin</string>
+    <string name="projects_field_status">Estado</string>
+    <string name="projects_error_name_required">Introduce un nombre para el proyecto.</string>
+    <string name="projects_error_end_before_start">La fecha de fin debe ser igual o posterior a la de inicio.</string>
+</resources>

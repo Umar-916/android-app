@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Einstellungen</string>
+    <string name="settings_group_preferences">Präferenzen</string>
+    <string name="settings_group_support">Support &amp; Feedback</string>
+    <string name="settings_group_data">Daten &amp; Datenschutz</string>
+    <string name="settings_group_about">Info</string>
+    <string name="settings_language">App-Sprache</string>
+    <string name="settings_theme">App-Design</string>
+    <string name="settings_theme_system">Systemstandard</string>
+    <string name="settings_theme_light">Hell</string>
+    <string name="settings_theme_dark">Dunkel</string>
+    <string name="settings_theme_dialog_title">Design wählen</string>
+    <string name="settings_apply">Anwenden</string>
+    <string name="settings_reminders">Aufgabenerinnerungen</string>
+    <string name="settings_reminders_desc">Benachrichtigung erhalten, wenn eine Aufgabe mit Erinnerung fällig ist.</string>
+    <string name="settings_notif_allowed">Benachrichtigungen sind auf diesem Gerät erlaubt.</string>
+    <string name="settings_notif_blocked">Benachrichtigungen sind für ORBIT blockiert, daher können keine Erinnerungen erscheinen.</string>
+    <string name="settings_notif_denied_explain">Die Berechtigung wurde nicht erteilt. Sie können Benachrichtigungen in den Systemeinstellungen erlauben.</string>
+    <string name="settings_notif_open">Benachrichtigungseinstellungen öffnen</string>
+    <string name="settings_reminders_note">Erinnerungen sind ungefähr pünktlich und können durch Energiesparmodus oder andere Energieeinstellungen verzögert werden.</string>
+    <string name="settings_rate">App bewerten</string>
+    <string name="settings_feedback">Feedback</string>
+    <string name="settings_share">App teilen</string>
+    <string name="settings_customize_dashboard">Dashboard anpassen</string>
+    <string name="settings_customize_dashboard_desc">Wählen Sie, welche Karten auf dem Start erscheinen</string>
+    <string name="settings_backup">Sicherung und Wiederherstellung</string>
+    <string name="settings_backup_desc">Daten exportieren oder wiederherstellen</string>
+    <string name="settings_privacy">Datenschutzerklärung</string>
+    <string name="settings_privacy_desc">Wie Ihre Daten behandelt werden</string>
+    <string name="settings_replay">Einführung wiederholen</string>
+    <string name="settings_replay_desc">Die Willkommenstour erneut ansehen</string>
+    <string name="settings_about">Über ORBIT</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="rate_title">Gefällt Ihnen ORBIT?</string>
+    <string name="rate_tagline">Ihre Bewertung hilft uns zu wachsen</string>
+    <string name="rate_description">Wenn ORBIT Ihnen beim Organisieren hilft, bedeutet eine kurze Bewertung im Play Store unserem kleinen Team sehr viel.</string>
+    <string name="rate_hint_none">Tippen Sie auf einen Stern</string>
+    <string name="rate_hint_low">Danke für Ihre Ehrlichkeit</string>
+    <string name="rate_hint_high">Danke! Sie haben uns den Tag versüßt</string>
+    <string name="rate_submit">Senden</string>
+    <string name="rate_low_title">Danke für Ihr Feedback</string>
+    <string name="rate_low_message">Es tut uns leid, dass ORBIT Ihre Erwartungen nicht ganz erfüllt hat. Wir arbeiten weiter daran, es zu verbessern.</string>
+    <string name="rate_low_message_feedback">Es tut uns leid, dass ORBIT Ihre Erwartungen nicht ganz erfüllt hat. Sagen Sie uns, was wir verbessern sollen, und wir kümmern uns darum.</string>
+    <string name="rate_improve">Verbesserungsvorschlag senden</string>
+    <plurals name="rate_star_count">
+        <item quantity="one">%1$d Stern</item>
+        <item quantity="other">%1$d Sterne</item>
+    </plurals>
+    <string name="rate_reaction_1">😞 Wir würden uns gern verbessern</string>
+    <string name="rate_reaction_2">😕 Wir würden uns gern verbessern</string>
+    <string name="rate_reaction_3">😐 Wir würden uns gern verbessern</string>
+    <string name="rate_reaction_4">😊 Danke!</string>
+    <string name="rate_reaction_5">🤩 Danke! Sie haben uns den Tag versüßt</string>
+</resources>

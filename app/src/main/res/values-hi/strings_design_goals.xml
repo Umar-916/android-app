@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goals_of_target">/ %1$s</string>
+    <string name="goals_of_target_unit">/ %1$s %2$s</string>
+    <string name="goals_progress_desc">%1$d प्रतिशत पूर्ण</string>
+    <string name="goals_hero_none_active">कोई लक्ष्य जारी नहीं</string>
+    <plurals name="goals_hero_active">
+        <item quantity="one">%1$d लक्ष्य जारी</item>
+        <item quantity="other">%1$d लक्ष्य जारी</item>
+    </plurals>
+    <plurals name="goals_hero_completed">
+        <item quantity="one">%1$d लक्ष्य पूर्ण</item>
+        <item quantity="other">%1$d लक्ष्य पूर्ण</item>
+    </plurals>
+    <string name="goals_preview_label">नया कुल</string>
+    <string name="goals_preview_completes">इससे आपका लक्ष्य पूरा हो जाएगा।</string>
+    <string name="goals_section_details">विवरण</string>
+    <string name="goals_section_target">लक्ष्य और प्रगति</string>
+    <string name="goals_section_dates">तिथियाँ</string>
+</resources>

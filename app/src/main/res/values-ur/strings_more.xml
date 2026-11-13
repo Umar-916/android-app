@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="more_title">مزید</string>
+    <string name="more_section_organize">انتظام</string>
+    <string name="more_section_app">ایپ اور ڈیٹا</string>
+    <string name="more_notes_title">نوٹس</string>
+    <string name="more_notes_desc">فوری نوٹس اور فولڈرز</string>
+    <string name="more_habits_title">عادات</string>
+    <string name="more_habits_desc">روزمرہ معمولات بنائیں</string>
+    <string name="more_goals_title">اہداف</string>
+    <string name="more_goals_desc">اپنے مقاصد کی پیش رفت دیکھیں</string>
+    <string name="more_analytics_title">تجزیات</string>
+    <string name="more_analytics_desc">وقت کے ساتھ اپنی پیش رفت دیکھیں</string>
+    <string name="more_search_title">تلاش</string>
+    <string name="more_search_desc">ORBIT میں کچھ بھی تلاش کریں</string>
+    <string name="more_settings_title">ترتیبات</string>
+    <string name="more_settings_desc">زبان، تھیم اور یاد دہانیاں</string>
+    <string name="more_backup_title">بیک اپ اور بحالی</string>
+    <string name="more_backup_desc">اپنا ڈیٹا ایکسپورٹ یا بحال کریں</string>
+    <string name="more_privacy_title">رازداری</string>
+    <string name="more_privacy_desc">آپ کا ڈیٹا کیسے سنبھالا جاتا ہے</string>
+</resources>

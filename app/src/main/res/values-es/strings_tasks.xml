@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasks_search_hint">Buscar tareas</string>
+    <string name="tasks_view_all">Todas</string>
+    <string name="tasks_view_today">Hoy</string>
+    <string name="tasks_view_upcoming">Próximas</string>
+    <string name="tasks_view_overdue">Vencidas</string>
+    <string name="tasks_view_completed">Completadas</string>
+    <string name="tasks_view_archived">Archivadas</string>
+    <string name="tasks_view_with_count">%1$s (%2$d)</string>
+    <string name="tasks_new">Nueva tarea</string>
+    <string name="tasks_sort_action">Ordenar tareas</string>
+    <string name="tasks_sort_due">Fecha de vencimiento</string>
+    <string name="tasks_sort_priority">Prioridad</string>
+    <string name="tasks_sort_created">Fecha de creación</string>
+    <string name="tasks_sort_title">Título (A a Z)</string>
+    <string name="tasks_sort_reverse">Invertir orden</string>
+    <plurals name="tasks_count">
+        <item quantity="one">%d tarea</item>
+        <item quantity="other">%d tareas</item>
+    </plurals>
+
+    <string name="tasks_filter_action">Filtrar tareas</string>
+    <string name="tasks_filter_title">Filtrar tareas</string>
+    <string name="tasks_filters_clear">Borrar filtros</string>
+    <plurals name="tasks_filters_active">
+        <item quantity="one">%d filtro activo</item>
+        <item quantity="other">%d filtros activos</item>
+    </plurals>
+    <string name="tasks_filter_date">Fecha de vencimiento</string>
+    <string name="tasks_filter_date_any">Cualquier fecha</string>
+    <string name="tasks_filter_date_today">Hoy</string>
+    <string name="tasks_filter_date_next7">Próximos 7 días</string>
+    <string name="tasks_filter_date_month">Este mes</string>
+    <string name="tasks_filter_date_none">Sin fecha</string>
+    <string name="tasks_filter_date_custom">Rango personalizado</string>
+    <string name="tasks_filter_date_range">%1$s – %2$s</string>
+    <string name="tasks_filter_priority">Prioridad</string>
+    <string name="tasks_filter_status">Estado</string>
+    <string name="tasks_filter_project">Proyecto</string>
+    <string name="tasks_filter_project_any">Cualquier proyecto</string>
+    <string name="tasks_filter_project_none">Sin proyecto</string>
+
+    <string name="tasks_due_today">Hoy</string>
+    <string name="tasks_due_tomorrow">Mañana</string>
+    <string name="tasks_due_yesterday">Ayer</string>
+    <string name="tasks_due_at">%1$s, %2$s</string>
+    <string name="tasks_overdue_label">Vencida: %1$s</string>
+    <string name="tasks_subtasks_progress">%1$d/%2$d</string>
+    <string name="tasks_row_menu">Acciones para %1$s</string>
+    <string name="tasks_menu_in_progress">Marcar en curso</string>
+    <string name="tasks_menu_reopen">Reabrir</string>
+    <string name="tasks_a11y_due">vence %1$s</string>
+    <string name="tasks_a11y_priority">prioridad %1$s</string>
+    <string name="tasks_a11y_subtasks">%1$d de %2$d subtareas</string>
+    <string name="tasks_a11y_recurring">se repite</string>
+    <string name="tasks_reminder_info">Recordatorio: %1$s</string>
+
+    <string name="tasks_deleted">Tarea eliminada</string>
+    <string name="tasks_archived_msg">Tarea archivada</string>
+    <string name="tasks_error_load">No pudimos cargar tus tareas.</string>
+    <string name="tasks_delete_recurring_title">¿Eliminar tarea recurrente?</string>
+    <string name="tasks_delete_recurring_message">“%1$s” se repite. Al eliminarla también se detiene la serie, porque la siguiente repetición solo se crea al completar esta.</string>
+    <string name="tasks_delete_confirm">Eliminar tarea</string>
+
+    <string name="tasks_empty_all_title">Aún no hay tareas</string>
+    <string name="tasks_empty_all_message">Anota lo que tienes que hacer y ORBIT lo mantendrá organizado.</string>
+    <string name="tasks_empty_today_title">Nada vence hoy</string>
+    <string name="tasks_empty_today_message">Disfruta del tiempo libre o planifica algo nuevo.</string>
+    <string name="tasks_empty_today_action">Añadir una tarea para hoy</string>
+    <string name="tasks_empty_upcoming_title">Nada próximo</string>
+    <string name="tasks_empty_upcoming_message">Las tareas con una fecha futura aparecerán aquí.</string>
+    <string name="tasks_empty_overdue_title">Estás al día</string>
+    <string name="tasks_empty_overdue_message">Ninguna tarea ha superado su fecha de vencimiento.</string>
+    <string name="tasks_empty_completed_title">Aún no hay tareas completadas</string>
+    <string name="tasks_empty_completed_message">Las tareas que termines aparecerán aquí.</string>
+    <string name="tasks_empty_archived_title">El archivo está vacío</string>
+    <string name="tasks_empty_archived_message">Las tareas archivadas se guardan aquí, fuera de tu camino.</string>
+    <string name="tasks_empty_filtered_title">Ninguna tarea coincide</string>
+    <string name="tasks_empty_filtered_message">Prueba otra búsqueda o borra los filtros.</string>
+
+    <string name="tasks_edit_new_title">Nueva tarea</string>
+    <string name="tasks_edit_title">Editar tarea</string>
+    <string name="tasks_field_title">Título</string>
+    <string name="tasks_field_description">Descripción (opcional)</string>
+    <string name="tasks_error_title_required">Escribe un título para esta tarea</string>
+    <string name="tasks_error_title_long">El título puede tener hasta %1$d caracteres</string>
+    <string name="tasks_title_counter">%1$d/%2$d</string>
+    <string name="tasks_field_priority">Prioridad</string>
+    <string name="tasks_field_status">Estado</string>
+    <string name="tasks_section_schedule">Programación</string>
+    <string name="tasks_field_due_date">Fecha de vencimiento</string>
+    <string name="tasks_field_due_time">Hora de vencimiento</string>
+    <string name="tasks_not_set">Sin definir</string>
+    <string name="tasks_clear_date">Quitar fecha de vencimiento</string>
+    <string name="tasks_clear_time">Quitar hora de vencimiento</string>
+    <string name="tasks_pick_time">Seleccionar hora</string>
+    <string name="tasks_field_reminder">Recordatorio</string>
+    <string name="tasks_reminder_none">Ninguno</string>
+    <string name="tasks_reminder_at_due">A la hora de vencimiento</string>
+    <string name="tasks_reminder_10m">10 minutos antes</string>
+    <string name="tasks_reminder_30m">30 minutos antes</string>
+    <string name="tasks_reminder_1h">1 hora antes</string>
+    <string name="tasks_reminder_1d">1 día antes</string>
+    <string name="tasks_reminder_custom">%1$d minutos antes</string>
+    <string name="tasks_reminder_needs_date">Define una fecha de vencimiento para añadir un recordatorio.</string>
+    <string name="tasks_reminder_note">Los recordatorios se entregan aproximadamente a tiempo y la optimización de batería puede retrasarlos.</string>
+    <string name="tasks_notif_denied">Las notificaciones están desactivadas para ORBIT, así que este recordatorio no aparecerá hasta que las permitas en los ajustes del sistema.</string>
+    <string name="tasks_field_project">Proyecto</string>
+    <string name="tasks_project_none">Sin proyecto</string>
+
+    <string name="tasks_section_subtasks">Subtareas</string>
+    <string name="tasks_subtasks_empty">Divide la tarea en pasos más pequeños.</string>
+    <string name="tasks_subtask_hint">Añadir una subtarea</string>
+    <string name="tasks_subtask_add">Añadir subtarea</string>
+    <string name="tasks_subtask_delete">Eliminar subtarea: %1$s</string>
+    <string name="tasks_subtask_move_up">Subir: %1$s</string>
+    <string name="tasks_subtask_move_down">Bajar: %1$s</string>
+
+    <string name="tasks_section_repeat">Repetición</string>
+    <string name="tasks_repeat_none">Nunca</string>
+    <string name="tasks_repeat_daily">Diaria</string>
+    <string name="tasks_repeat_weekly">Semanal</string>
+    <string name="tasks_repeat_monthly">Mensual</string>
+    <string name="tasks_repeat_yearly">Anual</string>
+    <string name="tasks_repeat_needs_date">Las tareas recurrentes necesitan una fecha de vencimiento. Si no hay ninguna, se usa hoy.</string>
+    <string name="tasks_repeat_interval_label">Cada</string>
+    <string name="tasks_repeat_weekdays">Repetir el</string>
+    <string name="tasks_repeat_ends">Termina</string>
+    <string name="tasks_repeat_never">Nunca</string>
+    <string name="tasks_repeat_clear_end">Quitar fecha de fin</string>
+    <string name="tasks_repeat_occurrence_hint">Los cambios se aplican a esta repetición y a las futuras generadas a partir de ella.</string>
+    <string name="tasks_summary_until">%1$s, hasta el %2$s</string>
+    <plurals name="tasks_unit_day">
+        <item quantity="one">día</item>
+        <item quantity="other">días</item>
+    </plurals>
+    <plurals name="tasks_unit_week">
+        <item quantity="one">semana</item>
+        <item quantity="other">semanas</item>
+    </plurals>
+    <plurals name="tasks_unit_month">
+        <item quantity="one">mes</item>
+        <item quantity="other">meses</item>
+    </plurals>
+    <plurals name="tasks_unit_year">
+        <item quantity="one">año</item>
+        <item quantity="other">años</item>
+    </plurals>
+    <plurals name="tasks_summary_daily">
+        <item quantity="one">Se repite cada día</item>
+        <item quantity="other">Se repite cada %1$d días</item>
+    </plurals>
+    <plurals name="tasks_summary_weekly">
+        <item quantity="one">Se repite cada semana</item>
+        <item quantity="other">Se repite cada %1$d semanas</item>
+    </plurals>
+    <plurals name="tasks_summary_weekly_on">
+        <item quantity="one">Se repite cada semana: %2$s</item>
+        <item quantity="other">Se repite cada %1$d semanas: %2$s</item>
+    </plurals>
+    <plurals name="tasks_summary_monthly">
+        <item quantity="one">Se repite cada mes</item>
+        <item quantity="other">Se repite cada %1$d meses</item>
+    </plurals>
+    <plurals name="tasks_summary_yearly">
+        <item quantity="one">Se repite cada año</item>
+        <item quantity="other">Se repite cada %1$d años</item>
+    </plurals>
+
+    <string name="tasks_discard_title">¿Descartar cambios?</string>
+    <string name="tasks_discard_message">Tienes cambios sin guardar en esta tarea.</string>
+    <string name="tasks_delete_title">¿Eliminar tarea?</string>
+    <string name="tasks_delete_message">“%1$s” se eliminará de forma permanente.</string>
+    <string name="tasks_not_found">Esta tarea ya no existe.</string>
+    <string name="tasks_error_duplicate">Ya existe una repetición de esta tarea recurrente en esa fecha.</string>
+    <string name="tasks_error_save">No pudimos guardar la tarea. Inténtalo de nuevo.</string>
+</resources>

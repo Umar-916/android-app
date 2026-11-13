@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feedback_title">Обратная связь</string>
+    <string name="feedback_tab_issues">Проблемы</string>
+    <string name="feedback_tab_suggestions">Предложения</string>
+    <string name="feedback_describe_issue">Опишите проблему</string>
+    <string name="feedback_describe_idea">Поделитесь идеей</string>
+    <string name="feedback_hint">Расскажите своими словами…</string>
+    <string name="feedback_counter">%1$d/%2$d</string>
+    <string name="feedback_select_label">Выберите пункт</string>
+    <string name="feedback_select_hint">Выберите не более %1$d тем</string>
+    <string name="feedback_limit_reached">Можно выбрать не более %1$d тем.</string>
+    <string name="feedback_submit">Отправить отзыв</string>
+    <string name="feedback_no_mail_app">На устройстве не найдено почтовое приложение. Установите его, чтобы отправить отзыв.</string>
+    <string name="feedback_privacy_note">Отправляются только ваше сообщение, выбранные темы и базовые сведения о приложении и устройстве. Ваши задачи и заметки никогда не передаются.</string>
+    <string name="feedback_unavailable_title">Обратная связь недоступна</string>
+    <string name="feedback_unavailable_message">Для этой версии ORBIT обратная связь пока не настроена.</string>
+
+    <string name="feedback_subject_issue">Сообщение о проблеме в ORBIT</string>
+    <string name="feedback_subject_suggestion">Предложение для ORBIT</string>
+    <string name="feedback_body_topics">Темы: %1$s</string>
+    <string name="feedback_body_app">Версия приложения: %1$s</string>
+    <string name="feedback_body_android">Версия Android: %1$s</string>
+    <string name="feedback_body_device">Устройство: %1$s</string>
+
+    <string name="feedback_issue_crash">Сбои приложения</string>
+    <string name="feedback_issue_reminders">Напоминания</string>
+    <string name="feedback_issue_notes">Заметки</string>
+    <string name="feedback_issue_tasks">Задачи</string>
+    <string name="feedback_issue_calendar">Календарь</string>
+    <string name="feedback_issue_backup">Резервные копии</string>
+    <string name="feedback_issue_language">Язык</string>
+    <string name="feedback_item_other">Другое</string>
+    <string name="feedback_idea_feature">Новая функция</string>
+    <string name="feedback_idea_design">Дизайн</string>
+    <string name="feedback_idea_reminders">Напоминания</string>
+    <string name="feedback_idea_tasks">Задачи</string>
+    <string name="feedback_idea_notes">Заметки</string>
+    <string name="feedback_idea_habits">Привычки и цели</string>
+    <string name="feedback_idea_themes">Темы</string>
+</resources>

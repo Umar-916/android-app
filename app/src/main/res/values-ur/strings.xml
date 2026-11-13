@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">آپ کی زندگی۔ آپ کا کام۔ ایک منظم جگہ۔</string>
+
+    <string name="nav_home">ہوم</string>
+    <string name="nav_tasks">کام</string>
+    <string name="nav_projects">پراجیکٹس</string>
+    <string name="nav_calendar">کیلنڈر</string>
+    <string name="nav_more">مزید</string>
+
+    <string name="action_back">واپس جائیں</string>
+    <string name="action_save">محفوظ کریں</string>
+    <string name="action_cancel">منسوخ کریں</string>
+    <string name="action_delete">حذف کریں</string>
+    <string name="action_edit">ترمیم کریں</string>
+    <string name="action_add">شامل کریں</string>
+    <string name="action_done">مکمل</string>
+    <string name="action_close">بند کریں</string>
+    <string name="action_search">تلاش کریں</string>
+    <string name="action_undo">واپس کریں</string>
+    <string name="action_archive">آرکائیو کریں</string>
+    <string name="action_unarchive">بحال کریں</string>
+    <string name="action_retry">دوبارہ کوشش کریں</string>
+    <string name="action_continue">جاری رکھیں</string>
+    <string name="action_skip">چھوڑیں</string>
+    <string name="action_next">آگے</string>
+    <string name="action_clear">صاف کریں</string>
+    <string name="action_more_options">مزید اختیارات</string>
+    <string name="action_discard">رد کریں</string>
+    <string name="action_keep_editing">ترمیم جاری رکھیں</string>
+
+    <string name="share_app_text">%1$s – ٹاسک، نوٹس، عادات اور اہداف کا نجی آف لائن پلانر: %2$s</string>
+    <string name="share_app_chooser">اس کے ذریعے شیئر کریں</string>
+    <string name="error_cannot_open_link">لنک نہیں کھل سکا</string>
+    <string name="exit_title">ORBIT سے باہر نکلیں؟</string>
+    <string name="exit_message">آپ کے ٹاسک، نوٹس اور عادات اس ڈیوائس پر محفوظ ہیں۔</string>
+    <string name="exit_confirm">ایپ بند کریں</string>
+    <string name="exit_stay">رکیں</string>
+    <string name="state_loading">لوڈ ہو رہا ہے…</string>
+    <string name="error_generic">کچھ غلط ہو گیا۔ آپ کا ڈیٹا محفوظ ہے — براہ کرم دوبارہ کوشش کریں۔</string>
+
+    <string name="priority_low">کم</string>
+    <string name="priority_medium">درمیانی</string>
+    <string name="priority_high">زیادہ</string>
+    <string name="priority_urgent">فوری</string>
+    <string name="status_todo">کرنا ہے</string>
+    <string name="status_in_progress">جاری ہے</string>
+    <string name="status_completed">مکمل</string>
+    <string name="status_archived">آرکائیو شدہ</string>
+    <string name="status_active">فعال</string>
+    <string name="status_on_hold">رکا ہوا</string>
+
+    <string name="weekday_mon">پیر</string>
+    <string name="weekday_tue">منگل</string>
+    <string name="weekday_wed">بدھ</string>
+    <string name="weekday_thu">جمعرات</string>
+    <string name="weekday_fri">جمعہ</string>
+    <string name="weekday_sat">ہفتہ</string>
+    <string name="weekday_sun">اتوار</string>
+
+    <string name="notif_channel_reminders">کاموں کی یاد دہانیاں</string>
+    <string name="notif_channel_reminders_desc">مقررہ تاریخ والے کاموں کی یاد دہانیاں</string>
+    <string name="notif_due_today">آج مکمل کرنا ہے</string>
+    <string name="notif_due_at">%1$s پر مکمل کرنا ہے</string>
+    <string name="notif_action_done">مکمل کریں</string>
+    <string name="notif_action_snooze">10 منٹ بعد یاد دلائیں</string>
+</resources>

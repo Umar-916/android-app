@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="habits_hero_title">Aujourd\'hui</string>
+    <string name="habits_hero_none">Rien de prévu aujourd\'hui</string>
+    <string name="habits_hero_all_done">Tout est fait pour aujourd\'hui</string>
+    <string name="habits_hero_progress">%1$d sur %2$d terminées</string>
+    <string name="habits_section_details">Détails</string>
+    <string name="habits_section_appearance">Apparence</string>
+    <string name="habits_section_schedule">Planning</string>
+    <string name="habits_section_status">Statut</string>
+</resources>

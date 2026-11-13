@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="more_title">Daha fazla</string>
+    <string name="more_section_organize">Düzenle</string>
+    <string name="more_section_app">Uygulama ve veriler</string>
+    <string name="more_notes_title">Notlar</string>
+    <string name="more_notes_desc">Hızlı notlar ve klasörler</string>
+    <string name="more_habits_title">Alışkanlıklar</string>
+    <string name="more_habits_desc">Günlük rutinler oluşturun</string>
+    <string name="more_goals_title">Hedefler</string>
+    <string name="more_goals_desc">Ulaşmak istediklerinizi takip edin</string>
+    <string name="more_analytics_title">Analizler</string>
+    <string name="more_analytics_desc">İlerlemenizi zaman içinde görün</string>
+    <string name="more_search_title">Ara</string>
+    <string name="more_search_desc">ORBIT\'te her şeyi bulun</string>
+    <string name="more_settings_title">Ayarlar</string>
+    <string name="more_settings_desc">Dil, tema ve hatırlatıcılar</string>
+    <string name="more_backup_title">Yedekleme ve geri yükleme</string>
+    <string name="more_backup_desc">Verilerinizi dışa aktarın veya geri yükleyin</string>
+    <string name="more_privacy_title">Gizlilik</string>
+    <string name="more_privacy_desc">Verileriniz nasıl ele alınır</string>
+</resources>

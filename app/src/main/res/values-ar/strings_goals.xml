@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goals_title">الأهداف</string>
+    <string name="goals_new">هدف جديد</string>
+    <string name="goals_empty_title">لا توجد أهداف بعد</string>
+    <string name="goals_empty_message">حدد هدفًا قابلًا للقياس، مثل عدد الكتب التي تقرؤها أو الكيلومترات التي تركضها، وتابع تقدمك نحوه.</string>
+    <string name="goals_section_in_progress">قيد التنفيذ</string>
+    <string name="goals_section_in_progress_empty">لا توجد أهداف قيد التنفيذ.</string>
+    <string name="goals_section_completed">مكتملة</string>
+    <plurals name="goals_show_archived">
+        <item quantity="zero">عرض المؤرشفة (%1$d)</item>
+        <item quantity="one">عرض المؤرشفة (%1$d)</item>
+        <item quantity="two">عرض المؤرشفة (%1$d)</item>
+        <item quantity="few">عرض المؤرشفة (%1$d)</item>
+        <item quantity="many">عرض المؤرشفة (%1$d)</item>
+        <item quantity="other">عرض المؤرشفة (%1$d)</item>
+    </plurals>
+    <plurals name="goals_hide_archived">
+        <item quantity="zero">إخفاء المؤرشفة (%1$d)</item>
+        <item quantity="one">إخفاء المؤرشفة (%1$d)</item>
+        <item quantity="two">إخفاء المؤرشفة (%1$d)</item>
+        <item quantity="few">إخفاء المؤرشفة (%1$d)</item>
+        <item quantity="many">إخفاء المؤرشفة (%1$d)</item>
+        <item quantity="other">إخفاء المؤرشفة (%1$d)</item>
+    </plurals>
+    <string name="goals_percent">%1$d%%</string>
+    <plurals name="goals_days_left">
+        <item quantity="zero">متبقٍ %1$d يوم</item>
+        <item quantity="one">متبقٍ %1$d يوم</item>
+        <item quantity="two">متبقٍ %1$d يومان</item>
+        <item quantity="few">متبقٍ %1$d أيام</item>
+        <item quantity="many">متبقٍ %1$d يومًا</item>
+        <item quantity="other">متبقٍ %1$d يوم</item>
+    </plurals>
+    <string name="goals_due_today">مستحق اليوم</string>
+    <plurals name="goals_overdue_days">
+        <item quantity="zero">متأخر بمقدار %1$d يوم</item>
+        <item quantity="one">متأخر بمقدار %1$d يوم</item>
+        <item quantity="two">متأخر بمقدار %1$d يومين</item>
+        <item quantity="few">متأخر بمقدار %1$d أيام</item>
+        <item quantity="many">متأخر بمقدار %1$d يومًا</item>
+        <item quantity="other">متأخر بمقدار %1$d يوم</item>
+    </plurals>
+    <string name="goals_update_progress">تحديث التقدم</string>
+    <string name="goals_celebrate">تم بلوغ الهدف. أحسنت!</string>
+    <string name="goals_update_progress_title">تحديث “%1$s”</string>
+    <string name="goals_mode_set">تعيين قيمة</string>
+    <string name="goals_mode_add">إضافة كمية</string>
+    <string name="goals_field_new_value">القيمة الجديدة</string>
+    <string name="goals_field_increment">الكمية المراد إضافتها</string>
+    <string name="goals_update_confirm">تحديث</string>
+    <string name="goals_error_number_empty">أدخل رقمًا.</string>
+    <string name="goals_error_number_invalid">أدخل رقمًا صالحًا، مثل 12 أو 12.5.</string>
+    <string name="goals_error_number_negative">لا يمكن أن تكون القيمة سالبة.</string>
+    <string name="goals_error_number_zero">يجب أن تكون القيمة أكبر من صفر.</string>
+    <string name="goals_error_number_too_large">هذا الرقم كبير جدًا.</string>
+    <string name="goals_edit_new_title">هدف جديد</string>
+    <string name="goals_edit_title">تعديل الهدف</string>
+    <string name="goals_field_title">الهدف</string>
+    <string name="goals_field_description">الوصف</string>
+    <string name="goals_field_target">القيمة المستهدفة</string>
+    <string name="goals_field_current">القيمة الحالية</string>
+    <string name="goals_field_unit">الوحدة (اختياري)</string>
+    <string name="goals_field_unit_hint">مثل كتب أو كم أو صفحات</string>
+    <string name="goals_field_start">تاريخ البدء</string>
+    <string name="goals_field_target_date">التاريخ المستهدف</string>
+    <string name="goals_field_status">الحالة</string>
+    <string name="goals_error_title_required">أدخل عنوان الهدف.</string>
+    <string name="goals_error_target_before_start">يجب ألا يسبق التاريخ المستهدف تاريخ البدء.</string>
+    <string name="goals_not_found">هذا الهدف لم يعد موجودًا.</string>
+    <string name="goals_delete_title">حذف “%1$s”؟</string>
+    <string name="goals_delete_message">سيتم حذف “%1$s” نهائيًا. لا يمكن التراجع عن ذلك.</string>
+    <string name="goals_delete_confirm">حذف الهدف</string>
+</resources>

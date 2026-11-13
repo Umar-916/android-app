@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="more_title">More</string>
+    <string name="more_section_organize">Organize</string>
+    <string name="more_section_app">App and data</string>
+    <string name="more_notes_title">Notes</string>
+    <string name="more_notes_desc">Quick notes and folders</string>
+    <string name="more_habits_title">Habits</string>
+    <string name="more_habits_desc">Build daily routines</string>
+    <string name="more_goals_title">Goals</string>
+    <string name="more_goals_desc">Track what you are aiming for</string>
+    <string name="more_analytics_title">Analytics</string>
+    <string name="more_analytics_desc">See your progress over time</string>
+    <string name="more_search_title">Search</string>
+    <string name="more_search_desc">Find anything in ORBIT</string>
+    <string name="more_settings_title">Settings</string>
+    <string name="more_settings_desc">Language, theme and reminders</string>
+    <string name="more_backup_title">Backup and restore</string>
+    <string name="more_backup_desc">Export or restore your data</string>
+    <string name="more_privacy_title">Privacy</string>
+    <string name="more_privacy_desc">How your data is handled</string>
+</resources>

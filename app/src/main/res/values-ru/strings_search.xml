@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_hint">Задачи, проекты, заметки, привычки, цели</string>
+    <string name="search_idle_title">Поиск по всему</string>
+    <string name="search_idle_message">Начните вводить, чтобы найти задачи, проекты, заметки, привычки и цели в одном месте.</string>
+    <string name="search_empty_title">Ничего не найдено</string>
+    <string name="search_empty_message">Нет совпадений для \"%1$s\". Попробуйте другое слово.</string>
+    <string name="search_untitled_note">Заметка без названия</string>
+    <string name="search_goal_percent">Выполнено: %1$d%%</string>
+    <plurals name="search_section_tasks">
+        <item quantity="one">Задачи (%1$d)</item>
+        <item quantity="few">Задачи (%1$d)</item>
+        <item quantity="many">Задачи (%1$d)</item>
+        <item quantity="other">Задачи (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_projects">
+        <item quantity="one">Проекты (%1$d)</item>
+        <item quantity="few">Проекты (%1$d)</item>
+        <item quantity="many">Проекты (%1$d)</item>
+        <item quantity="other">Проекты (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_notes">
+        <item quantity="one">Заметки (%1$d)</item>
+        <item quantity="few">Заметки (%1$d)</item>
+        <item quantity="many">Заметки (%1$d)</item>
+        <item quantity="other">Заметки (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_habits">
+        <item quantity="one">Привычки (%1$d)</item>
+        <item quantity="few">Привычки (%1$d)</item>
+        <item quantity="many">Привычки (%1$d)</item>
+        <item quantity="other">Привычки (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_goals">
+        <item quantity="one">Цели (%1$d)</item>
+        <item quantity="few">Цели (%1$d)</item>
+        <item quantity="many">Цели (%1$d)</item>
+        <item quantity="other">Цели (%1$d)</item>
+    </plurals>
+</resources>

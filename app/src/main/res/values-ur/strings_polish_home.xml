@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_search_hint_tasks">ٹاسک تلاش کریں…</string>
+    <string name="home_search_hint_notes">نوٹس تلاش کریں…</string>
+    <string name="home_search_hint_projects">پروجیکٹس تلاش کریں…</string>
+    <string name="search_try_title">یہ تلاش کر کے دیکھیں…</string>
+    <string name="search_suggestion_desc">%1$s تلاش کریں</string>
+    <string name="search_edu_title">سیکنڈوں میں کچھ بھی تلاش کریں</string>
+    <string name="search_edu_message">جب آپ ٹاسک، نوٹس یا پروجیکٹس شامل کریں گے تو وہ یہاں فوری تجاویز کے طور پر نظر آئیں گے۔ تلاش پورے ORBIT میں عنوانات اور تفصیلات دیکھتی ہے۔</string>
+    <string name="search_empty_tip">ہجے چیک کریں یا کم الفاظ آزما کر دیکھیں۔</string>
+    <string name="more_projects_title">پروجیکٹس</string>
+    <string name="more_projects_desc">ٹاسکس کو مقصد کے مطابق گروپ کریں</string>
+</resources>

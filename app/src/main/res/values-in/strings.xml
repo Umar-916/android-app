@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Hidup Anda. Pekerjaan Anda. Satu ruang yang tertata.</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_home">Beranda</string>
+    <string name="nav_tasks">Tugas</string>
+    <string name="nav_projects">Proyek</string>
+    <string name="nav_calendar">Kalender</string>
+    <string name="nav_more">Lainnya</string>
+
+    <!-- Shared actions (verb first) -->
+    <string name="action_back">Kembali</string>
+    <string name="action_save">Simpan</string>
+    <string name="action_cancel">Batal</string>
+    <string name="action_delete">Hapus</string>
+    <string name="action_edit">Ubah</string>
+    <string name="action_add">Tambah</string>
+    <string name="action_done">Selesai</string>
+    <string name="action_close">Tutup</string>
+    <string name="action_search">Cari</string>
+    <string name="action_undo">Urungkan</string>
+    <string name="action_archive">Arsipkan</string>
+    <string name="action_unarchive">Pulihkan</string>
+    <string name="action_retry">Coba lagi</string>
+    <string name="action_continue">Lanjutkan</string>
+    <string name="action_skip">Lewati</string>
+    <string name="action_next">Berikutnya</string>
+    <string name="action_clear">Hapus isian</string>
+    <string name="action_more_options">Opsi lainnya</string>
+    <string name="action_discard">Buang</string>
+    <string name="action_keep_editing">Lanjut mengedit</string>
+
+    <!-- Shared states -->
+    <string name="share_app_text">Coba %1$s – perencana pribadi yang bekerja offline untuk tugas, catatan, kebiasaan, dan tujuan: %2$s</string>
+    <string name="share_app_chooser">Bagikan melalui</string>
+    <string name="error_cannot_open_link">Tidak dapat membuka tautan</string>
+    <string name="exit_title">Keluar dari ORBIT?</string>
+    <string name="exit_message">Tugas, catatan, dan kebiasaan Anda tersimpan di perangkat ini.</string>
+    <string name="exit_confirm">Keluar</string>
+    <string name="exit_stay">Tetap di sini</string>
+    <string name="state_loading">Memuat…</string>
+    <string name="error_generic">Terjadi kesalahan. Data Anda aman — silakan coba lagi.</string>
+
+    <!-- Priorities and statuses -->
+    <string name="priority_low">Rendah</string>
+    <string name="priority_medium">Sedang</string>
+    <string name="priority_high">Tinggi</string>
+    <string name="priority_urgent">Mendesak</string>
+    <string name="status_todo">Akan dikerjakan</string>
+    <string name="status_in_progress">Sedang dikerjakan</string>
+    <string name="status_completed">Selesai</string>
+    <string name="status_archived">Diarsipkan</string>
+    <string name="status_active">Aktif</string>
+    <string name="status_on_hold">Ditunda</string>
+
+    <!-- Weekdays (short), Monday first -->
+    <string name="weekday_mon">Sen</string>
+    <string name="weekday_tue">Sel</string>
+    <string name="weekday_wed">Rab</string>
+    <string name="weekday_thu">Kam</string>
+    <string name="weekday_fri">Jum</string>
+    <string name="weekday_sat">Sab</string>
+    <string name="weekday_sun">Min</string>
+
+    <!-- Notifications -->
+    <string name="notif_channel_reminders">Pengingat tugas</string>
+    <string name="notif_channel_reminders_desc">Pengingat untuk tugas yang memiliki tenggat</string>
+    <string name="notif_due_today">Tenggat hari ini</string>
+    <string name="notif_due_at">Tenggat pukul %1$s</string>
+    <string name="notif_action_done">Tandai selesai</string>
+    <string name="notif_action_snooze">Tunda 10 mnt</string>
+</resources>

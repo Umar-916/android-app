@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="habits_hero_title">اليوم</string>
+    <string name="habits_hero_none">لا شيء مجدول اليوم</string>
+    <string name="habits_hero_all_done">اكتمل كل شيء لهذا اليوم</string>
+    <string name="habits_hero_progress">اكتمل %1$d من %2$d</string>
+    <string name="habits_section_details">التفاصيل</string>
+    <string name="habits_section_appearance">المظهر</string>
+    <string name="habits_section_schedule">الجدول</string>
+    <string name="habits_section_status">الحالة</string>
+</resources>

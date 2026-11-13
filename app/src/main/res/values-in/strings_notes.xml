@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notes_title">Catatan</string>
+    <string name="notes_archived_title">Catatan diarsipkan</string>
+    <string name="notes_untitled">Tanpa judul</string>
+    <string name="notes_search_hint">Cari catatan</string>
+    <string name="notes_filter_all">Semua</string>
+    <string name="notes_filter_none">Tanpa folder</string>
+    <string name="notes_new">Catatan baru</string>
+    <string name="notes_show_archived">Tampilkan catatan diarsipkan</string>
+    <string name="notes_hide_archived">Kembali ke semua catatan</string>
+    <string name="notes_menu_new_folder">Folder baru</string>
+    <string name="notes_menu_rename_folder">Ganti nama folder</string>
+    <string name="notes_menu_delete_folder">Hapus folder</string>
+    <string name="notes_pin">Sematkan</string>
+    <string name="notes_unpin">Lepas sematan</string>
+    <string name="notes_pinned">Disematkan</string>
+    <string name="notes_move_to_folder">Pindahkan ke folder</string>
+    <string name="notes_modified">Diubah %1$s</string>
+    <string name="notes_folder_tag">Folder: %1$s</string>
+    <string name="notes_card_options">Opsi untuk catatan %1$s</string>
+
+    <string name="notes_empty_title">Belum ada catatan</string>
+    <string name="notes_empty_msg">Tulis ide, daftar, dan catatan rapat. Semuanya tersimpan otomatis.</string>
+    <string name="notes_empty_action">Buat catatan</string>
+    <string name="notes_empty_folder_title">Folder ini kosong</string>
+    <string name="notes_empty_folder_msg">Catatan yang Anda tambahkan atau pindahkan ke sini akan muncul di daftar ini.</string>
+    <string name="notes_empty_archive_title">Tidak ada yang diarsipkan</string>
+    <string name="notes_empty_archive_msg">Catatan yang diarsipkan disimpan di sini agar tidak mengganggu.</string>
+    <string name="notes_empty_search_title">Tidak ada catatan yang cocok</string>
+    <string name="notes_empty_search_msg">Coba kata lain atau periksa folder lain.</string>
+
+    <string name="notes_folder_new_title">Folder baru</string>
+    <string name="notes_folder_rename_title">Ganti nama folder</string>
+    <string name="notes_folder_name">Nama folder</string>
+    <string name="notes_folder_create">Buat folder</string>
+    <string name="notes_folder_rename_confirm">Ganti nama</string>
+    <string name="notes_folder_delete_title">Hapus folder “%1$s”?</string>
+    <string name="notes_folder_delete_msg">Catatan di dalam folder ini dipindahkan ke “Tanpa folder”. Tidak ada catatan yang dihapus.</string>
+    <string name="notes_folder_delete_confirm">Hapus folder</string>
+    <string name="notes_note_deleted">Catatan dihapus</string>
+    <string name="notes_move_title">Pindahkan ke folder</string>
+    <string name="notes_new_folder_item">Folder baru…</string>
+
+    <!-- Editor -->
+    <string name="note_edit_title_hint">Judul</string>
+    <string name="note_edit_body_hint">Mulai menulis…</string>
+    <string name="note_saving">Menyimpan…</string>
+    <string name="note_saved">Tersimpan</string>
+    <string name="note_created">Dibuat %1$s</string>
+    <string name="note_choose_folder">Pilih folder</string>
+    <string name="note_delete_title">Hapus catatan ini?</string>
+    <string name="note_delete_msg">“%1$s” akan dihapus permanen.</string>
+    <string name="note_delete_confirm">Hapus catatan</string>
+    <string name="note_delete_action">Hapus catatan</string>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planning_color_label">Farbe</string>
+    <string name="planning_color_selected">%1$s, ausgewählt</string>
+    <string name="planning_color_violet">Violett</string>
+    <string name="planning_color_blue">Blau</string>
+    <string name="planning_color_teal">Petrol</string>
+    <string name="planning_color_green">Grün</string>
+    <string name="planning_color_amber">Bernstein</string>
+    <string name="planning_color_orange">Orange</string>
+    <string name="planning_color_red">Rot</string>
+    <string name="planning_color_pink">Rosa</string>
+    <string name="planning_color_purple">Lila</string>
+    <string name="planning_color_slate">Schiefer</string>
+    <string name="planning_clear_date_named">%1$s löschen</string>
+    <string name="planning_date_range">%1$s – %2$s</string>
+    <string name="planning_date_from">Ab %1$s</string>
+    <string name="planning_date_until">Bis %1$s</string>
+    <string name="planning_discard_title">Änderungen verwerfen?</string>
+    <string name="planning_discard_message">Ihre nicht gespeicherten Änderungen gehen verloren.</string>
+    <string name="projects_new">Neues Projekt</string>
+    <string name="projects_empty_title">Noch keine Projekte</string>
+    <string name="projects_empty_message">Fassen Sie verwandte Aufgaben in einem Projekt zusammen, um den Fortschritt auf ein größeres Ziel zu verfolgen.</string>
+    <string name="projects_filter_all">Alle</string>
+    <string name="projects_filter_empty_title">Nichts gefunden</string>
+    <string name="projects_filter_empty_message">Kein Projekt entspricht diesem Filter.</string>
+    <string name="projects_no_tasks">Noch keine Aufgaben</string>
+    <plurals name="projects_tasks_progress">
+        <item quantity="one">%1$d von %2$d Aufgabe erledigt</item>
+        <item quantity="other">%1$d von %2$d Aufgaben erledigt</item>
+    </plurals>
+    <string name="projects_detail_title">Projekt</string>
+    <string name="projects_not_found">Dieses Projekt existiert nicht mehr.</string>
+    <string name="projects_restore">Projekt wiederherstellen</string>
+    <string name="projects_mark_completed">Als erledigt markieren</string>
+    <string name="projects_mark_active">Als aktiv markieren</string>
+    <string name="projects_percent">%1$d %%</string>
+    <string name="projects_progress_desc">%1$d Prozent erledigt</string>
+    <string name="projects_stat_total">Aufgaben gesamt</string>
+    <string name="projects_stat_completed">Erledigt</string>
+    <string name="projects_stat_in_progress">In Arbeit</string>
+    <string name="projects_stat_todo">Offen</string>
+    <string name="projects_stat_overdue">Überfällig</string>
+    <string name="projects_tasks_section">Aufgaben</string>
+    <string name="projects_add_task">Aufgabe hinzufügen</string>
+    <string name="projects_tasks_empty_title">Keine Aufgaben in diesem Projekt</string>
+    <string name="projects_tasks_empty_message">Fügen Sie eine Aufgabe hinzu, um den Fortschritt zu verfolgen.</string>
+    <string name="projects_task_due">Fällig %1$s</string>
+    <string name="projects_task_overdue">Überfällig · %1$s</string>
+    <string name="projects_task_mark_done">„%1$s“ als erledigt markieren</string>
+    <string name="projects_task_mark_open">„%1$s“ als offen markieren</string>
+    <string name="projects_delete_title">„%1$s“ löschen?</string>
+    <string name="projects_delete_simple_message">„%1$s“ wird gelöscht. Dies kann nicht rückgängig gemacht werden.</string>
+    <string name="projects_delete_confirm">Projekt löschen</string>
+    <plurals name="projects_delete_linked">
+        <item quantity="one">„%1$s“ hat %2$d verknüpfte Aufgabe. Was soll damit geschehen?</item>
+        <item quantity="other">„%1$s“ hat %2$d verknüpfte Aufgaben. Was soll mit ihnen geschehen?</item>
+    </plurals>
+    <string name="projects_delete_keep">Aufgaben behalten</string>
+    <string name="projects_delete_keep_hint">Sie bleiben ohne Projekt in Ihrer Aufgabenliste.</string>
+    <plurals name="projects_delete_all">
+        <item quantity="one">Projekt und seine %1$d Aufgabe löschen</item>
+        <item quantity="other">Projekt und seine %1$d Aufgaben löschen</item>
+    </plurals>
+    <string name="projects_edit_new_title">Neues Projekt</string>
+    <string name="projects_edit_title">Projekt bearbeiten</string>
+    <string name="projects_field_name">Name</string>
+    <string name="projects_field_description">Beschreibung</string>
+    <string name="projects_field_start">Startdatum</string>
+    <string name="projects_field_end">Enddatum</string>
+    <string name="projects_field_status">Status</string>
+    <string name="projects_error_name_required">Geben Sie einen Projektnamen ein.</string>
+    <string name="projects_error_end_before_start">Das Enddatum darf nicht vor dem Startdatum liegen.</string>
+</resources>

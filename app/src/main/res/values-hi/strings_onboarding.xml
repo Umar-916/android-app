@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lang_screen_title">ऐप की भाषा</string>
+    <string name="lang_settings_title">भाषा</string>
+    <string name="lang_selected_header">चुनी हुई भाषा</string>
+    <string name="lang_all_header">सभी भाषाएँ</string>
+    <string name="lang_selected_state">चुनी गई</string>
+    <string name="onb_page1_title">अपना दिन प्लान करें</string>
+    <string name="onb_page1_body">कार्य दर्ज करें और रिमाइंडर सेट करें ताकि कुछ छूटे नहीं।</string>
+    <string name="onb_page2_title">सब कुछ व्यवस्थित करें</string>
+    <string name="onb_page2_body">प्रोजेक्ट, नोट और लक्ष्य एक ही शांत जगह पर रखें।</string>
+    <string name="onb_page3_title">आदतें बनाएँ</string>
+    <string name="onb_page3_body">अपनी रोज़ की आदतें ट्रैक करें और अपनी प्रगति बढ़ते देखें।</string>
+    <string name="onb_page4_title">आपका डेटा आपका ही रहता है</string>
+    <string name="onb_page4_body">कार्य, नोट और आदतें आपके डिवाइस पर सेव रहती हैं और कभी अपलोड नहीं होतीं। विज्ञापन और सेटिंग इंटरनेट का उपयोग करती हैं; ऐप पूरी तरह ऑफ़लाइन चलता है।</string>
+    <string name="onb_page4_body_offline">कार्य, नोट और आदतें आपके डिवाइस पर सेव रहती हैं और कभी अपलोड नहीं होतीं। ऐप पूरी तरह ऑफ़लाइन काम करता है।</string>
+    <string name="onb_get_started">शुरू करें</string>
+    <string name="onb_page_indicator">पृष्ठ %1$d / %2$d</string>
+</resources>

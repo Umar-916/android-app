@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ads_label">إعلان</string>
+    <string name="ads_content_description">إعلان</string>
+    <string name="ads_loading">جارٍ تحميل الإعلان…</string>
+    <string name="ads_no_internet">لا يوجد اتصال بالإنترنت. اتصل بالإنترنت وحاول مرة أخرى.</string>
+    <string name="ads_privacy_options_title">خيارات الخصوصية</string>
+    <string name="ads_privacy_options_subtitle">راجع خيارات موافقتك على الإعلانات أو غيّرها</string>
+</resources>

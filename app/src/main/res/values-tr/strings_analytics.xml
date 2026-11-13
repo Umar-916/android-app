@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analytics_title">Analizler</string>
+    <string name="analytics_empty_title">Henüz analiz edilecek veri yok</string>
+    <string name="analytics_empty_message">Birkaç görev tamamlayın, bir alışkanlığı takip edin veya hedef belirleyin; verimlilik grafikleriniz burada görünecek.</string>
+    <string name="analytics_empty_action">Görev ekle</string>
+    <string name="analytics_range_7">7 gün</string>
+    <string name="analytics_range_30">30 gün</string>
+    <string name="analytics_percent">%%%1$d</string>
+    <string name="analytics_none">–</string>
+
+    <string name="analytics_tile_completed_7">7 günde tamamlanan</string>
+    <string name="analytics_tile_completed_30">30 günde tamamlanan</string>
+    <string name="analytics_tile_rate">Tamamlama oranı</string>
+    <string name="analytics_tile_open">Açık görevler</string>
+    <string name="analytics_tile_overdue">Şu an gecikmiş</string>
+    <string name="analytics_tile_all_time">Toplam tamamlanan</string>
+    <string name="analytics_rate_note">Tamamlama oranı, bu dönemde son tarihi olan görevleriniz olduğunda görünür.</string>
+
+    <string name="analytics_daily_title">Haftalık verimlilik</string>
+    <string name="analytics_daily_subtitle">Günlük tamamlanan görevler, son 7 gün</string>
+    <string name="analytics_weekly_title">Aylık ilerleme</string>
+    <string name="analytics_weekly_subtitle">Haftalık tamamlanan görevler, son 5 hafta</string>
+    <string name="analytics_chart_empty">Bu dönemde henüz tamamlanan görev yok.</string>
+    <string name="analytics_chart_point">%1$s: %2$d</string>
+    <string name="analytics_week_range">%1$s – %2$s</string>
+
+    <string name="analytics_projects_title">Proje tamamlama</string>
+    <string name="analytics_projects_empty">Henüz proje yok. İlerlemesini burada görmek için bir proje oluşturun.</string>
+    <string name="analytics_project_no_tasks">Henüz görev yok</string>
+    <plurals name="analytics_tasks_done_of">
+        <item quantity="one">%2$d görevin %1$d tanesi tamamlandı</item>
+        <item quantity="other">%2$d görevin %1$d tanesi tamamlandı</item>
+    </plurals>
+
+    <string name="analytics_habits_title">Alışkanlık tutarlılığı</string>
+    <string name="analytics_habits_empty">Henüz alışkanlık yok. Tutarlılığınızı izlemek için bir alışkanlık ekleyin.</string>
+    <string name="analytics_habit_detail">Güncel seri %1$d · en uzun %2$d</string>
+
+    <string name="analytics_goals_title">Hedef ilerlemesi</string>
+    <string name="analytics_goals_empty">Henüz hedef yok. İlerlemenizi izlemek için bir hedef belirleyin.</string>
+</resources>

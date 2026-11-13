@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_greeting_morning">শুভ সকাল</string>
+    <string name="home_greeting_afternoon">শুভ অপরাহ্ন</string>
+    <string name="home_greeting_evening">শুভ সন্ধ্যা</string>
+    <string name="home_search_hint">কাজ, নোট, প্রজেক্ট খুঁজুন…</string>
+    <string name="home_customize">ড্যাশবোর্ড কাস্টমাইজ করুন</string>
+    <string name="home_percent">%1$d%%</string>
+    <string name="home_n_more">আরও +%1$d</string>
+    <string name="home_view_all">সব দেখুন</string>
+    <string name="home_welcome_title">ORBIT-এ স্বাগতম</string>
+    <string name="home_welcome_message">আপনার প্রথম কাজ, প্রজেক্ট বা অভ্যাস দিয়ে শুরু করুন। সবকিছু এই ডিভাইসেই থাকে।</string>
+    <string name="home_all_hidden_title">সব কার্ড লুকানো আছে</string>
+    <string name="home_all_hidden_message">আপনার ড্যাশবোর্ডে কোন কার্ড দেখাবে তা বেছে নিন।</string>
+    <string name="home_progress_empty_title">আজকের জন্য কিছু পরিকল্পিত নেই</string>
+    <string name="home_progress_empty_message">অগ্রগতি ট্র্যাক করতে আজ শেষ করার একটি কাজ যোগ করুন।</string>
+    <string name="home_progress_all_done">আজকের সব শেষ। দারুণ কাজ!</string>
+    <string name="home_progress_keep_going">এগিয়ে যান, আপনি ঠিক পথেই আছেন।</string>
+    <plurals name="home_tasks_done_of">
+        <item quantity="one">%2$dটির মধ্যে %1$dটি কাজ সম্পন্ন</item>
+        <item quantity="other">%2$dটির মধ্যে %1$dটি কাজ সম্পন্ন</item>
+    </plurals>
+    <string name="home_today_title">আজ</string>
+    <string name="home_today_empty">আজ শেষ করার মতো কোনো কাজ নেই। অবসর উপভোগ করুন বা নতুন কিছু পরিকল্পনা করুন।</string>
+    <string name="home_add_task">কাজ যোগ করুন</string>
+    <string name="home_task_mark_done">%1$s সম্পন্ন হিসেবে চিহ্নিত করুন</string>
+    <string name="home_task_completed">কাজ সম্পন্ন হয়েছে</string>
+    <string name="home_upcoming_title">আসন্ন</string>
+    <string name="home_upcoming_empty">আগামী ৭ দিনে কিছুই শেষ করার নেই।</string>
+    <string name="home_tomorrow">আগামীকাল</string>
+    <string name="home_date_label">%1$s, %2$s</string>
+    <plurals name="home_overdue_title">
+        <item quantity="one">%1$dটি কাজ বিলম্বিত</item>
+        <item quantity="other">%1$dটি কাজ বিলম্বিত</item>
+    </plurals>
+    <string name="home_due_on">শেষ করার তারিখ: %1$s</string>
+    <string name="home_projects_title">সক্রিয় প্রজেক্ট</string>
+    <string name="home_projects_empty">অগ্রগতি দেখতে সম্পর্কিত কাজগুলো একটি প্রজেক্টে রাখুন।</string>
+    <string name="home_new_project">নতুন প্রজেক্ট</string>
+    <string name="home_project_no_tasks">এখনও কোনো কাজ নেই</string>
+    <string name="home_habits_title">আজকের অভ্যাস</string>
+    <string name="home_habits_empty">প্রথম অভ্যাস যোগ করে রুটিন গড়ুন।</string>
+    <string name="home_habits_summary">আজ %2$d-এর মধ্যে %1$d সম্পন্ন</string>
+    <string name="home_new_habit">নতুন অভ্যাস</string>
+    <plurals name="home_streak_days">
+        <item quantity="one">%1$d দিনের স্ট্রিক</item>
+        <item quantity="other">%1$d দিনের স্ট্রিক</item>
+    </plurals>
+    <string name="home_overview_title">আপনার সারসংক্ষেপ</string>
+    <string name="home_ov_completed">৭ দিনে সম্পন্ন</string>
+    <string name="home_ov_open">খোলা কাজ</string>
+    <string name="home_ov_projects">সক্রিয় প্রজেক্ট</string>
+    <string name="home_ov_streak">সেরা অভ্যাস স্ট্রিক (দিন)</string>
+    <string name="home_quick_add_title">দ্রুত যোগ</string>
+    <string name="home_qa_task">নতুন কাজ</string>
+    <string name="home_qa_note">নতুন নোট</string>
+    <string name="home_qa_habit">নতুন অভ্যাস</string>
+    <string name="home_qa_project">নতুন প্রজেক্ট</string>
+    <string name="home_qa_goal">নতুন লক্ষ্য</string>
+</resources>

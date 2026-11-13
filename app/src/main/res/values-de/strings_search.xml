@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_hint">Aufgaben, Projekte, Notizen, Gewohnheiten, Ziele</string>
+    <string name="search_idle_title">Alles durchsuchen</string>
+    <string name="search_idle_message">Tippen Sie, um Aufgaben, Projekte, Notizen, Gewohnheiten und Ziele an einem Ort zu finden.</string>
+    <string name="search_empty_title">Keine Ergebnisse</string>
+    <string name="search_empty_message">Nichts passt zu \"%1$s\". Versuchen Sie ein anderes Wort.</string>
+    <string name="search_untitled_note">Notiz ohne Titel</string>
+    <string name="search_goal_percent">%1$d %% erreicht</string>
+    <plurals name="search_section_tasks">
+        <item quantity="one">Aufgaben (%1$d)</item>
+        <item quantity="other">Aufgaben (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_projects">
+        <item quantity="one">Projekte (%1$d)</item>
+        <item quantity="other">Projekte (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_notes">
+        <item quantity="one">Notizen (%1$d)</item>
+        <item quantity="other">Notizen (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_habits">
+        <item quantity="one">Gewohnheiten (%1$d)</item>
+        <item quantity="other">Gewohnheiten (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_goals">
+        <item quantity="one">Ziele (%1$d)</item>
+        <item quantity="other">Ziele (%1$d)</item>
+    </plurals>
+</resources>

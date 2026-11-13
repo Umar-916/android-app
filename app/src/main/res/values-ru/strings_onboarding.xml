@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Language -->
+    <string name="lang_screen_title">Язык приложения</string>
+    <string name="lang_settings_title">Язык</string>
+    <string name="lang_selected_header">Выбранный язык</string>
+    <string name="lang_all_header">Все языки</string>
+    <string name="lang_selected_state">Выбрано</string>
+
+    <!-- Onboarding -->
+    <string name="onb_page1_title">Планируйте свой день</string>
+    <string name="onb_page1_body">Записывайте задачи и ставьте напоминания, чтобы ничего не упустить.</string>
+    <string name="onb_page2_title">Наведите порядок во всём</string>
+    <string name="onb_page2_body">Проекты, заметки и цели — вместе, в одном спокойном месте.</string>
+    <string name="onb_page3_title">Формируйте привычки</string>
+    <string name="onb_page3_body">Отслеживайте ежедневные привычки и наблюдайте за ростом прогресса.</string>
+    <string name="onb_page4_title">Ваши данные остаются вашими</string>
+    <string name="onb_page4_body">Задачи, заметки и привычки хранятся на вашем устройстве и никогда не загружаются. Реклама и настройки используют интернет; приложение полностью работает офлайн.</string>
+    <string name="onb_page4_body_offline">Задачи, заметки и привычки хранятся на вашем устройстве и никогда не загружаются. Приложение полностью работает офлайн.</string>
+    <string name="onb_get_started">Начать</string>
+    <string name="onb_page_indicator">Страница %1$d из %2$d</string>
+</resources>

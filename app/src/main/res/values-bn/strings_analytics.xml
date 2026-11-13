@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analytics_title">বিশ্লেষণ</string>
+    <string name="analytics_empty_title">এখনও বিশ্লেষণের মতো ডেটা নেই</string>
+    <string name="analytics_empty_message">কয়েকটি কাজ শেষ করুন, কোনো অভ্যাস ট্র্যাক করুন বা লক্ষ্য ঠিক করুন, তাহলে আপনার উৎপাদনশীলতার চার্ট এখানে দেখা যাবে।</string>
+    <string name="analytics_empty_action">কাজ যোগ করুন</string>
+    <string name="analytics_range_7">৭ দিন</string>
+    <string name="analytics_range_30">৩০ দিন</string>
+    <string name="analytics_percent">%1$d%%</string>
+    <string name="analytics_none">–</string>
+    <string name="analytics_tile_completed_7">৭ দিনে সম্পন্ন</string>
+    <string name="analytics_tile_completed_30">৩০ দিনে সম্পন্ন</string>
+    <string name="analytics_tile_rate">সম্পন্নের হার</string>
+    <string name="analytics_tile_open">খোলা কাজ</string>
+    <string name="analytics_tile_overdue">এখন বিলম্বিত</string>
+    <string name="analytics_tile_all_time">মোট সম্পন্ন</string>
+    <string name="analytics_rate_note">এই সময়ে নির্ধারিত তারিখসহ কাজ থাকলে সম্পন্নের হার দেখা যাবে।</string>
+    <string name="analytics_daily_title">সাপ্তাহিক উৎপাদনশীলতা</string>
+    <string name="analytics_daily_subtitle">প্রতিদিন সম্পন্ন কাজ, গত ৭ দিন</string>
+    <string name="analytics_weekly_title">মাসিক অগ্রগতি</string>
+    <string name="analytics_weekly_subtitle">প্রতি সপ্তাহে সম্পন্ন কাজ, গত ৫ সপ্তাহ</string>
+    <string name="analytics_chart_empty">এই সময়ে এখনও কোনো কাজ সম্পন্ন হয়নি।</string>
+    <string name="analytics_chart_point">%1$s: %2$d</string>
+    <string name="analytics_week_range">%1$s থেকে %2$s</string>
+    <string name="analytics_projects_title">প্রজেক্ট সম্পন্নের অবস্থা</string>
+    <string name="analytics_projects_empty">এখনও কোনো প্রজেক্ট নেই। অগ্রগতি দেখতে একটি তৈরি করুন।</string>
+    <string name="analytics_project_no_tasks">এখনও কোনো কাজ নেই</string>
+    <plurals name="analytics_tasks_done_of">
+        <item quantity="one">%2$d-এর মধ্যে %1$d কাজ সম্পন্ন</item>
+        <item quantity="other">%2$d-এর মধ্যে %1$d কাজ সম্পন্ন</item>
+    </plurals>
+    <string name="analytics_habits_title">অভ্যাসের ধারাবাহিকতা</string>
+    <string name="analytics_habits_empty">এখনও কোনো অভ্যাস নেই। ধারাবাহিকতা ট্র্যাক করতে একটি যোগ করুন।</string>
+    <string name="analytics_habit_detail">বর্তমান স্ট্রিক %1$d · দীর্ঘতম %2$d</string>
+    <string name="analytics_goals_title">লক্ষ্যের অগ্রগতি</string>
+    <string name="analytics_goals_empty">এখনও কোনো লক্ষ্য নেই। অগ্রগতি দেখতে একটি লক্ষ্য ঠিক করুন।</string>
+</resources>

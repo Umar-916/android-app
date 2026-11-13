@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calendar_today">Bugüne git</string>
+    <string name="calendar_prev_month">Önceki ay</string>
+    <string name="calendar_next_month">Sonraki ay</string>
+    <string name="calendar_mode_day">Gün</string>
+    <string name="calendar_mode_agenda">Ajanda</string>
+    <string name="calendar_all_day">Tüm gün</string>
+    <string name="calendar_scheduled">Planlanan</string>
+    <string name="calendar_add_task">Görev ekle</string>
+    <string name="calendar_overdue_header">Gecikenler</string>
+    <string name="calendar_header_relative">%1$s · %2$s</string>
+    <string name="calendar_cell_today">bugün</string>
+    <string name="calendar_cell_overdue">%1$d gecikmiş</string>
+    <plurals name="calendar_cell_tasks">
+        <item quantity="one">%d görev</item>
+        <item quantity="other">%d görev</item>
+    </plurals>
+    <plurals name="calendar_day_tasks">
+        <item quantity="one">Bu günde %d görev</item>
+        <item quantity="other">Bu günde %d görev</item>
+    </plurals>
+    <string name="calendar_empty_day_title">Planlanmış bir şey yok</string>
+    <string name="calendar_empty_day_message">%1$s için son tarihi olan görev yok.</string>
+    <string name="calendar_empty_agenda_title">Yaklaşan son tarih yok</string>
+    <string name="calendar_empty_agenda_message">Son tarihi olan açık görevler burada listelenir.</string>
+    <string name="calendar_error">Takvim yüklenemedi.</string>
+</resources>

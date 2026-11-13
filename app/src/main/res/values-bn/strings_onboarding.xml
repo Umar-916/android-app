@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lang_screen_title">অ্যাপের ভাষা</string>
+    <string name="lang_settings_title">ভাষা</string>
+    <string name="lang_selected_header">নির্বাচিত ভাষা</string>
+    <string name="lang_all_header">সব ভাষা</string>
+    <string name="lang_selected_state">নির্বাচিত</string>
+    <string name="onb_page1_title">আপনার দিনের পরিকল্পনা করুন</string>
+    <string name="onb_page1_body">কাজ লিখে রাখুন ও রিমাইন্ডার সেট করুন, যাতে কিছু বাদ না পড়ে।</string>
+    <string name="onb_page2_title">সবকিছু গুছিয়ে রাখুন</string>
+    <string name="onb_page2_body">প্রজেক্ট, নোট ও লক্ষ্য এক শান্ত জায়গায় একসাথে রাখুন।</string>
+    <string name="onb_page3_title">অভ্যাস গড়ুন</string>
+    <string name="onb_page3_body">প্রতিদিনের অভ্যাস ট্র্যাক করুন এবং আপনার অগ্রগতি বাড়তে দেখুন।</string>
+    <string name="onb_page4_title">আপনার ডেটা আপনারই থাকে</string>
+    <string name="onb_page4_body">কাজ, নোট ও অভ্যাস আপনার ডিভাইসেই সংরক্ষিত থাকে এবং কখনও আপলোড হয় না। বিজ্ঞাপন ও সেটিংস ইন্টারনেট ব্যবহার করে; অ্যাপ পুরোপুরি অফলাইনে চলে।</string>
+    <string name="onb_page4_body_offline">কাজ, নোট ও অভ্যাস আপনার ডিভাইসেই সংরক্ষিত থাকে এবং কখনও আপলোড হয় না। অ্যাপটি সম্পূর্ণ অফলাইনে কাজ করে।</string>
+    <string name="onb_get_started">শুরু করুন</string>
+    <string name="onb_page_indicator">পৃষ্ঠা %1$d / %2$d</string>
+</resources>

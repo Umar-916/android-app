@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feedback_title">মতামত</string>
+    <string name="feedback_tab_issues">সমস্যা</string>
+    <string name="feedback_tab_suggestions">পরামর্শ</string>
+    <string name="feedback_describe_issue">সমস্যাটি বর্ণনা করুন</string>
+    <string name="feedback_describe_idea">আপনার ধারণা জানান</string>
+    <string name="feedback_hint">নিজের ভাষায় বলুন…</string>
+    <string name="feedback_counter">%1$d/%2$d</string>
+    <string name="feedback_select_label">আইটেম বাছুন</string>
+    <string name="feedback_select_hint">সর্বোচ্চ %1$dটি বিষয় বাছুন</string>
+    <string name="feedback_limit_reached">আপনি সর্বোচ্চ %1$dটি বিষয় বাছতে পারবেন।</string>
+    <string name="feedback_submit">মতামত পাঠান</string>
+    <string name="feedback_no_mail_app">এই ডিভাইসে কোনো ইমেইল অ্যাপ পাওয়া যায়নি। মতামত পাঠাতে একটি ইনস্টল করুন।</string>
+    <string name="feedback_privacy_note">শুধু আপনার বার্তা, বাছাই করা বিষয় এবং অ্যাপ ও ডিভাইসের মৌলিক তথ্য পাঠানো হয়। আপনার কাজ ও নোট কখনও শেয়ার করা হয় না।</string>
+    <string name="feedback_unavailable_title">মতামত পাঠানো যাচ্ছে না</string>
+    <string name="feedback_unavailable_message">ORBIT-এর এই সংস্করণে মতামতের সুবিধা এখনও চালু হয়নি।</string>
+    <string name="feedback_subject_issue">ORBIT সমস্যার প্রতিবেদন</string>
+    <string name="feedback_subject_suggestion">ORBIT পরামর্শ</string>
+    <string name="feedback_body_topics">বিষয়: %1$s</string>
+    <string name="feedback_body_app">অ্যাপ সংস্করণ: %1$s</string>
+    <string name="feedback_body_android">Android সংস্করণ: %1$s</string>
+    <string name="feedback_body_device">ডিভাইস: %1$s</string>
+    <string name="feedback_issue_crash">অ্যাপ ক্র্যাশ করে</string>
+    <string name="feedback_issue_reminders">রিমাইন্ডার</string>
+    <string name="feedback_issue_notes">নোট</string>
+    <string name="feedback_issue_tasks">কাজ</string>
+    <string name="feedback_issue_calendar">ক্যালেন্ডার</string>
+    <string name="feedback_issue_backup">ব্যাকআপ ও রিস্টোর</string>
+    <string name="feedback_issue_language">ভাষা</string>
+    <string name="feedback_item_other">অন্যান্য</string>
+    <string name="feedback_idea_feature">নতুন ফিচার</string>
+    <string name="feedback_idea_design">ডিজাইন</string>
+    <string name="feedback_idea_reminders">রিমাইন্ডার</string>
+    <string name="feedback_idea_tasks">কাজ</string>
+    <string name="feedback_idea_notes">নোট</string>
+    <string name="feedback_idea_habits">অভ্যাস ও লক্ষ্য</string>
+    <string name="feedback_idea_themes">থিম</string>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_hint">কাজ, প্রজেক্ট, নোট, অভ্যাস, লক্ষ্য</string>
+    <string name="search_idle_title">সবকিছু খুঁজুন</string>
+    <string name="search_idle_message">কাজ, প্রজেক্ট, নোট, অভ্যাস ও লক্ষ্য এক জায়গায় খুঁজতে টাইপ করুন।</string>
+    <string name="search_empty_title">কোনো ফলাফল নেই</string>
+    <string name="search_empty_message">\"%1$s\"-এর সাথে কিছু মেলেনি। অন্য শব্দ চেষ্টা করুন।</string>
+    <string name="search_untitled_note">শিরোনামহীন নোট</string>
+    <string name="search_goal_percent">%1$d%% সম্পন্ন</string>
+    <plurals name="search_section_tasks">
+        <item quantity="one">কাজ (%1$d)</item>
+        <item quantity="other">কাজ (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_projects">
+        <item quantity="one">প্রজেক্ট (%1$d)</item>
+        <item quantity="other">প্রজেক্ট (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_notes">
+        <item quantity="one">নোট (%1$d)</item>
+        <item quantity="other">নোট (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_habits">
+        <item quantity="one">অভ্যাস (%1$d)</item>
+        <item quantity="other">অভ্যাস (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_goals">
+        <item quantity="one">লক্ষ্য (%1$d)</item>
+        <item quantity="other">লক্ষ্য (%1$d)</item>
+    </plurals>
+</resources>

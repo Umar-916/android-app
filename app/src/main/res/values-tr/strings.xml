@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Hayatınız. İşiniz. Tek düzenli alan.</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_home">Ana sayfa</string>
+    <string name="nav_tasks">Görevler</string>
+    <string name="nav_projects">Projeler</string>
+    <string name="nav_calendar">Takvim</string>
+    <string name="nav_more">Daha fazla</string>
+
+    <!-- Shared actions (verb first) -->
+    <string name="action_back">Geri dön</string>
+    <string name="action_save">Kaydet</string>
+    <string name="action_cancel">İptal</string>
+    <string name="action_delete">Sil</string>
+    <string name="action_edit">Düzenle</string>
+    <string name="action_add">Ekle</string>
+    <string name="action_done">Bitti</string>
+    <string name="action_close">Kapat</string>
+    <string name="action_search">Ara</string>
+    <string name="action_undo">Geri al</string>
+    <string name="action_archive">Arşivle</string>
+    <string name="action_unarchive">Geri yükle</string>
+    <string name="action_retry">Tekrar dene</string>
+    <string name="action_continue">Devam et</string>
+    <string name="action_skip">Atla</string>
+    <string name="action_next">İleri</string>
+    <string name="action_clear">Temizle</string>
+    <string name="action_more_options">Diğer seçenekler</string>
+    <string name="action_discard">Vazgeç</string>
+    <string name="action_keep_editing">Düzenlemeye devam et</string>
+
+    <!-- Shared states -->
+    <string name="share_app_text">%1$s uygulamasına göz atın – görevler, notlar, alışkanlıklar ve hedefler için gizli, çevrimdışı bir planlayıcı: %2$s</string>
+    <string name="share_app_chooser">Şununla paylaş</string>
+    <string name="error_cannot_open_link">Bağlantı açılamadı</string>
+    <string name="exit_title">ORBIT\'ten çıkılsın mı?</string>
+    <string name="exit_message">Görevleriniz, notlarınız ve alışkanlıklarınız bu cihazda kayıtlıdır.</string>
+    <string name="exit_confirm">Uygulamadan çık</string>
+    <string name="exit_stay">Kal</string>
+    <string name="state_loading">Yükleniyor…</string>
+    <string name="error_generic">Bir sorun oluştu. Verileriniz güvende — lütfen tekrar deneyin.</string>
+
+    <!-- Priorities and statuses -->
+    <string name="priority_low">Düşük</string>
+    <string name="priority_medium">Orta</string>
+    <string name="priority_high">Yüksek</string>
+    <string name="priority_urgent">Acil</string>
+    <string name="status_todo">Yapılacak</string>
+    <string name="status_in_progress">Devam ediyor</string>
+    <string name="status_completed">Tamamlandı</string>
+    <string name="status_archived">Arşivlendi</string>
+    <string name="status_active">Aktif</string>
+    <string name="status_on_hold">Beklemede</string>
+
+    <!-- Weekdays (short), Monday first -->
+    <string name="weekday_mon">Pzt</string>
+    <string name="weekday_tue">Sal</string>
+    <string name="weekday_wed">Çar</string>
+    <string name="weekday_thu">Per</string>
+    <string name="weekday_fri">Cum</string>
+    <string name="weekday_sat">Cmt</string>
+    <string name="weekday_sun">Paz</string>
+
+    <!-- Notifications -->
+    <string name="notif_channel_reminders">Görev hatırlatıcıları</string>
+    <string name="notif_channel_reminders_desc">Son tarihi olan görevler için hatırlatıcılar</string>
+    <string name="notif_due_today">Son tarih bugün</string>
+    <string name="notif_due_at">Son tarih: %1$s</string>
+    <string name="notif_action_done">Bitti olarak işaretle</string>
+    <string name="notif_action_snooze">10 dk ertele</string>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feedback_title">الملاحظات والآراء</string>
+    <string name="feedback_tab_issues">المشكلات</string>
+    <string name="feedback_tab_suggestions">الاقتراحات</string>
+    <string name="feedback_describe_issue">صِف المشكلة</string>
+    <string name="feedback_describe_idea">شارك فكرتك</string>
+    <string name="feedback_hint">أخبرنا بكلماتك الخاصة…</string>
+    <string name="feedback_counter">%1$d/%2$d</string>
+    <string name="feedback_select_label">اختيار عنصر</string>
+    <string name="feedback_select_hint">اختر حتى %1$d مواضيع</string>
+    <string name="feedback_limit_reached">يمكنك اختيار حتى %1$d مواضيع.</string>
+    <string name="feedback_submit">إرسال الملاحظات</string>
+    <string name="feedback_no_mail_app">لم يتم العثور على تطبيق بريد إلكتروني على هذا الجهاز. يرجى تثبيت واحد لإرسال ملاحظاتك.</string>
+    <string name="feedback_privacy_note">تتضمن الرسالة نصك والمواضيع التي تختارها ومعلومات أساسية عن التطبيق والجهاز فقط. لا تتم مشاركة مهامك وملاحظاتك أبدًا.</string>
+    <string name="feedback_unavailable_title">الملاحظات غير متاحة</string>
+    <string name="feedback_unavailable_message">لم يتم إعداد الملاحظات لهذا الإصدار من ORBIT بعد.</string>
+    <string name="feedback_subject_issue">تقرير مشكلة في ORBIT</string>
+    <string name="feedback_subject_suggestion">اقتراح لـ ORBIT</string>
+    <string name="feedback_body_topics">المواضيع: %1$s</string>
+    <string name="feedback_body_app">إصدار التطبيق: %1$s</string>
+    <string name="feedback_body_android">إصدار Android: %1$s</string>
+    <string name="feedback_body_device">الجهاز: %1$s</string>
+    <string name="feedback_issue_crash">تعطل التطبيق</string>
+    <string name="feedback_issue_reminders">التذكيرات</string>
+    <string name="feedback_issue_notes">الملاحظات</string>
+    <string name="feedback_issue_tasks">المهام</string>
+    <string name="feedback_issue_calendar">التقويم</string>
+    <string name="feedback_issue_backup">النسخ الاحتياطي والاستعادة</string>
+    <string name="feedback_issue_language">اللغة</string>
+    <string name="feedback_item_other">أخرى</string>
+    <string name="feedback_idea_feature">ميزة جديدة</string>
+    <string name="feedback_idea_design">التصميم</string>
+    <string name="feedback_idea_reminders">التذكيرات</string>
+    <string name="feedback_idea_tasks">المهام</string>
+    <string name="feedback_idea_notes">الملاحظات</string>
+    <string name="feedback_idea_habits">العادات والأهداف</string>
+    <string name="feedback_idea_themes">السمات</string>
+</resources>

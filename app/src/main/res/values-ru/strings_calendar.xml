@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calendar_today">Перейти к сегодняшнему дню</string>
+    <string name="calendar_prev_month">Предыдущий месяц</string>
+    <string name="calendar_next_month">Следующий месяц</string>
+    <string name="calendar_mode_day">День</string>
+    <string name="calendar_mode_agenda">Список</string>
+    <string name="calendar_all_day">Весь день</string>
+    <string name="calendar_scheduled">По расписанию</string>
+    <string name="calendar_add_task">Добавить задачу</string>
+    <string name="calendar_overdue_header">Просрочено</string>
+    <string name="calendar_header_relative">%1$s · %2$s</string>
+    <string name="calendar_cell_today">сегодня</string>
+    <string name="calendar_cell_overdue">просрочено: %1$d</string>
+    <plurals name="calendar_cell_tasks">
+        <item quantity="one">%d задача</item>
+        <item quantity="few">%d задачи</item>
+        <item quantity="many">%d задач</item>
+        <item quantity="other">%d задачи</item>
+    </plurals>
+    <plurals name="calendar_day_tasks">
+        <item quantity="one">%d задача в этот день</item>
+        <item quantity="few">%d задачи в этот день</item>
+        <item quantity="many">%d задач в этот день</item>
+        <item quantity="other">%d задачи в этот день</item>
+    </plurals>
+    <string name="calendar_empty_day_title">Ничего не запланировано</string>
+    <string name="calendar_empty_day_message">На %1$s нет задач со сроком.</string>
+    <string name="calendar_empty_agenda_title">Нет предстоящих сроков</string>
+    <string name="calendar_empty_agenda_message">Здесь будут открытые задачи со сроком выполнения.</string>
+    <string name="calendar_error">Не удалось загрузить календарь.</string>
+</resources>

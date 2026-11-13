@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lang_screen_title">Langue de l\'app</string>
+    <string name="lang_settings_title">Langue</string>
+    <string name="lang_selected_header">Langue sélectionnée</string>
+    <string name="lang_all_header">Toutes les langues</string>
+    <string name="lang_selected_state">Sélectionnée</string>
+    <string name="onb_page1_title">Planifiez votre journée</string>
+    <string name="onb_page1_body">Notez vos tâches et programmez des rappels pour ne rien oublier.</string>
+    <string name="onb_page2_title">Organisez tout</string>
+    <string name="onb_page2_body">Réunissez projets, notes et objectifs dans un espace serein.</string>
+    <string name="onb_page3_title">Créez des habitudes</string>
+    <string name="onb_page3_body">Suivez vos habitudes quotidiennes et regardez vos progrès grandir.</string>
+    <string name="onb_page4_title">Vos données restent à vous</string>
+    <string name="onb_page4_body">Tâches, notes et habitudes sont stockées sur votre appareil et jamais envoyées. Les publicités et les paramètres utilisent Internet ; l\'app fonctionne entièrement hors ligne.</string>
+    <string name="onb_page4_body_offline">Tâches, notes et habitudes sont stockées sur votre appareil et jamais envoyées. L\'app fonctionne entièrement hors ligne.</string>
+    <string name="onb_get_started">Commencer</string>
+    <string name="onb_page_indicator">Page %1$d sur %2$d</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Language -->
+    <string name="lang_screen_title">Bahasa aplikasi</string>
+    <string name="lang_settings_title">Bahasa</string>
+    <string name="lang_selected_header">Bahasa terpilih</string>
+    <string name="lang_all_header">Semua bahasa</string>
+    <string name="lang_selected_state">Dipilih</string>
+
+    <!-- Onboarding -->
+    <string name="onb_page1_title">Rencanakan hari Anda</string>
+    <string name="onb_page1_body">Catat tugas dan atur pengingat agar tidak ada yang terlewat.</string>
+    <string name="onb_page2_title">Atur semuanya</string>
+    <string name="onb_page2_body">Simpan proyek, catatan, dan tujuan bersama di satu tempat yang tenang.</string>
+    <string name="onb_page3_title">Bangun kebiasaan</string>
+    <string name="onb_page3_body">Lacak kebiasaan harian Anda dan saksikan kemajuan Anda bertumbuh.</string>
+    <string name="onb_page4_title">Data Anda tetap milik Anda</string>
+    <string name="onb_page4_body">Tugas, catatan, dan kebiasaan disimpan di perangkat Anda dan tidak pernah diunggah. Iklan dan pengaturan memakai internet; aplikasi berfungsi penuh secara offline.</string>
+    <string name="onb_page4_body_offline">Tugas, catatan, dan kebiasaan disimpan di perangkat Anda dan tidak pernah diunggah. Aplikasi berfungsi penuh secara offline.</string>
+    <string name="onb_get_started">Mulai</string>
+    <string name="onb_page_indicator">Halaman %1$d dari %2$d</string>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Quick add (centre button of the bottom bar) -->
+    <string name="dv3_quick_add">Quick add</string>
+    <string name="dv3_quick_add_subtitle">What would you like to create?</string>
+    <string name="dv3_new_task">New task</string>
+    <string name="dv3_new_note">New note</string>
+    <string name="dv3_new_habit">New habit</string>
+    <string name="dv3_new_project">New project</string>
+    <string name="dv3_new_goal">New goal</string>
+    <string name="dv3_search">Search</string>
+    <string name="dv3_quick_add_hint">Add anything in one tap</string>
+    <string name="dv3_quick_add_hint_dismiss">Dismiss hint</string>
+</resources>

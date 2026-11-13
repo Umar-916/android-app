@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dashboard customise -->
+    <string name="backup_customize_title">Panoyu özelleştir</string>
+    <string name="backup_customize_intro">Ana sayfa panonuz kartlardan oluşur. Görmek istediklerinizi açın, diğerlerini gizleyin.</string>
+    <string name="backup_customize_note">Karşılama, arama ve hızlı ekleme düğmeleri her zaman gösterilir.</string>
+    <string name="backup_customize_reset">Varsayılana sıfırla</string>
+    <string name="backup_widget_progress">Bugünün ilerlemesi</string>
+    <string name="backup_widget_progress_desc">Bugünkü görevlerin kaçının tamamlandığını gösteren bir halka.</string>
+    <string name="backup_widget_today">Bugünün görevleri</string>
+    <string name="backup_widget_today_desc">Son tarihi bugün olan, işaretlenmeye hazır açık görevler.</string>
+    <string name="backup_widget_upcoming">Yaklaşanlar</string>
+    <string name="backup_widget_upcoming_desc">Önümüzdeki 7 gün içinde son tarihi olan görevler, güne göre gruplanmış.</string>
+    <string name="backup_widget_overdue">Gecikenler</string>
+    <string name="backup_widget_overdue_desc">Son tarihi geçmiş açık görevler. Yalnızca varsa gösterilir.</string>
+    <string name="backup_widget_projects">Aktif projeler</string>
+    <string name="backup_widget_projects_desc">Üzerinde çalıştığınız projeler için ilerleme çubukları.</string>
+    <string name="backup_widget_habits">Alışkanlıklar</string>
+    <string name="backup_widget_habits_desc">Bugünün alışkanlıklarını işaretleyin ve serilerinizi görün.</string>
+    <string name="backup_widget_overview">Genel bakış</string>
+    <string name="backup_widget_overview_desc">Tamamlanan görevler, açık görevler, projeler ve en iyi seri tek bakışta.</string>
+
+    <!-- Backup and restore -->
+    <string name="backup_title">Yedekleme ve geri yükleme</string>
+    <string name="backup_info_title">Verileriniz yalnızca bu cihazda tutulur</string>
+    <string name="backup_info_message">Yedekler, sizin kontrolünüzdeki düz JSON dosyalarıdır. Bunları İndirilenler klasörü veya USB bellek gibi istediğiniz yere kaydedebilirsiniz.</string>
+    <string name="backup_export_title">Yedek dışa aktar</string>
+    <string name="backup_export_desc">Tüm görevlerinizi, projelerinizi, notlarınızı, alışkanlıklarınızı ve hedeflerinizi tek bir dosyaya kaydedin.</string>
+    <string name="backup_export_button">Yedeği dışa aktar</string>
+    <string name="backup_restore_title">Yedekten geri yükle</string>
+    <string name="backup_restore_desc">ORBIT ile oluşturulmuş bir yedek dosyası seçin. Herhangi bir değişiklikten önce içeriğini görürsünüz.</string>
+    <string name="backup_restore_button">Yedek dosyası seç</string>
+    <string name="backup_csv_title">Elektronik tabloya aktar</string>
+    <string name="backup_csv_desc">Elektronik tablo uygulamasında açabileceğiniz CSV dosyaları oluşturun. CSV dosyaları ORBIT\'e geri yüklenemez.</string>
+    <string name="backup_csv_tasks">Görevleri dışa aktar (CSV)</string>
+    <string name="backup_csv_habits">Alışkanlık işaretlerini dışa aktar (CSV)</string>
+    <string name="backup_working_export">Dosyanız kaydediliyor…</string>
+    <string name="backup_working_restore">Yedeğiniz işleniyor…</string>
+    <string name="backup_success_export">Yedek kaydedildi. Dosyayı güvenli bir yerde saklayın.</string>
+    <string name="backup_success_csv">Tablo dosyası kaydedildi.</string>
+    <string name="backup_success_restore">Yedek geri yüklendi. Verileriniz değiştirildi.</string>
+    <string name="backup_failed_export">Dosya kaydedilemedi. Verileriniz değişmedi. Lütfen tekrar deneyin veya başka bir konum seçin.</string>
+    <string name="backup_failed_restore">Yedek geri yüklenemedi. Mevcut verilerinize dokunulmadı.</string>
+    <string name="backup_invalid_not_backup">Bu dosya bir ORBIT yedeği değil. ORBIT\'ten dışa aktarılmış bir dosya seçin.</string>
+    <string name="backup_invalid_version">Bu yedek, ORBIT\'in daha yeni bir sürümüyle oluşturulmuş. Uygulamayı güncelleyip tekrar deneyin.</string>
+    <string name="backup_invalid_corrupt">Bu yedek dosyası hasarlı ve okunamıyor.</string>
+    <string name="backup_invalid_inconsistent">Bu yedek dosyası eksik veya çelişkili veri içeriyor, bu yüzden geri yüklenmedi.</string>
+    <string name="backup_invalid_too_large">Bu dosya bir ORBIT yedeği olamayacak kadar büyük (sınır 25 MB).</string>
+    <string name="backup_confirm_title">Tüm mevcut veriler değiştirilsin mi?</string>
+    <string name="backup_confirm_exported">Yedek tarihi: %1$s</string>
+    <string name="backup_confirm_contains">Bu yedek şunları içeriyor:</string>
+    <string name="backup_confirm_tasks">Görevler: %1$d</string>
+    <string name="backup_confirm_projects">Projeler: %1$d</string>
+    <string name="backup_confirm_notes">Notlar: %1$d</string>
+    <string name="backup_confirm_habits">Alışkanlıklar: %1$d</string>
+    <string name="backup_confirm_goals">Hedefler: %1$d</string>
+    <string name="backup_confirm_warning">Geri yükleme, ORBIT\'teki TÜM mevcut verileri değiştirir. Bu işlem geri alınamaz. Emin değilseniz iptal edin ve önce bir yedek dışa aktarın.</string>
+    <string name="backup_confirm_action">Tüm verileri değiştir</string>
+
+    <!-- Privacy -->
+    <string name="privacy_title">Gizlilik</string>
+    <string name="privacy_headline">Verileriniz cihazınızda kalır</string>
+    <string name="privacy_intro">ORBIT planlayıcınızı cihazınızda tutar ve çevrimdışı çalışır. İnternet yalnızca reklamlar, onay formu ve uzak ayarlar için kullanılır. Bunun tam olarak ne anlama geldiği aşağıda.</string>
+    <string name="privacy_stored_title">Neler saklanır</string>
+    <string name="privacy_stored_body">Görevleriniz, projeleriniz, notlarınız, alışkanlıklarınız, hedefleriniz ve uygulama ayarlarınız yalnızca bu cihazdaki bir veritabanında saklanır. Bize ya da herhangi bir reklam ağına asla gönderilmez.</string>
+    <string name="privacy_account_title">Hesap yok, giriş yok</string>
+    <string name="privacy_account_body">Kaydolmanız ya da giriş yapmanız gerekmez. Profil yok ve bize vereceğiniz bir e-posta adresi yok.</string>
+    <string name="privacy_tracking_title">Reklamlar ve analiz</string>
+    <string name="privacy_tracking_body">ORBIT, Google AdMob tarafından sunulan reklamlar gösterir. Reklamları göstermek ve ölçmek için Google, Google gizlilik politikasında açıklandığı gibi cihazınızın reklam kimliğini, IP adresinizi ve yaklaşık konumunuzu işleyebilir. Reklam kimliğini Android ayarlarınızdan sıfırlayabilir veya sınırlayabilirsiniz. ORBIT\'in kendisi analiz ya da çökme raporlaması kullanmaz ve reklam amacıyla görevlerinizi veya notlarınızı asla okumaz. Premium kullanıma sunulduğunda reklamlar kaldırılabilir.</string>
+    <string name="privacy_network_title">İnternet kullanımı</string>
+    <string name="privacy_network_body">ORBIT, INTERNET ve ACCESS_NETWORK_STATE izinlerini ister. Bunlar yalnızca çevrimiçi olup olmadığınızı denetlemek, reklamları yüklemek, onay formunu (gizlilik tercihleriniz) göstermek ve uygulama ayarlarını almak için kullanılır. Tüm planlayıcı özellikleri çevrimdışı çalışmaya devam eder ve çevrimdışıyken reklam istenmez. Geçerli olduğu yerlerde reklam onayınızı Ayarlar\'daki Gizlilik seçenekleri bölümünden değiştirebilirsiniz.</string>
+    <string name="privacy_permissions_title">Kullandığımız izinler</string>
+    <string name="privacy_permissions_intro">Yukarıda açıklanan internet erişiminin yanı sıra ORBIT, her ikisi de hatırlatıcılar için olmak üzere iki izin ister:</string>
+    <string name="privacy_perm_notifications_title">Bildirimler</string>
+    <string name="privacy_perm_notifications_body">ORBIT\'in görev hatırlatıcılarınızı göstermesini sağlar. Reddedebilirsiniz; uygulamanın geri kalanı çalışmaya devam eder.</string>
+    <string name="privacy_perm_boot_title">Yeniden başlatmadan sonra hatırlatıcıları geri yükle</string>
+    <string name="privacy_perm_boot_body">Telefonunuz yeniden başladıktan sonra ORBIT\'in hatırlatıcılarınızı yeniden planlamasını sağlar. Başka hiçbir amaçla kullanılmaz.</string>
+    <string name="privacy_backups_title">Yedekler size aittir</string>
+    <string name="privacy_backups_body">Yedek dosyaları, seçtiğiniz yere kaydedilen düz JSON dosyalarıdır. ŞİFRELENMEZ; dosyayı açabilen herkes içeriğini okuyabilir. Güvenli bir yerde saklayın.</string>
+    <string name="privacy_cloud_title">Bulut yedeği yok</string>
+    <string name="privacy_cloud_body">ORBIT verileri için Android bulut yedeği ve otomatik yedekleme kapalıdır. Verileriniz cihazdan yalnızca siz dışa aktardığınızda ayrılır.</string>
+    <string name="privacy_delete_title">Her şeyi silme</string>
+    <string name="privacy_delete_body">ORBIT\'i kaldırmak tüm verilerini cihazınızdan siler. Kaldırmadan sıfırdan başlamak için veri içermeyen bir yedeği geri yükleyin.</string>
+
+    <!-- About -->
+    <string name="about_title">Hakkında</string>
+    <string name="about_version">Sürüm %1$s (%2$d)</string>
+    <string name="about_description">ORBIT; görevler, projeler, notlar, alışkanlıklar ve hedefler için gizliliğe önem veren bir planlayıcıdır. Hesap ve internet bağlantısı olmadan çalışır; yazdığınız her şey cihazınızda kalır. İnternet yalnızca reklamlar, gizlilik tercihleri ve uygulama ayarları için kullanılır.</string>
+    <string name="about_made_with">Kullanılan teknolojiler</string>
+    <string name="about_privacy_title">Gizlilik</string>
+    <string name="about_privacy_subtitle">ORBIT verilerinize nasıl davranır</string>
+    <string name="privacy_intro_offline">ORBIT planlayıcınızı cihazınızda tutar ve tamamen çevrimdışı çalışır. Bunun tam olarak ne anlama geldiği aşağıda.</string>
+    <string name="privacy_permissions_intro_offline">ORBIT iki izin ister, ikisi de hatırlatıcılar için:</string>
+    <string name="about_description_offline">ORBIT; görevler, projeler, notlar, alışkanlıklar ve hedefler için özel bir planlayıcıdır. Hesap ve internet bağlantısı olmadan çalışır, yazdığınız her şey cihazınızda kalır.</string>
+</resources>

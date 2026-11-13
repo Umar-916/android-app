@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calendar_today">الانتقال إلى اليوم</string>
+    <string name="calendar_prev_month">الشهر السابق</string>
+    <string name="calendar_next_month">الشهر التالي</string>
+    <string name="calendar_mode_day">يوم</string>
+    <string name="calendar_mode_agenda">جدول الأعمال</string>
+    <string name="calendar_all_day">طوال اليوم</string>
+    <string name="calendar_scheduled">مجدولة</string>
+    <string name="calendar_add_task">إضافة مهمة</string>
+    <string name="calendar_overdue_header">متأخرة</string>
+    <string name="calendar_header_relative">%1$s · %2$s</string>
+    <string name="calendar_cell_today">اليوم</string>
+    <string name="calendar_cell_overdue">%1$d متأخرة</string>
+    <plurals name="calendar_cell_tasks">
+        <item quantity="zero">%d مهمة</item>
+        <item quantity="one">%d مهمة</item>
+        <item quantity="two">%d مهمتان</item>
+        <item quantity="few">%d مهام</item>
+        <item quantity="many">%d مهمة</item>
+        <item quantity="other">%d مهمة</item>
+    </plurals>
+    <plurals name="calendar_day_tasks">
+        <item quantity="zero">%d مهمة في هذا اليوم</item>
+        <item quantity="one">%d مهمة في هذا اليوم</item>
+        <item quantity="two">%d مهمتان في هذا اليوم</item>
+        <item quantity="few">%d مهام في هذا اليوم</item>
+        <item quantity="many">%d مهمة في هذا اليوم</item>
+        <item quantity="other">%d مهمة في هذا اليوم</item>
+    </plurals>
+    <string name="calendar_empty_day_title">لا شيء مخطط</string>
+    <string name="calendar_empty_day_message">لا توجد مهام مستحقة في %1$s.</string>
+    <string name="calendar_empty_agenda_title">لا توجد مواعيد قادمة</string>
+    <string name="calendar_empty_agenda_message">ستُعرض هنا المهام المفتوحة التي لها تاريخ استحقاق.</string>
+    <string name="calendar_error">تعذّر تحميل التقويم.</string>
+</resources>

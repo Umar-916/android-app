@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="habits_hero_title">आज</string>
+    <string name="habits_hero_none">आज कुछ निर्धारित नहीं</string>
+    <string name="habits_hero_all_done">आज सब पूरा हो गया</string>
+    <string name="habits_hero_progress">%2$d में से %1$d पूर्ण</string>
+    <string name="habits_section_details">विवरण</string>
+    <string name="habits_section_appearance">रूप-रंग</string>
+    <string name="habits_section_schedule">शेड्यूल</string>
+    <string name="habits_section_status">स्थिति</string>
+</resources>

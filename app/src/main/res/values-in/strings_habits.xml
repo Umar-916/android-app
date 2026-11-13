@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List -->
+    <string name="habits_title">Kebiasaan</string>
+    <string name="habits_new">Kebiasaan baru</string>
+    <string name="habits_empty_title">Belum ada kebiasaan</string>
+    <string name="habits_empty_message">Bangun rutinitas selangkah demi selangkah. Buat kebiasaan dan centang setiap hari sesuai jadwalnya.</string>
+    <string name="habits_no_active_title">Tidak ada kebiasaan aktif</string>
+    <string name="habits_no_active_message">Semua kebiasaan Anda diarsipkan. Buat yang baru untuk memulai rentetan.</string>
+    <string name="habits_not_scheduled_today">Tidak dijadwalkan hari ini</string>
+    <string name="habits_done_today">selesai hari ini</string>
+    <string name="habits_not_done_today">belum selesai hari ini</string>
+    <string name="habits_state_archived">diarsipkan</string>
+    <string name="habits_card_desc">%1$s, %2$s, %3$s</string>
+    <plurals name="habits_streak_days">
+        <item quantity="other">Rentetan %1$d hari</item>
+    </plurals>
+    <string name="habits_completion_percent">%1$d%% selesai</string>
+    <string name="habits_check_today">Centang %1$s untuk hari ini</string>
+    <string name="habits_uncheck_today">Batalkan centang %1$s hari ini</string>
+    <plurals name="habits_archived_section">
+        <item quantity="other">Diarsipkan (%1$d)</item>
+    </plurals>
+    <string name="habits_expand">diciutkan</string>
+    <string name="habits_collapse">diperluas</string>
+    <string name="habits_schedule_daily_summary">Setiap hari</string>
+    <string name="habits_schedule_weekdays_summary">Hari kerja</string>
+    <string name="habits_schedule_weekends_summary">Akhir pekan</string>
+    <string name="habits_list_separator">", "</string>
+
+    <!-- Edit -->
+    <string name="habits_edit_new_title">Kebiasaan baru</string>
+    <string name="habits_edit_title">Ubah kebiasaan</string>
+    <string name="habits_field_name">Nama kebiasaan</string>
+    <string name="habits_field_description">Deskripsi</string>
+    <string name="habits_field_schedule">Ulangi pada</string>
+    <string name="habits_field_start">Tanggal mulai</string>
+    <string name="habits_field_archive">Arsipkan kebiasaan</string>
+    <string name="habits_field_archive_hint">Kebiasaan yang diarsipkan tetap menyimpan riwayatnya tetapi disembunyikan dari centang harian.</string>
+    <string name="habits_preset_daily">Harian</string>
+    <string name="habits_preset_weekdays">Hari kerja</string>
+    <string name="habits_preset_weekends">Akhir pekan</string>
+    <string name="habits_preset_custom">Kustom</string>
+    <string name="habits_error_name_required">Masukkan nama kebiasaan.</string>
+    <string name="habits_error_schedule_required">Pilih setidaknya satu hari.</string>
+    <string name="habits_not_found">Kebiasaan ini sudah tidak ada.</string>
+    <string name="habits_delete_title">Hapus “%1$s”?</string>
+    <string name="habits_delete_message">“%1$s” beserta seluruh riwayat centangnya akan dihapus permanen. Tindakan ini tidak dapat dibatalkan.</string>
+    <string name="habits_delete_confirm">Hapus kebiasaan</string>
+
+    <!-- Detail -->
+    <string name="habits_detail_title">Kebiasaan</string>
+    <string name="habits_check_in_today">Centang untuk hari ini</string>
+    <string name="habits_undo_today">Sudah dicentang hari ini · Urungkan</string>
+    <string name="habits_stat_current_streak">Rentetan saat ini</string>
+    <string name="habits_stat_longest_streak">Rentetan terpanjang</string>
+    <string name="habits_stat_completion">Penyelesaian</string>
+    <string name="habits_stat_total_checkins">Total centang</string>
+    <plurals name="habits_days_value">
+        <item quantity="other">%1$d hari</item>
+    </plurals>
+    <string name="habits_percent_value">%1$d%%</string>
+    <string name="habits_cal_previous">Bulan sebelumnya</string>
+    <string name="habits_cal_next">Bulan berikutnya</string>
+    <string name="habits_cal_done">Selesai</string>
+    <string name="habits_cal_missed">Terlewat</string>
+    <string name="habits_cal_scheduled">Terjadwal</string>
+    <string name="habits_cal_not_scheduled">Tidak dijadwalkan</string>
+    <string name="habits_cal_day_desc">%1$s, %2$s</string>
+    <string name="habits_calendar_hint">Ketuk hari terjadwal hingga hari ini untuk mencentang atau membatalkan centang.</string>
+</resources>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dashboard customise -->
+    <string name="backup_customize_title">Настройка главной</string>
+    <string name="backup_customize_intro">Главный экран состоит из карточек. Включите нужные и скройте остальные.</string>
+    <string name="backup_customize_note">Приветствие, поиск и кнопки быстрого добавления показываются всегда.</string>
+    <string name="backup_customize_reset">Сбросить по умолчанию</string>
+    <string name="backup_widget_progress">Прогресс за сегодня</string>
+    <string name="backup_widget_progress_desc">Кольцо показывает, сколько сегодняшних задач выполнено.</string>
+    <string name="backup_widget_today">Задачи на сегодня</string>
+    <string name="backup_widget_today_desc">Открытые задачи со сроком сегодня — их можно сразу отметить.</string>
+    <string name="backup_widget_upcoming">Скоро</string>
+    <string name="backup_widget_upcoming_desc">Задачи со сроком в ближайшие 7 дней, по дням.</string>
+    <string name="backup_widget_overdue">Просрочено</string>
+    <string name="backup_widget_overdue_desc">Открытые задачи с истёкшим сроком. Показывается только при наличии таких задач.</string>
+    <string name="backup_widget_projects">Активные проекты</string>
+    <string name="backup_widget_projects_desc">Индикаторы прогресса проектов, над которыми вы работаете.</string>
+    <string name="backup_widget_habits">Привычки</string>
+    <string name="backup_widget_habits_desc">Отмечайте сегодняшние привычки и следите за сериями.</string>
+    <string name="backup_widget_overview">Обзор</string>
+    <string name="backup_widget_overview_desc">Выполненные и открытые задачи, проекты и лучшая серия в одном месте.</string>
+
+    <!-- Backup and restore -->
+    <string name="backup_title">Резервные копии</string>
+    <string name="backup_info_title">Ваши данные хранятся только на этом устройстве</string>
+    <string name="backup_info_message">Резервные копии — это обычные файлы JSON, которые вы контролируете. Сохраняйте их где угодно, например в папке «Загрузки» или на USB-накопителе.</string>
+    <string name="backup_export_title">Создать резервную копию</string>
+    <string name="backup_export_desc">Сохраните все задачи, проекты, заметки, привычки и цели в один файл.</string>
+    <string name="backup_export_button">Создать копию</string>
+    <string name="backup_restore_title">Восстановить из копии</string>
+    <string name="backup_restore_desc">Выберите файл копии, созданный в ORBIT. Перед любыми изменениями вы увидите его содержимое.</string>
+    <string name="backup_restore_button">Выбрать файл копии</string>
+    <string name="backup_csv_title">Экспорт в таблицу</string>
+    <string name="backup_csv_desc">Создайте файлы CSV для открытия в приложении для таблиц. Из CSV данные в ORBIT восстановить нельзя.</string>
+    <string name="backup_csv_tasks">Экспорт задач (CSV)</string>
+    <string name="backup_csv_habits">Экспорт отметок привычек (CSV)</string>
+    <string name="backup_working_export">Сохранение файла…</string>
+    <string name="backup_working_restore">Обработка копии…</string>
+    <string name="backup_success_export">Копия сохранена. Храните файл в надёжном месте.</string>
+    <string name="backup_success_csv">Файл таблицы сохранён.</string>
+    <string name="backup_success_restore">Копия восстановлена. Ваши данные заменены.</string>
+    <string name="backup_failed_export">Не удалось сохранить файл. Ваши данные не изменились. Повторите попытку или выберите другое место.</string>
+    <string name="backup_failed_restore">Не удалось восстановить копию. Ваши текущие данные не затронуты.</string>
+    <string name="backup_invalid_not_backup">Этот файл не является копией ORBIT. Выберите файл, экспортированный из ORBIT.</string>
+    <string name="backup_invalid_version">Эта копия создана в более новой версии ORBIT. Обновите приложение и повторите попытку.</string>
+    <string name="backup_invalid_corrupt">Файл копии повреждён и не может быть прочитан.</string>
+    <string name="backup_invalid_inconsistent">Файл копии неполный или содержит противоречивые данные, поэтому он не был восстановлен.</string>
+    <string name="backup_invalid_too_large">Файл слишком велик для копии ORBIT (максимум 25 МБ).</string>
+    <string name="backup_confirm_title">Заменить все текущие данные?</string>
+    <string name="backup_confirm_exported">Копия от %1$s</string>
+    <string name="backup_confirm_contains">В этой копии:</string>
+    <string name="backup_confirm_tasks">Задачи: %1$d</string>
+    <string name="backup_confirm_projects">Проекты: %1$d</string>
+    <string name="backup_confirm_notes">Заметки: %1$d</string>
+    <string name="backup_confirm_habits">Привычки: %1$d</string>
+    <string name="backup_confirm_goals">Цели: %1$d</string>
+    <string name="backup_confirm_warning">Восстановление заменит ВСЕ данные, которые сейчас есть в ORBIT. Это действие нельзя отменить. Если вы не уверены, отмените и сначала создайте резервную копию.</string>
+    <string name="backup_confirm_action">Заменить все данные</string>
+
+    <!-- Privacy -->
+    <string name="privacy_title">Конфиденциальность</string>
+    <string name="privacy_headline">Ваши данные остаются на вашем устройстве</string>
+    <string name="privacy_intro">ORBIT хранит ваш планировщик на устройстве и работает офлайн. Интернет используется только для рекламы, формы согласия и удалённых настроек. Вот что именно это значит.</string>
+    <string name="privacy_stored_title">Что хранится</string>
+    <string name="privacy_stored_body">Ваши задачи, проекты, заметки, привычки, цели и настройки приложения сохраняются только в базе данных на этом устройстве. Они никогда не отправляются нам или рекламным сетям.</string>
+    <string name="privacy_account_title">Без аккаунта и входа</string>
+    <string name="privacy_account_body">Регистрироваться и входить не нужно. Нет профиля, и не нужно указывать адрес электронной почты.</string>
+    <string name="privacy_tracking_title">Реклама и аналитика</string>
+    <string name="privacy_tracking_body">ORBIT показывает рекламу Google AdMob. Чтобы показывать рекламу и измерять её эффективность, Google может обрабатывать рекламный идентификатор устройства, IP-адрес и примерное местоположение, как описано в политике конфиденциальности Google. Рекламный идентификатор можно сбросить или ограничить в настройках Android. Сам ORBIT не использует аналитику и отчёты о сбоях и никогда не читает ваши задачи и заметки для рекламы. Рекламу можно отключить с помощью Premium, когда он станет доступен.</string>
+    <string name="privacy_network_title">Использование интернета</string>
+    <string name="privacy_network_body">ORBIT запрашивает разрешения INTERNET и ACCESS_NETWORK_STATE. Они нужны только для проверки наличия сети, загрузки рекламы, показа формы согласия (ваш выбор конфиденциальности) и получения настроек приложения. Все функции планировщика работают офлайн, а без сети реклама не запрашивается. Если это применимо, согласие на рекламу можно изменить в Настройках в разделе «Параметры конфиденциальности».</string>
+    <string name="privacy_permissions_title">Используемые разрешения</string>
+    <string name="privacy_permissions_intro">Помимо доступа в интернет, описанного выше, ORBIT запрашивает два разрешения, оба — для напоминаний:</string>
+    <string name="privacy_perm_notifications_title">Уведомления</string>
+    <string name="privacy_perm_notifications_body">Позволяют ORBIT показывать напоминания о задачах. Вы можете отказать, и остальное приложение продолжит работать.</string>
+    <string name="privacy_perm_boot_title">Восстановление напоминаний после перезагрузки</string>
+    <string name="privacy_perm_boot_body">Позволяет ORBIT заново запланировать напоминания после перезагрузки телефона. Больше ни для чего не используется.</string>
+    <string name="privacy_backups_title">Копии принадлежат вам</string>
+    <string name="privacy_backups_body">Файлы копий — это обычные файлы JSON, сохранённые там, где вы выберете. Они НЕ зашифрованы, поэтому любой, кто откроет файл, сможет его прочитать. Храните их в надёжном месте.</string>
+    <string name="privacy_cloud_title">Без облачного копирования</string>
+    <string name="privacy_cloud_body">Облачное и автоматическое резервное копирование Android для данных ORBIT отключено. Данные покидают устройство только тогда, когда вы сами их экспортируете.</string>
+    <string name="privacy_delete_title">Удаление всех данных</string>
+    <string name="privacy_delete_body">При удалении ORBIT все его данные стираются с устройства. Чтобы начать с чистого листа без удаления приложения, восстановите копию без данных.</string>
+
+    <!-- About -->
+    <string name="about_title">О приложении</string>
+    <string name="about_version">Версия %1$s (%2$d)</string>
+    <string name="about_description">ORBIT — приватный планировщик задач, проектов, заметок, привычек и целей. Он работает без аккаунта и без подключения к интернету, а всё, что вы пишете, остаётся на вашем устройстве. Интернет используется только для рекламы, параметров конфиденциальности и настроек приложения.</string>
+    <string name="about_made_with">Создано с помощью</string>
+    <string name="about_privacy_title">Конфиденциальность</string>
+    <string name="about_privacy_subtitle">Как ORBIT обращается с вашими данными</string>
+    <string name="privacy_intro_offline">ORBIT хранит ваш планировщик на вашем устройстве и полностью работает офлайн. Вот что именно это значит.</string>
+    <string name="privacy_permissions_intro_offline">ORBIT запрашивает два разрешения, оба для напоминаний:</string>
+    <string name="about_description_offline">ORBIT — личный планировщик задач, проектов, заметок, привычек и целей. Он работает без аккаунта и без интернета, а всё, что вы пишете, остаётся на вашем устройстве.</string>
+</resources>

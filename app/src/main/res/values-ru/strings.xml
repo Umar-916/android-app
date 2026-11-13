@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Ваша жизнь. Ваша работа. Одно упорядоченное пространство.</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_home">Главная</string>
+    <string name="nav_tasks">Задачи</string>
+    <string name="nav_projects">Проекты</string>
+    <string name="nav_calendar">Календарь</string>
+    <string name="nav_more">Ещё</string>
+
+    <!-- Shared actions (verb first) -->
+    <string name="action_back">Назад</string>
+    <string name="action_save">Сохранить</string>
+    <string name="action_cancel">Отмена</string>
+    <string name="action_delete">Удалить</string>
+    <string name="action_edit">Изменить</string>
+    <string name="action_add">Добавить</string>
+    <string name="action_done">Готово</string>
+    <string name="action_close">Закрыть</string>
+    <string name="action_search">Поиск</string>
+    <string name="action_undo">Отменить</string>
+    <string name="action_archive">В архив</string>
+    <string name="action_unarchive">Восстановить</string>
+    <string name="action_retry">Повторить</string>
+    <string name="action_continue">Продолжить</string>
+    <string name="action_skip">Пропустить</string>
+    <string name="action_next">Далее</string>
+    <string name="action_clear">Очистить</string>
+    <string name="action_more_options">Ещё</string>
+    <string name="action_discard">Отменить правки</string>
+    <string name="action_keep_editing">Продолжить</string>
+
+    <!-- Shared states -->
+    <string name="share_app_text">Попробуйте %1$s — приватный офлайн-планировщик задач, заметок, привычек и целей: %2$s</string>
+    <string name="share_app_chooser">Поделиться через</string>
+    <string name="error_cannot_open_link">Не удалось открыть ссылку</string>
+    <string name="exit_title">Выйти из ORBIT?</string>
+    <string name="exit_message">Ваши задачи, заметки и привычки сохранены на этом устройстве.</string>
+    <string name="exit_confirm">Выйти</string>
+    <string name="exit_stay">Остаться</string>
+    <string name="state_loading">Загрузка…</string>
+    <string name="error_generic">Что-то пошло не так. Ваши данные в безопасности — повторите попытку.</string>
+
+    <!-- Priorities and statuses -->
+    <string name="priority_low">Низкий</string>
+    <string name="priority_medium">Средний</string>
+    <string name="priority_high">Высокий</string>
+    <string name="priority_urgent">Срочный</string>
+    <string name="status_todo">К выполнению</string>
+    <string name="status_in_progress">В работе</string>
+    <string name="status_completed">Выполнено</string>
+    <string name="status_archived">В архиве</string>
+    <string name="status_active">Активен</string>
+    <string name="status_on_hold">Приостановлен</string>
+
+    <!-- Weekdays (short), Monday first -->
+    <string name="weekday_mon">Пн</string>
+    <string name="weekday_tue">Вт</string>
+    <string name="weekday_wed">Ср</string>
+    <string name="weekday_thu">Чт</string>
+    <string name="weekday_fri">Пт</string>
+    <string name="weekday_sat">Сб</string>
+    <string name="weekday_sun">Вс</string>
+
+    <!-- Notifications -->
+    <string name="notif_channel_reminders">Напоминания о задачах</string>
+    <string name="notif_channel_reminders_desc">Напоминания о задачах со сроком выполнения</string>
+    <string name="notif_due_today">Срок сегодня</string>
+    <string name="notif_due_at">Срок: %1$s</string>
+    <string name="notif_action_done">Выполнено</string>
+    <string name="notif_action_snooze">Отложить на 10 мин</string>
+</resources>

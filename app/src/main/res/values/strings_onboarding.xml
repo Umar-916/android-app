@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Language -->
+    <string name="lang_screen_title">App language</string>
+    <string name="lang_settings_title">Language</string>
+    <string name="lang_selected_header">Selected language</string>
+    <string name="lang_all_header">All languages</string>
+    <string name="lang_selected_state">Selected</string>
+
+    <!-- Onboarding -->
+    <string name="onb_page1_title">Plan your day</string>
+    <string name="onb_page1_body">Capture tasks and set reminders so nothing slips through.</string>
+    <string name="onb_page2_title">Organize everything</string>
+    <string name="onb_page2_body">Keep projects, notes and goals together in one calm place.</string>
+    <string name="onb_page3_title">Build habits</string>
+    <string name="onb_page3_body">Track your daily habits and watch your progress grow.</string>
+    <string name="onb_page4_title">Your data stays yours</string>
+    <string name="onb_page4_body">Tasks, notes and habits are stored on your device and never uploaded. Ads and settings use the internet; the app works fully offline.</string>
+    <string name="onb_page4_body_offline">Tasks, notes and habits are stored on your device and never uploaded. The app works fully offline.</string>
+    <string name="onb_get_started">Get started</string>
+    <string name="onb_page_indicator">Page %1$d of %2$d</string>
+</resources>

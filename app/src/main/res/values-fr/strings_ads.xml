@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ads_label">Pub</string>
+    <string name="ads_content_description">Publicité</string>
+    <string name="ads_loading">Chargement de la publicité…</string>
+    <string name="ads_no_internet">Pas de connexion Internet. Connectez-vous à Internet et réessayez.</string>
+    <string name="ads_privacy_options_title">Options de confidentialité</string>
+    <string name="ads_privacy_options_subtitle">Consultez ou modifiez vos choix de consentement aux publicités</string>
+</resources>

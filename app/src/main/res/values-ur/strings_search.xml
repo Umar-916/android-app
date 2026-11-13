@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_hint">ٹاسک، پروجیکٹ، نوٹس، عادات، اہداف</string>
+    <string name="search_idle_title">ہر چیز تلاش کریں</string>
+    <string name="search_idle_message">ٹاسک، پروجیکٹ، نوٹس، عادات اور اہداف ایک ہی جگہ تلاش کرنے کے لیے لکھیں۔</string>
+    <string name="search_empty_title">کوئی نتیجہ نہیں ملا</string>
+    <string name="search_empty_message">\"%1$s\" سے کچھ مطابقت نہیں رکھتا۔ کوئی اور لفظ آزمائیں۔</string>
+    <string name="search_untitled_note">بغیر عنوان نوٹ</string>
+    <string name="search_goal_percent">%1$d%% مکمل</string>
+    <plurals name="search_section_tasks">
+        <item quantity="one">ٹاسکس (%1$d)</item>
+        <item quantity="other">ٹاسکس (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_projects">
+        <item quantity="one">پروجیکٹس (%1$d)</item>
+        <item quantity="other">پروجیکٹس (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_notes">
+        <item quantity="one">نوٹس (%1$d)</item>
+        <item quantity="other">نوٹس (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_habits">
+        <item quantity="one">عادات (%1$d)</item>
+        <item quantity="other">عادات (%1$d)</item>
+    </plurals>
+    <plurals name="search_section_goals">
+        <item quantity="one">اہداف (%1$d)</item>
+        <item quantity="other">اہداف (%1$d)</item>
+    </plurals>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="startup_status_1">Menyiapkan ruang Anda…</string>
+    <string name="startup_status_4">Hampir siap…</string>
+    <string name="startup_progress_description">Memuat, %1$d persen</string>
+    <string name="startup_error_title">Perencana Anda tidak dapat dibuka</string>
+    <string name="startup_error_message">Tidak ada yang hilang. Silakan coba lagi sebentar lagi.</string>
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goals_title">اہداف</string>
+    <string name="goals_new">نیا ہدف</string>
+    <string name="goals_empty_title">ابھی کوئی ہدف نہیں</string>
+    <string name="goals_empty_message">قابلِ پیمائش ہدف مقرر کریں، جیسے پڑھنے کی کتابیں یا دوڑنے کے کلومیٹر، اور اس کی طرف اپنی پیش رفت دیکھیں۔</string>
+    <string name="goals_section_in_progress">جاری</string>
+    <string name="goals_section_in_progress_empty">کوئی ہدف جاری نہیں۔</string>
+    <string name="goals_section_completed">مکمل</string>
+    <plurals name="goals_show_archived">
+        <item quantity="one">محفوظ شدہ دکھائیں (%1$d)</item>
+        <item quantity="other">محفوظ شدہ دکھائیں (%1$d)</item>
+    </plurals>
+    <plurals name="goals_hide_archived">
+        <item quantity="one">محفوظ شدہ چھپائیں (%1$d)</item>
+        <item quantity="other">محفوظ شدہ چھپائیں (%1$d)</item>
+    </plurals>
+    <string name="goals_percent">%1$d%%</string>
+    <plurals name="goals_days_left">
+        <item quantity="one">%1$d دن باقی</item>
+        <item quantity="other">%1$d دن باقی</item>
+    </plurals>
+    <string name="goals_due_today">آج آخری تاریخ ہے</string>
+    <plurals name="goals_overdue_days">
+        <item quantity="one">%1$d دن تاخیر</item>
+        <item quantity="other">%1$d دن تاخیر</item>
+    </plurals>
+    <string name="goals_update_progress">پیش رفت اپ ڈیٹ کریں</string>
+    <string name="goals_celebrate">ہدف حاصل ہو گیا۔ شاباش!</string>
+
+    <string name="goals_update_progress_title">“%1$s” اپ ڈیٹ کریں</string>
+    <string name="goals_mode_set">قدر مقرر کریں</string>
+    <string name="goals_mode_add">مقدار جمع کریں</string>
+    <string name="goals_field_new_value">نئی قدر</string>
+    <string name="goals_field_increment">جمع کرنے کی مقدار</string>
+    <string name="goals_update_confirm">اپ ڈیٹ کریں</string>
+    <string name="goals_error_number_empty">کوئی عدد درج کریں۔</string>
+    <string name="goals_error_number_invalid">درست عدد درج کریں، جیسے 12 یا 12.5۔</string>
+    <string name="goals_error_number_negative">قدر منفی نہیں ہو سکتی۔</string>
+    <string name="goals_error_number_zero">قدر صفر سے زیادہ ہونی چاہیے۔</string>
+    <string name="goals_error_number_too_large">یہ عدد بہت بڑا ہے۔</string>
+
+    <string name="goals_edit_new_title">نیا ہدف</string>
+    <string name="goals_edit_title">ہدف میں ترمیم</string>
+    <string name="goals_field_title">ہدف</string>
+    <string name="goals_field_description">تفصیل</string>
+    <string name="goals_field_target">ہدف کی قدر</string>
+    <string name="goals_field_current">موجودہ قدر</string>
+    <string name="goals_field_unit">اکائی (اختیاری)</string>
+    <string name="goals_field_unit_hint">مثلاً کتابیں، کلومیٹر یا صفحات</string>
+    <string name="goals_field_start">آغاز کی تاریخ</string>
+    <string name="goals_field_target_date">ہدف کی تاریخ</string>
+    <string name="goals_field_status">حیثیت</string>
+    <string name="goals_error_title_required">ہدف کا عنوان درج کریں۔</string>
+    <string name="goals_error_target_before_start">ہدف کی تاریخ آغاز کی تاریخ کے برابر یا بعد کی ہونی چاہیے۔</string>
+    <string name="goals_not_found">یہ ہدف اب موجود نہیں۔</string>
+    <string name="goals_delete_title">“%1$s” حذف کریں؟</string>
+    <string name="goals_delete_message">“%1$s” مستقل طور پر حذف ہو جائے گا۔ یہ عمل واپس نہیں ہو سکتا۔</string>
+    <string name="goals_delete_confirm">ہدف حذف کریں</string>
+</resources>

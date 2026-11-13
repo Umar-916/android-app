@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Tu vida. Tu trabajo. Un espacio organizado.</string>
+
+    <string name="nav_home">Inicio</string>
+    <string name="nav_tasks">Tareas</string>
+    <string name="nav_projects">Proyectos</string>
+    <string name="nav_calendar">Calendario</string>
+    <string name="nav_more">Más</string>
+
+    <string name="action_back">Volver</string>
+    <string name="action_save">Guardar</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="action_delete">Eliminar</string>
+    <string name="action_edit">Editar</string>
+    <string name="action_add">Añadir</string>
+    <string name="action_done">Hecho</string>
+    <string name="action_close">Cerrar</string>
+    <string name="action_search">Buscar</string>
+    <string name="action_undo">Deshacer</string>
+    <string name="action_archive">Archivar</string>
+    <string name="action_unarchive">Restaurar</string>
+    <string name="action_retry">Reintentar</string>
+    <string name="action_continue">Continuar</string>
+    <string name="action_skip">Omitir</string>
+    <string name="action_next">Siguiente</string>
+    <string name="action_clear">Borrar</string>
+    <string name="action_more_options">Más opciones</string>
+    <string name="action_discard">Descartar</string>
+    <string name="action_keep_editing">Seguir editando</string>
+
+    <string name="share_app_text">Mira %1$s: un planificador privado y sin conexión para tareas, notas, hábitos y metas: %2$s</string>
+    <string name="share_app_chooser">Compartir con</string>
+    <string name="error_cannot_open_link">No se puede abrir el enlace</string>
+    <string name="exit_title">¿Salir de ORBIT?</string>
+    <string name="exit_message">Tus tareas, notas y hábitos están guardados en este dispositivo.</string>
+    <string name="exit_confirm">Salir</string>
+    <string name="exit_stay">Quedarme</string>
+    <string name="state_loading">Cargando…</string>
+    <string name="error_generic">Algo salió mal. Tus datos están a salvo; inténtalo de nuevo.</string>
+
+    <string name="priority_low">Baja</string>
+    <string name="priority_medium">Media</string>
+    <string name="priority_high">Alta</string>
+    <string name="priority_urgent">Urgente</string>
+    <string name="status_todo">Por hacer</string>
+    <string name="status_in_progress">En curso</string>
+    <string name="status_completed">Completada</string>
+    <string name="status_archived">Archivada</string>
+    <string name="status_active">Activo</string>
+    <string name="status_on_hold">En pausa</string>
+
+    <string name="weekday_mon">Lun</string>
+    <string name="weekday_tue">Mar</string>
+    <string name="weekday_wed">Mié</string>
+    <string name="weekday_thu">Jue</string>
+    <string name="weekday_fri">Vie</string>
+    <string name="weekday_sat">Sáb</string>
+    <string name="weekday_sun">Dom</string>
+
+    <string name="notif_channel_reminders">Recordatorios de tareas</string>
+    <string name="notif_channel_reminders_desc">Recordatorios de tareas con fecha de vencimiento</string>
+    <string name="notif_due_today">Vence hoy</string>
+    <string name="notif_due_at">Vence a las %1$s</string>
+    <string name="notif_action_done">Marcar hecha</string>
+    <string name="notif_action_snooze">Posponer 10 min</string>
+</resources>

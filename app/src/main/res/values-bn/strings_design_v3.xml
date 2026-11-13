@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Quick add (centre button of the bottom bar) -->
+    <string name="dv3_quick_add">দ্রুত যোগ করুন</string>
+    <string name="dv3_quick_add_subtitle">আপনি কী তৈরি করতে চান?</string>
+    <string name="dv3_new_task">নতুন কাজ</string>
+    <string name="dv3_new_note">নতুন নোট</string>
+    <string name="dv3_new_habit">নতুন অভ্যাস</string>
+    <string name="dv3_new_project">নতুন প্রজেক্ট</string>
+    <string name="dv3_new_goal">নতুন লক্ষ্য</string>
+    <string name="dv3_search">খুঁজুন</string>
+    <string name="dv3_quick_add_hint">এক ট্যাপে যেকোনো কিছু যোগ করুন</string>
+    <string name="dv3_quick_add_hint_dismiss">ইঙ্গিত বন্ধ করুন</string>
+</resources>

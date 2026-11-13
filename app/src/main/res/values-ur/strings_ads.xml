@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ads_label">اشتہار</string>
+    <string name="ads_content_description">اشتہار</string>
+    <string name="ads_loading">اشتہار لوڈ ہو رہا ہے…</string>
+    <string name="ads_no_internet">انٹرنیٹ کنکشن نہیں ہے۔ انٹرنیٹ سے جڑیں اور دوبارہ کوشش کریں۔</string>
+    <string name="ads_privacy_options_title">رازداری کے اختیارات</string>
+    <string name="ads_privacy_options_subtitle">اشتہارات کے لیے اپنی رضامندی کے انتخاب دیکھیں یا بدلیں</string>
+</resources>

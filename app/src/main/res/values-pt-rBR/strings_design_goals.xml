@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goals_of_target">/ %1$s</string>
+    <string name="goals_of_target_unit">/ %1$s %2$s</string>
+    <string name="goals_progress_desc">%1$d por cento concluído</string>
+    <string name="goals_hero_none_active">Nenhuma meta em andamento</string>
+    <plurals name="goals_hero_active">
+        <item quantity="one">%1$d meta em andamento</item>
+        <item quantity="many">%1$d metas em andamento</item>
+        <item quantity="other">%1$d metas em andamento</item>
+    </plurals>
+    <plurals name="goals_hero_completed">
+        <item quantity="one">%1$d meta concluída</item>
+        <item quantity="many">%1$d metas concluídas</item>
+        <item quantity="other">%1$d metas concluídas</item>
+    </plurals>
+    <string name="goals_preview_label">Novo total</string>
+    <string name="goals_preview_completes">Isso atinge sua meta e conclui o objetivo.</string>
+    <string name="goals_section_details">Detalhes</string>
+    <string name="goals_section_target">Meta e progresso</string>
+    <string name="goals_section_dates">Datas</string>
+</resources>

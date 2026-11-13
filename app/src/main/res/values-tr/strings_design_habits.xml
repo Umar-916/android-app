@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="habits_hero_title">Bugün</string>
+    <string name="habits_hero_none">Bugün planlanmış bir şey yok</string>
+    <string name="habits_hero_all_done">Bugünkülerin hepsi tamam</string>
+    <string name="habits_hero_progress">%2$d işten %1$d tanesi tamam</string>
+
+    <string name="habits_section_details">Ayrıntılar</string>
+    <string name="habits_section_appearance">Görünüm</string>
+    <string name="habits_section_schedule">Program</string>
+    <string name="habits_section_status">Durum</string>
+</resources>

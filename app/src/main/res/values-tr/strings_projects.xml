@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared by Projects, Habits and Goals -->
+    <string name="planning_color_label">Renk</string>
+    <string name="planning_color_selected">%1$s, seçili</string>
+    <string name="planning_color_violet">Menekşe</string>
+    <string name="planning_color_blue">Mavi</string>
+    <string name="planning_color_teal">Turkuaz</string>
+    <string name="planning_color_green">Yeşil</string>
+    <string name="planning_color_amber">Kehribar</string>
+    <string name="planning_color_orange">Turuncu</string>
+    <string name="planning_color_red">Kırmızı</string>
+    <string name="planning_color_pink">Pembe</string>
+    <string name="planning_color_purple">Mor</string>
+    <string name="planning_color_slate">Arduvaz</string>
+    <string name="planning_clear_date_named">%1$s alanını temizle</string>
+    <string name="planning_date_range">%1$s – %2$s</string>
+    <string name="planning_date_from">%1$s itibarıyla</string>
+    <string name="planning_date_until">%1$s tarihine kadar</string>
+    <string name="planning_discard_title">Değişikliklerden vazgeçilsin mi?</string>
+    <string name="planning_discard_message">Kaydedilmemiş değişiklikleriniz kaybolacak.</string>
+
+    <!-- Projects list -->
+    <string name="projects_new">Yeni proje</string>
+    <string name="projects_empty_title">Henüz proje yok</string>
+    <string name="projects_empty_message">Daha büyük bir hedefe doğru ilerlemeyi izlemek için ilgili görevleri bir projede toplayın.</string>
+    <string name="projects_filter_all">Tümü</string>
+    <string name="projects_filter_empty_title">Burada bir şey yok</string>
+    <string name="projects_filter_empty_message">Bu filtreyle eşleşen proje yok.</string>
+    <string name="projects_no_tasks">Henüz görev yok</string>
+    <plurals name="projects_tasks_progress">
+        <item quantity="one">%2$d görevin %1$d tanesi tamamlandı</item>
+        <item quantity="other">%2$d görevin %1$d tanesi tamamlandı</item>
+    </plurals>
+
+    <!-- Project detail -->
+    <string name="projects_detail_title">Proje</string>
+    <string name="projects_not_found">Bu proje artık yok.</string>
+    <string name="projects_restore">Projeyi geri yükle</string>
+    <string name="projects_mark_completed">Tamamlandı olarak işaretle</string>
+    <string name="projects_mark_active">Aktif olarak işaretle</string>
+    <string name="projects_percent">%%%1$d</string>
+    <string name="projects_progress_desc">Yüzde %1$d tamamlandı</string>
+    <string name="projects_stat_total">Toplam görev</string>
+    <string name="projects_stat_completed">Tamamlanan</string>
+    <string name="projects_stat_in_progress">Devam eden</string>
+    <string name="projects_stat_todo">Yapılacak</string>
+    <string name="projects_stat_overdue">Geciken</string>
+    <string name="projects_tasks_section">Görevler</string>
+    <string name="projects_add_task">Görev ekle</string>
+    <string name="projects_tasks_empty_title">Bu projede görev yok</string>
+    <string name="projects_tasks_empty_message">İlerlemeyi izlemeye başlamak için bir görev ekleyin.</string>
+    <string name="projects_task_due">Son tarih: %1$s</string>
+    <string name="projects_task_overdue">Gecikmiş · %1$s</string>
+    <string name="projects_task_mark_done">%1$s görevini tamamlandı olarak işaretle</string>
+    <string name="projects_task_mark_open">%1$s görevini tamamlanmadı olarak işaretle</string>
+
+    <!-- Project deletion -->
+    <string name="projects_delete_title">“%1$s” silinsin mi?</string>
+    <string name="projects_delete_simple_message">“%1$s” silinecek. Bu işlem geri alınamaz.</string>
+    <string name="projects_delete_confirm">Projeyi sil</string>
+    <plurals name="projects_delete_linked">
+        <item quantity="one">“%1$s” projesine bağlı %2$d görev var. Bu görev ne olsun?</item>
+        <item quantity="other">“%1$s” projesine bağlı %2$d görev var. Bu görevler ne olsun?</item>
+    </plurals>
+    <string name="projects_delete_keep">Görevleri koru</string>
+    <string name="projects_delete_keep_hint">Projesiz olarak görev listenizde kalırlar.</string>
+    <plurals name="projects_delete_all">
+        <item quantity="one">Projeyi ve %1$d görevini sil</item>
+        <item quantity="other">Projeyi ve %1$d görevini sil</item>
+    </plurals>
+
+    <!-- Project edit -->
+    <string name="projects_edit_new_title">Yeni proje</string>
+    <string name="projects_edit_title">Projeyi düzenle</string>
+    <string name="projects_field_name">Ad</string>
+    <string name="projects_field_description">Açıklama</string>
+    <string name="projects_field_start">Başlangıç tarihi</string>
+    <string name="projects_field_end">Bitiş tarihi</string>
+    <string name="projects_field_status">Durum</string>
+    <string name="projects_error_name_required">Bir proje adı girin.</string>
+    <string name="projects_error_end_before_start">Bitiş tarihi, başlangıç tarihiyle aynı veya sonrası olmalıdır.</string>
+</resources>

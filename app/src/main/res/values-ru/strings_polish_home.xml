@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_search_hint_tasks">Поиск задач…</string>
+    <string name="home_search_hint_notes">Поиск заметок…</string>
+    <string name="home_search_hint_projects">Поиск проектов…</string>
+    <string name="search_try_title">Попробуйте найти…</string>
+    <string name="search_suggestion_desc">Искать: %1$s</string>
+    <string name="search_edu_title">Находите всё за секунды</string>
+    <string name="search_edu_message">Когда вы добавите задачи, заметки или проекты, они появятся здесь как быстрые подсказки. Поиск учитывает названия и описания во всём ORBIT.</string>
+    <string name="search_empty_tip">Проверьте написание или введите меньше слов.</string>
+    <string name="more_projects_title">Проекты</string>
+    <string name="more_projects_desc">Группируйте задачи по целям</string>
+</resources>
