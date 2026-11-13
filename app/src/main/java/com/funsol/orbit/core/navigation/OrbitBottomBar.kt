@@ -106,7 +106,7 @@ private val RIGHT_TABS = listOf(
     TabSpec(AppDestination.More, R.string.nav_more, Icons.Rounded.MoreHoriz, FeatureAccent.ANALYTICS),
 )
 
-private val BAR_HEIGHT = 60.dp
+private val BAR_HEIGHT = 61.dp
 private val BUTTON_SIZE = 50.dp
 private val BUTTON_OVER_BAR = 21.dp
 private val NOTCH_RADIUS = 37.dp
@@ -144,20 +144,6 @@ private class NotchedBarShape(
     }
 }
 
-private fun DrawScope.softPathShadow(path: Path, color: Color, spreadPx: Float, dyPx: Float, steps: Int = 9) {
-    translate(0f, dyPx) {
-        for (i in steps downTo 1) {
-            val t = i / steps.toFloat()
-            drawPath(
-                path,
-                color.copy(alpha = color.alpha * 0.16f * (1f - t * 0.55f)),
-                style = Stroke(width = spreadPx * 2f * t),
-            )
-        }
-        drawPath(path, color.copy(alpha = color.alpha * 0.4f))
-    }
-}
-
 @Composable
 fun OrbitBottomBar(
     current: Any?,
@@ -186,7 +172,6 @@ fun OrbitBottomBar(
     val config = LocalConfiguration.current
     val fontScale = LocalDensity.current.fontScale
     val labelSize = remember(config.screenWidthDp, config.locales.toLanguageTags(), fontScale) { mutableFloatStateOf(12f) }
-    val shadowColor = if (extras.isDark) Color.Black.copy(alpha = 0.55f) else Color(0xFF3A4A8C).copy(alpha = 0.30f)
     Box(Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = bannerGap, bottom = bottomMargin)) {
         Row(
             Modifier
@@ -195,7 +180,6 @@ fun OrbitBottomBar(
                 .height(BAR_HEIGHT)
                 .drawBehind {
                     val path = shape.buildPath(size, this)
-                    softPathShadow(path, shadowColor, spreadPx = 10.dp.toPx(), dyPx = 3.dp.toPx())
                     drawPath(path, extras.cardBrush)
                     drawPath(path, extras.cardStroke, style = Stroke(extras.cardStrokeWidth.toPx()))
                 }

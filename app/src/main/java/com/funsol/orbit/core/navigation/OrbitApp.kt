@@ -93,6 +93,7 @@ fun OrbitApp() {
     val hintScope = rememberCoroutineScope()
     val dismissHint: () -> Unit = { hintScope.launch { settingsStore.setQuickAddHintDismissed(true) } }
     val activity = LocalActivity.current
+    val tabTransitionAd = com.funsol.orbit.core.ads.rememberNaturalTransitionAd()
     val appContext = androidx.compose.ui.platform.LocalContext.current
     BackHandler(enabled = current == AppDestination.Home && !showExit) { showExit = true }
     if (showExit) {
@@ -107,7 +108,7 @@ fun OrbitApp() {
                 androidx.compose.foundation.layout.Column(Modifier.navigationBarsPadding()) {
                     OrbitBottomBar(
                         current = current,
-                        onSelect = { nav.switchTab(it) },
+                        onSelect = { tab -> if (tab != current) tabTransitionAd { nav.switchTab(tab) } },
                         onQuickAdd = { appContext.postAnalytic(AnalyticsEvents.QUICK_ADD_FAB_CLICK); dismissHint(); showQuickAdd = true },
                         showHint = appSettings?.let { !it.quickAddHintDismissed } == true && !showQuickAdd && !showExit,
                         onDismissHint = dismissHint,
