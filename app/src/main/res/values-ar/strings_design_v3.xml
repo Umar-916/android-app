@@ -9,6 +9,6 @@
     <string name="dv3_new_project">مشروع جديد</string>
     <string name="dv3_new_goal">هدف جديد</string>
     <string name="dv3_search">بحث</string>
-    <string name="dv3_quick_add_hint">أضف أي شيء بنقرة واحدة</string>
+    <string name="dv3_quick_add_hint">مساحات إضافية والنسخ الاحتياطي هنا</string>
     <string name="dv3_quick_add_hint_dismiss">إخفاء التلميح</string>
 </resources>

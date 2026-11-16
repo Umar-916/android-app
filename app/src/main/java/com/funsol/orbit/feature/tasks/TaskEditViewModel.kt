@@ -36,7 +36,7 @@ data class TaskForm(
     val status: TaskStatus = TaskStatus.TODO,
     val dueDate: Int? = null,
     val dueTime: Int? = null,
-    val reminderOffset: Int? = null,
+    val reminderOffset: Int? = 0,
     val projectId: String? = null,
     val subtasks: List<SubtaskDraft> = emptyList(),
     val recurrenceType: RecurrenceType = RecurrenceType.NONE,
@@ -105,7 +105,7 @@ class TaskEditViewModel(
         _state.update { it.copy(loading = true, loadFailed = false, notFound = false) }
         viewModelScope.launch {
             if (taskId == null) {
-                val form = TaskForm(dueDate = presetDate, projectId = presetProjectId)
+                val form = TaskForm(dueDate = presetDate, projectId = presetProjectId, reminderOffset = 0)
                 initialForm = form
                 _state.update { it.copy(loading = false, isNew = true, form = form, dirty = false) }
                 return@launch
@@ -172,7 +172,10 @@ class TaskEditViewModel(
                 recurrenceEnd = null,
             )
         } else {
-            f.copy(dueDate = epochDay)
+            f.copy(
+                dueDate = epochDay,
+                reminderOffset = if (f.reminderOffset == null) 0 else f.reminderOffset,
+            )
         }
     }
 

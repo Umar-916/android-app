@@ -9,6 +9,6 @@
     <string name="dv3_new_project">Neues Projekt</string>
     <string name="dv3_new_goal">Neues Ziel</string>
     <string name="dv3_search">Suchen</string>
-    <string name="dv3_quick_add_hint">Alles mit einem Tipp hinzufügen</string>
+    <string name="dv3_quick_add_hint">Weitere Bereiche und Backup hier</string>
     <string name="dv3_quick_add_hint_dismiss">Hinweis schließen</string>
 </resources>

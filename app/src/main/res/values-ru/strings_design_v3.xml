@@ -8,6 +8,6 @@
     <string name="dv3_new_project">Новый проект</string>
     <string name="dv3_new_goal">Новая цель</string>
     <string name="dv3_search">Поиск</string>
-    <string name="dv3_quick_add_hint">Добавляйте что угодно одним касанием</string>
+    <string name="dv3_quick_add_hint">Дополнительные разделы и резервная копия здесь</string>
     <string name="dv3_quick_add_hint_dismiss">Скрыть подсказку</string>
 </resources>

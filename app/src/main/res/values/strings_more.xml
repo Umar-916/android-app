@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="more_title">More</string>
-    <string name="more_section_organize">Organize</string>
+    <string name="more_title">Create &amp; more</string>
+    <string name="more_hub_title">What would you like to do?</string>
+    <string name="more_hub_subtitle">Jump straight to a space or manage your app.</string>
+    <string name="more_section_create">Create</string>
+    <string name="more_section_organize">Explore</string>
     <string name="more_section_app">App and data</string>
+    <string name="hub_open">Open more options</string>
     <string name="more_notes_title">Notes</string>
     <string name="more_notes_desc">Quick notes and folders</string>
     <string name="more_habits_title">Habits</string>

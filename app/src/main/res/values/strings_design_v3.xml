@@ -9,6 +9,6 @@
     <string name="dv3_new_project">New project</string>
     <string name="dv3_new_goal">New goal</string>
     <string name="dv3_search">Search</string>
-    <string name="dv3_quick_add_hint">Add anything in one tap</string>
+    <string name="dv3_quick_add_hint">More spaces and backup live here</string>
     <string name="dv3_quick_add_hint_dismiss">Dismiss hint</string>
 </resources>

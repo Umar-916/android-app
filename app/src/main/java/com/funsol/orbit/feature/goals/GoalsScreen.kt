@@ -1,7 +1,13 @@
 package com.funsol.orbit.feature.goals
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -101,6 +107,11 @@ fun GoalsScreen(nav: OrbitNavigator) {
     val listState = rememberLazyListState()
     val scrolled by remember { derivedStateOf { listState.canScrollBackward } }
 
+    // Empty state carries its own "New goal" action, so suppress the duplicate FAB there.
+    val emptyActionHandledInState = remember(state.loading, state.error, state.isEmpty) {
+        !state.loading && !state.error && state.isEmpty
+    }
+
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         snackbarHost = { SnackbarHost(snackbar) },
@@ -117,15 +128,21 @@ fun GoalsScreen(nav: OrbitNavigator) {
             )
         },
         floatingActionButton = {
-            GradientFab(
-                icon = Icons.Rounded.Add,
-                contentDescription = stringResource(R.string.goals_new),
-                onClick = {
-                    context.postAnalytic(GoalsEvents.GOALS_ADD_FAB_CLICK)
-                    guard.run { nav.navigate(AppDestination.GoalEdit()) }
-                },
-                brush = Orbit.extras.accentGradient(FeatureAccent.GOALS),
-            )
+            AnimatedVisibility(
+                visible = !emptyActionHandledInState,
+                enter = fadeIn(tween(160)) + scaleIn(tween(160), initialScale = 0.85f),
+                exit = fadeOut(tween(120)) + scaleOut(tween(120), targetScale = 0.85f),
+            ) {
+                GradientFab(
+                    icon = Icons.Rounded.Add,
+                    contentDescription = stringResource(R.string.goals_new),
+                    onClick = {
+                        context.postAnalytic(GoalsEvents.GOALS_ADD_FAB_CLICK)
+                        guard.run { nav.navigate(AppDestination.GoalEdit()) }
+                    },
+                    brush = Orbit.extras.accentGradient(FeatureAccent.GOALS),
+                )
+            }
         },
     ) { padding ->
         CenteredContent(Modifier.padding(padding)) {

@@ -1,8 +1,13 @@
 package com.funsol.orbit.feature.projects
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -122,6 +127,11 @@ private fun ProjectsContent(
     val listState = rememberLazyListState()
     val scrolled by remember { derivedStateOf { listState.canScrollBackward } }
 
+    // Empty state already shows "New project"; suppress the duplicate FAB there.
+    val emptyActionHandledInState = remember(state.loading, state.error, state.totalProjects) {
+        !state.loading && !state.error && state.totalProjects == 0
+    }
+
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         contentWindowInsets = WindowInsets(0.dp),
@@ -135,12 +145,18 @@ private fun ProjectsContent(
             )
         },
         floatingActionButton = {
-            GradientFab(
-                icon = Icons.Rounded.Add,
-                contentDescription = stringResource(R.string.projects_new),
-                onClick = onCreate,
-                brush = extras.accentGradient(FeatureAccent.PROJECTS),
-            )
+            AnimatedVisibility(
+                visible = !emptyActionHandledInState,
+                enter = fadeIn(tween(160)) + scaleIn(tween(160), initialScale = 0.85f),
+                exit = fadeOut(tween(120)) + scaleOut(tween(120), targetScale = 0.85f),
+            ) {
+                GradientFab(
+                    icon = Icons.Rounded.Add,
+                    contentDescription = stringResource(R.string.projects_new),
+                    onClick = onCreate,
+                    brush = extras.accentGradient(FeatureAccent.PROJECTS),
+                )
+            }
         },
     ) { padding ->
         CenteredContent(Modifier.padding(padding)) {

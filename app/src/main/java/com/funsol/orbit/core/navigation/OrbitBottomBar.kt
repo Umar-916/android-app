@@ -34,7 +34,7 @@ import androidx.compose.material.icons.rounded.CalendarMonth
 import androidx.compose.material.icons.rounded.Checklist
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.Home
-import androidx.compose.material.icons.rounded.MoreHoriz
+import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -103,7 +103,7 @@ private val LEFT_TABS = listOf(
 )
 private val RIGHT_TABS = listOf(
     TabSpec(AppDestination.Calendar, R.string.nav_calendar, Icons.Rounded.CalendarMonth, FeatureAccent.CALENDAR),
-    TabSpec(AppDestination.More, R.string.nav_more, Icons.Rounded.MoreHoriz, FeatureAccent.ANALYTICS),
+    TabSpec(AppDestination.Settings, R.string.nav_settings, Icons.Rounded.Settings, FeatureAccent.SETTINGS),
 )
 
 private val BAR_HEIGHT = 61.dp
@@ -148,7 +148,7 @@ private class NotchedBarShape(
 fun OrbitBottomBar(
     current: Any?,
     onSelect: (AppDestination) -> Unit,
-    onQuickAdd: () -> Unit,
+    onOpenHub: () -> Unit,
     showHint: Boolean = false,
     onDismissHint: () -> Unit = {},
     hintLift: Dp = 0.dp,
@@ -164,6 +164,7 @@ fun OrbitBottomBar(
             AppDestination.Projects -> AnalyticsEvents.NAV_PROJECTS_CLICK
             AppDestination.Calendar -> AnalyticsEvents.NAV_CALENDAR_CLICK
             AppDestination.More -> AnalyticsEvents.NAV_MORE_CLICK
+            AppDestination.Settings -> AnalyticsEvents.NAV_SETTINGS_CLICK
             else -> null
         }?.let { analyticsContext.postAnalytic(it) }
         onSelect(dest)
@@ -194,18 +195,21 @@ fun OrbitBottomBar(
                 TabItem(tab, current == tab.destination, { selectTab(tab.destination) }, labelSize, Modifier.weight(1f))
             }
         }
-        CenterButton(onQuickAdd, Modifier.align(Alignment.TopCenter))
+        CenterButton(onOpenHub, active = current == AppDestination.More, modifier = Modifier.align(Alignment.TopCenter))
         if (showHint) QuickAddHint(onDismissHint, hintLift)
     }
 }
 
 @Composable
-private fun CenterButton(onClick: () -> Unit, modifier: Modifier = Modifier) {
+private fun CenterButton(onClick: () -> Unit, active: Boolean = false, modifier: Modifier = Modifier) {
     val extras = Orbit.extras
     val interaction = remember { MutableInteractionSource() }
     val pressed by interaction.collectIsPressedAsState()
     val scale by animateFloatAsState(if (pressed) 0.93f else 1f, spring(Spring.DampingRatioMediumBouncy, Spring.StiffnessMedium), label = "centerPress")
-    val description = stringResource(R.string.dv3_quick_add)
+    // Quiet "you are here" feedback when the create hub is open; the button is not a
+    // regular tab, so without this it would look inactive while its screen is showing.
+    val activeProgress by animateFloatAsState(if (active) 1f else 0f, tween(200), label = "centerActive")
+    val description = stringResource(R.string.hub_open)
     Box(
         modifier
             .size(BUTTON_SIZE)
@@ -225,12 +229,12 @@ private fun CenterButton(onClick: () -> Unit, modifier: Modifier = Modifier) {
                     center = dark,
                 )
                 val glowCenter = Offset(c.x, c.y + 4.dp.toPx())
-                val glowRadius = size.width * 0.78f
+                val glowRadius = size.width * (0.78f + 0.10f * activeProgress)
                 drawCircle(
                     Brush.radialGradient(
-                        0.0f to extras.actionGlow.copy(alpha = 0.26f),
-                        0.5f to extras.actionGlow.copy(alpha = 0.14f),
-                        0.78f to extras.actionGlow.copy(alpha = 0.04f),
+                        0.0f to extras.actionGlow.copy(alpha = 0.26f + 0.14f * activeProgress),
+                        0.5f to extras.actionGlow.copy(alpha = 0.14f + 0.08f * activeProgress),
+                        0.78f to extras.actionGlow.copy(alpha = 0.04f + 0.04f * activeProgress),
                         1.0f to Color.Transparent,
                         center = glowCenter,
                         radius = glowRadius,
@@ -241,9 +245,12 @@ private fun CenterButton(onClick: () -> Unit, modifier: Modifier = Modifier) {
             }
             .clip(CircleShape)
             .background(extras.brandGradient)
-            .border(1.5.dp, Color.White.copy(alpha = 0.35f), CircleShape)
+            .border(1.5.dp, Color.White.copy(alpha = 0.35f + 0.45f * activeProgress), CircleShape)
             .clickable(interactionSource = interaction, indication = null, role = Role.Button, onClick = onClick)
-            .semantics { contentDescription = description },
+            .semantics {
+                contentDescription = description
+                selected = active
+            },
         contentAlignment = Alignment.Center,
     ) {
         Icon(Icons.Rounded.Add, contentDescription = null, tint = Color.White, modifier = Modifier.size(26.dp))

@@ -4,10 +4,12 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
@@ -61,6 +63,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.shadow.Shadow
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalView
@@ -104,6 +107,24 @@ enum class CardStyle {
 
 enum class CardElevation { Flat, Soft, Lifted }
 
+/**
+ * Shared press-in feedback so every tappable surface (cards, buttons, FAB) answers a
+ * touch the same way. Kept subtle so large cards stay steady while scrolling.
+ */
+@Composable
+private fun Modifier.pressDown(interaction: MutableInteractionSource, pressedScale: Float = 0.97f): Modifier {
+    val pressed by interaction.collectIsPressedAsState()
+    val scale by animateFloatAsState(
+        targetValue = if (pressed) pressedScale else 1f,
+        animationSpec = tween(110),
+        label = "pressDown",
+    )
+    return graphicsLayer {
+        scaleX = scale
+        scaleY = scale
+    }
+}
+
 @Composable
 fun OrbitCard(
     modifier: Modifier = Modifier,
@@ -130,7 +151,10 @@ fun OrbitCard(
         CardElevation.Soft -> 1f
         CardElevation.Lifted -> 1.6f
     }
+    val interaction = remember { MutableInteractionSource() }
+    val click = onClick
     val base = modifier
+        .then(if (click != null) Modifier.pressDown(interaction, 0.985f) else Modifier)
         .let {
             if (glass || glowAlpha == 0f) it
             else it.orbitGlow(
@@ -143,7 +167,14 @@ fun OrbitCard(
         .clip(shape)
         .background(fill)
         .border(extras.cardStrokeWidth, strokeColor, shape)
-        .let { if (onClick != null) it.clickable(role = Role.Button, onClick = onClick) else it }
+        .let {
+            if (click != null) it.clickable(
+                interactionSource = interaction,
+                indication = LocalIndication.current,
+                role = Role.Button,
+                onClick = click,
+            ) else it
+        }
         .let { m -> if (accent != null) m.drawBehind { drawRect(accent, size = Size(4.dp.toPx(), size.height)) } else m }
     Column(base.padding(contentPadding), content = content)
 }
@@ -161,12 +192,22 @@ fun OrbitWell(
 ) {
     val extras = Orbit.extras
     val borderColor = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline.copy(alpha = 0.18f)
+    val interaction = remember { MutableInteractionSource() }
+    val click = onClick
     Box(
         modifier
+            .then(if (click != null) Modifier.pressDown(interaction, 0.985f) else Modifier)
             .clip(shape)
             .background(extras.well)
             .border(if (selected) 1.dp else 0.6.dp, borderColor, shape)
-            .let { if (onClick != null) it.clickable(role = Role.Button, onClick = onClick) else it },
+            .let {
+                if (click != null) it.clickable(
+                    interactionSource = interaction,
+                    indication = LocalIndication.current,
+                    role = Role.Button,
+                    onClick = click,
+                ) else it
+            },
         content = content,
     )
 }
@@ -229,13 +270,21 @@ fun GradientButton(
     val fill = if (enabled) (brush ?: extras.brandGradient) else Brush.linearGradient(
         listOf(MaterialTheme.colorScheme.surfaceVariant, MaterialTheme.colorScheme.surfaceVariant),
     )
+    val interaction = remember { MutableInteractionSource() }
     Box(
         modifier
+            .then(if (enabled) Modifier.pressDown(interaction) else Modifier)
             .heightIn(min = 46.dp)
             .then(if (enabled) Modifier.orbitGlow(shape, extras.actionGlow, radius = 12.dp, offsetY = 4.dp) else Modifier)
             .clip(shape)
             .background(fill)
-            .clickable(enabled = enabled, role = Role.Button, onClick = onClick)
+            .clickable(
+                enabled = enabled,
+                interactionSource = interaction,
+                indication = LocalIndication.current,
+                role = Role.Button,
+                onClick = onClick,
+            )
             .padding(horizontal = Spacing.md, vertical = 11.dp),
         contentAlignment = Alignment.Center,
     ) {
@@ -280,13 +329,20 @@ fun GradientFab(
 ) {
     val extras = Orbit.extras
     val shape = if (label == null) CircleShape else RoundedCornerShape(30.dp)
+    val interaction = remember { MutableInteractionSource() }
     Row(
         modifier
+            .pressDown(interaction, 0.96f)
             .heightIn(min = 52.dp)
             .orbitGlow(shape, extras.actionGlow, radius = 12.dp, offsetY = 4.dp)
             .clip(shape)
             .background(brush ?: extras.brandGradient)
-            .clickable(role = Role.Button, onClick = onClick)
+            .clickable(
+                interactionSource = interaction,
+                indication = LocalIndication.current,
+                role = Role.Button,
+                onClick = onClick,
+            )
             .padding(horizontal = if (label == null) 16.dp else 20.dp, vertical = 12.dp)
             .let { if (label == null) it.width(52.dp) else it },
         verticalAlignment = Alignment.CenterVertically,

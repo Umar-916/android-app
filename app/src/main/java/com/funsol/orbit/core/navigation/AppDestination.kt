@@ -43,11 +43,16 @@ sealed class AppDestination : NavKey {
     @Serializable data object Feedback : AppDestination()
 }
 
+/**
+ * Destinations that keep the bottom bar on screen. [AppDestination.More] is the
+ * centre "create & more" hub; it has no tab item of its own but still shows the bar.
+ */
 val BOTTOM_TABS: List<AppDestination> = listOf(
     AppDestination.Home,
     AppDestination.Tasks,
     AppDestination.Calendar,
     AppDestination.More,
+    AppDestination.Settings,
 )
 
 class OrbitNavigator(private val backStack: NavBackStack<NavKey>) {

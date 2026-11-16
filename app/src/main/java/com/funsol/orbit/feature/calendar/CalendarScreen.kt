@@ -20,10 +20,11 @@ import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.scaleIn
-import androidx.compose.animation.scaleOut
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.foundation.lazy.items
@@ -81,7 +82,6 @@ import com.funsol.orbit.core.database.entity.TaskEntity
 import com.funsol.orbit.core.designsystem.EmptyState
 import com.funsol.orbit.core.designsystem.ErrorState
 import com.funsol.orbit.core.designsystem.FeatureAccent
-import com.funsol.orbit.core.designsystem.GradientFab
 import com.funsol.orbit.core.designsystem.LoadingState
 import com.funsol.orbit.core.designsystem.Orbit
 import com.funsol.orbit.core.designsystem.OrbitTopBar
@@ -117,7 +117,13 @@ fun CalendarScreen(nav: OrbitNavigator) {
 
     val listState = rememberLazyListState()
     val scrolled by remember { derivedStateOf { listState.canScrollBackward } }
-    val showFab by remember { derivedStateOf { listState.firstVisibleItemIndex >= 2 } }
+
+    // An empty day renders its own "Add task" call to action, so the top-bar add is
+    // suppressed there to avoid showing the same action twice. Agenda mode keeps the
+    // toolbar action because its empty state has no create button.
+    val emptyDayHandledInState = remember(state.loading, state.error, state.schedule.isEmpty, state.mode) {
+        !state.loading && !state.error && state.mode == CalendarMode.DAY && state.schedule.isEmpty
+    }
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
@@ -129,28 +135,23 @@ fun CalendarScreen(nav: OrbitNavigator) {
                 icon = Icons.Rounded.CalendarMonth,
                 scrolled = scrolled,
                 actions = {
-                    IconButton(onClick = {
-                        context.postAnalytic(CalendarEvents.CALENDAR_ADD_TASK_CLICK)
-                        addTask()
-                    }) {
-                        Icon(Icons.Rounded.Add, contentDescription = stringResource(R.string.calendar_add_task))
+                    // Single contextual create entry for this screen: adds a task to the
+                    // selected day. The global create hub lives on the center nav button, so
+                    // no second FAB is needed here.
+                    AnimatedVisibility(
+                        visible = !emptyDayHandledInState,
+                        enter = fadeIn(tween(150)) + scaleIn(tween(150), initialScale = 0.8f),
+                        exit = fadeOut(tween(120)) + scaleOut(tween(120), targetScale = 0.8f),
+                    ) {
+                        IconButton(onClick = {
+                            context.postAnalytic(CalendarEvents.CALENDAR_ADD_TASK_CLICK)
+                            addTask()
+                        }) {
+                            Icon(Icons.Rounded.Add, contentDescription = stringResource(R.string.calendar_add_task))
+                        }
                     }
                 },
             )
-        },
-        floatingActionButton = {
-            AnimatedVisibility(visible = showFab, enter = scaleIn() + fadeIn(), exit = scaleOut() + fadeOut()) {
-                GradientFab(
-                    icon = Icons.Rounded.Add,
-                    contentDescription = stringResource(R.string.calendar_add_task),
-                    onClick = {
-                        context.postAnalytic(CalendarEvents.CALENDAR_FAB_ADD_CLICK)
-                        addTask()
-                    },
-                    brush = Orbit.extras.accentGradient(FeatureAccent.CALENDAR),
-                    modifier = Modifier.padding(end = Spacing.md, bottom = Spacing.md),
-                )
-            }
         },
         snackbarHost = { SnackbarHost(snackbar) },
     ) { inner ->
@@ -303,6 +304,7 @@ private fun LazyListScope.dayItems(
                 actionLabel = stringResource(R.string.calendar_add_task),
                 onAction = onAdd,
                 accent = FeatureAccent.CALENDAR,
+                modifier = Modifier.animateItem(),
             )
         }
         return
@@ -410,6 +412,7 @@ private fun LazyListScope.agendaItems(
                 title = stringResource(R.string.calendar_empty_agenda_title),
                 message = stringResource(R.string.calendar_empty_agenda_message),
                 accent = FeatureAccent.CALENDAR,
+                modifier = Modifier.animateItem(),
             )
         }
         return

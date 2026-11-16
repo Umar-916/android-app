@@ -9,6 +9,6 @@
     <string name="dv3_new_project">Nouveau projet</string>
     <string name="dv3_new_goal">Nouvel objectif</string>
     <string name="dv3_search">Rechercher</string>
-    <string name="dv3_quick_add_hint">Ajoutez tout en un geste</string>
+    <string name="dv3_quick_add_hint">Espaces et sauvegarde ici</string>
     <string name="dv3_quick_add_hint_dismiss">Fermer l\'astuce</string>
 </resources>

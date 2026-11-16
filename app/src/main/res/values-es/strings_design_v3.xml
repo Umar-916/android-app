@@ -9,6 +9,6 @@
     <string name="dv3_new_project">Nuevo proyecto</string>
     <string name="dv3_new_goal">Nueva meta</string>
     <string name="dv3_search">Buscar</string>
-    <string name="dv3_quick_add_hint">Añade lo que quieras con un toque</string>
+    <string name="dv3_quick_add_hint">Más espacios y copia de seguridad aquí</string>
     <string name="dv3_quick_add_hint_dismiss">Cerrar sugerencia</string>
 </resources>

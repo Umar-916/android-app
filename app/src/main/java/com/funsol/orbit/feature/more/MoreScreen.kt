@@ -6,10 +6,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -24,13 +24,10 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.StickyNote2
 import androidx.compose.material.icons.rounded.Backup
-import androidx.compose.material.icons.rounded.BarChart
+import androidx.compose.material.icons.rounded.Insights
 import androidx.compose.material.icons.rounded.Flag
 import androidx.compose.material.icons.rounded.Folder
 import androidx.compose.material.icons.rounded.Loop
-import androidx.compose.material.icons.rounded.PrivacyTip
-import androidx.compose.material.icons.rounded.Search
-import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -61,24 +58,23 @@ import com.funsol.orbit.core.common.rememberClickGuard
 import com.funsol.orbit.core.designsystem.CardElevation
 import com.funsol.orbit.core.designsystem.CardStyle
 import com.funsol.orbit.core.designsystem.FeatureAccent
-import com.funsol.orbit.core.designsystem.isLargeFontScale
 import com.funsol.orbit.core.designsystem.GroupTitle
 import com.funsol.orbit.core.designsystem.IconTile
 import com.funsol.orbit.core.designsystem.Orbit
 import com.funsol.orbit.core.designsystem.OrbitAmber
+import com.funsol.orbit.core.designsystem.OrbitCard
 import com.funsol.orbit.core.designsystem.OrbitCoral
 import com.funsol.orbit.core.designsystem.OrbitCyan
 import com.funsol.orbit.core.designsystem.OrbitIndigo
 import com.funsol.orbit.core.designsystem.OrbitVioletSoft
-import com.funsol.orbit.core.designsystem.OrbitCard
 import com.funsol.orbit.core.designsystem.Spacing
+import com.funsol.orbit.core.designsystem.isLargeFontScale
 import com.funsol.orbit.core.designsystem.orbitGlow
 import com.funsol.orbit.core.navigation.AppDestination
 import com.funsol.orbit.core.navigation.OrbitNavigator
 import com.funsol.orbit.feature.onboarding.rememberLoop
 import com.funsol.orbit.feature.onboarding.rememberPulse
 import com.funsol.orbit.feature.premium.drawOrbitMark
-import com.funsol.orbit.feature.settings.SettingsDivider
 import com.funsol.orbit.feature.settings.SettingsRow
 import com.funsol.orbit.feature.settings.staggeredEntrance
 
@@ -96,18 +92,26 @@ private val moreTiles = listOf(
     MoreTile(Icons.AutoMirrored.Rounded.StickyNote2, FeatureAccent.NOTES, R.string.more_notes_title, R.string.more_notes_desc, AppDestination.Notes, MoreEvents.MORE_NOTES_CLICK),
     MoreTile(Icons.Rounded.Loop, FeatureAccent.HABITS, R.string.more_habits_title, R.string.more_habits_desc, AppDestination.Habits, MoreEvents.MORE_HABITS_CLICK),
     MoreTile(Icons.Rounded.Flag, FeatureAccent.GOALS, R.string.more_goals_title, R.string.more_goals_desc, AppDestination.Goals, MoreEvents.MORE_GOALS_CLICK),
-    MoreTile(Icons.Rounded.BarChart, FeatureAccent.ANALYTICS, R.string.more_analytics_title, R.string.more_analytics_desc, AppDestination.Analytics, MoreEvents.MORE_STATS_CLICK),
-    MoreTile(Icons.Rounded.Search, FeatureAccent.HOME, R.string.more_search_title, R.string.more_search_desc, AppDestination.Search, MoreEvents.MORE_SEARCH_CLICK),
+    MoreTile(Icons.Rounded.Insights, FeatureAccent.ANALYTICS, R.string.more_analytics_title, R.string.more_analytics_desc, AppDestination.Analytics, MoreEvents.MORE_STATS_CLICK),
 )
 
 private val heroShape = RoundedCornerShape(22.dp)
 
+/**
+ * The centre action of the bottom bar: a single home for every secondary space
+ * and app-level action. Quick create lives at the top of Home instead, so the
+ * same create action is never offered twice.
+ */
 @Composable
 fun MoreScreen(nav: OrbitNavigator) {
     val context = LocalContext.current
     PostAnalytic(MoreEvents.MORE_SCREEN_DISPLAY)
     val guard = rememberClickGuard()
     val singleColumn = isLargeFontScale()
+    val openExplore: (MoreTile) -> Unit = { tile ->
+        context.postAnalytic(tile.event)
+        guard.run { nav.navigate(tile.destination) }
+    }
     Scaffold(containerColor = MaterialTheme.colorScheme.background) { padding ->
         Box(Modifier.fillMaxSize().padding(padding), contentAlignment = Alignment.TopCenter) {
             Column(
@@ -118,15 +122,12 @@ fun MoreScreen(nav: OrbitNavigator) {
                     .padding(start = Spacing.md, end = Spacing.md, top = Spacing.sm, bottom = Spacing.md),
                 verticalArrangement = Arrangement.spacedBy(Spacing.sm),
             ) {
-                BrandHero(Modifier.staggeredEntrance(0, withScale = true))
+                HubHeader(Modifier.staggeredEntrance(0, withScale = true))
+
                 GroupTitle(stringResource(R.string.more_section_organize), Modifier.staggeredEntrance(1))
-                val onOpen: (MoreTile) -> Unit = { tile ->
-                    context.postAnalytic(tile.event)
-                    guard.run { nav.navigate(tile.destination) }
-                }
                 if (singleColumn) {
                     moreTiles.forEachIndexed { i, tile ->
-                        FeatureTile(tile, onClick = { onOpen(tile) }, modifier = Modifier.fillMaxWidth().staggeredEntrance(2 + i))
+                        FeatureTile(tile, onClick = { openExplore(tile) }, modifier = Modifier.fillMaxWidth().staggeredEntrance(2 + i))
                     }
                 } else {
                     moreTiles.chunked(2).forEachIndexed { row, pair ->
@@ -137,7 +138,7 @@ fun MoreScreen(nav: OrbitNavigator) {
                             pair.forEachIndexed { col, tile ->
                                 FeatureTile(
                                     tile,
-                                    onClick = { onOpen(tile) },
+                                    onClick = { openExplore(tile) },
                                     modifier = Modifier.weight(1f).fillMaxHeight().staggeredEntrance(2 + row * 2 + col, withScale = true),
                                 )
                             }
@@ -145,16 +146,17 @@ fun MoreScreen(nav: OrbitNavigator) {
                         }
                     }
                 }
+
                 Spacer(Modifier.height(Spacing.xs))
-                GroupTitle(stringResource(R.string.more_section_app), Modifier.staggeredEntrance(9))
-                AppCard(nav, guard, Modifier.staggeredEntrance(10))
+                GroupTitle(stringResource(R.string.more_section_app), Modifier.staggeredEntrance(7))
+                BackupCard(nav, guard, Modifier.staggeredEntrance(8))
             }
         }
     }
 }
 
 @Composable
-private fun BrandHero(modifier: Modifier = Modifier) {
+private fun HubHeader(modifier: Modifier = Modifier) {
     val extras = Orbit.extras
     Box(
         modifier
@@ -162,11 +164,11 @@ private fun BrandHero(modifier: Modifier = Modifier) {
             .orbitGlow(heroShape, extras.actionGlow.copy(alpha = 0.22f), radius = 14.dp, offsetY = 5.dp)
             .clip(heroShape)
             .background(extras.heroGradient)
-            .heightIn(min = 112.dp),
+            .heightIn(min = 116.dp),
     ) {
         Canvas(Modifier.matchParentSize()) {
             val rtl = layoutDirection == LayoutDirection.Rtl
-            val center = Offset(if (rtl) size.width * 0.06f else size.width * 0.94f, size.height * 0.12f)
+            val center = Offset(if (rtl) size.width * 0.92f else size.width * 0.08f, size.height * 0.12f)
             listOf(44.dp, 74.dp, 104.dp, 138.dp).forEachIndexed { i, r ->
                 drawCircle(
                     Color.White.copy(alpha = 0.16f - i * 0.025f),
@@ -175,29 +177,35 @@ private fun BrandHero(modifier: Modifier = Modifier) {
                     style = Stroke(width = 1.2.dp.toPx()),
                 )
             }
-            drawCircle(Color.White.copy(alpha = 0.55f), radius = 3.5.dp.toPx(), center = Offset(center.x + (if (rtl) 1 else -1) * 74.dp.toPx(), center.y + 3.dp.toPx()))
+            drawCircle(
+                Color.White.copy(alpha = 0.55f),
+                radius = 3.5.dp.toPx(),
+                center = Offset(center.x + (if (rtl) -1 else 1) * 74.dp.toPx(), center.y + 3.dp.toPx()),
+            )
         }
         Row(
-            Modifier.fillMaxWidth().padding(horizontal = 14.dp, vertical = 12.dp),
+            Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 14.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(Spacing.md),
         ) {
-            AnimatedOrbitMark(Modifier.size(88.dp))
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Spacing.xs)) {
                 Text(
-                    stringResource(R.string.app_brand),
+                    stringResource(R.string.more_hub_title),
                     style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
                     color = Color.White,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
                     modifier = Modifier.semantics { heading() },
                 )
                 Text(
-                    stringResource(R.string.app_tagline),
+                    stringResource(R.string.more_hub_subtitle),
                     style = MaterialTheme.typography.bodySmall,
                     color = Color.White.copy(alpha = 0.88f),
-                    maxLines = 2,
+                    maxLines = 3,
                     overflow = TextOverflow.Ellipsis,
                 )
             }
+            AnimatedOrbitMark(Modifier.size(68.dp))
         }
     }
 }
@@ -269,20 +277,9 @@ private fun FeatureTile(tile: MoreTile, onClick: () -> Unit, modifier: Modifier 
 }
 
 @Composable
-private fun AppCard(nav: OrbitNavigator, guard: ClickGuard, modifier: Modifier = Modifier) {
+private fun BackupCard(nav: OrbitNavigator, guard: ClickGuard, modifier: Modifier = Modifier) {
     val context = LocalContext.current
     OrbitCard(modifier = modifier.fillMaxWidth(), contentPadding = PaddingValues(vertical = Spacing.xs)) {
-        SettingsRow(
-            icon = Icons.Rounded.Settings,
-            accent = FeatureAccent.SETTINGS,
-            title = stringResource(R.string.more_settings_title),
-            subtitle = stringResource(R.string.more_settings_desc),
-            onClick = {
-                context.postAnalytic(MoreEvents.MORE_SETTINGS_CLICK)
-                guard.run { nav.navigate(AppDestination.Settings) }
-            },
-        )
-        SettingsDivider()
         SettingsRow(
             icon = Icons.Rounded.Backup,
             accent = FeatureAccent.BACKUP,
@@ -291,17 +288,6 @@ private fun AppCard(nav: OrbitNavigator, guard: ClickGuard, modifier: Modifier =
             onClick = {
                 context.postAnalytic(MoreEvents.MORE_BACKUP_CLICK)
                 guard.run { nav.navigate(AppDestination.Backup) }
-            },
-        )
-        SettingsDivider()
-        SettingsRow(
-            icon = Icons.Rounded.PrivacyTip,
-            accent = FeatureAccent.PRIVACY,
-            title = stringResource(R.string.more_privacy_title),
-            subtitle = stringResource(R.string.more_privacy_desc),
-            onClick = {
-                context.postAnalytic(MoreEvents.MORE_PRIVACY_CLICK)
-                guard.run { nav.navigate(AppDestination.Privacy) }
             },
         )
     }

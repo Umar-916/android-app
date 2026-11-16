@@ -10,8 +10,6 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Backup
-import androidx.compose.material.icons.rounded.Dashboard
 import androidx.compose.material.icons.rounded.Feedback
 import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.Language
@@ -49,6 +47,7 @@ import com.funsol.orbit.core.designsystem.FeatureAccent
 import com.funsol.orbit.core.designsystem.OrbitTopBar
 import com.funsol.orbit.core.designsystem.Spacing
 import com.funsol.orbit.core.navigation.AppDestination
+import com.funsol.orbit.core.navigation.BOTTOM_TABS
 import com.funsol.orbit.core.navigation.OrbitNavigator
 import com.funsol.orbit.feature.premium.PremiumUpgradeCard
 import org.koin.compose.viewmodel.koinViewModel
@@ -65,6 +64,8 @@ fun SettingsScreen(nav: OrbitNavigator) {
     val consent = koinInject<ConsentManager>()
     val privacyOptionsRequired by consent.privacyOptionsRequired.collectAsStateWithLifecycle()
     val hostActivity = LocalActivity.current
+    // Settings is a bottom-bar destination now, so it should not show a back arrow.
+    val reachedAsTab = nav.current in BOTTOM_TABS
 
     val scrollState = rememberScrollState()
 
@@ -73,7 +74,7 @@ fun SettingsScreen(nav: OrbitNavigator) {
         topBar = {
             OrbitTopBar(
                 title = stringResource(R.string.settings_title),
-                onBack = { guard.run(nav::back) },
+                onBack = if (reachedAsTab) null else ({ guard.run(nav::back) }),
                 backEvent = SettingsEvents.SETTINGS_BACK_CLICK,
                 accent = FeatureAccent.SETTINGS,
                 scrolled = scrollState.value > 0,
@@ -149,15 +150,9 @@ fun SettingsScreen(nav: OrbitNavigator) {
                         )
                     }
 
+                    // Backup and dashboard customization are not repeated here: Backup
+                    // lives in the centre hub and Customize sits on the Home header.
                     SettingsGroup(stringResource(R.string.settings_group_data), Modifier.staggeredEntrance(index++)) {
-                        SettingsRow(
-                            icon = Icons.Rounded.Backup,
-                            accent = FeatureAccent.BACKUP,
-                            title = stringResource(R.string.settings_backup),
-                            subtitle = stringResource(R.string.settings_backup_desc),
-                            onClick = { context.postAnalytic(SettingsEvents.SETTINGS_BACKUP_CLICK); guard.run { nav.navigate(AppDestination.Backup) } },
-                        )
-                        SettingsDivider()
                         SettingsRow(
                             icon = Icons.Rounded.PrivacyTip,
                             accent = FeatureAccent.PRIVACY,
@@ -175,14 +170,6 @@ fun SettingsScreen(nav: OrbitNavigator) {
                                 onClick = { context.postAnalytic(SettingsEvents.SETTINGS_PRIVACY_OPTIONS_CLICK); guard.run { consent.showPrivacyOptions(hostActivity) } },
                             )
                         }
-                        SettingsDivider()
-                        SettingsRow(
-                            icon = Icons.Rounded.Dashboard,
-                            accent = FeatureAccent.HOME,
-                            title = stringResource(R.string.settings_customize_dashboard),
-                            subtitle = stringResource(R.string.settings_customize_dashboard_desc),
-                            onClick = { context.postAnalytic(SettingsEvents.SETTINGS_CUSTOMIZE_DASHBOARD_CLICK); guard.run { nav.navigate(AppDestination.DashboardCustomize) } },
-                        )
                     }
 
                     SettingsGroup(stringResource(R.string.settings_group_about), Modifier.staggeredEntrance(index++)) {
