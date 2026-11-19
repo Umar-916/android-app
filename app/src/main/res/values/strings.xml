@@ -13,6 +13,7 @@
     <string name="nav_projects">Projects</string>
     <string name="nav_calendar">Calendar</string>
     <string name="nav_more">More</string>
+    <string name="nav_settings">Settings</string>
 
     <!-- Shared actions (verb first) -->
     <string name="action_back">Go back</string>
@@ -46,6 +47,7 @@
     <string name="exit_stay">Stay</string>
     <string name="state_loading">Loading…</string>
     <string name="error_generic">Something went wrong. Your data is safe — please try again.</string>
+    <string name="error_invalid_date">Please enter a valid date (Day 1–31, Month, Year)</string>
 
     <!-- Priorities and statuses -->
     <string name="priority_low">Low</string>
@@ -71,6 +73,7 @@
     <!-- Notifications -->
     <string name="notif_channel_reminders">Task reminders</string>
     <string name="notif_channel_reminders_desc">Reminders for tasks that have a due date</string>
+    <string name="notif_bell_desc">Reminder</string>
     <string name="notif_due_today">Due today</string>
     <string name="notif_due_at">Due at %1$s</string>
     <string name="notif_action_done">Mark done</string>

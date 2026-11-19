@@ -1,7 +1,13 @@
 package com.funsol.orbit.feature.habits
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -112,6 +118,12 @@ fun HabitsScreen(nav: OrbitNavigator) {
     val listState = rememberLazyListState()
     val scrolled by remember { derivedStateOf { listState.canScrollBackward } }
 
+    // The empty state already offers "New habit"; hide the FAB in that case so the same
+    // create action is not presented twice on one screen.
+    val emptyActionHandledInState = remember(state.loading, state.error, state.active.isEmpty(), state.archived.isEmpty()) {
+        !state.loading && !state.error && state.active.isEmpty() && state.archived.isEmpty()
+    }
+
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         snackbarHost = { SnackbarHost(snackbar) },
@@ -128,15 +140,21 @@ fun HabitsScreen(nav: OrbitNavigator) {
             )
         },
         floatingActionButton = {
-            GradientFab(
-                icon = Icons.Rounded.Add,
-                contentDescription = stringResource(R.string.habits_new),
-                onClick = {
-                    context.postAnalytic(HabitsEvents.HABITS_ADD_FAB_CLICK)
-                    guard.run { nav.navigate(AppDestination.HabitEdit()) }
-                },
-                brush = Orbit.extras.accentGradient(FeatureAccent.HABITS),
-            )
+            AnimatedVisibility(
+                visible = !emptyActionHandledInState,
+                enter = fadeIn(tween(160)) + scaleIn(tween(160), initialScale = 0.85f),
+                exit = fadeOut(tween(120)) + scaleOut(tween(120), targetScale = 0.85f),
+            ) {
+                GradientFab(
+                    icon = Icons.Rounded.Add,
+                    contentDescription = stringResource(R.string.habits_new),
+                    onClick = {
+                        context.postAnalytic(HabitsEvents.HABITS_ADD_FAB_CLICK)
+                        guard.run { nav.navigate(AppDestination.HabitEdit()) }
+                    },
+                    brush = Orbit.extras.accentGradient(FeatureAccent.HABITS),
+                )
+            }
         },
     ) { padding ->
         CenteredContent(Modifier.padding(padding)) {

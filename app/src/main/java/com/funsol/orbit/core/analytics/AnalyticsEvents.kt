@@ -1,13 +1,5 @@
 package com.funsol.orbit.core.analytics
 
-/**
- * Shared / app-level analytics events. Naming convention (snake_case, <= 40 chars):
- *  - screen / dialog / sheet shown : <name>_screen_display / <name>_dialog_appear
- *  - tap                           : <name>_click
- *  - choice                        : <name>_select
- *  - switch                        : <name>_toggle
- * Feature screens keep their own events in separate "<Feature>Events" objects in this package.
- */
 object AnalyticsEvents {
 
     // App lifecycle
@@ -23,6 +15,7 @@ object AnalyticsEvents {
     const val NAV_PROJECTS_CLICK = "nav_projects_click"
     const val NAV_CALENDAR_CLICK = "nav_calendar_click"
     const val NAV_MORE_CLICK = "nav_more_click"
+    const val NAV_SETTINGS_CLICK = "nav_settings_click"
     const val QUICK_ADD_FAB_CLICK = "quick_add_fab_click"
 
     const val QUICK_ADD_SHEET_APPEAR = "quick_add_sheet_appear"

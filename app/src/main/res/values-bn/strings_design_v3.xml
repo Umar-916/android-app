@@ -9,6 +9,6 @@
     <string name="dv3_new_project">নতুন প্রজেক্ট</string>
     <string name="dv3_new_goal">নতুন লক্ষ্য</string>
     <string name="dv3_search">খুঁজুন</string>
-    <string name="dv3_quick_add_hint">এক ট্যাপে যেকোনো কিছু যোগ করুন</string>
+    <string name="dv3_quick_add_hint">আরও স্পেস ও ব্যাকআপ এখানে</string>
     <string name="dv3_quick_add_hint_dismiss">ইঙ্গিত বন্ধ করুন</string>
 </resources>

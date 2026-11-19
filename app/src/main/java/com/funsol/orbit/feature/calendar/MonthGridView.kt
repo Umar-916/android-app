@@ -223,6 +223,7 @@ private fun RoundNavButton(icon: androidx.compose.ui.graphics.vector.ImageVector
     Box(
         Modifier
             .size(Spacing.touchTarget)
+            .clip(CircleShape)
             .clickable(role = Role.Button, onClick = onClick),
         contentAlignment = Alignment.Center,
     ) {

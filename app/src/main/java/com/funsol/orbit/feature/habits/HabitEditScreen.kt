@@ -301,8 +301,13 @@ private fun HabitFormContent(
                 onChange = { d ->
                     if (d != null) {
                         context.postAnalytic(HabitsEvents.HABITS_EDIT_START_DATE_SELECT)
-                        onChange { it.copy(startDate = d) }
                     }
+                    onChange { it.copy(startDate = d) }
+                },
+                errorText = if (state.showErrors && form.startDate == null) {
+                    stringResource(R.string.habits_error_start_required)
+                } else {
+                    null
                 },
             )
         }
@@ -383,6 +388,7 @@ private fun WeekdayCircle(
     Box(
         modifier
             .heightIn(min = Spacing.touchTarget)
+            .clip(CircleShape)
             .toggleable(value = selected, role = Role.Checkbox, onValueChange = { onClick() })
             .semantics { contentDescription = full },
         contentAlignment = Alignment.Center,

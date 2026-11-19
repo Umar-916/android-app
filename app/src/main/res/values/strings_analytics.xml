@@ -19,6 +19,8 @@
 
     <string name="analytics_daily_title">Weekly productivity</string>
     <string name="analytics_daily_subtitle">Tasks completed per day, last 7 days</string>
+    <string name="analytics_monthly_daily_title">Monthly daily trend</string>
+    <string name="analytics_monthly_daily_subtitle">Tasks completed per day, last 30 days</string>
     <string name="analytics_weekly_title">Monthly progress</string>
     <string name="analytics_weekly_subtitle">Tasks completed per week, last 5 weeks</string>
     <string name="analytics_chart_empty">No completed tasks in this period yet.</string>

@@ -45,6 +45,7 @@
     <string name="habits_preset_custom">Custom</string>
     <string name="habits_error_name_required">Enter a habit name.</string>
     <string name="habits_error_schedule_required">Select at least one day.</string>
+    <string name="habits_error_start_required">Select a start date.</string>
     <string name="habits_not_found">This habit no longer exists.</string>
     <string name="habits_delete_title">Delete “%1$s”?</string>
     <string name="habits_delete_message">“%1$s” and its entire check-in history will be permanently deleted. This cannot be undone.</string>

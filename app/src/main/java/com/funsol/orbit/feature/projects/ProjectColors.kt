@@ -102,6 +102,7 @@ fun ColorPickerRow(
                     Box(
                         modifier = Modifier
                             .size(Spacing.touchTarget)
+                            .clip(CircleShape)
                             .selectable(selected = isSelected, role = Role.RadioButton, onClick = { onSelect(argb) })
                             .clearAndSetSemantics {
                                 contentDescription = description

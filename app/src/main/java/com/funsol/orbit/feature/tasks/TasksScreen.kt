@@ -158,6 +158,20 @@ fun TasksScreen(nav: OrbitNavigator) {
     val listState = rememberLazyListState()
     val scrolled by remember { derivedStateOf { listState.canScrollBackward } }
 
+    // The empty state renders its own primary action. In the ALL/TODAY views that action is
+    // "New task", which duplicates the FAB, so only one of them is kept. When the list is
+    // empty because of filters the state offers "Clear filters" instead - a different action -
+    // so the create FAB stays available there.
+    val emptyActionHandledInState = remember(state.loading, state.error, state.items.isEmpty(), state.hasQuery, state.filters.isActive, state.totalTasks, state.view) {
+        if (state.loading || state.error || state.items.isNotEmpty()) {
+            false
+        } else {
+            val filtered = state.hasQuery || state.filters.isActive
+            val showsClearFilters = filtered && state.totalTasks > 0
+            !showsClearFilters && (state.view == TaskView.ALL || state.view == TaskView.TODAY)
+        }
+    }
+
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         contentWindowInsets = WindowInsets(0.dp),
@@ -188,13 +202,15 @@ fun TasksScreen(nav: OrbitNavigator) {
             )
         },
         floatingActionButton = {
-            GradientFab(
-                icon = Icons.Rounded.Add,
-                contentDescription = stringResource(R.string.tasks_new),
-                onClick = { context.postAnalytic(TasksEvents.TASKS_NEW_FAB_CLICK); guard.run { nav.navigate(AppDestination.TaskEdit()) } },
-                label = if (scrolled) null else stringResource(R.string.tasks_new),
-                brush = Orbit.extras.accentGradient(FeatureAccent.TASKS),
-            )
+            if (!emptyActionHandledInState) {
+                GradientFab(
+                    icon = Icons.Rounded.Add,
+                    contentDescription = stringResource(R.string.tasks_new),
+                    onClick = { context.postAnalytic(TasksEvents.TASKS_NEW_FAB_CLICK); guard.run { nav.navigate(AppDestination.TaskEdit()) } },
+                    label = if (scrolled) null else stringResource(R.string.tasks_new),
+                    brush = Orbit.extras.accentGradient(FeatureAccent.TASKS),
+                )
+            }
         },
         snackbarHost = { SnackbarHost(snackbar) },
     ) { inner ->
@@ -264,15 +280,14 @@ fun TasksScreen(nav: OrbitNavigator) {
 @Composable
 private fun ToolbarButton(icon: ImageVector, description: String, onClick: () -> Unit, badge: Int = 0) {
     val tint = Orbit.extras.accent(FeatureAccent.TASKS)
-    Box(
-        Modifier
-            .size(Spacing.touchTarget)
-            .clickable(role = Role.Button, onClick = onClick)
-            .semantics { contentDescription = description },
-        contentAlignment = Alignment.Center,
-    ) {
+    Box(Modifier.size(Spacing.touchTarget), contentAlignment = Alignment.Center) {
         Box(
-            Modifier.size(40.dp).clip(RoundedCornerShape(Radius.tile)).background(tint.copy(alpha = 0.14f)),
+            Modifier
+                .size(40.dp)
+                .clip(RoundedCornerShape(Radius.tile))
+                .background(tint.copy(alpha = 0.14f))
+                .clickable(role = Role.Button, onClick = onClick)
+                .semantics { contentDescription = description },
             contentAlignment = Alignment.Center,
         ) {
             Icon(icon, contentDescription = null, tint = tint, modifier = Modifier.size(22.dp))

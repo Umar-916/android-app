@@ -48,4 +48,7 @@ object HomeEvents {
     const val HOME_PROJECT_CLICK = "home_project_click"
     const val HOME_PROJECTS_NEW_CLICK = "home_projects_new_click"
     const val HOME_PROJECTS_VIEW_ALL_CLICK = "home_projects_view_all_click"
+
+    // Overview card
+    const val HOME_OVERVIEW_CLICK = "home_overview_click"
 }

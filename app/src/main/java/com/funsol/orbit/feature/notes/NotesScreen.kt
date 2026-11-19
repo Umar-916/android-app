@@ -1,6 +1,12 @@
 package com.funsol.orbit.feature.notes
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -139,6 +145,12 @@ fun NotesScreen(nav: OrbitNavigator) {
     val gridState = rememberLazyStaggeredGridState()
     val scrolled by remember { derivedStateOf { gridState.canScrollBackward } }
 
+    // The empty state offers "New note" itself, so the FAB is hidden there to keep one
+    // create entry per screen. Search-empty and archived views keep their own behavior.
+    val emptyActionHandledInState = remember(state.loading, state.error, state.items.isEmpty(), state.appliedQuery, state.filter) {
+        !state.loading && !state.error && state.items.isEmpty() && !state.showArchived && state.appliedQuery.isBlank()
+    }
+
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         snackbarHost = { SnackbarHost(snackbar) },
@@ -171,7 +183,11 @@ fun NotesScreen(nav: OrbitNavigator) {
             )
         },
         floatingActionButton = {
-            if (!state.showArchived) {
+            AnimatedVisibility(
+                visible = !state.showArchived && !emptyActionHandledInState,
+                enter = fadeIn(tween(160)) + scaleIn(tween(160), initialScale = 0.85f),
+                exit = fadeOut(tween(120)) + scaleOut(tween(120), targetScale = 0.85f),
+            ) {
                 GradientFab(
                     icon = Icons.Rounded.Add,
                     contentDescription = stringResource(R.string.notes_new),

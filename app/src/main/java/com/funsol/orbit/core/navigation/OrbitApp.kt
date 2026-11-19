@@ -13,12 +13,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.CalendarMonth
-import androidx.compose.material.icons.rounded.Checklist
-import androidx.compose.material.icons.rounded.FolderCopy
-import androidx.compose.material.icons.rounded.Home
-import androidx.compose.material.icons.rounded.MoreHoriz
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -87,7 +81,6 @@ fun OrbitApp() {
     val current = backStack.lastOrNull()
     val showBottomBar = current != null && current in BOTTOM_TABS
     var showExit by remember { mutableStateOf(false) }
-    var showQuickAdd by remember { mutableStateOf(false) }
     val settingsStore = org.koin.compose.koinInject<com.funsol.orbit.core.datastore.SettingsStore>()
     val appSettings by settingsStore.settings.collectAsStateWithLifecycle(initialValue = null)
     val hintScope = rememberCoroutineScope()
@@ -109,8 +102,12 @@ fun OrbitApp() {
                     OrbitBottomBar(
                         current = current,
                         onSelect = { tab -> if (tab != current) tabTransitionAd { nav.switchTab(tab) } },
-                        onQuickAdd = { appContext.postAnalytic(AnalyticsEvents.QUICK_ADD_FAB_CLICK); dismissHint(); showQuickAdd = true },
-                        showHint = appSettings?.let { !it.quickAddHintDismissed } == true && !showQuickAdd && !showExit,
+                        onOpenHub = {
+                            appContext.postAnalytic(AnalyticsEvents.QUICK_ADD_FAB_CLICK)
+                            dismissHint()
+                            if (current != AppDestination.More) nav.switchTab(AppDestination.More)
+                        },
+                        showHint = appSettings?.let { !it.quickAddHintDismissed } == true && !showExit && current != AppDestination.More,
                         onDismissHint = dismissHint,
                     )
                     bannerPlacementFor(current)?.let { p ->
@@ -120,7 +117,6 @@ fun OrbitApp() {
             }
         },
     ) { inner ->
-        if (showQuickAdd) QuickAddSheet(nav = nav, onDismiss = { showQuickAdd = false })
         val bottom = inner.calculateBottomPadding()
         val rtl = LocalLayoutDirection.current == LayoutDirection.Rtl
         NavDisplay(

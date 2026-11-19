@@ -142,13 +142,20 @@ private fun AnalyticsContent(state: AnalyticsUiState, onRange: (AnalyticsRange) 
         item(key = "range", contentType = "range") { RangeSelector(state.range, onRange) }
         item(key = "tiles", contentType = "tiles") { SummaryTiles(data, state.range) }
         item(key = "daily", contentType = "chart") {
+            val isMonth = state.range == AnalyticsRange.MONTH
             ChartCard(
-                title = stringResource(R.string.analytics_daily_title),
-                subtitle = stringResource(R.string.analytics_daily_subtitle),
+                title = if (isMonth) stringResource(R.string.analytics_monthly_daily_title) else stringResource(R.string.analytics_daily_title),
+                subtitle = if (isMonth) stringResource(R.string.analytics_monthly_daily_subtitle) else stringResource(R.string.analytics_daily_subtitle),
                 icon = Icons.Rounded.Insights,
                 accent = FeatureAccent.ANALYTICS,
                 values = data.daily.map { it.value },
-                labels = data.daily.map { it.start.dayOfWeek.getDisplayName(DayStyle.SHORT, Locale.getDefault()) },
+                labels = data.daily.map {
+                    if (isMonth) {
+                        it.start.dayOfMonth.toString()
+                    } else {
+                        it.start.dayOfWeek.getDisplayName(DayStyle.SHORT, Locale.getDefault())
+                    }
+                },
                 pointLabels = data.daily.map { DateFormats.weekdayLong(it.start) },
             )
         }

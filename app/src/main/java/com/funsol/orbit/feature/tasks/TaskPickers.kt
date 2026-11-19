@@ -5,10 +5,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.DatePicker
@@ -25,7 +27,6 @@ import androidx.compose.material3.rememberTimePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -92,10 +93,12 @@ internal fun TaskDatePickerDialog(
     val state = rememberDatePickerState(
         initialSelectedDateMillis = (initialEpochDay ?: LocalDate.now().toEpochDayInt()).toPickerMillis(),
     )
+    val scheme = MaterialTheme.colorScheme
     val maxHeight = (LocalConfiguration.current.screenHeightDp * 0.62f).dp
+    val isInvalid = state.selectedDateMillis == null
     PickerSheet(
         title = stringResource(R.string.tasks_pick_date),
-        confirmEnabled = state.selectedDateMillis != null,
+        confirmEnabled = !isInvalid,
         onDismiss = onDismiss,
         onConfirm = { state.selectedDateMillis?.let { onPick(it.toPickerEpochDay()) } },
     ) {
@@ -106,7 +109,16 @@ internal fun TaskDatePickerDialog(
             DatePicker(
                 state = state,
                 title = null,
-                colors = DatePickerDefaults.colors(containerColor = Color.Transparent),
+                // Keep the picker container opaque: its year-selection grid is drawn on top of
+                // the month grid and relies on this background, otherwise both show through.
+                colors = DatePickerDefaults.colors(containerColor = scheme.surface),
+            )
+            Spacer(Modifier.size(Spacing.xs))
+            Text(
+                stringResource(R.string.error_invalid_date),
+                style = MaterialTheme.typography.bodySmall,
+                color = scheme.error,
+                modifier = Modifier.padding(horizontal = Spacing.md),
             )
         }
     }
@@ -141,7 +153,9 @@ internal fun TaskDateRangePickerDialog(
             state = state,
             title = null,
             modifier = Modifier.fillMaxWidth().height(height),
-            colors = DatePickerDefaults.colors(containerColor = Color.Transparent),
+            // Opaque, matching the sheet surface, so the year grid never blends into the
+            // calendar underneath while it is expanded.
+            colors = DatePickerDefaults.colors(containerColor = MaterialTheme.colorScheme.surface),
         )
     }
 }

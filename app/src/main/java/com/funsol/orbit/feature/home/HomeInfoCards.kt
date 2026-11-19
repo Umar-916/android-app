@@ -9,8 +9,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -22,27 +23,26 @@ import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.StickyNote2
 import androidx.compose.material.icons.rounded.Add
-import androidx.compose.material.icons.rounded.CheckBox
 import androidx.compose.material.icons.rounded.Check
-import androidx.compose.material.icons.rounded.EmojiEvents
+import androidx.compose.material.icons.rounded.Flag
 import androidx.compose.material.icons.rounded.Folder
+import androidx.compose.material.icons.rounded.FolderCopy
 import androidx.compose.material.icons.rounded.Insights
 import androidx.compose.material.icons.rounded.LocalFireDepartment
 import androidx.compose.material.icons.rounded.Loop
-import androidx.compose.material.icons.rounded.Checklist
-import androidx.compose.material.icons.rounded.StickyNote2
 import androidx.compose.material.icons.rounded.TaskAlt
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -53,20 +53,18 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.funsol.orbit.R
 import com.funsol.orbit.core.designsystem.CardElevation
 import com.funsol.orbit.core.designsystem.CardStyle
 import com.funsol.orbit.core.designsystem.FeatureAccent
-import com.funsol.orbit.core.designsystem.IconTileStyle
-import com.funsol.orbit.core.designsystem.isLargeFontScale
-import com.funsol.orbit.core.designsystem.GradientButton
 import com.funsol.orbit.core.designsystem.IconTile
+import com.funsol.orbit.core.designsystem.IconTileStyle
 import com.funsol.orbit.core.designsystem.Orbit
 import com.funsol.orbit.core.designsystem.OrbitCard
 import com.funsol.orbit.core.designsystem.OrbitProgressBar
 import com.funsol.orbit.core.designsystem.Spacing
-import com.funsol.orbit.core.designsystem.WellButton
-import com.funsol.orbit.core.designsystem.orbitGlow
+import com.funsol.orbit.core.designsystem.isLargeFontScale
 
 @Composable
 internal fun ProjectsCard(
@@ -77,54 +75,53 @@ internal fun ProjectsCard(
     onViewAll: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column(modifier, verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-        HomeSectionHeader(
+    HomeCard(modifier) {
+        HomeSectionTitle(
             title = stringResource(R.string.home_projects_title),
             icon = Icons.Rounded.Folder,
-            accent = FeatureAccent.PROJECTS,
             actionLabel = stringResource(R.string.home_view_all).takeIf { projects.isNotEmpty() },
             onAction = onViewAll.takeIf { projects.isNotEmpty() },
         )
         if (projects.isEmpty()) {
-            OrbitCard(Modifier.fillMaxWidth(), tint = Orbit.extras.accent(FeatureAccent.PROJECTS), style = CardStyle.Tinted, elevation = CardElevation.Flat) {
-                Text(
-                    stringResource(R.string.home_projects_empty),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = Orbit.extras.textMuted,
-                    modifier = Modifier.padding(bottom = Spacing.sm),
-                )
-                GradientButton(
-                    stringResource(R.string.home_new_project),
-                    onNewProject,
-                    Modifier.fillMaxWidth(),
-                    icon = Icons.Rounded.Add,
-                    brush = Orbit.extras.accentGradient(FeatureAccent.PROJECTS),
-                )
-            }
+            Text(
+                stringResource(R.string.home_projects_empty),
+                style = MaterialTheme.typography.bodyMedium,
+                color = Orbit.extras.textMuted,
+                modifier = Modifier.padding(top = Spacing.sm),
+            )
+            HomeActionButton(
+                label = stringResource(R.string.home_new_project),
+                icon = Icons.Rounded.Add,
+                onClick = onNewProject,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = Spacing.sm)
+                    .attentionPulse(
+                        enabled = true,
+                        delayMillis = 900L,
+                        rounds = 1,
+                        maxScale = 1.02f,
+                        lift = 2.dp,
+                    ),
+            )
         } else {
-            LazyRow(
-                horizontalArrangement = Arrangement.spacedBy(Spacing.sm),
-                contentPadding = PaddingValues(vertical = Spacing.xs),
-            ) {
-                items(projects, key = { it.project.id }, contentType = { "project" }) { item ->
-                    ProjectGradientCard(item) { onOpen(item.project.id) }
+            projects.forEachIndexed { index, item ->
+                if (index > 0) {
+                    HorizontalDivider(
+                        color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.7f),
+                    )
                 }
-                if (totalActive > projects.size) {
-                    item(key = "more", contentType = "more") {
-                        Box(
-                            Modifier.width(84.dp).height(92.dp).clip(RoundedCornerShape(16.dp))
-                                .background(Orbit.extras.well)
-                                .clickable(role = Role.Button, onClick = onViewAll),
-                            contentAlignment = Alignment.Center,
-                        ) {
-                            Text(
-                                stringResource(R.string.home_n_more, totalActive - projects.size),
-                                style = MaterialTheme.typography.labelLarge,
-                                color = MaterialTheme.colorScheme.primary,
-                                textAlign = TextAlign.Center,
-                            )
-                        }
-                    }
+                ProjectRow(item) { onOpen(item.project.id) }
+            }
+            if (totalActive > projects.size) {
+                TextButton(
+                    onClick = onViewAll,
+                    contentPadding = PaddingValues(horizontal = Spacing.sm),
+                ) {
+                    Text(
+                        stringResource(R.string.home_n_more, totalActive - projects.size),
+                        style = MaterialTheme.typography.labelLarge,
+                    )
                 }
             }
         }
@@ -132,10 +129,9 @@ internal fun ProjectsCard(
 }
 
 @Composable
-private fun ProjectGradientCard(item: HomeProjectItem, onClick: () -> Unit) {
+private fun ProjectRow(item: HomeProjectItem, onClick: () -> Unit) {
     val progress = item.progress
-    val base = Color(item.project.color)
-    val shape = RoundedCornerShape(16.dp)
+    val accent = Color(item.project.color)
     val summary = if (progress.total == 0) {
         stringResource(R.string.home_project_no_tasks)
     } else {
@@ -143,42 +139,33 @@ private fun ProjectGradientCard(item: HomeProjectItem, onClick: () -> Unit) {
     }
     Column(
         Modifier
-            .width(140.dp)
-            .heightIn(min = 92.dp)
-            .orbitGlow(shape, base.copy(alpha = 0.18f), radius = 8.dp, offsetY = 3.dp)
-            .clip(shape)
-            .background(Brush.linearGradient(listOf(base, lerp(base, Color.Black, 0.28f))))
+            .fillMaxWidth()
             .clickable(role = Role.Button, onClick = onClick)
-            .padding(12.dp),
-        verticalArrangement = Arrangement.SpaceBetween,
+            .padding(vertical = 10.dp),
+        verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
-        Text(
-            item.project.name,
-            style = MaterialTheme.typography.titleSmall,
-            color = Color.White,
-            maxLines = 2,
-            overflow = TextOverflow.Ellipsis,
-        )
-        Column(Modifier.padding(top = Spacing.sm), verticalArrangement = Arrangement.spacedBy(Spacing.xs)) {
-            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.Bottom) {
-                Text(
-                    stringResource(R.string.home_percent, progress.percent),
-                    style = MaterialTheme.typography.titleMedium,
-                    color = Color.White,
-                    modifier = Modifier.weight(1f),
-                )
-            }
-            Box(Modifier.fillMaxWidth().height(6.dp).clip(RoundedCornerShape(3.dp)).background(Color.White.copy(alpha = 0.28f))) {
-                Box(Modifier.fillMaxWidth(progress.fraction).fillMaxHeight().clip(RoundedCornerShape(3.dp)).background(Color.White))
-            }
+        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             Text(
-                summary,
-                style = MaterialTheme.typography.labelSmall,
-                color = Color.White.copy(alpha = 0.88f),
+                item.project.name,
+                style = MaterialTheme.typography.titleSmall,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.weight(1f),
+            )
+            Text(
+                stringResource(R.string.home_percent, progress.percent),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primary,
             )
         }
+        OrbitProgressBar(progress.fraction, height = 4.dp, color = accent)
+        Text(
+            summary,
+            style = MaterialTheme.typography.bodySmall,
+            color = Orbit.extras.textMuted,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+        )
     }
 }
 
@@ -191,11 +178,10 @@ internal fun HabitsCard(
     onViewAll: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    OrbitCard(modifier, tint = Orbit.extras.accent(FeatureAccent.HABITS), style = CardStyle.Tinted) {
-        HomeSectionHeader(
+    HomeCard(modifier) {
+        HomeSectionTitle(
             title = stringResource(R.string.home_habits_title),
             icon = Icons.Rounded.Loop,
-            accent = FeatureAccent.HABITS,
             actionLabel = stringResource(R.string.home_view_all),
             onAction = onViewAll,
         )
@@ -204,28 +190,34 @@ internal fun HabitsCard(
                 stringResource(R.string.home_habits_empty),
                 style = MaterialTheme.typography.bodyMedium,
                 color = Orbit.extras.textMuted,
-                modifier = Modifier.padding(vertical = Spacing.sm),
+                modifier = Modifier.padding(top = Spacing.sm),
             )
-            GradientButton(
-                stringResource(R.string.home_new_habit),
-                onNewHabit,
-                Modifier.fillMaxWidth(),
+            HomeActionButton(
+                label = stringResource(R.string.home_new_habit),
                 icon = Icons.Rounded.Add,
-                brush = Orbit.extras.accentGradient(FeatureAccent.HABITS),
+                onClick = onNewHabit,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = Spacing.sm)
+                    .attentionPulse(
+                        enabled = true,
+                        delayMillis = 900L,
+                        rounds = 1,
+                        maxScale = 1.02f,
+                        lift = 2.dp,
+                    ),
             )
         } else {
             Text(
                 stringResource(R.string.home_habits_summary, doneCount, habits.size),
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodySmall,
                 color = Orbit.extras.textMuted,
-                modifier = Modifier.padding(top = Spacing.xs),
+                modifier = Modifier.padding(top = Spacing.sm),
             )
-            OrbitProgressBar(
-                (doneCount.toFloat() / habits.size).coerceIn(0f, 1f),
-                modifier = Modifier.padding(vertical = Spacing.sm),
-                color = Orbit.extras.accentText(FeatureAccent.HABITS),
-            )
-            LazyRow(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+            LazyRow(
+                modifier = Modifier.padding(top = Spacing.sm),
+                horizontalArrangement = Arrangement.spacedBy(Spacing.sm),
+            ) {
                 items(habits, key = { it.habit.id }, contentType = { "habit" }) { item ->
                     HabitCheckIn(item) { checked -> onToggle(item, checked) }
                 }
@@ -240,7 +232,8 @@ private fun HabitCheckIn(item: HomeHabitItem, onChecked: (Boolean) -> Unit) {
     val checked = item.checkedToday
     Column(
         Modifier
-            .width(68.dp)
+            .width(66.dp)
+            .clip(RoundedCornerShape(12.dp))
             .toggleable(value = checked, role = Role.Checkbox, onValueChange = onChecked)
             .semantics { contentDescription = item.habit.name }
             .padding(vertical = Spacing.xs),
@@ -249,15 +242,14 @@ private fun HabitCheckIn(item: HomeHabitItem, onChecked: (Boolean) -> Unit) {
     ) {
         Box(
             Modifier
-                .size(46.dp)
-                .then(if (checked) Modifier.orbitGlow(CircleShape, color.copy(alpha = 0.35f), radius = 8.dp, offsetY = 3.dp) else Modifier)
+                .size(44.dp)
                 .clip(CircleShape)
                 .background(if (checked) color else color.copy(alpha = 0.12f))
-                .border(1.5.dp, color, CircleShape),
+                .border(1.4.dp, color, CircleShape),
             contentAlignment = Alignment.Center,
         ) {
             if (checked) {
-                Icon(Icons.Rounded.Check, contentDescription = null, tint = Color.White, modifier = Modifier.size(24.dp))
+                Icon(Icons.Rounded.Check, contentDescription = null, tint = Color.White, modifier = Modifier.size(22.dp))
             } else {
                 Text(
                     item.habit.name.trim().take(1).uppercase(),
@@ -276,41 +268,78 @@ private fun HabitCheckIn(item: HomeHabitItem, onChecked: (Boolean) -> Unit) {
             modifier = Modifier.clearAndSetSemantics { },
         )
         if (item.currentStreak > 0) {
-            val warm = Orbit.extras.accent(FeatureAccent.NOTES)
             val streakDesc = pluralStringResource(R.plurals.home_streak_days, item.currentStreak, item.currentStreak)
             Row(
-                Modifier
-                    .clip(RoundedCornerShape(50))
-                    .background(warm.copy(alpha = 0.16f))
-                    .padding(horizontal = 8.dp, vertical = 2.dp)
-                    .semantics { contentDescription = streakDesc },
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(2.dp),
+                modifier = Modifier.semantics { contentDescription = streakDesc },
             ) {
-                Icon(Icons.Rounded.LocalFireDepartment, contentDescription = null, tint = warm, modifier = Modifier.size(14.dp))
-                Text(item.currentStreak.toString(), style = MaterialTheme.typography.labelSmall, color = warm)
+                Icon(
+                    Icons.Rounded.LocalFireDepartment,
+                    contentDescription = null,
+                    tint = Orbit.extras.textMuted,
+                    modifier = Modifier.size(12.dp),
+                )
+                Text(
+                    item.currentStreak.toString(),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = Orbit.extras.textMuted,
+                )
             }
         }
     }
 }
 
 @Composable
-internal fun OverviewCard(overview: HomeOverview, modifier: Modifier = Modifier) {
-    val stacked = isLargeFontScale()
-    val tiles = listOf<@Composable (Modifier) -> Unit>(
-        { m -> OverviewTile(Icons.Rounded.TaskAlt, FeatureAccent.HABITS, overview.completedLast7Days, stringResource(R.string.home_ov_completed), m) },
-        { m -> OverviewTile(Icons.Rounded.Checklist, FeatureAccent.TASKS, overview.openTasks, stringResource(R.string.home_ov_open), m) },
-        { m -> OverviewTile(Icons.Rounded.Folder, FeatureAccent.PROJECTS, overview.activeProjects, stringResource(R.string.home_ov_projects), m) },
-        { m -> OverviewTile(Icons.Rounded.LocalFireDepartment, FeatureAccent.NOTES, overview.bestStreak, stringResource(R.string.home_ov_streak), m) },
+internal fun OverviewCard(
+    overview: HomeOverview,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val stats = listOf(
+        overview.completedLast7Days to R.string.home_ov_short_done,
+        overview.openTasks to R.string.home_ov_short_open,
+        overview.activeProjects to R.string.home_ov_short_projects,
+        overview.bestStreak to R.string.home_ov_short_streak,
     )
-    Column(modifier, verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-        HomeSectionHeader(stringResource(R.string.home_overview_title), Icons.Rounded.Insights, FeatureAccent.ANALYTICS)
-        if (stacked) {
-            tiles.forEach { tile -> tile(Modifier.fillMaxWidth()) }
+    OrbitCard(
+        modifier = modifier.fillMaxWidth(),
+        onClick = onClick,
+        elevation = CardElevation.Soft,
+        contentPadding = PaddingValues(Spacing.md),
+    ) {
+        HomeSectionTitle(
+            stringResource(R.string.home_overview_title),
+            icon = Icons.Rounded.Insights,
+            actionLabel = stringResource(R.string.home_view_all),
+            onAction = onClick,
+        )
+        if (isLargeFontScale()) {
+            stats.chunked(2).forEach { pair ->
+                Row(
+                    Modifier.fillMaxWidth().padding(top = Spacing.sm),
+                    horizontalArrangement = Arrangement.spacedBy(Spacing.sm),
+                ) {
+                    pair.forEach { stat ->
+                        OverviewStat(stat.first, stringResource(stat.second), Modifier.weight(1f))
+                    }
+                }
+            }
         } else {
-            tiles.chunked(2).forEach { pair ->
-                Row(Modifier.fillMaxWidth().height(IntrinsicSize.Max), horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-                    pair.forEach { tile -> tile(Modifier.weight(1f).fillMaxHeight()) }
+            Row(
+                Modifier.fillMaxWidth().padding(top = Spacing.sm),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                stats.forEachIndexed { index, stat ->
+                    if (index > 0) {
+                        Box(
+                            Modifier
+                                .width(1.dp)
+                                .height(28.dp)
+                                .background(MaterialTheme.colorScheme.outlineVariant),
+                        )
+                    }
+                    OverviewStat(stat.first, stringResource(stat.second), Modifier.weight(1f))
                 }
             }
         }
@@ -318,41 +347,46 @@ internal fun OverviewCard(overview: HomeOverview, modifier: Modifier = Modifier)
 }
 
 @Composable
-private fun OverviewTile(icon: ImageVector, accent: FeatureAccent, value: Int, label: String, modifier: Modifier = Modifier) {
+private fun OverviewStat(value: Int, label: String, modifier: Modifier = Modifier) {
     val description = stringResource(R.string.dh_stat_desc, label, value)
-    val accentColor = Orbit.extras.accent(accent)
-    OrbitCard(
-        modifier.heightIn(min = 80.dp).semantics(mergeDescendants = true) { contentDescription = description },
-        contentPadding = PaddingValues(12.dp),
-        tint = accentColor,
-        style = CardStyle.Tinted,
-        elevation = CardElevation.Flat,
+    Column(
+        modifier.semantics(mergeDescendants = true) { contentDescription = description },
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(Spacing.xxs),
     ) {
-        Row(Modifier.fillMaxWidth().heightIn(min = 56.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            IconTile(icon, accent, size = 34.dp, style = IconTileStyle.Tinted)
-            Column(Modifier.weight(1f)) {
-                Text(
-                    value.toString(),
-                    style = MaterialTheme.typography.titleLarge,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    maxLines = 1,
-                    modifier = Modifier.clearAndSetSemantics { },
-                )
-                Text(
-                    label,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = Orbit.extras.textMuted,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.clearAndSetSemantics { },
-                )
-            }
-        }
+        Text(
+            value.toString(),
+            style = MaterialTheme.typography.titleLarge,
+            maxLines = 1,
+            modifier = Modifier.clearAndSetSemantics { },
+        )
+        Text(
+            label.uppercase(),
+            style = MaterialTheme.typography.labelSmall,
+            color = Orbit.extras.textMuted,
+            letterSpacing = 0.6.sp,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.clearAndSetSemantics { },
+        )
     }
 }
 
+private class CreateAction(
+    val icon: ImageVector,
+    val accent: FeatureAccent,
+    val label: Int,
+    val onClick: () -> Unit,
+)
+
+/**
+ * The single quick-create entry for the app, pinned to the top of Home. Adding a
+ * task/note/habit/project/goal opens its editor and the new item appears in the
+ * sections below this grid.
+ */
 @Composable
-internal fun QuickAddRow(
+internal fun HomeCreateGrid(
     onTask: () -> Unit,
     onNote: () -> Unit,
     onHabit: () -> Unit,
@@ -360,69 +394,52 @@ internal fun QuickAddRow(
     onGoal: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    LazyRow(
-        modifier = modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(Spacing.sm),
-        contentPadding = PaddingValues(vertical = 0.dp, horizontal = Spacing.xxs),
-    ) {
-        item(key = "task") { QuickPill(Icons.Rounded.CheckBox, stringResource(R.string.home_qa_task), FeatureAccent.TASKS, onTask) }
-        item(key = "note") { QuickPill(Icons.Rounded.StickyNote2, stringResource(R.string.home_qa_note), FeatureAccent.NOTES, onNote) }
-        item(key = "habit") { QuickPill(Icons.Rounded.Loop, stringResource(R.string.home_qa_habit), FeatureAccent.HABITS, onHabit) }
-        item(key = "project") { QuickPill(Icons.Rounded.Folder, stringResource(R.string.home_qa_project), FeatureAccent.PROJECTS, onProject) }
-        item(key = "goal") { QuickPill(Icons.Rounded.EmojiEvents, stringResource(R.string.home_qa_goal), FeatureAccent.GOALS, onGoal) }
-    }
-}
-
-@Composable
-private fun QuickPill(icon: ImageVector, label: String, accent: FeatureAccent, onClick: () -> Unit) {
-    val shape = RoundedCornerShape(20.dp)
-    val extras = Orbit.extras
-    val accentColor = extras.accent(accent)
-    Box(Modifier.heightIn(min = Spacing.touchTarget).clickable(role = Role.Button, onClick = onClick), contentAlignment = Alignment.Center) {
-        Row(
-            Modifier
-                .heightIn(min = 36.dp)
-                .clip(shape)
-                .background(extras.tinted(accentColor, 0.10f))
-                .border(0.8.dp, accentColor.copy(alpha = 0.22f), shape)
-                .padding(horizontal = 12.dp, vertical = 6.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(6.dp),
-        ) {
-            Icon(icon, contentDescription = null, tint = accentColor, modifier = Modifier.size(18.dp))
-        Text(label, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurface, maxLines = 1)
+    val actions = listOf(
+        CreateAction(Icons.Rounded.TaskAlt, FeatureAccent.TASKS, R.string.dv3_new_task, onTask),
+        CreateAction(Icons.AutoMirrored.Rounded.StickyNote2, FeatureAccent.NOTES, R.string.dv3_new_note, onNote),
+        CreateAction(Icons.Rounded.LocalFireDepartment, FeatureAccent.HABITS, R.string.dv3_new_habit, onHabit),
+        CreateAction(Icons.Rounded.FolderCopy, FeatureAccent.PROJECTS, R.string.dv3_new_project, onProject),
+        CreateAction(Icons.Rounded.Flag, FeatureAccent.GOALS, R.string.dv3_new_goal, onGoal),
+    )
+    Column(modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+        actions.chunked(2).forEach { pair ->
+            Row(
+                Modifier.fillMaxWidth().height(IntrinsicSize.Max),
+                horizontalArrangement = Arrangement.spacedBy(Spacing.sm),
+            ) {
+                pair.forEach { action ->
+                    CreateActionTile(action, Modifier.weight(1f).fillMaxHeight())
+                }
+                if (pair.size == 1) Spacer(Modifier.weight(1f))
+            }
         }
     }
 }
 
 @Composable
-internal fun WelcomeCard(onTask: () -> Unit, onProject: () -> Unit, onHabit: () -> Unit, modifier: Modifier = Modifier) {
-    OrbitCard(modifier, tint = Orbit.extras.accent(FeatureAccent.HOME), style = CardStyle.Tinted, elevation = CardElevation.Soft) {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.sm + Spacing.xs)) {
-            IconTile(Icons.Rounded.EmojiEvents, FeatureAccent.HOME)
+private fun CreateActionTile(action: CreateAction, modifier: Modifier = Modifier) {
+    val accentColor = Orbit.extras.accent(action.accent)
+    OrbitCard(
+        onClick = action.onClick,
+        modifier = modifier,
+        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 10.dp),
+        tint = accentColor,
+        style = CardStyle.Tinted,
+        elevation = CardElevation.Flat,
+    ) {
+        Row(
+            Modifier.fillMaxWidth().heightIn(min = 36.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(Spacing.sm),
+        ) {
+            IconTile(action.icon, action.accent, size = 32.dp, style = IconTileStyle.Tinted)
             Text(
-                stringResource(R.string.home_welcome_title),
-                style = MaterialTheme.typography.titleMedium,
+                stringResource(action.label),
+                style = MaterialTheme.typography.titleSmall,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.weight(1f),
             )
-        }
-        Text(
-            stringResource(R.string.home_welcome_message),
-            style = MaterialTheme.typography.bodyMedium,
-            color = Orbit.extras.textMuted,
-            modifier = Modifier.padding(top = Spacing.sm, bottom = Spacing.md),
-        )
-        GradientButton(stringResource(R.string.home_qa_task), onTask, Modifier.fillMaxWidth(), icon = Icons.Rounded.Add)
-        if (isLargeFontScale()) {
-            Column(Modifier.fillMaxWidth().padding(top = Spacing.sm), verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-                WellButton(stringResource(R.string.home_qa_project), onProject, Modifier.fillMaxWidth())
-                WellButton(stringResource(R.string.home_qa_habit), onHabit, Modifier.fillMaxWidth())
-            }
-        } else {
-            Row(Modifier.fillMaxWidth().padding(top = Spacing.sm), horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-                WellButton(stringResource(R.string.home_qa_project), onProject, Modifier.weight(1f))
-                WellButton(stringResource(R.string.home_qa_habit), onHabit, Modifier.weight(1f))
-            }
         }
     }
 }

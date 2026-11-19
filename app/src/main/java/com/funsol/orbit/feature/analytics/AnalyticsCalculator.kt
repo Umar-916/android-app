@@ -72,7 +72,8 @@ object AnalyticsCalculator {
         val openDue = dueInRange.count { TaskRules.isOpen(it) }
         val rate = if (doneDue + openDue == 0) null else doneDue * 100 / (doneDue + openDue)
 
-        val daily = (6 downTo 0).map { back ->
+        val daysCount = if (range == AnalyticsRange.WEEK) 7 else 30
+        val daily = (daysCount - 1 downTo 0).map { back ->
             val d = today.minusDays(back.toLong())
             ChartBar(d, d, countBetween(d, d))
         }

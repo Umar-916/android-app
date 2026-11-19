@@ -4,10 +4,12 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
@@ -45,6 +47,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -57,12 +60,13 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.shadow.Shadow
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.clearAndSetSemantics
@@ -77,6 +81,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import androidx.compose.ui.window.DialogWindowProvider
 import com.funsol.orbit.R
 import com.funsol.orbit.core.analytics.AnalyticsEvents
 import com.funsol.orbit.core.analytics.postAnalytic
@@ -101,6 +106,24 @@ enum class CardStyle {
 }
 
 enum class CardElevation { Flat, Soft, Lifted }
+
+/**
+ * Shared press-in feedback so every tappable surface (cards, buttons, FAB) answers a
+ * touch the same way. Kept subtle so large cards stay steady while scrolling.
+ */
+@Composable
+private fun Modifier.pressDown(interaction: MutableInteractionSource, pressedScale: Float = 0.97f): Modifier {
+    val pressed by interaction.collectIsPressedAsState()
+    val scale by animateFloatAsState(
+        targetValue = if (pressed) pressedScale else 1f,
+        animationSpec = tween(110),
+        label = "pressDown",
+    )
+    return graphicsLayer {
+        scaleX = scale
+        scaleY = scale
+    }
+}
 
 @Composable
 fun OrbitCard(
@@ -128,7 +151,10 @@ fun OrbitCard(
         CardElevation.Soft -> 1f
         CardElevation.Lifted -> 1.6f
     }
+    val interaction = remember { MutableInteractionSource() }
+    val click = onClick
     val base = modifier
+        .then(if (click != null) Modifier.pressDown(interaction, 0.985f) else Modifier)
         .let {
             if (glass || glowAlpha == 0f) it
             else it.orbitGlow(
@@ -141,7 +167,14 @@ fun OrbitCard(
         .clip(shape)
         .background(fill)
         .border(extras.cardStrokeWidth, strokeColor, shape)
-        .let { if (onClick != null) it.clickable(role = Role.Button, onClick = onClick) else it }
+        .let {
+            if (click != null) it.clickable(
+                interactionSource = interaction,
+                indication = LocalIndication.current,
+                role = Role.Button,
+                onClick = click,
+            ) else it
+        }
         .let { m -> if (accent != null) m.drawBehind { drawRect(accent, size = Size(4.dp.toPx(), size.height)) } else m }
     Column(base.padding(contentPadding), content = content)
 }
@@ -159,12 +192,22 @@ fun OrbitWell(
 ) {
     val extras = Orbit.extras
     val borderColor = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline.copy(alpha = 0.18f)
+    val interaction = remember { MutableInteractionSource() }
+    val click = onClick
     Box(
         modifier
+            .then(if (click != null) Modifier.pressDown(interaction, 0.985f) else Modifier)
             .clip(shape)
             .background(extras.well)
             .border(if (selected) 1.dp else 0.6.dp, borderColor, shape)
-            .let { if (onClick != null) it.clickable(role = Role.Button, onClick = onClick) else it },
+            .let {
+                if (click != null) it.clickable(
+                    interactionSource = interaction,
+                    indication = LocalIndication.current,
+                    role = Role.Button,
+                    onClick = click,
+                ) else it
+            },
         content = content,
     )
 }
@@ -227,13 +270,21 @@ fun GradientButton(
     val fill = if (enabled) (brush ?: extras.brandGradient) else Brush.linearGradient(
         listOf(MaterialTheme.colorScheme.surfaceVariant, MaterialTheme.colorScheme.surfaceVariant),
     )
+    val interaction = remember { MutableInteractionSource() }
     Box(
         modifier
+            .then(if (enabled) Modifier.pressDown(interaction) else Modifier)
             .heightIn(min = 46.dp)
             .then(if (enabled) Modifier.orbitGlow(shape, extras.actionGlow, radius = 12.dp, offsetY = 4.dp) else Modifier)
             .clip(shape)
             .background(fill)
-            .clickable(enabled = enabled, role = Role.Button, onClick = onClick)
+            .clickable(
+                enabled = enabled,
+                interactionSource = interaction,
+                indication = LocalIndication.current,
+                role = Role.Button,
+                onClick = onClick,
+            )
             .padding(horizontal = Spacing.md, vertical = 11.dp),
         contentAlignment = Alignment.Center,
     ) {
@@ -278,13 +329,20 @@ fun GradientFab(
 ) {
     val extras = Orbit.extras
     val shape = if (label == null) CircleShape else RoundedCornerShape(30.dp)
+    val interaction = remember { MutableInteractionSource() }
     Row(
         modifier
+            .pressDown(interaction, 0.96f)
             .heightIn(min = 52.dp)
             .orbitGlow(shape, extras.actionGlow, radius = 12.dp, offsetY = 4.dp)
             .clip(shape)
             .background(brush ?: extras.brandGradient)
-            .clickable(role = Role.Button, onClick = onClick)
+            .clickable(
+                interactionSource = interaction,
+                indication = LocalIndication.current,
+                role = Role.Button,
+                onClick = onClick,
+            )
             .padding(horizontal = if (label == null) 16.dp else 20.dp, vertical = 12.dp)
             .let { if (label == null) it.width(52.dp) else it },
         verticalAlignment = Alignment.CenterVertically,
@@ -490,6 +548,10 @@ fun OrbitSheet(
         onDismissRequest = { if (dismissable) onDismiss() },
         properties = DialogProperties(usePlatformDefaultWidth = false, dismissOnBackPress = dismissable, dismissOnClickOutside = dismissable),
     ) {
+        // Sheets float over the live screen: keep the content behind fully visible instead of
+        // darkening it with the dialog window's default dim layer.
+        val dialogWindow = (LocalView.current.parent as? DialogWindowProvider)?.window
+        SideEffect { dialogWindow?.setDimAmount(0f) }
         Box(
             Modifier
                 .fillMaxSize()
@@ -650,6 +712,23 @@ fun HorizontalGap(width: Dp = Spacing.sm) = Spacer(Modifier.width(width))
 @Composable
 fun VerticalGap(height: Dp = Spacing.sm) = Spacer(Modifier.height(height))
 
+/**
+ * Label for outlined text fields whose container color differs from the surface behind the field.
+ *
+ * Material's outlined cutout removes both the border and the container fill around the floating
+ * label, so a tinted container (such as [OrbitExtras.well]) leaves a pale notch around the label.
+ * Drawing the container color behind the part of the label that sits inside the field fills that
+ * notch back in without moving the label or touching the rest of the field.
+ *
+ * Use [Color.Transparent] for fields that intentionally have no container fill.
+ */
+@Composable
+fun OrbitFieldLabel(text: String, @Suppress("UNUSED_PARAMETER") containerColor: Color = Orbit.extras.well) {
+    Text(
+        text = text,
+    )
+}
+
 @Composable
 fun orbitSwitchColors(): SwitchColors = SwitchDefaults.colors(
     checkedThumbColor = Color.White,
@@ -662,16 +741,18 @@ fun orbitSwitchColors(): SwitchColors = SwitchDefaults.colors(
 
 @Composable
 fun orbitChipColors(): androidx.compose.material3.SelectableChipColors {
+    // A filled, solid selected state keeps the label readable in both themes. The previous
+    // light-mode tint was almost the same value as the card behind it, so the white label
+    // disappeared.
     val primary = MaterialTheme.colorScheme.primary
     val extras = Orbit.extras
-    val selectedFill = if (extras.isDark) primary else primary.copy(alpha = 0.12f).compositeOver(extras.cardBottom)
-    val selectedText = if (extras.isDark) Color.White else extras.readable(primary)
+    val selectedFill = if (extras.isDark) primary else OrbitViolet
     return FilterChipDefaults.filterChipColors(
         containerColor = extras.well,
         labelColor = MaterialTheme.colorScheme.onSurface,
         selectedContainerColor = selectedFill,
-        selectedLabelColor = selectedText,
-        selectedLeadingIconColor = selectedText,
+        selectedLabelColor = Color.White,
+        selectedLeadingIconColor = Color.White,
     )
 }
 

@@ -81,6 +81,7 @@ import com.funsol.orbit.core.designsystem.FeatureAccent
 import com.funsol.orbit.core.designsystem.GradientButton
 import com.funsol.orbit.core.designsystem.LoadingState
 import com.funsol.orbit.core.designsystem.Orbit
+import com.funsol.orbit.core.designsystem.OrbitFieldLabel
 import com.funsol.orbit.core.designsystem.OrbitTopBar
 import com.funsol.orbit.core.designsystem.Radius
 import com.funsol.orbit.core.designsystem.Spacing
@@ -291,7 +292,7 @@ private fun TaskFormContent(
                     },
                 shape = RoundedCornerShape(16.dp),
                 colors = orbitFieldColors(),
-                label = { Text(stringResource(R.string.tasks_field_title)) },
+                label = { OrbitFieldLabel(stringResource(R.string.tasks_field_title)) },
                 singleLine = true,
                 isError = state.titleError != null,
                 supportingText = {
@@ -315,7 +316,7 @@ private fun TaskFormContent(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
                 colors = orbitFieldColors(),
-                label = { Text(stringResource(R.string.tasks_field_description)) },
+                label = { OrbitFieldLabel(stringResource(R.string.tasks_field_description)) },
                 minLines = 3,
                 maxLines = 8,
                 keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Sentences),

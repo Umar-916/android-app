@@ -135,6 +135,7 @@ private fun ProjectFormContent(
                 errorText = if (nameError) stringResource(R.string.projects_error_name_required) else null,
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Sentences),
+                transparentBackground = true,
             )
             PlanningTextField(
                 value = form.description,
@@ -143,6 +144,7 @@ private fun ProjectFormContent(
                 minLines = 2,
                 maxLines = 6,
                 keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Sentences),
+                transparentBackground = true,
             )
         }
         FormSection(stringResource(R.string.projects_section_appearance)) {
