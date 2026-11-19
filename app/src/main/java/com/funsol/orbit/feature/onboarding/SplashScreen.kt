@@ -132,7 +132,6 @@ fun SplashScreen(nav: OrbitNavigator) {
     val emblem = remember { Animatable(0f) }
     val title = remember { Animatable(0f) }
     val underline = remember { Animatable(0f) }
-    val tagline = remember { Animatable(0f) }
     val footer = remember { Animatable(0f) }
     LaunchedEffect(Unit) {
         launch { arrival.animateTo(1f, tween(500, easing = FastOutSlowInEasing)) }
@@ -143,7 +142,6 @@ fun SplashScreen(nav: OrbitNavigator) {
         }
         launch { delay(820); title.animateTo(1f, tween(650, easing = FastOutSlowInEasing)) }
         launch { delay(1150); underline.animateTo(1f, tween(450, easing = FastOutSlowInEasing)) }
-        launch { delay(1050); tagline.animateTo(1f, tween(600, easing = FastOutSlowInEasing)) }
         launch { delay(1150); footer.animateTo(1f, tween(600)) }
     }
 
@@ -255,33 +253,6 @@ fun SplashScreen(nav: OrbitNavigator) {
                     reveal = { title.value },
                 )
             }
-            Box(
-                Modifier
-                    .padding(top = 12.dp)
-                    .width(130.dp)
-                    .height(2.5.dp)
-                    .graphicsLayer {
-                        scaleX = underline.value
-                        alpha = underline.value
-                    }
-                    .clip(CircleShape)
-                    .background(Brush.horizontalGradient(listOf(OrbitAmber, OrbitVioletSoft, OrbitCyan))),
-            )
-            Spacer(Modifier.height(18.dp))
-            Text(
-                stringResource(R.string.app_tagline),
-                style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Medium),
-                color = Color.White.copy(alpha = 0.85f),
-                textAlign = TextAlign.Center,
-                maxLines = 2,
-                modifier = Modifier
-                    .widthIn(max = 320.dp)
-                    .graphicsLayer {
-                        alpha = tagline.value
-                        translationX = (1f - tagline.value) * 90.dp.toPx()
-                        translationY = (1f - tagline.value) * 12.dp.toPx()
-                    },
-            )
         }
 
         SparkArrival(
@@ -465,7 +436,6 @@ private fun OrbitWordmark(
 
 @Composable
 private fun SplashProgress(progress: Float) {
-    val almost = progress >= 0.8f
     val percent = (progress.coerceIn(0f, 1f) * 100).roundToInt()
     val description = stringResource(R.string.startup_progress_description, percent)
     Column(
@@ -473,26 +443,6 @@ private fun SplashProgress(progress: Float) {
         verticalArrangement = Arrangement.spacedBy(8.dp),
         modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite },
     ) {
-        Row(
-            Modifier.fillMaxWidth().padding(horizontal = 2.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-        ) {
-            Crossfade(targetState = almost, animationSpec = tween(300), label = "status") { isAlmost ->
-                Text(
-                    stringResource(if (isAlmost) R.string.startup_status_4 else R.string.startup_status_1),
-                    style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
-                    color = Color.White.copy(alpha = 0.85f),
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            }
-            Text(
-                stringResource(R.string.home_percent, percent),
-                style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
-                color = if (almost) OrbitAmber else Color.White,
-            )
-        }
         SplashProgressBar(
             progress = progress,
             modifier = Modifier

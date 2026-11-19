@@ -75,7 +75,7 @@ internal fun ProjectsCard(
     onViewAll: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    HomeCard(modifier) {
+    HomeCard(modifier, Icons.Rounded.Folder) {
         HomeSectionTitle(
             title = stringResource(R.string.home_projects_title),
             icon = Icons.Rounded.Folder,
@@ -178,7 +178,7 @@ internal fun HabitsCard(
     onViewAll: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    HomeCard(modifier) {
+    HomeCard(modifier, Icons.Rounded.Loop) {
         HomeSectionTitle(
             title = stringResource(R.string.home_habits_title),
             icon = Icons.Rounded.Loop,
@@ -305,7 +305,9 @@ internal fun OverviewCard(
     OrbitCard(
         modifier = modifier.fillMaxWidth(),
         onClick = onClick,
-        elevation = CardElevation.Soft,
+        tint = Orbit.extras.accent(FeatureAccent.HOME),
+        style = CardStyle.Tinted,
+        elevation = CardElevation.Flat,
         contentPadding = PaddingValues(Spacing.md),
     ) {
         HomeSectionTitle(

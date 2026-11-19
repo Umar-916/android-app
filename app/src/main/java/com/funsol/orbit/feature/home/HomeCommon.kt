@@ -16,6 +16,11 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.offset
+import com.funsol.orbit.core.designsystem.CardStyle
+import com.funsol.orbit.core.designsystem.FeatureAccent
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -143,14 +148,31 @@ internal fun Modifier.pressScale(pressedScale: Float = 0.975f): Modifier {
 @Composable
 internal fun HomeCard(
     modifier: Modifier = Modifier,
+    watermark: ImageVector? = null,
     content: @Composable ColumnScope.() -> Unit,
 ) {
+    // Same look as the tiles on the More screen: tinted with the Home colour, flat,
+    // with a faint oversized icon in the corner. Every section shares one colour.
+    val homeColor = Orbit.extras.accent(FeatureAccent.HOME)
     OrbitCard(
         modifier = modifier.fillMaxWidth().animateContentSize(tween(220)),
-        elevation = CardElevation.Soft,
-        contentPadding = PaddingValues(Spacing.md),
-        content = content,
-    )
+        tint = homeColor,
+        style = CardStyle.Tinted,
+        elevation = CardElevation.Flat,
+        contentPadding = PaddingValues(0.dp),
+    ) {
+        Box(Modifier.fillMaxWidth()) {
+            if (watermark != null) {
+                Icon(
+                    watermark,
+                    contentDescription = null,
+                    tint = homeColor.copy(alpha = 0.09f),
+                    modifier = Modifier.align(Alignment.TopEnd).size(84.dp).offset(x = 20.dp, y = (-16).dp),
+                )
+            }
+            Column(Modifier.fillMaxWidth().padding(Spacing.md), content = content)
+        }
+    }
 }
 
 /**

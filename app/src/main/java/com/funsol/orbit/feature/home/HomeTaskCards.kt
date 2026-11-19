@@ -72,7 +72,7 @@ internal fun TodayCard(
     modifier: Modifier = Modifier,
 ) {
     val extras = Orbit.extras
-    val tasksColor = extras.accent(FeatureAccent.TASKS)
+    val tasksColor = extras.accent(FeatureAccent.HOME)
     // Tinted card with a faint watermark (same language as the More screen cards) so Today stands out.
     OrbitCard(
         modifier = modifier.fillMaxWidth().animateContentSize(tween(220)),
@@ -94,7 +94,7 @@ internal fun TodayCard(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(10.dp),
             ) {
-                IconTile(Icons.Rounded.Today, FeatureAccent.TASKS, size = 36.dp)
+                IconTile(Icons.Rounded.Today, FeatureAccent.HOME, size = 36.dp)
                 Text(
                     stringResource(R.string.home_today_title),
                     style = MaterialTheme.typography.titleLarge,
@@ -107,7 +107,7 @@ internal fun TodayCard(
                     Box(
                         Modifier
                             .clip(RoundedCornerShape(50))
-                            .background(extras.accentGradient(FeatureAccent.TASKS))
+                            .background(extras.accentGradient(FeatureAccent.HOME))
                             .padding(horizontal = 12.dp, vertical = 4.dp),
                     ) {
                         Text(
@@ -195,7 +195,7 @@ internal fun OverdueCard(
     modifier: Modifier = Modifier,
 ) {
     val error = MaterialTheme.colorScheme.error
-    HomeCard(modifier) {
+    HomeCard(modifier, Icons.Rounded.WarningAmber) {
         HomeSectionTitle(
             title = pluralStringResource(R.plurals.home_overdue_title, totalCount, totalCount),
             icon = Icons.Rounded.WarningAmber,
@@ -244,7 +244,7 @@ internal fun UpcomingCard(
     onViewAll: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    HomeCard(modifier) {
+    HomeCard(modifier, Icons.Rounded.Event) {
         HomeSectionTitle(
             title = stringResource(R.string.home_upcoming_title),
             icon = Icons.Rounded.Event,

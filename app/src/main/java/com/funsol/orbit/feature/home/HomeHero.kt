@@ -9,6 +9,22 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
+import androidx.compose.foundation.Canvas
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.sp
+import com.funsol.orbit.core.designsystem.orbitGlow
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -73,7 +89,10 @@ internal fun HomeHero(
             else -> R.string.home_greeting_evening
         },
     )
-    Column(modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+    val extras = Orbit.extras
+    val shape = RoundedCornerShape(22.dp)
+    Column(modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        // Greeting, search and customize stay in their original place above the card.
         Row(
             Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -119,15 +138,85 @@ internal fun HomeHero(
             }
         }
         if (progress != null) {
-            OrbitCard(
-                modifier = Modifier.fillMaxWidth().animateContentSize(tween(220)),
-                tint = MaterialTheme.colorScheme.primary,
-                style = CardStyle.Tinted,
-                elevation = CardElevation.Flat,
-                contentPadding = PaddingValues(horizontal = 14.dp, vertical = 12.dp),
+            // Brand hero (same gradient and rings as the More screen) holding the Today panel.
+            Box(
+                Modifier
+                    .fillMaxWidth()
+                    .orbitGlow(shape, extras.actionGlow.copy(alpha = 0.22f), radius = 14.dp, offsetY = 5.dp)
+                    .clip(shape)
+                    .background(extras.heroGradient)
+                    .animateContentSize(tween(220)),
             ) {
-                HeroProgress(progress)
+                Canvas(Modifier.matchParentSize()) {
+                    val rtl = layoutDirection == LayoutDirection.Rtl
+                    val c = Offset(if (rtl) size.width * 0.06f else size.width * 0.94f, size.height * 0.10f)
+                    listOf(44.dp, 74.dp, 104.dp, 138.dp).forEachIndexed { i, r ->
+                        drawCircle(
+                            Color.White.copy(alpha = 0.16f - i * 0.025f),
+                            radius = r.toPx(),
+                            center = c,
+                            style = Stroke(width = 1.2.dp.toPx()),
+                        )
+                    }
+                }
+                Box(Modifier.fillMaxWidth().padding(12.dp)) { HeroProgress(progress) }
             }
+        }
+    }
+}
+
+/** "TODAY" pill that keeps gently floating and breathing so it always draws the eye. */
+@Composable
+private fun TodayPill() {
+    val transition = rememberInfiniteTransition(label = "todayPill")
+    val float by transition.animateFloat(
+        initialValue = 0f,
+        targetValue = 1f,
+        animationSpec = infiniteRepeatable(tween(1500, easing = FastOutSlowInEasing), RepeatMode.Reverse),
+        label = "todayFloat",
+    )
+    val halo by transition.animateFloat(
+        initialValue = 0f,
+        targetValue = 1f,
+        animationSpec = infiniteRepeatable(tween(1800, easing = LinearEasing), RepeatMode.Restart),
+        label = "todayHalo",
+    )
+    val shape = RoundedCornerShape(50)
+    Box(
+        Modifier.graphicsLayer {
+            translationY = (float - 0.5f) * -4.dp.toPx()
+            val s = 1f + 0.05f * float
+            scaleX = s
+            scaleY = s
+        },
+        contentAlignment = Alignment.Center,
+    ) {
+        // Expanding halo behind the pill.
+        Box(
+            Modifier
+                .matchParentSize()
+                .graphicsLayer {
+                    val s = 1f + 0.28f * halo
+                    scaleX = s
+                    scaleY = s
+                    alpha = 0.45f * (1f - halo)
+                }
+                .clip(shape)
+                .background(Color.White),
+        )
+        Box(
+            Modifier
+                .clip(shape)
+                .background(Color.White)
+                .padding(horizontal = 12.dp, vertical = 4.dp),
+        ) {
+            Text(
+                stringResource(R.string.home_today_title).uppercase(),
+                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.ExtraBold),
+                color = MaterialTheme.colorScheme.primary,
+                letterSpacing = 1.sp,
+                maxLines = 1,
+            )
         }
     }
 }
@@ -163,66 +252,75 @@ private fun HeroIcon(
 
 @Composable
 private fun HeroProgress(progress: Progress) {
+    // Frosted panel inside the hero so "Today" and the day's progress read as the focus.
+    val panelShape = RoundedCornerShape(16.dp)
     Column(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(panelShape)
+            .background(Color.White.copy(alpha = 0.16f))
+            .border(0.8.dp, Color.White.copy(alpha = 0.30f), panelShape)
+            .padding(14.dp),
+        verticalArrangement = Arrangement.spacedBy(Spacing.sm),
     ) {
-        HomeOverline(
-            stringResource(R.string.home_today_title),
-            color = MaterialTheme.colorScheme.primary,
-            pulse = true,
-        )
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+            TodayPill()
+            if (progress.total > 0) {
+                Text(
+                    pluralStringResource(R.plurals.home_tasks_done_of, progress.total, progress.done, progress.total),
+                    style = MaterialTheme.typography.titleSmall,
+                    color = Color.White.copy(alpha = 0.92f),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f),
+                )
+            }
+        }
         if (progress.total == 0) {
             Text(
                 stringResource(R.string.home_progress_empty_title),
                 style = MaterialTheme.typography.titleMedium,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(top = Spacing.sm),
+                color = Color.White,
             )
             Text(
                 stringResource(R.string.home_progress_empty_message),
                 style = MaterialTheme.typography.bodySmall,
-                color = Orbit.extras.textMuted,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(top = Spacing.xs),
+                color = Color.White.copy(alpha = 0.85f),
             )
         } else {
-            Row(
-                modifier = Modifier.padding(top = Spacing.xs),
-                verticalAlignment = Alignment.Bottom,
-                horizontalArrangement = Arrangement.spacedBy(Spacing.sm),
-            ) {
-                Text(
-                    stringResource(R.string.home_percent, progress.percent),
-                    style = MaterialTheme.typography.displaySmall,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-                Text(
-                    pluralStringResource(R.plurals.home_tasks_done_of, progress.total, progress.done, progress.total),
-                    style = MaterialTheme.typography.titleSmall,
-                    color = Orbit.extras.textMuted,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.padding(bottom = 3.dp),
-                )
-            }
             val animatedFraction by animateFloatAsState(
                 targetValue = progress.fraction,
                 animationSpec = tween(durationMillis = 700, easing = FastOutSlowInEasing),
                 label = "todayProgress",
             )
-            OrbitProgressBar(
-                animatedFraction,
-                modifier = Modifier.padding(top = Spacing.sm),
-                height = 6.dp,
-            )
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.md)) {
+                Text(
+                    stringResource(R.string.home_percent, progress.percent),
+                    style = MaterialTheme.typography.displaySmall.copy(fontWeight = FontWeight.Bold),
+                    color = Color.White,
+                    maxLines = 1,
+                )
+                Box(
+                    Modifier
+                        .weight(1f)
+                        .height(8.dp)
+                        .clip(RoundedCornerShape(4.dp))
+                        .background(Color.White.copy(alpha = 0.28f)),
+                ) {
+                    Box(
+                        Modifier
+                            .fillMaxWidth(animatedFraction.coerceIn(0f, 1f))
+                            .fillMaxHeight()
+                            .clip(RoundedCornerShape(4.dp))
+                            .background(Color.White),
+                    )
+                }
+            }
             if (progress.done >= progress.total) {
                 Text(
                     stringResource(R.string.home_progress_all_done),
                     style = MaterialTheme.typography.bodySmall,
-                    color = Orbit.extras.textMuted,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(top = Spacing.xs),
+                    color = Color.White.copy(alpha = 0.85f),
                 )
             }
         }
