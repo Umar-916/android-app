@@ -1,5 +1,18 @@
 package com.funsol.orbit.feature.home
 
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.automirrored.rounded.ArrowForward
+import androidx.compose.material3.Icon
+import androidx.compose.ui.semantics.heading
+import com.funsol.orbit.core.designsystem.CardElevation
+import com.funsol.orbit.core.designsystem.CardStyle
+import com.funsol.orbit.core.designsystem.FeatureAccent
+import com.funsol.orbit.core.designsystem.IconTile
+import com.funsol.orbit.core.designsystem.OrbitCard
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -58,13 +71,67 @@ internal fun TodayCard(
     onAddTask: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    HomeCard(modifier) {
-        HomeSectionTitle(
-            title = stringResource(R.string.home_today_title),
-            icon = Icons.Rounded.Today,
-            actionLabel = stringResource(R.string.home_view_all).takeIf { tasks.isNotEmpty() },
-            onAction = onViewAll.takeIf { tasks.isNotEmpty() },
-        )
+    val extras = Orbit.extras
+    val tasksColor = extras.accent(FeatureAccent.TASKS)
+    // Tinted card with a faint watermark (same language as the More screen cards) so Today stands out.
+    OrbitCard(
+        modifier = modifier.fillMaxWidth().animateContentSize(tween(220)),
+        accent = tasksColor,
+        tint = tasksColor,
+        style = CardStyle.Tinted,
+        elevation = CardElevation.Lifted,
+        contentPadding = PaddingValues(Spacing.md),
+    ) {
+        Box(Modifier.fillMaxWidth()) {
+            Icon(
+                Icons.Rounded.Today,
+                contentDescription = null,
+                tint = tasksColor.copy(alpha = 0.10f),
+                modifier = Modifier.align(Alignment.TopEnd).size(88.dp).offset(x = 22.dp, y = (-18).dp),
+            )
+            Row(
+                Modifier.fillMaxWidth().heightIn(min = 40.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+            ) {
+                IconTile(Icons.Rounded.Today, FeatureAccent.TASKS, size = 36.dp)
+                Text(
+                    stringResource(R.string.home_today_title),
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f).semantics { heading() },
+                )
+                if (tasks.isNotEmpty()) {
+                    Box(
+                        Modifier
+                            .clip(RoundedCornerShape(50))
+                            .background(extras.accentGradient(FeatureAccent.TASKS))
+                            .padding(horizontal = 12.dp, vertical = 4.dp),
+                    ) {
+                        Text(
+                            totalCount.toString(),
+                            style = MaterialTheme.typography.titleSmall,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White,
+                            maxLines = 1,
+                        )
+                    }
+                    TextButton(
+                        onClick = onViewAll,
+                        contentPadding = PaddingValues(horizontal = Spacing.sm, vertical = 0.dp),
+                    ) {
+                        Text(stringResource(R.string.home_view_all), style = MaterialTheme.typography.labelLarge, maxLines = 1)
+                        Icon(
+                            Icons.AutoMirrored.Rounded.ArrowForward,
+                            contentDescription = null,
+                            modifier = Modifier.padding(start = Spacing.xs).size(16.dp),
+                        )
+                    }
+                }
+            }
+        }
         if (tasks.isEmpty()) {
             Text(
                 stringResource(R.string.home_today_empty),
