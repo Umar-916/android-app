@@ -239,7 +239,13 @@ private fun OnboardingBottom(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 PageIndicator(pagerState, Modifier.padding(vertical = Spacing.md))
-                OnboardingButton(text = buttonText, accent = accent, onClick = onNext, modifier = Modifier.fillMaxWidth())
+                OnboardingButton(
+                    text = buttonText,
+                    accent = accent,
+                    onClick = onNext,
+                    modifier = Modifier.fillMaxWidth(),
+                    showArrow = pagerState.currentPage < pages.lastIndex,
+                )
             }
         }
     }
@@ -275,7 +281,7 @@ private fun OnboardingNextPill(text: String, accent: FeatureAccent, onClick: () 
 }
 
 @Composable
-private fun OnboardingButton(text: String, accent: FeatureAccent, onClick: () -> Unit, modifier: Modifier = Modifier) {
+private fun OnboardingButton(text: String, accent: FeatureAccent, onClick: () -> Unit, modifier: Modifier = Modifier, showArrow: Boolean = false) {
     val extras = Orbit.extras
     val from by animateColorAsState(extras.accent(accent), tween(280), label = "ctaFrom")
     val to by animateColorAsState(accent.to, tween(280), label = "ctaTo")
@@ -290,13 +296,20 @@ private fun OnboardingButton(text: String, accent: FeatureAccent, onClick: () ->
             .padding(horizontal = Spacing.lg, vertical = 14.dp),
         contentAlignment = Alignment.Center,
     ) {
-        Text(
-            text,
-            style = MaterialTheme.typography.titleMedium,
-            color = Color.White,
-            textAlign = TextAlign.Center,
-            maxLines = 2,
-        )
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center) {
+            Text(
+                text,
+                style = MaterialTheme.typography.titleMedium,
+                color = Color.White,
+                textAlign = TextAlign.Center,
+                maxLines = 2,
+                modifier = Modifier.weight(1f, fill = false),
+            )
+            if (showArrow) {
+                Spacer(Modifier.width(8.dp))
+                Icon(Icons.AutoMirrored.Rounded.ArrowForward, contentDescription = null, tint = Color.White, modifier = Modifier.size(20.dp))
+            }
+        }
     }
 }
 

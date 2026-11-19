@@ -27,6 +27,12 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material.icons.automirrored.rounded.ArrowForward
+import androidx.compose.foundation.layout.offset
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.text.font.FontWeight
+import com.funsol.orbit.core.designsystem.IconTile
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -67,46 +73,112 @@ internal fun TodayCard(
     onAddTask: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val tasksColor = Orbit.extras.accent(FeatureAccent.TASKS)
-    OrbitCard(modifier, accent = tasksColor, tint = tasksColor, style = CardStyle.Tinted, elevation = CardElevation.Soft) {
-        HomeSectionHeader(
-            title = stringResource(R.string.home_today_title),
-            icon = Icons.Rounded.Today,
-            accent = FeatureAccent.TASKS,
-            actionLabel = stringResource(R.string.home_view_all).takeIf { tasks.isNotEmpty() },
-            onAction = onViewAll.takeIf { tasks.isNotEmpty() },
-        )
-        if (tasks.isEmpty()) {
-            Text(
-                stringResource(R.string.home_today_empty),
-                style = MaterialTheme.typography.bodyMedium,
-                color = Orbit.extras.textMuted,
-                modifier = Modifier.padding(vertical = Spacing.sm),
+    val extras = Orbit.extras
+    val tasksColor = extras.accent(FeatureAccent.TASKS)
+    OrbitCard(
+        modifier,
+        accent = tasksColor,
+        tint = tasksColor,
+        style = CardStyle.Tinted,
+        elevation = CardElevation.Lifted,
+        contentPadding = PaddingValues(0.dp),
+    ) {
+        Box(Modifier.fillMaxWidth()) {
+            // Large faint watermark, same language as the cards on the More screen.
+            Icon(
+                Icons.Rounded.Today,
+                contentDescription = null,
+                tint = tasksColor.copy(alpha = 0.10f),
+                modifier = Modifier.align(Alignment.TopEnd).size(96.dp).offset(x = 18.dp, y = (-10).dp),
             )
-            GradientButton(
-                stringResource(R.string.home_add_task),
-                onAddTask,
-                Modifier.fillMaxWidth(),
-                icon = Icons.Rounded.Add,
-            )
-        } else {
-            tasks.forEachIndexed { index, task ->
-                if (index > 0) HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
-                HomeTaskRow(
-                    task = task,
-                    supporting = task.dueTime?.let { DateFormats.time(it) },
-                    overdue = false,
-                    onToggle = { onToggle(task) },
-                    onOpen = { onOpen(task) },
-                )
-            }
-            if (totalCount > tasks.size) {
-                Text(
-                    stringResource(R.string.home_n_more, totalCount - tasks.size),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.padding(top = Spacing.xs),
-                )
+            Column(Modifier.fillMaxWidth().padding(14.dp), verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+                Row(
+                    Modifier.fillMaxWidth().heightIn(min = 44.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+                ) {
+                    IconTile(Icons.Rounded.Today, FeatureAccent.TASKS, size = 40.dp)
+                    Text(
+                        stringResource(R.string.home_today_title),
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f).semantics { heading() },
+                    )
+                    if (tasks.isNotEmpty()) {
+                        Box(
+                            Modifier
+                                .clip(RoundedCornerShape(50))
+                                .background(extras.accentGradient(FeatureAccent.TASKS))
+                                .padding(horizontal = 12.dp, vertical = 5.dp),
+                        ) {
+                            Text(
+                                totalCount.toString(),
+                                style = MaterialTheme.typography.titleSmall,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.White,
+                                maxLines = 1,
+                            )
+                        }
+                    }
+                }
+                if (tasks.isEmpty()) {
+                    Text(
+                        stringResource(R.string.home_today_empty),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = extras.textMuted,
+                        modifier = Modifier.padding(vertical = Spacing.xs),
+                    )
+                    GradientButton(
+                        stringResource(R.string.home_add_task),
+                        onAddTask,
+                        Modifier.fillMaxWidth(),
+                        icon = Icons.Rounded.Add,
+                    )
+                } else {
+                    tasks.forEach { task ->
+                        Box(
+                            Modifier
+                                .fillMaxWidth()
+                                .clip(RoundedCornerShape(14.dp))
+                                .background(MaterialTheme.colorScheme.surface.copy(alpha = 0.75f))
+                                .border(0.8.dp, tasksColor.copy(alpha = 0.18f), RoundedCornerShape(14.dp))
+                                .padding(end = Spacing.sm),
+                        ) {
+                            HomeTaskRow(
+                                task = task,
+                                supporting = task.dueTime?.let { DateFormats.time(it) },
+                                overdue = false,
+                                onToggle = { onToggle(task) },
+                                onOpen = { onOpen(task) },
+                            )
+                        }
+                    }
+                    Row(
+                        Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                    ) {
+                        if (totalCount > tasks.size) {
+                            Text(
+                                stringResource(R.string.home_n_more, totalCount - tasks.size),
+                                style = MaterialTheme.typography.labelLarge,
+                                color = MaterialTheme.colorScheme.primary,
+                            )
+                        } else {
+                            Spacer(Modifier.width(1.dp))
+                        }
+                        TextButton(onClick = onViewAll) {
+                            Text(stringResource(R.string.home_view_all), maxLines = 1)
+                            Icon(
+                                Icons.AutoMirrored.Rounded.ArrowForward,
+                                contentDescription = null,
+                                modifier = Modifier.padding(start = Spacing.xs).size(16.dp),
+                            )
+                        }
+                    }
+                }
             }
         }
     }

@@ -75,7 +75,7 @@ import com.funsol.orbit.core.navigation.OrbitNavigator
 import com.funsol.orbit.core.startup.continueTo
 import org.koin.compose.viewmodel.koinViewModel
 
-private val LanguageRowMinHeight = 64.dp
+private val LanguageRowMinHeight = 52.dp
 
 @Composable
 fun LanguageScreen(fromOnboarding: Boolean, nav: OrbitNavigator) {
@@ -120,7 +120,7 @@ fun LanguageScreen(fromOnboarding: Boolean, nav: OrbitNavigator) {
             LazyColumn(
                 modifier = Modifier.widthIn(max = 720.dp).fillMaxSize().graphicsLayer { alpha = fade.value },
                 contentPadding = PaddingValues(start = Spacing.md, end = Spacing.md, top = Spacing.sm, bottom = Spacing.xl),
-                verticalArrangement = Arrangement.spacedBy(12.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 item(key = "selected_title", contentType = "title") {
                     GroupTitle(stringResource(R.string.lang_selected_header))
@@ -216,13 +216,13 @@ private fun LanguageRow(
             .selectable(selected = selected, role = Role.RadioButton, onClick = onSelect)
             .semantics { if (selected) stateDescription = selectedLabel }
             .heightIn(min = LanguageRowMinHeight)
-            .padding(horizontal = 16.dp, vertical = 12.dp),
+            .padding(horizontal = 14.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(14.dp),
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         Box(
             Modifier
-                .size(40.dp)
+                .size(34.dp)
                 .clip(CircleShape)
                 .background(if (highlighted) Color.White.copy(alpha = 0.20f) else extras.well)
                 .border(1.dp, if (highlighted) Color.White.copy(alpha = 0.55f) else extras.cardStroke, CircleShape)

@@ -112,7 +112,7 @@ fun SplashScreen(nav: OrbitNavigator) {
     val tagline = remember { Animatable(0f) }
     val footer = remember { Animatable(0f) }
     LaunchedEffect(Unit) {
-        launch { logo.animateTo(1f, spring(dampingRatio = 0.7f, stiffness = Spring.StiffnessLow)) }
+        launch { logo.animateTo(1f, spring(dampingRatio = 0.62f, stiffness = Spring.StiffnessLow)) }
         launch { delay(250); title.animateTo(1f, tween(500, easing = FastOutSlowInEasing)) }
         launch { delay(450); tagline.animateTo(1f, tween(500, easing = FastOutSlowInEasing)) }
         launch { delay(500); footer.animateTo(1f, tween(500)) }
@@ -153,6 +153,8 @@ fun SplashScreen(nav: OrbitNavigator) {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             val glowPulse = rememberPulse(2_600)
+            val spin = rememberLoop(6_000)
+            val ripple = rememberLoop(2_400)
             Box(contentAlignment = Alignment.Center) {
             Canvas(
                 Modifier
@@ -170,6 +172,27 @@ fun SplashScreen(nav: OrbitNavigator) {
                     ),
                     radius = r,
                 )
+            }
+            // Orbiting satellites + expanding ring: simple, smooth motion around the emblem.
+            Canvas(
+                Modifier
+                    .matchParentSize()
+                    .graphicsLayer { alpha = logo.value.coerceIn(0f, 1f) },
+            ) {
+                val c = center
+                val base = size.minDimension * 0.5f
+                val ringR = base * (0.92f + 0.10f * ripple.value)
+                drawCircle(
+                    Color.White.copy(alpha = 0.22f * (1f - ripple.value)),
+                    radius = ringR,
+                    center = c,
+                    style = androidx.compose.ui.graphics.drawscope.Stroke(1.5.dp.toPx()),
+                )
+                val orbitR = base * 0.98f
+                val a1 = spin.value * 2f * Math.PI.toFloat()
+                val a2 = a1 + Math.PI.toFloat()
+                drawCircle(OrbitCyan, 5.dp.toPx(), Offset(c.x + orbitR * kotlin.math.cos(a1), c.y + orbitR * kotlin.math.sin(a1) * 0.92f))
+                drawCircle(Color.White.copy(alpha = 0.85f), 3.5.dp.toPx(), Offset(c.x + orbitR * kotlin.math.cos(a2), c.y + orbitR * kotlin.math.sin(a2) * 0.92f))
             }
             OrbitEmblem(
                 Modifier
