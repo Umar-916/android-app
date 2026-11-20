@@ -24,7 +24,7 @@ import java.time.LocalDate
 enum class BackupAction { EXPORT, EXPORT_TASKS_CSV, EXPORT_HABITS_CSV, RESTORE }
 
 sealed interface BackupMessage {
-    data class Success(val action: BackupAction) : BackupMessage
+    data class Success(val action: BackupAction, val restored: BackupSummary? = null) : BackupMessage
     data class Failure(val action: BackupAction) : BackupMessage
     data class Invalid(val reason: BackupParseResult.Reason) : BackupMessage
     data object TooLarge : BackupMessage
@@ -140,8 +140,12 @@ class BackupViewModel(
             } catch (e: Exception) {
                 false
             }
+            val restored = BackupSummary(file.tasks.size, file.projects.size, file.notes.size, file.habits.size, file.goals.size, file.exportedAt)
             _state.update {
-                it.copy(busy = null, message = if (ok) BackupMessage.Success(BackupAction.RESTORE) else BackupMessage.Failure(BackupAction.RESTORE))
+                it.copy(
+                    busy = null,
+                    message = if (ok) BackupMessage.Success(BackupAction.RESTORE, restored) else BackupMessage.Failure(BackupAction.RESTORE),
+                )
             }
         }
     }

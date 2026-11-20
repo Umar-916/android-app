@@ -147,8 +147,9 @@ fun NotesScreen(nav: OrbitNavigator) {
 
     // The empty state offers "New note" itself, so the FAB is hidden there to keep one
     // create entry per screen. Search-empty and archived views keep their own behavior.
-    val emptyActionHandledInState = remember(state.loading, state.error, state.items.isEmpty(), state.appliedQuery, state.filter) {
-        !state.loading && !state.error && state.items.isEmpty() && !state.showArchived && state.appliedQuery.isBlank()
+    val emptyActionHandledInState = remember(state.loading, state.error, state.items.isEmpty(), state.appliedQuery, state.filter, state.archivedCount) {
+        !state.loading && !state.error && state.items.isEmpty() && !state.showArchived && state.appliedQuery.isBlank() &&
+            (state.archivedCount == 0 || state.filter != FolderFilter.All)
     }
 
     Scaffold(
@@ -223,6 +224,9 @@ fun NotesScreen(nav: OrbitNavigator) {
                     state.items.isEmpty() -> EmptyContent(state, onCreate = {
                         context.postAnalytic(NotesEvents.NOTES_EMPTY_CREATE_CLICK)
                         newNote()
+                    }, onShowArchived = {
+                        context.postAnalytic(NotesEvents.NOTES_ARCHIVE_VIEW_CLICK)
+                        vm.setShowArchived(true)
                     })
                     else -> LazyVerticalStaggeredGrid(
                         state = gridState,
@@ -378,7 +382,7 @@ private fun FolderChips(folders: List<NoteFolderEntity>, filter: FolderFilter, o
 }
 
 @Composable
-private fun EmptyContent(state: NotesUiState, onCreate: () -> Unit) {
+private fun EmptyContent(state: NotesUiState, onCreate: () -> Unit, onShowArchived: () -> Unit) {
     Box(Modifier.fillMaxSize().verticalScroll(rememberScrollState()), contentAlignment = Alignment.Center) {
         when {
             state.appliedQuery.isNotBlank() -> EmptyState(
@@ -399,6 +403,14 @@ private fun EmptyContent(state: NotesUiState, onCreate: () -> Unit) {
                 message = stringResource(R.string.notes_empty_folder_msg),
                 actionLabel = stringResource(R.string.notes_empty_action),
                 onAction = onCreate,
+                accent = FeatureAccent.NOTES,
+            )
+            state.archivedCount > 0 -> EmptyState(
+                icon = Icons.Rounded.Archive,
+                title = stringResource(R.string.notes_empty_active_title),
+                message = stringResource(R.string.notes_empty_active_msg, state.archivedCount),
+                actionLabel = stringResource(R.string.notes_view_archived_action),
+                onAction = onShowArchived,
                 accent = FeatureAccent.NOTES,
             )
             else -> EmptyState(

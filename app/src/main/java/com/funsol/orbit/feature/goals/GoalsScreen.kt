@@ -276,14 +276,17 @@ private fun GoalsHero(inProgress: List<GoalEntity>, completedCount: Int) {
             if (inProgress.isNotEmpty()) {
                 val ringBox = 88.dp * LocalDensity.current.fontScale.coerceIn(1f, 1.5f)
                 Box(
-                    Modifier.size(ringBox).clip(CircleShape).background(MaterialTheme.colorScheme.surface),
+                    Modifier.size(ringBox).clip(CircleShape).background(Color.White.copy(alpha = 0.18f)),
                     contentAlignment = Alignment.Center,
                 ) {
                     ProgressRing(
                         fraction = average,
                         label = stringResource(R.string.goals_percent, percent),
                         size = ringBox - 14.dp,
-                        color = Orbit.extras.accentText(FeatureAccent.GOALS),
+                        color = Color.White,
+                        track = Color.White.copy(alpha = 0.28f),
+                        textColor = Color.White,
+                        sweep = listOf(Color.White, Color.White.copy(alpha = 0.85f), Color.White),
                         modifier = Modifier.clearAndSetSemantics { contentDescription = description },
                     )
                 }

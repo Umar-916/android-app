@@ -140,15 +140,19 @@ fun BackupScreen(nav: OrbitNavigator) {
                     state.message?.let { ResultCard(it, onDismiss = viewModel::dismissMessage) }
                 }
 
+                val onExport: () -> Unit = { context.postAnalytic(SettingsEvents.BACKUP_EXPORT_CLICK); guard.run { tryCatch { exportLauncher.launch(BackupIo.backupFileName(LocalDate.now())) } } }
+                val onRestore: () -> Unit = { context.postAnalytic(SettingsEvents.BACKUP_RESTORE_CLICK); guard.run { tryCatch { restoreLauncher.launch(RESTORE_MIME_TYPES) } } }
+
                 ActionCard(
                     icon = Icons.Rounded.FileDownload,
                     accent = FeatureAccent.BACKUP,
                     title = stringResource(R.string.backup_export_title),
                     description = stringResource(R.string.backup_export_desc),
+                    onClick = if (busy) null else onExport,
                 ) {
                     GradientButton(
                         stringResource(R.string.backup_export_button),
-                        onClick = { context.postAnalytic(SettingsEvents.BACKUP_EXPORT_CLICK); guard.run { tryCatch { exportLauncher.launch(BackupIo.backupFileName(LocalDate.now())) } } },
+                        onClick = onExport,
                         modifier = Modifier.fillMaxWidth(),
                         enabled = !busy,
                         icon = Icons.Rounded.FileDownload,
@@ -161,10 +165,11 @@ fun BackupScreen(nav: OrbitNavigator) {
                     accent = FeatureAccent.PROJECTS,
                     title = stringResource(R.string.backup_restore_title),
                     description = stringResource(R.string.backup_restore_desc),
+                    onClick = if (busy) null else onRestore,
                 ) {
                     GradientButton(
                         stringResource(R.string.backup_restore_button),
-                        onClick = { context.postAnalytic(SettingsEvents.BACKUP_RESTORE_CLICK); guard.run { tryCatch { restoreLauncher.launch(RESTORE_MIME_TYPES) } } },
+                        onClick = onRestore,
                         modifier = Modifier.fillMaxWidth(),
                         enabled = !busy,
                         icon = Icons.Rounded.FileUpload,
@@ -252,10 +257,12 @@ private fun ActionCard(
     accent: FeatureAccent,
     title: String,
     description: String,
+    onClick: (() -> Unit)? = null,
     content: @Composable () -> Unit,
 ) {
     OrbitCard(
         Modifier.fillMaxWidth().animateContentSize(),
+        onClick = onClick,
         tint = Orbit.extras.accent(accent),
         style = CardStyle.Tinted,
         elevation = CardElevation.Flat,
@@ -305,7 +312,23 @@ private fun ResultCard(message: BackupMessage, onDismiss: () -> Unit) {
     ) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
             Icon(if (ok) Icons.Rounded.CheckCircle else Icons.Rounded.ErrorOutline, contentDescription = null, tint = tint)
-            Text(messageText(message), style = MaterialTheme.typography.bodyMedium, modifier = Modifier.weight(1f))
+            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Spacing.xxs)) {
+                Text(messageText(message), style = MaterialTheme.typography.bodyMedium)
+                val restored = (message as? BackupMessage.Success)?.restored
+                if (restored != null) {
+                    Text(
+                        listOf(
+                            stringResource(R.string.backup_confirm_tasks, restored.tasks),
+                            stringResource(R.string.backup_confirm_projects, restored.projects),
+                            stringResource(R.string.backup_confirm_notes, restored.notes),
+                            stringResource(R.string.backup_confirm_habits, restored.habits),
+                            stringResource(R.string.backup_confirm_goals, restored.goals),
+                        ).joinToString(" · "),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = Orbit.extras.textMuted,
+                    )
+                }
+            }
             TextButton(onClick = {
                 context.postAnalytic(SettingsEvents.BACKUP_RESULT_CLOSE_CLICK)
                 onDismiss()

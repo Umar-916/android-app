@@ -2,6 +2,7 @@ package com.funsol.orbit.feature.onboarding
 
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.Spring
@@ -67,6 +68,7 @@ import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.progressBarRangeInfo
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -137,12 +139,12 @@ fun SplashScreen(nav: OrbitNavigator) {
         launch { arrival.animateTo(1f, tween(500, easing = FastOutSlowInEasing)) }
         launch {
             delay(470)
-            launch { burst.animateTo(1f, tween(760, easing = LinearOutSlowInEasing)) }
-            emblem.animateTo(1f, spring(dampingRatio = 0.55f, stiffness = Spring.StiffnessLow))
+            launch { burst.animateTo(1f, tween(1100, easing = LinearOutSlowInEasing)) }
+            emblem.animateTo(1f, tween(2200, easing = FastOutSlowInEasing))
         }
-        launch { delay(820); title.animateTo(1f, tween(650, easing = FastOutSlowInEasing)) }
-        launch { delay(1150); underline.animateTo(1f, tween(450, easing = FastOutSlowInEasing)) }
-        launch { delay(1150); footer.animateTo(1f, tween(600)) }
+        launch { delay(1700); title.animateTo(1f, tween(800, easing = FastOutSlowInEasing)) }
+        launch { delay(2100); underline.animateTo(1f, tween(450, easing = FastOutSlowInEasing)) }
+        launch { delay(2100); footer.animateTo(1f, tween(700)) }
     }
 
     var emblemCenter by remember { mutableStateOf<Offset?>(null) }
@@ -201,18 +203,18 @@ fun SplashScreen(nav: OrbitNavigator) {
             Box(
                 Modifier
                     .graphicsLayer {
-                        alpha = emblem.value.coerceIn(0f, 1f)
-                        translationY = (floatBob.value - 0.5f) * 12.dp.toPx() * emblem.value
+                        alpha = (emblem.value * 4f).coerceIn(0f, 1f)
+                        translationY = (floatBob.value - 0.5f) * 8.dp.toPx() * emblem.value
                     }
                     .onGloballyPositioned { emblemCenter = it.boundsInRoot().center },
                 contentAlignment = Alignment.Center,
             ) {
                 Canvas(Modifier.matchParentSize()) {
-                    val r = size.minDimension * (0.78f + 0.08f * glowPulse.value)
+                    val r = size.minDimension * (0.46f + 0.04f * glowPulse.value)
                     drawCircle(
                         Brush.radialGradient(
-                            0f to OrbitVioletSoft.copy(alpha = 0.34f),
-                            0.5f to OrbitPurple.copy(alpha = 0.16f),
+                            0f to OrbitVioletSoft.copy(alpha = 0.42f * emblem.value),
+                            0.55f to OrbitPurple.copy(alpha = 0.20f * emblem.value),
                             1f to Color.Transparent,
                             center = center,
                             radius = r,
@@ -226,13 +228,11 @@ fun SplashScreen(nav: OrbitNavigator) {
                         .widthIn(max = 280.dp)
                         .aspectRatio(1f)
                         .graphicsLayer {
-                            val e = emblem.value
-                            alpha = e.coerceIn(0f, 1f)
-                            val s = 0.35f + 0.65f * e
+                            val s = 0.94f + 0.06f * emblem.value
                             scaleX = s
                             scaleY = s
-                            rotationZ = (1f - e.coerceIn(0f, 1f)) * -16f
                         },
+                    build = { emblem.value },
                 )
             }
             Spacer(Modifier.height(26.dp))
@@ -249,7 +249,8 @@ fun SplashScreen(nav: OrbitNavigator) {
                     },
             ) {
                 OrbitWordmark(
-                    text = stringResource(R.string.startup_brand),
+                    brand = stringResource(R.string.startup_brand),
+                    product = stringResource(R.string.startup_tagline),
                     reveal = { title.value },
                 )
             }
@@ -266,7 +267,7 @@ fun SplashScreen(nav: OrbitNavigator) {
             Modifier
                 .align(Alignment.BottomCenter)
                 .navigationBarsPadding()
-                .padding(start = 32.dp, end = 32.dp, bottom = 32.dp)
+                .padding(start = 32.dp, end = 32.dp, bottom = 40.dp)
                 .widthIn(max = 420.dp)
                 .fillMaxWidth()
                 .graphicsLayer { alpha = footer.value },
@@ -363,66 +364,41 @@ private fun DrawScope.drawComet(target: Offset, arrival: Float) {
 
 private fun DrawScope.drawBurst(target: Offset, burst: Float) {
     val fade = (1f - burst).coerceIn(0f, 1f)
-
+    val bloom = (30f + 70f * burst).dp.toPx()
     drawCircle(
         brush = Brush.radialGradient(
-            listOf(Color.White.copy(alpha = 0.90f * fade), OrbitAmber.copy(alpha = 0.45f * fade), Color.Transparent),
+            listOf(Color.White.copy(alpha = 0.55f * fade), OrbitAmber.copy(alpha = 0.22f * fade), Color.Transparent),
             center = target,
-            radius = (26f + 52f * burst).dp.toPx(),
+            radius = bloom,
         ),
-        radius = (26f + 52f * burst).dp.toPx(),
+        radius = bloom,
         center = target,
     )
-
-    val mainRing = (16f + 104f * burst).dp.toPx()
-    drawCircle(Color.White.copy(alpha = 0.55f * fade), mainRing, target, style = Stroke(1.6.dp.toPx()))
-    val second = ((burst - 0.12f) / 0.88f).coerceIn(0f, 1f)
-    drawCircle(
-        OrbitCyan.copy(alpha = 0.50f * (1f - second)),
-        (10f + 74f * second).dp.toPx(),
-        target,
-        style = Stroke(1.4.dp.toPx()),
-    )
-
-    val rays = 20
-    repeat(rays) { i ->
-        val angle = (i * 360f / rays + 7f) * (PI / 180.0)
-        val wobble = 0.55f + 0.45f * (((i * 37) % 100) / 100f)
-        val direction = Offset(cos(angle).toFloat(), sin(angle).toFloat())
-        val inner = (8f + 16f * burst).dp.toPx()
-        val reach = (20f + 120f * burst * wobble).dp.toPx()
-        val from = Offset(target.x + direction.x * inner, target.y + direction.y * inner)
-        val to = Offset(target.x + direction.x * reach, target.y + direction.y * reach)
-        val tint = when {
-            i % 4 == 0 -> OrbitCyan
-            i % 3 == 0 -> Color.White
-            else -> OrbitAmber
-        }
-        drawLine(
-            color = tint.copy(alpha = 0.75f * fade),
-            start = from,
-            end = to,
-            strokeWidth = 2.dp.toPx(),
-            cap = StrokeCap.Round,
-        )
-        drawCircle(tint.copy(alpha = 0.9f * fade), 1.8.dp.toPx(), to)
-    }
 }
 
 @Composable
 private fun OrbitWordmark(
-    text: String,
+    brand: String,
+    product: String,
     reveal: () -> Float,
     modifier: Modifier = Modifier,
 ) {
+    val accent = Brush.horizontalGradient(listOf(OrbitVioletSoft, OrbitCyan))
+    val text = androidx.compose.ui.text.buildAnnotatedString {
+        append(brand)
+        append(" ")
+        withStyle(androidx.compose.ui.text.SpanStyle(brush = accent)) { append(product) }
+    }
     Text(
         text,
         style = MaterialTheme.typography.displayMedium.copy(
-            fontSize = 42.sp,
+            fontSize = 30.sp,
             fontWeight = FontWeight.Black,
-            letterSpacing = 6.sp,
+            letterSpacing = 3.sp,
         ),
         color = Color.White,
+        maxLines = 1,
+        softWrap = false,
         textAlign = TextAlign.Center,
         modifier = modifier.graphicsLayer {
             val t = reveal()
@@ -447,7 +423,7 @@ private fun SplashProgress(progress: Float) {
             progress = progress,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 2.dp)
+                .padding(horizontal = 24.dp)
                 .clearAndSetSemantics {
                     contentDescription = description
                     progressBarRangeInfo = ProgressBarRangeInfo(progress, 0f..1f)
@@ -464,8 +440,8 @@ private fun SplashProgressBar(progress: Float, modifier: Modifier = Modifier) {
         label = "splashProgress",
     )
     val flow = rememberLoop(2_400)
-    Canvas(modifier.fillMaxWidth().height(14.dp)) {
-        val barHeight = 4.dp.toPx()
+    Canvas(modifier.fillMaxWidth().height(20.dp)) {
+        val barHeight = 9.dp.toPx()
         val top = (size.height - barHeight) / 2f
         val radius = barHeight / 2f
         val corner = CornerRadius(radius, radius)

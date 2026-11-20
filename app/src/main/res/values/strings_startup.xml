@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="startup_brand" translatable="false">ORBIT</string>
+    <string name="startup_tagline" translatable="false">PLANNER</string>
     <string name="startup_status_1">Getting things ready…</string>
     <string name="startup_status_4">Almost there…</string>
     <string name="startup_progress_description">Loading, %1$d percent</string>

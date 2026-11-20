@@ -21,6 +21,9 @@
     <string name="notes_card_options">Options for note %1$s</string>
 
     <string name="notes_empty_title">No notes yet</string>
+    <string name="notes_empty_active_title">No active notes</string>
+    <string name="notes_empty_active_msg">Archived notes: %1$d. Notes restored from a backup may be archived too.</string>
+    <string name="notes_view_archived_action">View archived notes</string>
     <string name="notes_empty_msg">Write down ideas, lists and meeting notes. They are saved automatically.</string>
     <string name="notes_empty_action">Create a note</string>
     <string name="notes_empty_folder_title">This folder is empty</string>
@@ -45,8 +48,8 @@
     <!-- Editor -->
     <string name="note_edit_title_hint">Title</string>
     <string name="note_edit_body_hint">Start writing…</string>
-    <string name="note_saving">Saving…</string>
-    <string name="note_saved">Saved</string>
+    <string name="note_saving">Saving note…</string>
+    <string name="note_saved">Note saved on this device</string>
     <string name="note_created">Created %1$s</string>
     <string name="note_choose_folder">Choose folder</string>
     <string name="note_delete_title">Delete this note?</string>

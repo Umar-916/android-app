@@ -644,9 +644,11 @@ fun ProgressRing(
     modifier: Modifier = Modifier,
     size: Dp = 84.dp,
     color: Color = MaterialTheme.colorScheme.primary,
+    track: Color = MaterialTheme.colorScheme.surfaceVariant,
+    textColor: Color = Color.Unspecified,
+    sweep: List<Color>? = null,
 ) {
     val animated by animateFloatAsState(fraction.coerceIn(0f, 1f), tween(700), label = "ring")
-    val track = MaterialTheme.colorScheme.surfaceVariant
     Box(modifier.size(size), contentAlignment = Alignment.Center) {
         Canvas(Modifier.size(size)) {
             val stroke = Stroke(width = 9.dp.toPx(), cap = StrokeCap.Round)
@@ -655,7 +657,7 @@ fun ProgressRing(
             drawArc(track, 0f, 360f, false, topLeft = Offset(inset, inset), size = arcSize, style = stroke)
             if (animated > 0f) {
                 drawArc(
-                    brush = Brush.sweepGradient(listOf(color, OrbitPurple, color)),
+                    brush = Brush.sweepGradient(sweep ?: listOf(color, OrbitPurple, color)),
                     startAngle = -90f,
                     sweepAngle = 360f * animated,
                     useCenter = false,
@@ -665,7 +667,7 @@ fun ProgressRing(
                 )
             }
         }
-        Text(label, style = MaterialTheme.typography.titleMedium)
+        Text(label, style = MaterialTheme.typography.titleMedium, color = textColor)
     }
 }
 

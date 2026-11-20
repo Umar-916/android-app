@@ -8,6 +8,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -290,7 +291,7 @@ private fun EditorToolbar(
 }
 
 @Composable
-private fun ToolbarButton(
+private fun androidx.compose.foundation.layout.RowScope.ToolbarButton(
     icon: ImageVector,
     description: String,
     tint: Color,
@@ -298,14 +299,25 @@ private fun ToolbarButton(
     highlightColor: Color,
     onClick: () -> Unit,
 ) {
-    IconButton(
-        onClick = onClick,
-        modifier = Modifier
-            .size(Spacing.touchTarget)
-            .clip(CircleShape)
-            .background(if (highlighted) highlightColor.copy(alpha = 0.18f) else Color.Transparent),
+    Column(
+        Modifier
+            .weight(1f)
+            .heightIn(min = Spacing.touchTarget)
+            .clip(RoundedCornerShape(14.dp))
+            .background(if (highlighted) highlightColor.copy(alpha = 0.18f) else Color.Transparent)
+            .clickable(role = androidx.compose.ui.semantics.Role.Button, onClick = onClick)
+            .padding(vertical = Spacing.xs, horizontal = 2.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(2.dp, Alignment.CenterVertically),
     ) {
-        Icon(icon, contentDescription = description, tint = tint)
+        Icon(icon, contentDescription = null, tint = tint)
+        Text(
+            description,
+            style = MaterialTheme.typography.labelSmall,
+            color = tint,
+            maxLines = 1,
+            overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
+        )
     }
 }
 

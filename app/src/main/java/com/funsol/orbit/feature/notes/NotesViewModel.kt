@@ -31,6 +31,7 @@ data class NotesUiState(
     val filter: FolderFilter = FolderFilter.All,
     val showArchived: Boolean = false,
     val appliedQuery: String = "",
+    val archivedCount: Int = 0,
 )
 
 sealed interface NotesEvent {
@@ -66,6 +67,7 @@ class NotesViewModel(private val repo: NoteRepository) : ViewModel() {
             filter = f,
             showArchived = archived,
             appliedQuery = q,
+            archivedCount = notes.count { it.archived },
         )
         }
             .flowOn(Dispatchers.Default)
